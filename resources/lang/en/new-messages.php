@@ -9232,4 +9232,12 @@ return [
 	"invoice_settings_update_successfully" => "Invoice settings update successfully",
 	"If_only_the Delivery_Available_Country feature_is_enabled,_and_you_add_your_preferred_country,_then_you’ll_be_able_to_deliver_all_over_the_country" => "If only the Delivery Available Country feature is enabled  and you add your preferred country  then you’ll be able to deliver all over the country",
 	"product_wise_shipping_note" => "Product wise shipping note",
+	"quick_shop" => "Quick shop",
+	"payment_method_mappings" => "Payment method mappings",
+	"fresh_styles_just_in" => "Fresh styles just in",
+	"fresh_arrivals_just_in" => "Fresh arrivals just in",
+	"explore_our_collections" => "Explore our collections",
+	"view_all_featured" => "View all featured",
+	"discover_our_handpicked_selection" => "Discover our handpicked selection",
+	"view_all_categories" => "View all categories",
 ];

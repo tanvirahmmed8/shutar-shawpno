@@ -315,7 +315,7 @@ select:focus, textarea:focus {
 .product-card .badge-discount { position: absolute; top: 10px; inset-inline-start: 10px; background: var(--brand-secondary); color: #fff; border-radius: 999px; padding: 4px 10px; font-size: var(--font-xs); font-weight: 700; box-shadow: var(--shadow-sm); }
 
 /* Action buttons (wishlist/quickview) */
-.product-card .action-group { position: absolute; top: 10px; inset-inline-end: 10px; display: flex; gap: 8px; }
+.product-card .action-group { position: absolute; top: 22px; inset-inline-end: 22px; display: flex; gap: 8px; }
 .product-card .action-btn { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,.95); color: var(--text); border: 1px solid var(--border); border-radius: 50%; box-shadow: var(--shadow-sm); transition: background .15s ease, transform .1s ease; }
 .product-card .action-btn:hover { background: #fff; transform: translateY(-1px); }
 

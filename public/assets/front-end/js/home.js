@@ -150,7 +150,7 @@ $(document).ready(function () {
         },
     });
 
-    $(".new-arrivals-product").owlCarousel({
+    $(".fashion-arrivals-carousel").owlCarousel({
         loop: true,
         autoplay: true,
         margin: 20,

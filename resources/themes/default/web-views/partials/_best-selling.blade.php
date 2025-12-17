@@ -2,7 +2,7 @@
     <div class="fashion-best-selling-card card __shadow h-100">
         <div class="fashion-best-selling-body card-body p-xl-35">
             <div class="fashion-best-selling-header row d-flex justify-content-between mx-1 mb-3">
-                <div class="fashion-best-selling-title">
+                <div class="fashion-best-selling-title d-flex align-items-center">
                     <div class="fashion-best-selling-icon">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary">
                             <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
@@ -36,7 +36,7 @@
                                     </div>
                                 @endif
                                 <div class="fashion-best-selling-content d-flex flex-wrap">
-                                    <div class="fashion-best-selling-image best-selleing-image">
+                                    <div class="fashion-best-selling-image best-selling-image">
                                         <img class="fashion-product-thumbnail rounded"
                                              src="{{ getStorageImages(path: $bestSellItem?->thumbnail_full_url, type: 'product') }}"
                                              alt="{{ translate('product') }}"/>

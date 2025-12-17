@@ -9515,3 +9515,15 @@ body *::-webkit-scrollbar-thumb {
 .scrollbar-none {
     scrollbar-width: none !important;
 }
+
+
+
+.fashion-featured-section .fashion-container .fashion-featured-products {
+ overflow-x: hidden;
+}
+
+.fashion-featured-section .fashion-section-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+

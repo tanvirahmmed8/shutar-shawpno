@@ -831,6 +831,26 @@ a:hover {
   font-size: var(--text-base);
 }
 
+/* Prevent legacy flash deal styles from collapsing vertical cards */
+.fashion-product-card-vertical .flash_deal_product_details {
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+.fashion-product-card-vertical .fashion-product-overlay.hover-cta {
+  inset: 0 !important;
+  padding: var(--space-4);
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  transform: none !important;
+}
+
+.fashion-product-card-vertical .fashion-product-overlay .btn-modern {
+  width: 100%;
+  max-width: 220px;
+}
+
 /* Card Animations */
 @keyframes fadeInUp {
   from {

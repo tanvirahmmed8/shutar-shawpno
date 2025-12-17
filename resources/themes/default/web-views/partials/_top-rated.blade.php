@@ -2,7 +2,7 @@
     <div class="fashion-top-rated-card card __shadow h-100">
         <div class="fashion-top-rated-body card-body p-xl-35">
             <div class="fashion-top-rated-header row d-flex justify-content-between mx-1 mb-3">
-                <div class="fashion-top-rated-title">
+                <div class="fashion-top-rated-title d-flex align-items-center">
                     <div class="fashion-top-rated-icon">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-warning">
                             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
