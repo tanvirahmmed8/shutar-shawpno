@@ -21,7 +21,7 @@
                             </div>
                             <label class="switcher">
                                 <input type="checkbox" class="switcher_input switcher-input-js" data-parent-class="category" data-from="default-sorting"
-                                    {{ $categoryPriority?->custom_sorting_status == 1 ? '' : 'checked' }}>
+                                    {{ isset($categoryPriority?->custom_sorting_status) && $categoryPriority?->custom_sorting_status == 1 ? '' : 'checked' }}>
                                 <span class="switcher_control"></span>
                             </label>
                         </div>

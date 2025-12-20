@@ -21,7 +21,7 @@
                             </div>
                             <label class="switcher">
                                 <input type="checkbox" class="switcher_input switcher-input-js" data-parent-class="top-rated-product" data-from="default-sorting"
-                                       {{ $topRatedProductListPriority?->custom_sorting_status == 1 ? '' : 'checked' }}>
+                                       {{ isset($topRatedProductListPriority?->custom_sorting_status) && $topRatedProductListPriority?->custom_sorting_status == 1 ? '' : 'checked' }}>
                                 <span class="switcher_control"></span>
                             </label>
                         </div>

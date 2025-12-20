@@ -9240,4 +9240,8 @@ return [
 	"view_all_featured" => "View all featured",
 	"discover_our_handpicked_selection" => "Discover our handpicked selection",
 	"view_all_categories" => "View all categories",
+	"if_both_features_are_disabled,_then_all_places_will_be_available_as_delivery_area" => "If both features are disabled  then all places will be available as delivery area",
+	"order_wise_shipping" => "Order wise shipping",
+	"the_two-in-one_benefits_of_‘Offline_Payment_Method’_Feature" => "The two-in-one benefits of ‘Offline Payment Method’ Feature",
+	"add_vendor" => "Add vendor",
 ];

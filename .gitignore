@@ -22,6 +22,8 @@ composer-setup.php
 /storage/framework/sessions/*
 /storage/framework/testing/*
 /storage/framework/views/*
+/storage/media/*
+/storage/media-library/*
 /bootstrap/cache/*.php
 .DS_Store
 Thumbs.db
