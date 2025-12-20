@@ -1,16 +1,59 @@
 @php($isEdit = isset($order))
-@php($lineItems = old('items', $isEdit ? $order->items->map(fn($item) => [
-    'product_id' => $item->product_id,
-    'description' => $item->description,
-    'uom' => $item->uom,
-    'quantity' => $item->quantity,
-    'unit_price' => $item->unit_price,
-    'tax_percent' => $item->tax_percent,
-    'discount_percent' => $item->discount_percent,
-    'tax_amount' => $item->tax_amount,
-    'discount_amount' => $item->discount_amount,
-    'delivery_date' => optional($item->delivery_date)->format('Y-m-d'),
-])->toArray() : []))
+@php($buildProductSnapshot = static function ($payload, ?int $fallbackId = null) {
+    if ((empty($payload) || ! is_array($payload)) && ! $fallbackId) {
+        return null;
+    }
+
+    if (! is_array($payload)) {
+        $payload = [];
+    }
+
+    $sku = data_get($payload, 'sku') ?? data_get($payload, 'code');
+    $name = data_get($payload, 'name');
+    $uom = data_get($payload, 'uom') ?? data_get($payload, 'unit');
+    $purchasePrice = data_get($payload, 'purchase_price');
+    $label = trim(($sku ? '[' . $sku . '] ' : '') . ($name ?? ''));
+
+    if ($label === '' && $fallbackId) {
+        $label = '#' . $fallbackId;
+    }
+
+    return [
+        'id' => data_get($payload, 'id', $fallbackId),
+        'sku' => $sku,
+        'name' => $name,
+        'uom' => $uom,
+        'purchase_price' => $purchasePrice,
+        'label' => $label,
+    ];
+})
+@php($lineItems = old('items', $isEdit ? $order->items->map(function ($item) use ($buildProductSnapshot) {
+    $snapshot = $buildProductSnapshot(data_get($item->metadata, 'catalog'), $item->product_id);
+
+    if (! $snapshot && $item->relationLoaded('product') && $item->product) {
+        $snapshot = $buildProductSnapshot([
+            'id' => $item->product->id,
+            'sku' => $item->product->code,
+            'name' => $item->product->name,
+            'uom' => $item->product->unit,
+            'purchase_price' => $item->product->purchase_price,
+        ], $item->product_id);
+    }
+
+    return [
+        'product_id' => $item->product_id,
+        'description' => $item->description,
+        'uom' => $item->uom,
+        'quantity' => $item->quantity,
+        'unit_price' => $item->unit_price,
+        'tax_percent' => $item->tax_percent,
+        'discount_percent' => $item->discount_percent,
+        'tax_amount' => $item->tax_amount,
+        'discount_amount' => $item->discount_amount,
+        'delivery_date' => optional($item->delivery_date)->format('Y-m-d'),
+        'product_snapshot' => $snapshot,
+    ];
+})->toArray() : []))
 @if(empty($lineItems))
     @php($lineItems = [[
         'product_id' => null,
@@ -23,8 +66,10 @@
         'tax_amount' => 0,
         'discount_amount' => 0,
         'delivery_date' => null,
+        'product_snapshot' => null,
     ]])
 @endif
+@include('admin-views.purchase.partials.catalog-fallback', ['catalogFallbackVendorId' => old('vendor_id', $order->vendor_id ?? null)])
 <form action="{{ $isEdit ? route('admin.purchase.orders.update', $order->id) : route('admin.purchase.orders.store') }}" method="post">
     @csrf
     @if($isEdit)
@@ -37,7 +82,7 @@
         </div>
         <div class="col-md-3">
             <label class="form-label text-capitalize">{{ translate('vendor') }}</label>
-            <select name="vendor_id" class="form-control select2" required>
+            <select name="vendor_id" id="purchase-order-vendor" class="form-control select2" required>
                 <option value="">{{ translate('select_vendor') }}</option>
                 @foreach($vendors as $vendor)
                     <option value="{{ $vendor->id }}" {{ (string) old('vendor_id', $order->vendor_id ?? '') === (string) $vendor->id ? 'selected' : '' }}>
@@ -54,7 +99,7 @@
                 @endforeach
             </select>
         </div>
-        @php($expectedDeliveryValue = old('expected_delivery', optional($order->expected_delivery)->format('Y-m-d')))
+        @php($expectedDeliveryValue = old('expected_delivery', optional(optional($order)->expected_delivery)->format('Y-m-d')))
         <div class="col-md-3">
             <label class="form-label text-capitalize">{{ translate('expected_delivery') }}</label>
             <input type="date" name="expected_delivery" class="form-control" value="{{ $expectedDeliveryValue }}">
@@ -101,7 +146,7 @@
     </div>
 
     <div class="card mt-4">
-        <div class="card-body" data-line-items data-next-index="{{ count($lineItems) }}">
+        <div class="card-body" data-line-items data-product-search-endpoint="{{ route('admin.purchase.catalog-products.search') }}" data-next-index="{{ count($lineItems) }}" data-vendor-field="#purchase-order-vendor" data-vendor-id="{{ old('vendor_id', $order->vendor_id ?? '') }}">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mb-0 text-capitalize">{{ translate('line_items') }}</h5>
                 <button class="btn btn-outline--primary btn-sm" type="button" id="add-po-line-item">
@@ -126,21 +171,35 @@
                     </thead>
                     <tbody id="po-line-items">
                     @foreach($lineItems as $index => $item)
-                        <tr data-index="{{ $index }}">
+                        <tr data-index="{{ $index }}" data-product-row>
                             <td>
-                                <input type="number" name="items[{{ $index }}][product_id]" class="form-control" value="{{ $item['product_id'] }}" placeholder="{{ translate('product_sku_optional') }}">
+                                @php($snapshot = data_get($item, 'product_snapshot'))
+                                @php($productLabel = data_get($snapshot, 'label'))
+                                @php($productLabel = $productLabel ?: ($item['product_id'] ? '#' . $item['product_id'] : ''))
+                                <select name="items[{{ $index }}][product_id]" class="form-control" data-product-picker data-placeholder="{{ translate('search_product') }}" data-initial-id="{{ $item['product_id'] }}" data-initial-label="{{ $productLabel }}" required>
+                                    <option value="">{{ translate('select_product') }}</option>
+                                    @if($item['product_id'] && $productLabel)
+                                        <option value="{{ $item['product_id'] }}" selected>{{ $productLabel }}</option>
+                                    @endif
+                                </select>
+                                <input type="hidden" name="items[{{ $index }}][product_snapshot][id]" value="{{ data_get($snapshot, 'id', $item['product_id']) }}" data-product-snapshot="id">
+                                <input type="hidden" name="items[{{ $index }}][product_snapshot][sku]" value="{{ data_get($snapshot, 'sku') }}" data-product-snapshot="sku">
+                                <input type="hidden" name="items[{{ $index }}][product_snapshot][name]" value="{{ data_get($snapshot, 'name') }}" data-product-snapshot="name">
+                                <input type="hidden" name="items[{{ $index }}][product_snapshot][uom]" value="{{ data_get($snapshot, 'uom') }}" data-product-snapshot="uom">
+                                <input type="hidden" name="items[{{ $index }}][product_snapshot][purchase_price]" value="{{ data_get($snapshot, 'purchase_price') }}" data-product-snapshot="purchase_price">
+                                <input type="hidden" name="items[{{ $index }}][product_snapshot][label]" value="{{ $productLabel }}" data-product-snapshot="label">
                             </td>
                             <td>
-                                <input type="text" name="items[{{ $index }}][description]" class="form-control" value="{{ $item['description'] }}" required>
+                                <input type="text" name="items[{{ $index }}][description]" class="form-control" value="{{ $item['description'] }}" data-product-description required>
                             </td>
                             <td>
-                                <input type="text" name="items[{{ $index }}][uom]" class="form-control" value="{{ $item['uom'] }}" required>
+                                <input type="text" name="items[{{ $index }}][uom]" class="form-control" value="{{ $item['uom'] }}" data-product-uom required>
                             </td>
                             <td>
                                 <input type="number" step="0.01" min="0.01" name="items[{{ $index }}][quantity]" class="form-control text-end" value="{{ $item['quantity'] }}" required data-quantity>
                             </td>
                             <td>
-                                <input type="number" step="0.01" min="0" name="items[{{ $index }}][unit_price]" class="form-control text-end" value="{{ $item['unit_price'] }}" required data-unit-price>
+                                <input type="number" step="0.01" min="0" name="items[{{ $index }}][unit_price]" class="form-control text-end" value="{{ $item['unit_price'] }}" data-product-unit-price required data-unit-price>
                             </td>
                             <td>
                                 <input type="number" step="0.01" min="0" name="items[{{ $index }}][tax_percent]" class="form-control text-end" value="{{ $item['tax_percent'] }}" data-tax-percent>
@@ -162,21 +221,29 @@
                 </table>
             </div>
             <template id="po-line-item-template">
-                <tr data-index="__INDEX__">
+                <tr data-index="__INDEX__" data-product-row>
                     <td>
-                        <input type="number" name="items[__INDEX__][product_id]" class="form-control" placeholder="{{ translate('product_sku_optional') }}">
+                        <select name="items[__INDEX__][product_id]" class="form-control" data-product-picker data-placeholder="{{ translate('search_product') }}" data-initial-id="" data-initial-label="" required>
+                            <option value="">{{ translate('select_product') }}</option>
+                        </select>
+                        <input type="hidden" name="items[__INDEX__][product_snapshot][id]" data-product-snapshot="id">
+                        <input type="hidden" name="items[__INDEX__][product_snapshot][sku]" data-product-snapshot="sku">
+                        <input type="hidden" name="items[__INDEX__][product_snapshot][name]" data-product-snapshot="name">
+                        <input type="hidden" name="items[__INDEX__][product_snapshot][uom]" data-product-snapshot="uom">
+                        <input type="hidden" name="items[__INDEX__][product_snapshot][purchase_price]" data-product-snapshot="purchase_price">
+                        <input type="hidden" name="items[__INDEX__][product_snapshot][label]" data-product-snapshot="label">
                     </td>
                     <td>
-                        <input type="text" name="items[__INDEX__][description]" class="form-control" required>
+                        <input type="text" name="items[__INDEX__][description]" class="form-control" data-product-description required>
                     </td>
                     <td>
-                        <input type="text" name="items[__INDEX__][uom]" class="form-control" required>
+                        <input type="text" name="items[__INDEX__][uom]" class="form-control" data-product-uom required>
                     </td>
                     <td>
                         <input type="number" step="0.01" min="0.01" name="items[__INDEX__][quantity]" class="form-control text-end" value="1" required data-quantity>
                     </td>
                     <td>
-                        <input type="number" step="0.01" min="0" name="items[__INDEX__][unit_price]" class="form-control text-end" value="0" required data-unit-price>
+                        <input type="number" step="0.01" min="0" name="items[__INDEX__][unit_price]" class="form-control text-end" value="0" data-product-unit-price required data-unit-price>
                     </td>
                     <td>
                         <input type="number" step="0.01" min="0" name="items[__INDEX__][tax_percent]" class="form-control text-end" value="0" data-tax-percent>
@@ -207,48 +274,76 @@
 </form>
 
 @push('script')
-<script>
-(function () {
-    const wrapper = document.querySelector('[data-line-items]');
-    if (!wrapper) {
-        return;
-    }
-
-    const tbody = wrapper.querySelector('#po-line-items');
-    const template = document.getElementById('po-line-item-template').innerHTML;
-    let nextIndex = Number(wrapper.dataset.nextIndex || 0);
-
-    document.getElementById('add-po-line-item').addEventListener('click', function () {
-        const html = template.replaceAll('__INDEX__', nextIndex);
-        const fragment = document.createElement('tbody');
-        fragment.innerHTML = html.trim();
-        tbody.appendChild(fragment.firstElementChild);
-        nextIndex += 1;
-    });
-
-    tbody.addEventListener('click', function (event) {
-        if (event.target.closest('.remove-line-item')) {
-            const rows = tbody.querySelectorAll('tr');
-            if (rows.length === 1) {
+    @once('purchase-product-picker-script')
+        <script src="{{ asset('assets/back-end/js/purchase-product-picker.js') }}"></script>
+    @endonce
+    <script>
+        (function () {
+            const wrapper = document.querySelector('[data-line-items]');
+            if (!wrapper) {
                 return;
             }
-            event.target.closest('tr').remove();
-        }
-    });
 
-    tbody.addEventListener('input', function (event) {
-        if (event.target.matches('[data-quantity], [data-unit-price], [data-tax-percent], [data-discount-percent]')) {
-            const row = event.target.closest('tr');
-            const quantity = parseFloat(row.querySelector('[data-quantity]')?.value || '0');
-            const unitPrice = parseFloat(row.querySelector('[data-unit-price]')?.value || '0');
-            const taxPercent = parseFloat(row.querySelector('[data-tax-percent]')?.value || '0');
-            const discountPercent = parseFloat(row.querySelector('[data-discount-percent]')?.value || '0');
-            const base = quantity * unitPrice;
-            const taxAmount = base * (taxPercent / 100);
-            const discountAmount = base * (discountPercent / 100);
-            row.querySelector('[data-line-total]').textContent = (base + taxAmount - discountAmount).toFixed(2);
-        }
-    });
-})();
-</script>
+            const tbody = wrapper.querySelector('#po-line-items');
+            const template = document.getElementById('po-line-item-template').innerHTML;
+            let nextIndex = Number(wrapper.dataset.nextIndex || 0);
+            const vendorSelect = document.getElementById('purchase-order-vendor');
+
+            if (window.PurchaseProductPicker) {
+                window.PurchaseProductPicker.init(wrapper);
+            }
+
+            if (vendorSelect) {
+                vendorSelect.addEventListener('change', function () {
+                    wrapper.dataset.vendorId = vendorSelect.value || '';
+                    if (window.PurchaseProductPicker && typeof window.PurchaseProductPicker.clearCache === 'function') {
+                        window.PurchaseProductPicker.clearCache();
+                    }
+                    const $ = window.jQuery;
+                    if (!$) {
+                        return;
+                    }
+                    wrapper.querySelectorAll('[data-product-picker]').forEach(function (select) {
+                        $(select).val(null).trigger('change');
+                    });
+                });
+            }
+
+            document.getElementById('add-po-line-item').addEventListener('click', function () {
+                const html = template.replaceAll('__INDEX__', nextIndex);
+                const fragment = document.createElement('tbody');
+                fragment.innerHTML = html.trim();
+                const row = fragment.firstElementChild;
+                tbody.appendChild(row);
+                if (window.PurchaseProductPicker) {
+                    window.PurchaseProductPicker.init(row);
+                }
+                nextIndex += 1;
+            });
+
+            tbody.addEventListener('click', function (event) {
+                if (event.target.closest('.remove-line-item')) {
+                    const rows = tbody.querySelectorAll('tr');
+                    if (rows.length === 1) {
+                        return;
+                    }
+                    event.target.closest('tr').remove();
+                }
+            });
+
+            tbody.addEventListener('input', function (event) {
+                if (event.target.matches('[data-quantity], [data-unit-price], [data-tax-percent], [data-discount-percent]')) {
+                    const row = event.target.closest('tr');
+                    const quantity = parseFloat(row.querySelector('[data-quantity]')?.value || '0');
+                    const unitPrice = parseFloat(row.querySelector('[data-unit-price]')?.value || '0');
+                    const taxPercent = parseFloat(row.querySelector('[data-tax-percent]')?.value || '0');
+                    const discountPercent = parseFloat(row.querySelector('[data-discount-percent]')?.value || '0');
+                    const base = quantity * unitPrice;
+                    const taxAmount = base * (taxPercent / 100);
+                    const discountAmount = base * (discountPercent / 100);
+                    row.querySelector('[data-line-total]').textContent = (base + taxAmount - discountAmount).toFixed(2);
+                }
+            });
+        })();
+    </script>
 @endpush

@@ -109,6 +109,7 @@ use App\Http\Controllers\Admin\Purchase\VendorController as PurchaseVendorContro
 use App\Http\Controllers\Admin\Purchase\RequisitionController;
 use App\Http\Controllers\Admin\Purchase\PurchaseOrderController;
 use App\Http\Controllers\Admin\Purchase\PurchaseGrnController;
+use App\Http\Controllers\Admin\Purchase\ProductLookupController;
 use App\Http\Controllers\Admin\Purchase\ReturnToVendorController;
 use App\Enums\ViewPaths\Admin\StorageConnectionSettings;
 use App\Enums\ViewPaths\Admin\VendorRegistrationSetting;
@@ -481,6 +482,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     });
 
     Route::group(['prefix' => 'purchase', 'as' => 'purchase.', 'middleware' => ['module:purchase_management']], function () {
+        Route::get('catalog/products/search', ProductLookupController::class)->name('catalog-products.search');
+        Route::get('catalog/products/manual', [ProductLookupController::class, 'manual'])->name('catalog-products.manual');
         Route::resource('vendors', PurchaseVendorController::class)->except(['show']);
         Route::resource('requisitions', RequisitionController::class);
         Route::post('requisitions/{requisition}/submit', [RequisitionController::class, 'submit'])->name('requisitions.submit');

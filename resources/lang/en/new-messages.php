@@ -9244,4 +9244,10 @@ return [
 	"order_wise_shipping" => "Order wise shipping",
 	"the_two-in-one_benefits_of_‘Offline_Payment_Method’_Feature" => "The two-in-one benefits of ‘Offline Payment Method’ Feature",
 	"add_vendor" => "Add vendor",
+	"uom" => "Uom",
+	"vendor_notes" => "Vendor notes",
+	"purchase_grn_empty_state" => "Purchase grn empty state",
+	"received_at" => "Received at",
+	"configure_suppliers_and_track_contract_details" => "Configure suppliers and track contract details",
+	"internal_notes" => "Internal notes",
 ];

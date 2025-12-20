@@ -2,6 +2,7 @@
 
 namespace App\Services\Purchase;
 
+use App\Models\Product;
 use App\Models\Purchase\PurchaseEvent;
 use App\Models\Purchase\PurchaseGrn;
 use App\Models\Purchase\PurchaseGrnEvent;
@@ -157,6 +158,8 @@ class GoodsReceiptWorkflowService
                 'last_receipt_at' => now(),
                 'updated_by' => auth('admin')->id(),
             ])->save();
+
+            $this->updateProductCosts($grn);
 
             $this->logEvent($grn, 'grn_approved', ['receiving_status' => $progress['status']]);
         });
@@ -349,6 +352,60 @@ class GoodsReceiptWorkflowService
             throw ValidationException::withMessages([
                 'items' => [__('purchase_grn_item_exceeds_outstanding')],
             ]);
+        }
+    }
+
+    private function updateProductCosts(PurchaseGrn $grn): void
+    {
+        $grn->loadMissing('items.orderItem');
+
+        $batches = [];
+        foreach ($grn->items as $item) {
+            if (! $item->product_id || $item->accepted_qty <= 0) {
+                continue;
+            }
+
+            $unitCost = (float) ($item->orderItem?->unit_price ?? 0);
+            if ($unitCost <= 0) {
+                continue;
+            }
+
+            $productId = (int) $item->product_id;
+            $batches[$productId] = [
+                'quantity' => ($batches[$productId]['quantity'] ?? 0) + $item->accepted_qty,
+                'cost' => ($batches[$productId]['cost'] ?? 0) + ($item->accepted_qty * $unitCost),
+            ];
+        }
+
+        if (empty($batches)) {
+            return;
+        }
+
+        foreach ($batches as $productId => $batch) {
+            $product = Product::whereKey($productId)->lockForUpdate()->first();
+            if (! $product) {
+                continue;
+            }
+
+            $existingStock = max((float) $product->current_stock, 0);
+            $existingCost = max((float) $product->purchase_price, 0);
+            $incomingQty = max((float) $batch['quantity'], 0);
+            $incomingCost = max((float) $batch['cost'], 0);
+            if ($incomingQty <= 0) {
+                continue;
+            }
+
+            $weightedTotal = ($existingStock * $existingCost) + $incomingCost;
+            $newTotalQty = $existingStock + $incomingQty;
+            if ($newTotalQty <= 0) {
+                continue;
+            }
+
+            $weightedAverage = round($weightedTotal / $newTotalQty, 4);
+
+            $product->forceFill([
+                'purchase_price' => $weightedAverage,
+            ])->save();
         }
     }
 

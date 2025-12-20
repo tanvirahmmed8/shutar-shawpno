@@ -138,7 +138,7 @@ class RequisitionController extends BaseController
         $this->authorize('update', $requisition);
 
         return view('admin-views.purchase.requisitions.edit', [
-            'requisition' => $requisition->load('items'),
+            'requisition' => $requisition->load('items.product'),
             'priorityOptions' => $this->priorityOptions(),
             'currencyOptions' => $this->currencyOptions(),
             'approvalRoutes' => $this->activeApprovalRoutes(),
@@ -274,7 +274,7 @@ class RequisitionController extends BaseController
             'cost_center_id' => $request->filled('cost_center_id') ? $request->input('cost_center_id') : null,
         ]);
 
-        return $request->validate([
+        $validated = $request->validate([
             'priority' => ['required', Rule::in($this->priorityOptions())],
             'needed_by' => ['nullable', 'date', 'after_or_equal:today'],
             'currency' => ['required', 'size:3'],
@@ -282,13 +282,38 @@ class RequisitionController extends BaseController
             'cost_center_id' => ['nullable', 'integer'],
             'approval_route_id' => ['nullable', 'exists:purchase_approval_routes,id'],
             'items' => ['required', 'array', 'min:1'],
-            'items.*.product_id' => ['nullable', 'integer', 'exists:products,id'],
+            'items.*.product_id' => ['required', 'integer', 'exists:products,id'],
+            'items.*.product_snapshot' => ['nullable', 'array'],
+            'items.*.product_snapshot.id' => ['nullable', 'integer'],
+            'items.*.product_snapshot.sku' => ['nullable', 'string', 'max:191'],
+            'items.*.product_snapshot.name' => ['nullable', 'string', 'max:191'],
+            'items.*.product_snapshot.uom' => ['nullable', 'string', 'max:32'],
+            'items.*.product_snapshot.purchase_price' => ['nullable', 'numeric'],
+            'items.*.product_snapshot.label' => ['nullable', 'string', 'max:191'],
             'items.*.description' => ['required', 'string', 'max:191'],
             'items.*.uom' => ['required', 'string', 'max:32'],
             'items.*.quantity' => ['required', 'numeric', 'min:0.01'],
             'items.*.unit_price' => ['required', 'numeric', 'min:0'],
             'items.*.delivery_date' => ['nullable', 'date', 'after_or_equal:today'],
         ]);
+
+        $validated['items'] = collect($validated['items'])->map(function ($item) {
+            if (! empty($item['product_snapshot']) && is_array($item['product_snapshot'])) {
+                $item['product_snapshot'] = array_filter($item['product_snapshot'], static function ($value) {
+                    return ! ($value === null || $value === '');
+                });
+
+                if (empty($item['product_snapshot'])) {
+                    unset($item['product_snapshot']);
+                }
+            } else {
+                unset($item['product_snapshot']);
+            }
+
+            return $item;
+        })->values()->toArray();
+
+        return $validated;
     }
 
     private function syncItems(PurchaseRequisition $requisition, array $items): void
@@ -297,6 +322,13 @@ class RequisitionController extends BaseController
         foreach ($items as $item) {
             $quantity = (float) $item['quantity'];
             $unitPrice = (float) $item['unit_price'];
+            $catalogSnapshot = ! empty($item['product_snapshot']) && is_array($item['product_snapshot'])
+                ? $item['product_snapshot']
+                : null;
+            $metadata = ['source' => 'manual_form'];
+            if ($catalogSnapshot) {
+                $metadata['catalog'] = $catalogSnapshot;
+            }
             $requisition->items()->create([
                 'product_id' => $item['product_id'] ?? null,
                 'description' => $item['description'],
@@ -305,7 +337,7 @@ class RequisitionController extends BaseController
                 'unit_price' => $unitPrice,
                 'line_total' => $quantity * $unitPrice,
                 'delivery_date' => $item['delivery_date'] ?? null,
-                'metadata' => ['source' => 'manual_form'],
+                'metadata' => $metadata,
             ]);
         }
     }

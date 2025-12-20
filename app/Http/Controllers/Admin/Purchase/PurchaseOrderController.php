@@ -135,7 +135,7 @@ class PurchaseOrderController extends BaseController
     public function edit(PurchaseOrder $order): View
     {
         $this->authorize('update', $order);
-        $order->load(['items', 'vendor']);
+        $order->load(['items.product', 'vendor']);
         [$vendors, $approvalRoutes] = $this->formDependencies();
 
         return view('admin-views.purchase.orders.edit', [
@@ -326,7 +326,14 @@ class PurchaseOrderController extends BaseController
             'notes_vendor' => ['nullable', 'string'],
             'approval_route_id' => ['nullable', 'exists:purchase_approval_routes,id'],
             'items' => ['required', 'array', 'min:1'],
-            'items.*.product_id' => ['nullable', 'integer'],
+            'items.*.product_id' => ['required', 'integer', 'exists:products,id'],
+            'items.*.product_snapshot' => ['nullable', 'array'],
+            'items.*.product_snapshot.id' => ['nullable', 'integer'],
+            'items.*.product_snapshot.sku' => ['nullable', 'string', 'max:191'],
+            'items.*.product_snapshot.name' => ['nullable', 'string', 'max:191'],
+            'items.*.product_snapshot.uom' => ['nullable', 'string', 'max:32'],
+            'items.*.product_snapshot.purchase_price' => ['nullable', 'numeric'],
+            'items.*.product_snapshot.label' => ['nullable', 'string', 'max:191'],
             'items.*.description' => ['required', 'string', 'max:191'],
             'items.*.uom' => ['required', 'string', 'max:32'],
             'items.*.quantity' => ['required', 'numeric', 'min:0.01'],
@@ -338,7 +345,21 @@ class PurchaseOrderController extends BaseController
             'items.*.discount_amount' => ['nullable', 'numeric', 'min:0'],
         ]);
 
-        $validated['items'] = array_values($validated['items']);
+        $validated['items'] = collect($validated['items'])->map(function ($item) {
+            if (! empty($item['product_snapshot']) && is_array($item['product_snapshot'])) {
+                $item['product_snapshot'] = array_filter($item['product_snapshot'], static function ($value) {
+                    return ! ($value === null || $value === '');
+                });
+
+                if (empty($item['product_snapshot'])) {
+                    unset($item['product_snapshot']);
+                }
+            } else {
+                unset($item['product_snapshot']);
+            }
+
+            return $item;
+        })->values()->toArray();
 
         return $validated;
     }

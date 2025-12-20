@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('finance_journals', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('journal_number', 50)->unique();
+            $table->unsignedBigInteger('fiscal_period_id')->nullable()->index();
+            $table->date('entry_date');
+            $table->string('source_type', 120)->nullable();
+            $table->unsignedBigInteger('source_id')->nullable();
+            $table->string('source_reference')->nullable();
+            $table->char('currency', 3);
+            $table->decimal('exchange_rate', 18, 6)->default(1);
+            $table->string('status', 20)->default('draft');
+            $table->string('category', 40)->nullable();
+            $table->text('memo')->nullable();
+            $table->unsignedInteger('line_count')->default(0);
+            $table->unsignedInteger('attachment_count')->default(0);
+            $table->timestamp('posted_at')->nullable();
+            $table->unsignedBigInteger('posted_by')->nullable()->index('finance_journals_posted_by_foreign');
+            $table->unsignedBigInteger('created_by')->nullable()->index('finance_journals_created_by_foreign');
+            $table->unsignedBigInteger('updated_by')->nullable()->index('finance_journals_updated_by_foreign');
+            $table->softDeletes();
+            $table->timestamps();
+
+            $table->index(['entry_date', 'status']);
+            $table->index(['source_type', 'source_id']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('finance_journals');
+    }
+};
