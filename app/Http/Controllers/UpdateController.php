@@ -30,7 +30,7 @@
 //         Helpers::setEnvironmentValue('PURCHASE_CODE', $request['purchase_key']);
 //         Helpers::setEnvironmentValue('SOFTWARE_VERSION', SOFTWARE_VERSION);
 //         Helpers::setEnvironmentValue('APP_MODE', 'live');
-//         Helpers::setEnvironmentValue('APP_NAME', '6valley' . time());
+//         Helpers::setEnvironmentValue('APP_NAME', 'tanvirsoft' . time());
 //         Helpers::setEnvironmentValue('SESSION_LIFETIME', '60');
 
 //         $data = $this->actch();

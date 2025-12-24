@@ -2719,7 +2719,7 @@ return [
 	"true" => "True",
 	"false" => "False",
 	"dev" => "Dev",
-	"6valley-admin-demo-jhisdfhisufjifjfijqw5467" => "6valley-admin-demo-jhisdfhisufjifjfijqw5467",
+	"tanvirsoft-admin-demo-jhisdfhisufjifjfijqw5467" => "tanvirsoft-admin-demo-jhisdfhisufjifjfijqw5467",
 	"00000000000000" => "00000000000000",
 	"Force_HTTPS" => "Force HTTPS",
 	"Optimize_System" => "Optimize System",

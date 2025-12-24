@@ -17,7 +17,7 @@
                     <h4 class="title m-0">{{translate('404 Logs')}}</h4>
                     <p class="m-0">
                         {{ translate('track_instances_of_page_not_found_errors_faced_by_users_on_your_website') }}
-                        <a href="{{ 'https://6amtech.com/blog/404-logs/' }}" target="_blank" class="text-primary text-underline font-weight-semibold">
+                        <a href="{{ 'https://tanvirsoft.com/blog/404-logs/' }}" target="_blank" class="text-primary text-underline font-weight-semibold">
                             {{translate('Learn_more')}}
                         </a>
                     </p>

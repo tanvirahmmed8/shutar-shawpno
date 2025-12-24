@@ -17,7 +17,7 @@
                     <h4 class="title m-0 text-capitalize">{{translate('Webmaster_Tools')}}</h4>
                     <p class="m-0">
                         {{ translate('optimize_websites_performance,_indexing_status,_and_search_visibility.') }}
-                        <a href="{{ 'https://6amtech.com/blog/webmaster-tools-verification/' }}"
+                        <a href="{{ 'https://tanvirsoft.com/blog/webmaster-tools-verification/' }}"
                            target="_blank"
                            class="text-underline text--primary font-weight-semibold">
                             {{ translate('Learn_more.') }}
@@ -38,7 +38,7 @@
                                 <input type="text" name="google_search_console_code"  value="{{$webMasterToolData['google_search_console_code']}}" placeholder="{{translate('enter_your_HTML_code_or_ID')}}" class="form-control">
                                 <div class="mt-10px fs-12">
                                     <div>{{translate('Google_Console_verification_HTML_code_or_ID').'.'.translate('learn_how_to_get')}}
-                                        <a href="{{ 'https://6amtech.com/blog/webmaster-tools-verification/' }}"
+                                        <a href="{{ 'https://tanvirsoft.com/blog/webmaster-tools-verification/' }}"
                                            target="_blank"
                                            class="text--primary text-underline font-weight-semibold text-capitalize">
                                             {{translate('search_console_verification_page')}}
@@ -64,7 +64,7 @@
                                 <div class="mt-10px fs-12">
                                     <div>
                                         {{translate('Bing_Webmaster_Tools_verification_HTML_code_or_ID').'.'.translate('learn_how_to_get')}}
-                                        <a href="{{ 'https://6amtech.com/blog/webmaster-tools-verification/' }}"
+                                        <a href="{{ 'https://tanvirsoft.com/blog/webmaster-tools-verification/' }}"
                                            target="_blank"
                                            class="text--primary text-underline font-weight-semibold">
                                             {{ translate('search_console_verification_page') }}
@@ -90,7 +90,7 @@
                                 <div class="mt-10px fs-12">
                                     <div>
                                         {{translate('Baidu_Webmaster_Tools_verification_HTML_code_or_ID').'.'.translate('learn_how_to_get')}}
-                                        <a href="{{ 'https://6amtech.com/blog/webmaster-tools-verification/' }}"
+                                        <a href="{{ 'https://tanvirsoft.com/blog/webmaster-tools-verification/' }}"
                                            target="_blank"
                                            class="text--primary text-underline font-weight-semibold">
                                             {{translate('search_console_verification_page')}}
@@ -116,7 +116,7 @@
                                 <div class="mt-10px fs-12">
                                     <div>
                                         {{translate('Yandex_Webmaster_Tools_verification_HTML_code_or_ID').'.'.translate('learn_how_to_get_it')}}
-                                        <a href="{{ 'https://6amtech.com/blog/webmaster-tools-verification/' }}"
+                                        <a href="{{ 'https://tanvirsoft.com/blog/webmaster-tools-verification/' }}"
                                            target="_blank"
                                            class="text--primary text-underline font-weight-semibold">
                                             {{ translate('search_console_verification_page') }}

@@ -15,11 +15,11 @@ class OauthClientTableSeeder extends Seeder
         $chunks = [];
         $chunks[] =
             array (
-              0 => 
+              0 =>
               array (
                 'id' => 1,
                 'user_id' => NULL,
-                'name' => '6amtech',
+                'name' => 'tanvirsoft',
                 'secret' => 'GEUx5tqkviM6AAQcz4oi1dcm1KtRdJPgw41lj0eI',
                 'redirect' => 'http://localhost',
                 'personal_access_client' => 1,

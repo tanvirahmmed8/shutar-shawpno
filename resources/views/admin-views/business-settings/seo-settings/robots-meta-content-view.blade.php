@@ -18,7 +18,7 @@
                     <h4 class="title m-0">{{translate('Robots_Meta_Content_&_OG_Meta_Content')}}</h4>
                     <p class="m-0">
                         {{ translate("optimize_your_Websites_performance_indexing_status_and_search_visibility") }}
-                        <a href="{{ 'https://6amtech.com/blog/robots-meta-content-and-og-content/' }}"
+                        <a href="{{ 'https://tanvirsoft.com/blog/robots-meta-content-and-og-content/' }}"
                            target="_blank"
                            class="text--primary text-underline font-weight-semibold">
                             {{ translate('Learn_more') }}
@@ -117,7 +117,7 @@
                                         <div class="mt-10px fs-12">
                                             <div>
                                                 {{translate('Learn how to get it.')}}
-                                                <a href="{{ 'https://6amtech.com/blog/canonical-urls/' }}"
+                                                <a href="{{ 'https://tanvirsoft.com/blog/canonical-urls/' }}"
                                                    target="_blank"
                                                    class="text--primary text-underline font-weight-semibold">
                                                     {{ translate('learn_more') }}

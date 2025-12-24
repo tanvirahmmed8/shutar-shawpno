@@ -11971,10 +11971,10 @@ dd {
 }
 
 @font-face {
-    font-family: "sixvalley-icons";
-    src: url("../fonts/sixvalley-iconsc17f.ttf?v4xwry") format("truetype"),
-        url("../fonts/sixvalley-iconsc17f.woff?v4xwry") format("woff"),
-        url("../fonts/sixvalley-iconsc17f.svg?v4xwry#sixvalley-icons")
+    font-family: "tanvirsoft-icons";
+    src: url("../fonts/tanvirsoft-iconsc17f.ttf?v4xwry") format("truetype"),
+        url("../fonts/tanvirsoft-iconsc17f.woff?v4xwry") format("woff"),
+        url("../fonts/tanvirsoft-iconsc17f.svg?v4xwry#tanvirsoft-icons")
             format("svg");
     font-weight: normal;
     font-style: normal;
@@ -11983,7 +11983,7 @@ dd {
 [class^="czi-"],
 [class*=" czi-"] {
     display: inline-block;
-    font-family: "sixvalley-icons" !important;
+    font-family: "tanvirsoft-icons" !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -13866,7 +13866,7 @@ a.nav-link:hover .media-tab-media {
     background: #eafaf3;
     border: 1px solid #42d697;
     color: #42d697;
-    font-family: "sixvalley-icons";
+    font-family: "tanvirsoft-icons";
     font-size: 0.625rem;
     font-weight: 500;
     line-height: 1.25rem;
@@ -15519,7 +15519,7 @@ a.nav-link:hover .media-tab-media {
     transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     border-radius: 50%;
     background-color: #f3f5f9;
-    font-family: "sixvalley-icons";
+    font-family: "tanvirsoft-icons";
     font-size: 0.625rem;
     font-weight: bold;
     line-height: 2rem;
@@ -15546,7 +15546,7 @@ a.nav-link:hover .media-tab-media {
 }
 
 .breadcrumb-item::before {
-    font-family: "sixvalley-icons";
+    font-family: "tanvirsoft-icons";
     font-size: 0.9em;
     vertical-align: middle;
 }
@@ -16827,7 +16827,7 @@ a.badge-shadow:hover {
     -webkit-transform: scale(0.3);
     transform: scale(0.3);
     color: #fff;
-    font-family: "sixvalley-icons";
+    font-family: "tanvirsoft-icons";
     font-size: 1.75rem;
     text-align: center;
     line-height: 2.875rem;
@@ -17050,7 +17050,7 @@ a.badge-shadow:hover {
 }
 
 .video-popup-btn:not(.video-cover)::before {
-    font-family: "sixvalley-icons";
+    font-family: "tanvirsoft-icons";
     font-size: 0.75rem;
     font-weight: 700;
     content: "\e969";
@@ -17661,7 +17661,7 @@ html:not([dir="rtl"]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
 .product-review .btn-dislike::before {
     display: inline-block;
     margin-right: 0.375rem;
-    font-family: "sixvalley-icons";
+    font-family: "tanvirsoft-icons";
     font-size: 1.25em;
     vertical-align: middle;
     content: "\e985";

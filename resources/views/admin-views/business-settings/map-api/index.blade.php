@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-2 mb-4 valley-alert">
+                    <div class="mt-2 mb-4 tanvirsoft-alert">
                         <img width="16" class="mt-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
                              alt="">
                         <p class="mb-0">
