@@ -45,6 +45,32 @@
                                 <span class="text-muted text-capitalize">{{ translate('payment_terms') }}</span>
                                 <p class="fw-semibold mb-0">{{ $order->payment_terms ?? '—' }}</p>
                             </div>
+                            @if($order->payment_account)
+                                <div class="col-md-4">
+                                    <span class="text-muted text-capitalize">{{ translate('payment_account') }}</span>
+                                    <p class="fw-semibold mb-0">
+                                        {{ $order->payment_account }}
+                                        @if($order->payment_account_code)
+                                            <small class="text-muted">({{ $order->payment_account_code }})</small>
+                                        @endif
+                                    </p>
+                                </div>
+                            @endif
+                            @if($order->paid_at)
+                                <div class="col-md-4">
+                                    <span class="text-muted text-capitalize">{{ translate('paid_at') }}</span>
+                                    <p class="fw-semibold mb-0">{{ $order->paid_at?->format('M d, Y H:i') ?? '—' }}</p>
+                                </div>
+                            @endif
+                            <div class="col-md-4">
+                                <span class="text-muted text-capitalize">{{ translate('payment_status') }}</span>
+                                <p class="fw-semibold mb-0 text-capitalize">{{ translate($order->payment_status ?? 'unpaid') }}</p>
+                                <small class="text-muted">{{ translate('paid_total') }}: {{ $order->currency }} {{ number_format($order->paid_total ?? 0, 2) }}</small>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="text-muted text-capitalize">{{ translate('outstanding_amount') }}</span>
+                                <p class="fw-semibold mb-0">{{ $order->currency }} {{ number_format($outstandingAmount, 2) }}</p>
+                            </div>
                         </div>
                         <div class="border-top pt-3 mt-3">
                             <div class="d-flex justify-content-between">
@@ -80,6 +106,48 @@
                                 <p class="mb-0">{{ $order->notes_vendor }}</p>
                             </div>
                         @endif
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="mb-4 text-capitalize">{{ translate('payment_history') }}</h5>
+                        <div class="table-responsive">
+                            <table class="table table-borderless align-middle">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>{{ translate('paid_at') }}</th>
+                                        <th>{{ translate('method') }}</th>
+                                        <th class="text-end">{{ translate('amount') }}</th>
+                                        <th>{{ translate('recorded_by') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($payments as $payment)
+                                        <tr>
+                                            <td>{{ $payment->paid_at?->format('M d, Y H:i') ?? '—' }}</td>
+                                            <td>
+                                                <div class="fw-semibold text-capitalize">{{ $payment->payment_method ?? translate('not_set') }}</div>
+                                                @if($payment->payment_account)
+                                                    <small class="text-muted">{{ $payment->payment_account }} @if($payment->payment_account_code) ({{ $payment->payment_account_code }}) @endif</small>
+                                                @endif
+                                            </td>
+                                            <td class="text-end fw-semibold">{{ $payment->currency ?? $order->currency }} {{ number_format($payment->amount, 2) }}</td>
+                                            <td>
+                                                <div class="small text-muted">{{ $payment->payer->name ?? translate('system') }}</div>
+                                                @if($payment->finance_journal_id)
+                                                    <a href="{{ route('admin.accounts-finance.journals.show', $payment->finance_journal_id) }}" class="small text-decoration-underline">{{ translate('view_journal') }}</a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted py-4">{{ translate('no_payments_recorded_yet') }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -174,6 +242,61 @@
                 </div>
             </div>
             <div class="col-lg-4">
+                @if($canRecordPayment)
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="mb-3 text-capitalize">{{ translate('record_payment') }}</h5>
+                            <p class="text-muted small mb-3">
+                                {{ translate('outstanding_amount') }}: <strong>{{ $order->currency }} {{ number_format($outstandingAmount, 2) }}</strong>
+                            </p>
+                            <form action="{{ route('admin.purchase.orders.payments.store', $order->id) }}" method="post">
+                                @csrf
+                                <div class="mb-3">
+                                    <label class="form-label">{{ translate('payment_method') }}</label>
+                                    <select name="payment_method" class="form-control po-payment-method-select">
+                                        @foreach($paymentMethodOptions as $methodKey => $methodLabel)
+                                            <option value="{{ $methodKey }}" {{ old('payment_method', $selectedPaymentMethod) === $methodKey ? 'selected' : '' }}>
+                                                {{ $methodLabel }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('payment_method')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">{{ translate('payment_account') }}</label>
+                                    <select name="payment_account" class="form-control po-payment-account-select" data-selected="{{ old('payment_account', $selectedPaymentAccount) }}" data-method="{{ old('payment_method', $selectedPaymentMethod) }}">
+                                        @foreach($paymentAccountOptions as $accountKey => $accountLabel)
+                                            <option value="{{ $accountKey }}" {{ old('payment_account', $selectedPaymentAccount) === $accountKey ? 'selected' : '' }}>
+                                                {{ $accountLabel }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('payment_account')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">{{ translate('payment_amount') }}</label>
+                                         <input type="number" step="0.01" name="payment_amount" class="form-control" value="{{ old('payment_amount', number_format($outstandingAmount, 2, '.', '')) }}">
+                                    @error('payment_amount')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">{{ translate('comments_optional') }}</label>
+                                    <textarea name="payment_note" class="form-control" rows="2">{{ old('payment_note') }}</textarea>
+                                    @error('payment_note')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <button type="submit" class="btn btn--primary w-100">{{ translate('record_payment') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                @endif
+
                 @can('send', $order)
                     @if(in_array($order->status, [\App\Services\Purchase\PurchaseOrderWorkflowService::STATUS_APPROVED, \App\Services\Purchase\PurchaseOrderWorkflowService::STATUS_SENT]))
                         <div class="card mb-4">
@@ -207,6 +330,41 @@
                                 <h5 class="mb-3 text-capitalize">{{ translate('approval_actions') }}</h5>
                                 <form action="{{ route('admin.purchase.orders.approve', $order->id) }}" method="post" class="mb-3">
                                     @csrf
+                                    @if($requiresPaymentDetails)
+                                        <div class="mb-3">
+                                            <label class="form-label">{{ translate('payment_method') }}</label>
+                                            <select name="payment_method" class="form-control po-payment-method-select" {{ $requiresPaymentDetails ? '' : 'disabled' }}>
+                                                @foreach($paymentMethodOptions as $methodKey => $methodLabel)
+                                                    <option value="{{ $methodKey }}" {{ $selectedPaymentMethod === $methodKey ? 'selected' : '' }}>
+                                                        {{ $methodLabel }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('payment_method')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">{{ translate('payment_account') }}</label>
+                                            <select name="payment_account" class="form-control po-payment-account-select" data-selected="{{ $selectedPaymentAccount }}" data-method="{{ $selectedPaymentMethod }}">
+                                                @foreach($paymentAccountOptions as $accountKey => $accountLabel)
+                                                    <option value="{{ $accountKey }}" {{ $selectedPaymentAccount === $accountKey ? 'selected' : '' }}>
+                                                        {{ $accountLabel }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            @error('payment_account')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">{{ translate('payment_amount') }}</label>
+                                                            <input type="number" step="0.01" name="payment_amount" class="form-control" value="{{ old('payment_amount', number_format($outstandingAmount, 2, '.', '')) }}">
+                                            @error('payment_amount')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    @endif
                                     <div class="mb-3">
                                         <label class="form-label">{{ translate('comments_optional') }}</label>
                                         <textarea name="comments" class="form-control" rows="2"></textarea>
@@ -276,4 +434,85 @@
             </div>
         </div>
     </div>
+    @if($requiresPaymentDetails || $canRecordPayment)
+        <span id="purchase-payment-account-matrix" data-matrix='@json($paymentAccountMatrix)'></span>
+    @endif
 @endsection
+
+@push('script_2')
+    <script>
+        (function () {
+            const matrixElement = document.getElementById('purchase-payment-account-matrix');
+            if (!matrixElement) {
+                return;
+            }
+
+            let matrix;
+            try {
+                matrix = JSON.parse(matrixElement.dataset.matrix || '{}');
+            } catch (error) {
+                matrix = null;
+            }
+
+            if (!matrix) {
+                return;
+            }
+
+            function accountOptions(method) {
+                const optionsRoot = matrix.options || {};
+                return optionsRoot[method] || optionsRoot.__default || [];
+            }
+
+            function defaultAccount(method) {
+                const defaults = matrix.defaults || {};
+                return defaults[method] || defaults.__default || null;
+            }
+            document.querySelectorAll('.po-payment-method-select').forEach(function (methodSelect) {
+                const form = methodSelect.closest('form');
+                const accountSelect = form ? form.querySelector('.po-payment-account-select') : null;
+                if (!accountSelect) {
+                    return;
+                }
+
+                function rebuildAccounts(method, trigger) {
+                    const options = accountOptions(method);
+                    const previous = accountSelect.value;
+                    const preset = accountSelect.dataset.selected || '';
+                    accountSelect.innerHTML = '';
+
+                    options.forEach(function (option) {
+                        const node = document.createElement('option');
+                        node.value = option.value;
+                        node.textContent = option.label;
+                        accountSelect.appendChild(node);
+                    });
+
+                    const allowed = options.map(function (option) { return option.value; });
+                    let nextValue = previous;
+                    if (!allowed.includes(nextValue)) {
+                        if (preset && allowed.includes(preset)) {
+                            nextValue = preset;
+                        } else {
+                            nextValue = defaultAccount(method) || allowed[0] || '';
+                        }
+                    }
+
+                    accountSelect.value = nextValue;
+                    accountSelect.dataset.selected = nextValue;
+                    if (trigger) {
+                        accountSelect.dispatchEvent(new Event('change'));
+                    }
+                }
+
+                const initialMethod = methodSelect.value || accountSelect.dataset.method || 'cash';
+                rebuildAccounts(initialMethod, false);
+                methodSelect.addEventListener('change', function () {
+                    rebuildAccounts(this.value, true);
+                });
+                accountSelect.addEventListener('change', function () {
+                    this.dataset.selected = this.value;
+                });
+            });
+        })();
+    </script>
+@endpush

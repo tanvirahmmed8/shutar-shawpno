@@ -172,6 +172,28 @@ return [
             ],
         ],
 
+        'purchase.order_payment' => [
+            'description' => 'Immediate payment recorded when a purchase order is approved.',
+            'source_type' => 'purchase_order',
+            'category' => 'purchases',
+            'memo' => 'Purchase order :order_code payment',
+            'source_reference' => 'order_code',
+            'lines' => [
+                [
+                    'type' => 'debit',
+                    'account_code' => '1300',
+                    'amount' => 'totals.amount',
+                    'description' => 'Inventory advance',
+                ],
+                [
+                    'type' => 'credit',
+                    'account_id' => ['context_path' => 'payment_account_id'],
+                    'amount' => 'totals.amount',
+                    'description' => 'Cash / bank outflow',
+                ],
+            ],
+        ],
+
         'purchase.return_posted' => [
             'description' => 'Vendor return / debit memo.',
             'source_type' => 'purchase_return',

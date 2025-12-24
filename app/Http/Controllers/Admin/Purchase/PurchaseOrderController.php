@@ -8,12 +8,15 @@ use App\Models\Purchase\PurchaseEvent;
 use App\Models\Purchase\PurchaseOrder;
 use App\Models\Purchase\PurchaseRequisition;
 use App\Models\Purchase\PurchaseVendor;
+use App\Models\Finance\FinanceAccount;
 use App\Services\Purchase\PurchaseOrderWorkflowService;
+use App\Support\PaymentAccountMapper;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 
 class PurchaseOrderController extends BaseController
@@ -118,6 +121,7 @@ class PurchaseOrderController extends BaseController
             'requisition',
             'communications' => fn($query) => $query->latest(),
             'approvals.approver',
+            'payments' => fn($query) => $query->with('payer')->latest('paid_at'),
         ]);
 
         $events = PurchaseEvent::where('payload->order_id', $order->id)
@@ -125,10 +129,44 @@ class PurchaseOrderController extends BaseController
             ->limit(25)
             ->get();
 
+        $outstandingAmount = $this->outstandingAmount($order);
+        $canRecordPayment = $this->canRecordPayment($order);
+
+        $paymentMethodOptions = PaymentAccountMapper::methodOptions();
+        if (empty($paymentMethodOptions)) {
+            $paymentMethodOptions = ['default' => translate('default')];
+        }
+        $defaultMethodKey = array_key_first($paymentMethodOptions) ?? PaymentAccountMapper::normalizeMethod('cash');
+        $selectedMethod = PaymentAccountMapper::normalizeMethod(old('payment_method', $order->payment_method ?? $defaultMethodKey));
+        if (! array_key_exists($selectedMethod, $paymentMethodOptions)) {
+            $selectedMethod = $defaultMethodKey;
+        }
+
+        $paymentAccountOptions = PaymentAccountMapper::accountOptionsFor($selectedMethod, false);
+        if (empty($paymentAccountOptions)) {
+            $paymentAccountOptions = PaymentAccountMapper::accountOptionsFor('default', false);
+        }
+        $defaultAccountKey = array_key_first($paymentAccountOptions) ?? null;
+        $selectedAccount = old('payment_account', $order->payment_account_key ?? $defaultAccountKey);
+        if ($selectedAccount && ! array_key_exists($selectedAccount, $paymentAccountOptions)) {
+            $selectedAccount = $defaultAccountKey;
+        }
+
+        $requiresPaymentDetails = $this->shouldCollectPaymentDetails($order);
+
         return view('admin-views.purchase.orders.show', [
             'order' => $order,
             'statusOptions' => $this->statusOptions(),
             'events' => $events,
+            'paymentMethodOptions' => $paymentMethodOptions,
+            'selectedPaymentMethod' => $selectedMethod,
+            'paymentAccountOptions' => $paymentAccountOptions,
+            'selectedPaymentAccount' => $selectedAccount,
+            'paymentAccountMatrix' => PaymentAccountMapper::methodAccountMatrixForJs(),
+            'requiresPaymentDetails' => $requiresPaymentDetails,
+            'payments' => $order->payments,
+            'outstandingAmount' => $outstandingAmount,
+            'canRecordPayment' => $canRecordPayment,
         ]);
     }
 
@@ -233,12 +271,67 @@ class PurchaseOrderController extends BaseController
     public function approve(PurchaseOrder $order, Request $request): RedirectResponse
     {
         $this->authorize('approve', $order);
-        $request->validate([
+        $order->loadMissing('approvals');
+
+        $requiresPayment = $this->shouldCollectPaymentDetails($order);
+        $outstandingAmount = $this->outstandingAmount($order);
+        $rules = [
             'comments' => ['nullable', 'string', 'max:500'],
-        ]);
+        ];
+
+        if ($requiresPayment) {
+            $allowedMethods = array_keys(PaymentAccountMapper::methodOptions(false));
+            if (empty($allowedMethods)) {
+                $allowedMethods = ['default'];
+            }
+            $rules['payment_method'] = ['required', Rule::in($allowedMethods)];
+            $rules['payment_account'] = ['required', 'string', 'max:191'];
+            $rules['payment_amount'] = ['required', 'numeric', 'min:0.01'];
+        }
+
+        $validated = $request->validate($rules);
+
+        $paymentDetails = [];
+        if ($requiresPayment) {
+            $selectedMethod = PaymentAccountMapper::normalizeMethod($validated['payment_method']);
+            $accountSelection = $validated['payment_account'];
+            $resolvedAccount = PaymentAccountMapper::resolveAccount($selectedMethod, $accountSelection);
+
+            if (! $resolvedAccount) {
+                return back()->withErrors([
+                    'payment_account' => translate('selected_payment_account_is_not_available_for_this_method'),
+                ])->withInput();
+            }
+
+            $financeAccountId = FinanceAccount::query()
+                ->where('code', $resolvedAccount['code'] ?? null)
+                ->value('id');
+
+            if (! $financeAccountId) {
+                return back()->withErrors([
+                    'payment_account' => translate('selected_payment_account_is_not_configured_in_chart_of_accounts'),
+                ])->withInput();
+            }
+
+            $paymentDetails = [
+                'method' => $selectedMethod,
+                'account_key' => $accountSelection,
+                'account_label' => $resolvedAccount['label'] ?? $accountSelection,
+                'account_code' => $resolvedAccount['code'] ?? null,
+                'finance_account_id' => $financeAccountId,
+                'paid_at' => now(),
+                'amount' => (float) $validated['payment_amount'],
+            ];
+
+            if ($paymentDetails['amount'] - $outstandingAmount > $this->paymentTolerance()) {
+                return back()->withErrors([
+                    'payment_amount' => translate('amount_exceeds_outstanding_balance'),
+                ])->withInput();
+            }
+        }
 
         try {
-            $this->workflow->approve($order, $request->input('comments'));
+            $this->workflow->approve($order, $validated['comments'] ?? null, $paymentDetails);
             Toastr::success(translate('purchase_order_approved'));
         } catch (ValidationException $exception) {
             return $this->validationErrorResponse($exception);
@@ -285,6 +378,75 @@ class PurchaseOrderController extends BaseController
         try {
             $this->workflow->close($order);
             Toastr::success(translate('purchase_order_closed'));
+        } catch (ValidationException $exception) {
+            return $this->validationErrorResponse($exception);
+        }
+
+        return back();
+    }
+
+    public function storePayment(PurchaseOrder $order, Request $request): RedirectResponse
+    {
+        $this->authorize('approve', $order);
+
+        if (! $this->canRecordPayment($order)) {
+            Toastr::warning(translate('purchase_order_payment_not_allowed_for_status'));
+            return back();
+        }
+
+        $outstandingAmount = $this->outstandingAmount($order);
+
+        $allowedMethods = array_keys(PaymentAccountMapper::methodOptions(false));
+        if (empty($allowedMethods)) {
+            $allowedMethods = ['default'];
+        }
+
+        $validated = $request->validate([
+            'payment_method' => ['required', Rule::in($allowedMethods)],
+            'payment_account' => ['required', 'string', 'max:191'],
+            'payment_amount' => ['required', 'numeric', 'min:0.01'],
+            'payment_note' => ['nullable', 'string', 'max:500'],
+        ]);
+
+        $selectedMethod = PaymentAccountMapper::normalizeMethod($validated['payment_method']);
+        $accountSelection = $validated['payment_account'];
+        $resolvedAccount = PaymentAccountMapper::resolveAccount($selectedMethod, $accountSelection);
+
+        if (! $resolvedAccount) {
+            return back()->withErrors([
+                'payment_account' => translate('selected_payment_account_is_not_available_for_this_method'),
+            ])->withInput();
+        }
+
+        $financeAccountId = FinanceAccount::query()
+            ->where('code', $resolvedAccount['code'] ?? null)
+            ->value('id');
+
+        if (! $financeAccountId) {
+            return back()->withErrors([
+                'payment_account' => translate('selected_payment_account_is_not_configured_in_chart_of_accounts'),
+            ])->withInput();
+        }
+
+        $amount = (float) $validated['payment_amount'];
+        if ($amount - $outstandingAmount > $this->paymentTolerance()) {
+            return back()->withErrors([
+                'payment_amount' => translate('amount_exceeds_outstanding_balance'),
+            ])->withInput();
+        }
+
+        try {
+            $this->workflow->capturePayment($order, [
+                'method' => $selectedMethod,
+                'account_key' => $accountSelection,
+                'account_label' => $resolvedAccount['label'] ?? $accountSelection,
+                'account_code' => $resolvedAccount['code'] ?? null,
+                'finance_account_id' => $financeAccountId,
+                'paid_at' => now(),
+                'amount' => $amount,
+                'notes' => $validated['payment_note'] ?? null,
+            ]);
+            Toastr::success(translate('purchase_order_payment_recorded'));
         } catch (ValidationException $exception) {
             return $this->validationErrorResponse($exception);
         }
@@ -421,6 +583,45 @@ class PurchaseOrderController extends BaseController
         }
 
         return back()->withErrors($exception->errors())->withInput();
+    }
+
+    private function shouldCollectPaymentDetails(PurchaseOrder $order): bool
+    {
+        if ($this->outstandingAmount($order) <= $this->paymentTolerance()) {
+            return false;
+        }
+
+        if ($order->status === PurchaseOrderWorkflowService::STATUS_PENDING_APPROVAL) {
+            $pendingSteps = $order->approvals?->where('status', 'pending')->count() ?? 0;
+            return $pendingSteps <= 1;
+        }
+
+        return $order->status === PurchaseOrderWorkflowService::STATUS_DRAFT;
+    }
+
+    private function outstandingAmount(PurchaseOrder $order): float
+    {
+        $paidTotal = (float) ($order->paid_total ?? 0);
+        $grandTotal = (float) ($order->grand_total ?? 0);
+
+        return max($grandTotal - $paidTotal, 0);
+    }
+
+    private function canRecordPayment(PurchaseOrder $order): bool
+    {
+        $allowedStatuses = [
+            PurchaseOrderWorkflowService::STATUS_APPROVED,
+            PurchaseOrderWorkflowService::STATUS_SENT,
+            PurchaseOrderWorkflowService::STATUS_ACKNOWLEDGED,
+        ];
+
+        return in_array($order->status, $allowedStatuses, true)
+            && $this->outstandingAmount($order) > $this->paymentTolerance();
+    }
+
+    private function paymentTolerance(): float
+    {
+        return 0.01;
     }
 
     private function currencyOptions(): array

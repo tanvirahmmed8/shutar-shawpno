@@ -3,14 +3,18 @@
 namespace App\Services\Purchase;
 
 use App\Jobs\Purchase\DispatchPurchaseOrderCommunication;
+use App\Models\Finance\FinanceJournal;
 use App\Models\Purchase\PurchaseApprovalRoute;
 use App\Models\Purchase\PurchaseEvent;
 use App\Models\Purchase\PurchaseOrder;
 use App\Models\Purchase\PurchaseOrderApproval;
 use App\Models\Purchase\PurchaseOrderCommunication;
 use App\Models\Purchase\PurchaseRequisition;
+use App\Models\Purchase\PurchaseOrderPayment;
+use App\Services\Finance\FinanceTransactionService;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -36,7 +40,10 @@ class PurchaseOrderWorkflowService
         self::STATUS_REJECTED,
     ];
 
-    public function __construct(private PurchaseOrderPdfBuilder $pdfBuilder)
+    public function __construct(
+        private PurchaseOrderPdfBuilder $pdfBuilder,
+        private FinanceTransactionService $financeTransactionService
+    )
     {
     }
 
@@ -171,7 +178,7 @@ class PurchaseOrderWorkflowService
         });
     }
 
-    public function approve(PurchaseOrder $order, ?string $comments = null, ?int $actorId = null): void
+    public function approve(PurchaseOrder $order, ?string $comments = null, array $payment = [], ?int $actorId = null): void
     {
         if (! in_array($order->status, [self::STATUS_PENDING_APPROVAL, self::STATUS_DRAFT], true)) {
             throw ValidationException::withMessages([
@@ -180,6 +187,7 @@ class PurchaseOrderWorkflowService
         }
 
         $actor = $actorId ?: auth('admin')->id();
+        $shouldRecordPayment = ! empty($payment);
 
         DB::transaction(function () use ($order, $comments, $actor) {
             $approval = $this->resolvePendingApproval($order, $actor);
@@ -198,6 +206,10 @@ class PurchaseOrderWorkflowService
                 $this->markApproved($order, $comments);
             }
         });
+
+        if ($shouldRecordPayment) {
+            $this->capturePayment($order->fresh(), $payment, $actor);
+        }
     }
 
     public function reject(PurchaseOrder $order, string $comments, ?int $actorId = null): void
@@ -408,6 +420,162 @@ class PurchaseOrderWorkflowService
             'status' => 'recorded',
             'dispatched_at' => now(),
         ]);
+    }
+
+    public function capturePayment(PurchaseOrder $order, array $payment, ?int $actorId = null): PurchaseOrderPayment
+    {
+        $amount = round((float) ($payment['amount'] ?? 0), 6);
+        if ($amount <= 0) {
+            throw ValidationException::withMessages([
+                'amount' => [__('purchase_order_payment_invalid_amount')],
+            ]);
+        }
+
+        $order->loadMissing('vendor');
+        $actor = $actorId ?: auth('admin')->id();
+
+        return DB::transaction(function () use ($order, $payment, $amount, $actor) {
+            $order->refresh();
+
+            $outstanding = $this->outstandingAmount($order);
+            if ($outstanding <= 0) {
+                throw ValidationException::withMessages([
+                    'amount' => [__('purchase_order_already_settled')],
+                ]);
+            }
+
+            if ($amount - $outstanding > $this->paymentTolerance()) {
+                throw ValidationException::withMessages([
+                    'amount' => [__('purchase_order_payment_exceeds_outstanding')],
+                ]);
+            }
+
+            $normalizedAmount = round(min($amount, $outstanding), 6);
+            $snapshot = [
+                'amount' => $normalizedAmount,
+                'currency' => $order->currency ?? config('finance_mappings.default_currency'),
+                'payment_method' => $payment['method'] ?? null,
+                'payment_account_key' => $payment['account_key'] ?? null,
+                'payment_account' => $payment['account_label'] ?? null,
+                'payment_account_code' => $payment['account_code'] ?? null,
+                'finance_account_id' => $payment['finance_account_id'] ?? null,
+                'paid_at' => $payment['paid_at'] ?? now(),
+                'paid_by' => $actor,
+                'notes' => $payment['notes'] ?? null,
+            ];
+
+            /** @var PurchaseOrderPayment $paymentRecord */
+            $paymentRecord = $order->payments()->create($snapshot);
+
+            $journal = $this->attemptPaymentJournal($order, $paymentRecord);
+            if ($journal) {
+                $paymentRecord->forceFill([
+                    'finance_journal_id' => $journal->id,
+                ])->save();
+            }
+
+            $this->syncPaymentState($order, $paymentRecord);
+
+            $this->logEvent($order->fresh(), 'po_payment_recorded', [
+                'payment_id' => $paymentRecord->id,
+                'amount' => round($paymentRecord->amount, 2),
+                'currency' => $paymentRecord->currency,
+                'payment_account_code' => $paymentRecord->payment_account_code,
+                'finance_journal_id' => $paymentRecord->finance_journal_id,
+            ]);
+
+            return $paymentRecord;
+        });
+    }
+
+    private function attemptPaymentJournal(PurchaseOrder $order, PurchaseOrderPayment $payment): ?FinanceJournal
+    {
+        $amount = round((float) $payment->amount, 6);
+        if ($amount <= 0 || empty($payment->finance_account_id) || empty($payment->payment_account_code)) {
+            return null;
+        }
+
+        $payload = [
+            'order_id' => $order->id,
+            'order_code' => $order->code,
+            'entry_date' => optional($payment->paid_at)->toDateString() ?? now()->toDateString(),
+            'currency' => $payment->currency ?? $order->currency ?? config('finance_mappings.default_currency'),
+            'totals' => [
+                'amount' => round($amount, 2),
+            ],
+            'meta' => [
+                'vendor_id' => $order->vendor_id,
+                'vendor_name' => $order->vendor?->display_name,
+                'payment_method' => $payment->payment_method,
+                'payment_account_code' => $payment->payment_account_code,
+            ],
+        ];
+
+        $context = [
+            'source_type' => 'purchase_order',
+            'source_id' => $order->id,
+            'source_reference' => $order->code,
+            'category' => 'purchases',
+            'payment_account_id' => $payment->finance_account_id,
+            'currency' => $payload['currency'],
+        ];
+
+        try {
+            return $this->financeTransactionService->record('purchase.order_payment', $payload, $context);
+        } catch (\Throwable $exception) {
+            Log::warning('purchase.order_payment_post_failed', [
+                'order_id' => $order->id,
+                'payment_id' => $payment->id,
+                'payment_account_code' => $payment->payment_account_code,
+                'message' => $exception->getMessage(),
+            ]);
+
+            return null;
+        }
+    }
+
+    private function syncPaymentState(PurchaseOrder $order, ?PurchaseOrderPayment $latestPayment = null): void
+    {
+        $paidTotal = round((float) $order->payments()->sum('amount'), 6);
+        $tolerance = $this->paymentTolerance();
+        $outstanding = max(round((float) $order->grand_total, 6) - $paidTotal, 0);
+
+        if (! $latestPayment) {
+            $latestPayment = $order->payments()->latest('paid_at')->first();
+        }
+
+        $status = 'unpaid';
+        if ($paidTotal <= $tolerance) {
+            $status = 'unpaid';
+        } elseif ($outstanding > $tolerance) {
+            $status = 'partial';
+        } else {
+            $status = 'paid';
+        }
+
+        $order->forceFill([
+            'paid_total' => $paidTotal,
+            'payment_status' => $status,
+            'paid_at' => $latestPayment?->paid_at,
+            'payment_method' => $latestPayment?->payment_method,
+            'payment_account_key' => $latestPayment?->payment_account_key,
+            'payment_account' => $latestPayment?->payment_account,
+            'payment_account_code' => $latestPayment?->payment_account_code,
+            'finance_journal_id' => $latestPayment?->finance_journal_id,
+        ])->save();
+    }
+
+    private function outstandingAmount(PurchaseOrder $order): float
+    {
+        $paidTotal = (float) ($order->paid_total ?? 0);
+        $grandTotal = (float) ($order->grand_total ?? 0);
+
+        return max(round($grandTotal - $paidTotal, 6), 0);
+    }
+
+    private function paymentTolerance(): float
+    {
+        return 0.01;
     }
 
     private function defaults(): array

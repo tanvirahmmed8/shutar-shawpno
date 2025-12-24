@@ -3,6 +3,7 @@
 namespace App\Models\Purchase;
 
 use App\Models\Admin;
+use App\Models\Finance\FinanceJournal;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,11 +25,16 @@ class PurchaseOrder extends Model
         'exchange_rate',
         'status',
         'payment_terms',
+        'payment_method',
+        'payment_account_key',
+        'payment_account',
+        'payment_account_code',
         'freight_cost',
         'tax_total',
         'subtotal',
         'discount_total',
         'grand_total',
+        'paid_total',
         'expected_delivery',
         'notes_internal',
         'notes_vendor',
@@ -38,6 +44,8 @@ class PurchaseOrder extends Model
         'last_receipt_at',
         'approved_at',
         'closed_at',
+        'finance_journal_id',
+        'payment_status',
         'created_by',
         'updated_by',
     ];
@@ -53,14 +61,17 @@ class PurchaseOrder extends Model
         'subtotal' => 'float',
         'discount_total' => 'float',
         'grand_total' => 'float',
+        'paid_total' => 'float',
         'received_percent' => 'float',
         'expected_delivery' => 'date',
         'sent_at' => 'datetime',
         'last_receipt_at' => 'datetime',
         'approved_at' => 'datetime',
         'closed_at' => 'datetime',
+        'paid_at' => 'datetime',
         'created_by' => 'integer',
         'updated_by' => 'integer',
+        'finance_journal_id' => 'integer',
     ];
 
     public function requisition(): BelongsTo
@@ -103,6 +114,11 @@ class PurchaseOrder extends Model
         return $this->hasMany(PurchaseOrderCommunication::class, 'order_id');
     }
 
+    public function payments(): HasMany
+    {
+        return $this->hasMany(PurchaseOrderPayment::class, 'purchase_order_id');
+    }
+
     public function documents(): MorphMany
     {
         return $this->morphMany(PurchaseDocument::class, 'documentable');
@@ -126,5 +142,10 @@ class PurchaseOrder extends Model
     public function invoices(): HasMany
     {
         return $this->hasMany(PurchaseInvoice::class, 'order_id');
+    }
+
+    public function financeJournal(): BelongsTo
+    {
+        return $this->belongsTo(\App\Models\Finance\FinanceJournal::class, 'finance_journal_id');
     }
 }

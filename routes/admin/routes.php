@@ -496,6 +496,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
         Route::post('orders/{order}/reject', [PurchaseOrderController::class, 'reject'])->name('orders.reject');
         Route::post('orders/{order}/acknowledge', [PurchaseOrderController::class, 'acknowledge'])->name('orders.acknowledge');
         Route::post('orders/{order}/close', [PurchaseOrderController::class, 'close'])->name('orders.close');
+        Route::post('orders/{order}/payments', [PurchaseOrderController::class, 'storePayment'])->name('orders.payments.store');
 
         Route::resource('grns', PurchaseGrnController::class);
         Route::post('grns/{grn}/submit', [PurchaseGrnController::class, 'submit'])->name('grns.submit');
