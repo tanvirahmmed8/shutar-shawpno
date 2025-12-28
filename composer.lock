@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18fdec6553a7caaac1f375e4fe5ee150",
+    "content-hash": "1ea27c300157722c39d12ec3d4fec3aa",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -4071,41 +4071,6 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.10.1"
             },
             "time": "2025-01-27T14:24:01+00:00"
-        },
-        {
-            "name": "laravelpkg/laravelchk",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sixamtech/laravelchk.git",
-                "reference": "4d88f6e0c5b4b5c6c3cfb305b1320288efb84708"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sixamtech/laravelchk/zipball/4d88f6e0c5b4b5c6c3cfb305b1320288efb84708",
-                "reference": "4d88f6e0c5b4b5c6c3cfb305b1320288efb84708",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Laravelpkg\\Laravelchk\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "support": {
-                "issues": "https://github.com/sixamtech/laravelchk/issues",
-                "source": "https://github.com/sixamtech/laravelchk/tree/master"
-            },
-            "time": "2022-12-07T04:23:58+00:00"
         },
         {
             "name": "lcobucci/clock",
@@ -14542,8 +14507,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "amirami/localizator": 15,
-        "laravelpkg/laravelchk": 20
+        "amirami/localizator": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,

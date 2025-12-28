@@ -184,7 +184,6 @@ return [
         App\Providers\MailConfigServiceProvider::class,
         \App\Providers\PaymentConfigProvider::class,
         \App\Providers\ConfigServiceProvider::class,
-        Laravelpkg\Laravelchk\LaravelchkServiceProvider::class,
         App\Providers\ThemeServiceProvider::class,
         /* for export excel */
         Maatwebsite\Excel\ExcelServiceProvider::class,
