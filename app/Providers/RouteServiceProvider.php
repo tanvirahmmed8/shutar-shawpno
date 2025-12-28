@@ -50,9 +50,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapApiv2Routes();
         $this->mapApiv3Routes();
 
-        //$this->mapInstallRoutes();
-        //$this->mapUpdateRoutes();
-
         $this->mapBetaAdminRoutes();
         $this->mapBetaVendorRoutes();
         $this->mapBetaWebRoutes();
@@ -66,19 +63,6 @@ class RouteServiceProvider extends ServiceProvider
      * @return void
      */
 
-    protected function mapInstallRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/install.php'));
-    }
-
-    protected function mapUpdateRoutes()
-    {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/update.php'));
-    }
 
     /**
      * Define the "api" routes for the application.
