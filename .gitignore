@@ -1,6 +1,7 @@
 yarn-error.log
 /node_modules
 /public/themes
+/public/themes.zip
 /public/storage
 /vendor
 /.vscode
