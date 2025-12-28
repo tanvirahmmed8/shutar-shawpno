@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/deliveryman.png')}}" width="20" alt="">
                 {{translate('update_Deliveryman')}}
             </h2>
         </div>
@@ -153,7 +153,7 @@
                                     <label for="user_password" class="title-color d-flex align-items-center">
                                         {{translate('password')}}
                                         <span class="input-label-secondary cursor-pointer d-flex" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
-                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}>
+                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}>
                                         </span>
                                     </label>
                                     <div class="input-group input-group-merge">
@@ -207,12 +207,12 @@
             </div>
         </div>
     </div>
-    <span id="coba-image" data-url="{{dynamicAsset(path: "public/assets/back-end/img/400x400/img2.jpg")}}"></span>
+    <span id="coba-image" data-url="{{dynamicAsset(path: "public/site-assets/back-end/img/400x400/img2.jpg")}}"></span>
     <span id="extension-error" data-text="{{ translate("please_only_input_png_or_jpg_type_file") }}"></span>
     <span id="size-error" data-text="{{ translate("file_size_too_big") }}"></span>
 @endsection
 
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deliveryman.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/deliveryman.js')}}"></script>
 @endpush

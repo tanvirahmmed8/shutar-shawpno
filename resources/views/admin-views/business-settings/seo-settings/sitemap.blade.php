@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/seo-settings.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/seo-settings.svg') }}" alt="">
                 {{ translate('SEO_Settings') }}
             </h2>
         </div>
@@ -22,7 +22,7 @@
             <div class="card-body">
                 <div class="mb-20px">
                     <div class="d-flex align-items-center gap-2 fs-12 p-3 rounded badge--info">
-                        <img src="{{ dynamicAsset('public/assets/back-end/img/idea.png')}}" alt="">
+                        <img src="{{ dynamicAsset('public/site-assets/back-end/img/idea.png')}}" alt="">
                         <div class="w-0 flex-grow">
                             {{ translate('a_sitemap_is_an_xml_file_that_contains_all_the_web_pages_of_a_website.') }}
                             {{ translate('here_we_list_and_organize_all_the_default_pages_in_a_hierarchical_structure_of_your_website_through_xml_sitemap.') }}
@@ -92,11 +92,11 @@
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
                                         <a class="{{env('APP_MODE')!='demo'? '' : 'call-demo' }}" href="{{env('APP_MODE')!='demo'? route('admin.seo-settings.sitemap-download', ['path' => base64_encode($siteMap['name'])]) : 'javascript:'}}">
-                                            <img src="{{ dynamicAsset('public/assets/back-end/img/download.png')}}" alt="" width="30">
+                                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/download.png')}}" alt="" width="30">
                                         </a>
 
                                         <a class="{{env('APP_MODE')!='demo'? '' : 'call-demo' }}" href="{{ env('APP_MODE')!='demo'? route('admin.seo-settings.sitemap-delete', ['path' => base64_encode($siteMap['name'])]) : 'javascript:'}}">
-                                            <img src="{{ dynamicAsset('public/assets/back-end/img/delete-outlined.png')}}" alt="" width="30">
+                                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/delete-outlined.png')}}" alt="" width="30">
                                         </a>
                                     </div>
                                 </td>

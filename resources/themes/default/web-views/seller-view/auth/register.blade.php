@@ -3,10 +3,10 @@
 @section('title', translate('vendor_Apply'))
 
 @push('css_or_js')
-<link href="{{theme_asset(path: 'public/assets/back-end/css/select2.min.css')}}" rel="stylesheet"/>
-<link href="{{theme_asset(path: 'public/assets/back-end/css/croppie.css')}}" rel="stylesheet">
+<link href="{{theme_asset(path: 'public/site-assets/back-end/css/select2.min.css')}}" rel="stylesheet"/>
+<link href="{{theme_asset(path: 'public/site-assets/back-end/css/croppie.css')}}" rel="stylesheet">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+<link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 
@@ -114,7 +114,7 @@
                 </div>
                 <div class="modal-body px-4 px-sm-5 pt-0">
                     <div class="d-flex flex-column align-items-center text-center gap-2 mb-2">
-                        <img src="{{theme_asset(path: 'public/assets/front-end/img/congratulations.png')}}" width="70" class="mb-3 mb-20" alt="">
+                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/congratulations.png')}}" width="70" class="mb-3 mb-20" alt="">
                         <h5 class="modal-title">{{translate('congratulations')}}</h5>
                         <div class="text-center">{{translate('your_registration_is_successful').', '.translate('please-wait_for_admin_approval').'.'.translate(' you_will_get_a_mail_soon')}}</div>
                     </div>
@@ -166,7 +166,7 @@
         @endif
     });
 </script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/vendor-registration.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/vendor-registration.js') }}"></script>
 @endpush

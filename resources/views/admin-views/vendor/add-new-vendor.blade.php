@@ -2,13 +2,13 @@
 
 @section('title', translate('add_new_Vendor'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 @section('content')
 <div class="content container-fluid main-card {{Session::get('direction')}}">
     <div class="mb-4">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" class="mb-1" alt="">
+            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" class="mb-1" alt="">
             {{ translate('add_new_Vendor') }}
         </h2>
     </div>
@@ -18,7 +18,7 @@
             <div class="card-body">
                 <input type="hidden" name="status" value="approved">
                 <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2 border-bottom pb-3 mb-4 pl-4">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" class="mb-1" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}" class="mb-1" alt="">
                     {{ translate('vendor_information') }}
                 </h5>
                 <div class="row align-items-center">
@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <div class="d-flex justify-content-center">
                                 <img class="upload-img-view" id="viewer"
-                                    src="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
+                                    src="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -67,7 +67,7 @@
             <div class="card-body">
                 <input type="hidden" name="status" value="approved">
                 <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2 border-bottom pb-3 mb-4 pl-4">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" class="mb-1" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}" class="mb-1" alt="">
                     {{translate('account_information')}}
                 </h5>
                 <div class="row">
@@ -79,7 +79,7 @@
                         <label for="user_password" class="title-color d-flex gap-1 align-items-center">
                             {{translate('password')}}
                             <span class="input-label-secondary cursor-pointer d-flex" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
-                                <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}>
+                                <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}>
                             </span>
                         </label>
                         <div class="input-group input-group-merge">
@@ -127,7 +127,7 @@
         <div class="card mt-3">
             <div class="card-body">
                 <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2 border-bottom pb-3 mb-4 pl-4">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" class="mb-1" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}" class="mb-1" alt="">
                     {{translate('shop_information')}}
                 </h5>
 
@@ -143,7 +143,7 @@
                     <div class="col-lg-6 form-group">
                         <div class="d-flex justify-content-center">
                             <img class="upload-img-view" id="viewerLogo"
-                                src="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
+                                src="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
                         </div>
 
                         <div class="mt-4">
@@ -163,7 +163,7 @@
                     <div class="col-lg-6 form-group">
                         <div class="d-flex justify-content-center">
                             <img class="upload-img-view upload-img-view__banner" id="viewerBanner"
-                                    src="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
+                                    src="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
                         </div>
                         <div class="mt-4">
                             <div class="d-flex gap-1 align-items-center title-color mb-2">
@@ -184,7 +184,7 @@
                     <div class="col-lg-6 form-group">
                         <div class="d-flex justify-content-center">
                             <img class="upload-img-view upload-img-view__banner" id="viewerBottomBanner"
-                                    src="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
+                                    src="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('banner_image')}}"/>
                         </div>
 
                         <div class="mt-4">
@@ -218,7 +218,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/vendor.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/vendor.js')}}"></script>
 @endpush

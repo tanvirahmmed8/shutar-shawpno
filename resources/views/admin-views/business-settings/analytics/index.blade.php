@@ -1,13 +1,13 @@
 @extends('layouts.back-end.app')
 @section('title', translate('analytics_Script'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css') }}" />
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css') }}" />
 @endpush
 @section('content')
     <div class="content container-fluid">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/marketing-tool-icon.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/marketing-tool-icon.svg') }}" alt="">
                 {{ translate('Marketing_Tool') }}
             </h2>
 
@@ -165,7 +165,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const toggleSwitches = document.querySelectorAll('.toggle-switch-with-text .toggle-switch-input');

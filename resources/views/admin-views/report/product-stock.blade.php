@@ -9,7 +9,7 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/seller_sale.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/seller_sale.png')}}" alt="">
                 {{translate('product_Report')}}
             </h2>
         </div>
@@ -86,7 +86,7 @@
                     </form>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{ route('admin.stock.product-stock-export', ['sort' => request('sort'), 'category_id' => request('category_id'), 'seller_id' => request('seller_id'), 'search' => request('search')]) }}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>

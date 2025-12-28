@@ -15,8 +15,8 @@
     <meta property="twitter:description"
           content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
-    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -54,7 +54,7 @@
                         @if($isDigitalProductExist != 0)
                             @if($isDigitalProductReadyCount == 0)
                                 <div class="rounded px-3 py-3 fs-15 text-base font-weight-medium custom-light-primary-color mb-3 d-flex align-items-center gap-3">
-                                    <img src="{{ theme_asset('public/assets/front-end/img/icons/info-light.svg') }}" alt="" class="px-2">
+                                    <img src="{{ theme_asset('public/site-assets/front-end/img/icons/info-light.svg') }}" alt="" class="px-2">
                                     <span>
                                         {{ translate('your_digital_product_is_ready.') }}
                                             {{ translate('once_the_seller_has_uploaded_the_product__you_will_be_able_to_download_here_by_using_your_order_info.') }}
@@ -93,11 +93,11 @@
                                                     ?>
                                                     @if ($fileExist)
                                                         <span class="btn p-0 getDownloadFileUsingFileUrl" data-toggle="tooltip" title="{{ translate('download') }}" data-file-path="{{ $filePath }}">
-                                                            <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/download-green.svg') }}" alt="">
+                                                            <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/download-green.svg') }}" alt="">
                                                         </span>
                                                     @else
                                                         <a class="btn p-0" data-toggle="tooltip" title="{{ translate('File_not_found') }}" href="javascript:" disabled>
-                                                            <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/download-green.svg') }}" alt="">
+                                                            <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/download-green.svg') }}" alt="">
                                                         </a>
                                                     @endif
                                                 @elseif($productDetails['digital_product_type'] == 'ready_after_sell')
@@ -109,11 +109,11 @@
                                                             $fileExist = $checkFilePath['status'] == 200;
                                                         ?>
                                                         <span class="btn p-0 getDownloadFileUsingFileUrl" data-toggle="tooltip" title="{{ translate('download') }}" data-file-path="{{ $filePath }}">
-                                                            <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/download-green.svg') }}" alt="">
+                                                            <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/download-green.svg') }}" alt="">
                                                         </span>
                                                     @else
                                                         <a class="btn p-0" href="javascript:" data-toggle="tooltip" title="{{ translate('product_not_uploaded_yet') }}" disabled>
-                                                            <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/download-green.svg') }}" alt="">
+                                                            <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/download-green.svg') }}" alt="">
                                                         </a>
                                                     @endif
                                                 @endif
@@ -125,7 +125,7 @@
                             @endif
                         @else
                             <div class="rounded px-3 py-3 fs-15 text-base font-weight-medium custom-light-primary-color mb-3 d-flex align-items-center gap-3">
-                                <img src="{{ theme_asset('public/assets/front-end/img/icons/info-light.svg') }}" alt="" class="px-2">
+                                <img src="{{ theme_asset('public/site-assets/front-end/img/icons/info-light.svg') }}" alt="" class="px-2">
                                 <span>
                                     {{ translate('you_have_no_digital_products_in_your_order') }}
                                 </span>

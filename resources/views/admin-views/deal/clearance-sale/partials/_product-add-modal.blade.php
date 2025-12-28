@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="p-4 bg-chat rounded text-center mt-3 search-and-add-product">
-                        <img src="{{ dynamicAsset('public/assets/back-end/img/empty-product.png') }}" width="64"
+                        <img src="{{ dynamicAsset('public/site-assets/back-end/img/empty-product.png') }}" width="64"
                              alt="">
                         <div class="mx-auto my-3 max-w-353px">
                             {{ translate('search') }} & {{ translate('and_add_product_from_the_list') }}

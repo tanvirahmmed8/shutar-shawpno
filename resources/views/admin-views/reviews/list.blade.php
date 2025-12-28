@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/customer_review.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/customer_review.png')}}" alt="">
                 {{translate('customer_reviews')}}
                 <span class="badge badge-soft-dark radius-50 fz-12">{{ $reviews->total() }}</span>
             </h2>
@@ -106,7 +106,7 @@
                 </form>
                 <div class="dropdown">
                     <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{ route('admin.reviews.export', ['search'=>request('search'), 'product_id' => $product_id, 'customer_id' => $customer_id, 'status' => $status, 'from' => $from, 'to' => $to]) }}">
-                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                         <span class="ps-2">{{ translate('export') }}</span>
                     </a>
                 </div>
@@ -427,5 +427,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/search-product.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/search-product.js')}}"></script>
 @endpush

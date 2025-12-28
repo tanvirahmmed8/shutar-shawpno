@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png') }}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -25,7 +25,7 @@
                             <span class="title-color text-capitalize">
                                 {{translate('local_system')}}
                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('enabling_the_option_will_ensure_that_all_uploaded_files_are_saved_to_your_local_storage') }}">
-                                    <img width="16" src="{{dynamicAsset('public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                    <img width="16" src="{{dynamicAsset('public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                 </span>
                             </span>
 
@@ -54,7 +54,7 @@
                             <span class="title-color">
                                 {{ translate('3rd_Party_Storage') }}
                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('enabling_the_option_will_ensure_that_all_uploaded_files_are_saved_to_your_3rd_party_s3_storage.') }}">
-                                    <img width="16" src="{{dynamicAsset('public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                    <img width="16" src="{{dynamicAsset('public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                 </span>
                             </span>
 

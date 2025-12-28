@@ -7,7 +7,7 @@
 <div class="content container-fluid">
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/subscribers.png')}}" width="20" alt="">
+            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/subscribers.png')}}" width="20" alt="">
             {{translate('subscriber_list')}}
             <span class="badge badge-soft-dark radius-50 fz-14 ml-1">{{ $totalSubscribers }}</span>
         </h2>
@@ -72,7 +72,7 @@
                     </form>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{route('admin.customer.subscriber-list.export', ['sort_by' => request('sort_by'), 'choose_first' => request('choose_first'), 'subscription_date' => request('subscription_date'), 'searchValue' => request('searchValue')])}}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>

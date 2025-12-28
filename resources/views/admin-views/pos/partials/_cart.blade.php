@@ -25,7 +25,7 @@
                                             {{Str::limit($item['name'], 12)}}
                                             @if($item['tax_model'] == 'include')
                                                 <span class="ml-2" data-toggle="tooltip" data-placement="top" title="{{ translate('tax_included') }}">
-                                                    <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}" alt="img">
+                                                    <img class="info-img" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}" alt="img">
                                                 </span>
                                             @endif
                                         </h5>
@@ -46,7 +46,7 @@
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <a href="javascript:" data-id="{{$item['id']}}" data-variant ="{{$item['variant']}}" class="btn btn-sm rounded-circle remove-from-cart">
-                                        <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/pos-delete-icon.svg') }}" alt="">
+                                        <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/pos-delete-icon.svg') }}" alt="">
                                     </a>
                                 </div>
                             </td>

@@ -278,7 +278,7 @@ if ($order->is_guest) {
                         @foreach ($socialMedia as $item)
                             <div>
                                 <a href="{{$item->link}}" target=”_blank”>
-                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/'.$item->name.'.png') }}" alt=""
+                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/'.$item->name.'.png') }}" alt=""
                                          class="h-50px width-50px m-10px">
                                 </a>
                             </div>

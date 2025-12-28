@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ translate('Password Reset') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/email-basic.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/email-basic.css') }}">
 </head>
 <body>
 <?php

@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/seo-settings.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/seo-settings.svg') }}" alt="">
                 {{ translate('SEO_Settings') }}
             </h2>
         </div>
@@ -40,10 +40,10 @@
                 </div>
                 <div>
                     <button class="btn btn-sm btn-outline--primary" data-toggle="modal" data-target="#page-add-modal" type="button">
-                        <img src="{{ dynamicAsset('public/assets/back-end/img/add-btn.png')}}" alt="">
+                        <img src="{{ dynamicAsset('public/site-assets/back-end/img/add-btn.png')}}" alt="">
                         <span class="txt">{{ translate('Add_Page') }}</span>
                         <span data-toggle="tooltip" title="{{ translate('fetch_static_page_to_edit_the_meta_content') }}">
-                            <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}" alt="">
+                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}" alt="">
                         </span>
                     </button>
                 </div>

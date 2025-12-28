@@ -23,7 +23,7 @@
                              src="{{getStorageImages(path:$shop->image_full_url,type:'backend-logo')}}" alt="{{translate('logo')}}">
                     @else
                         <img class="navbar-brand-logo-mini for-seller-logo"
-                             src="{{dynamicAsset(path: 'public/assets/back-end/img/900x400/img1.jpg')}}"
+                             src="{{dynamicAsset(path: 'public/site-assets/back-end/img/900x400/img1.jpg')}}"
                              alt="{{translate('logo')}}">
                     @endif
                 </a>

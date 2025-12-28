@@ -18,7 +18,7 @@
 @section('content')
     <div class="fashion-categories-page container rtl __inline-52 text-align-direction">
 
-        <div class="fashion-categories-hero bg-primary-light rounded-10 my-4 p-3 p-sm-4" data-bg-img="{{ theme_asset(path: 'public/assets/front-end/img/media/bg.png') }}">
+        <div class="fashion-categories-hero bg-primary-light rounded-10 my-4 p-3 p-sm-4" data-bg-img="{{ theme_asset(path: 'public/site-assets/front-end/img/media/bg.png') }}">
              <div class="fashion-categories-hero-content d-flex flex-wrap justify-content-between align-items-center gap-3">
                 <div class="fashion-categories-intro d-flex flex-column gap-1">
                     <h1 class="fashion-categories-title mb-0 text-start fw-bold text-uppercase">
@@ -59,5 +59,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('public/assets/front-end/js/categories.js') }}"></script>
+    <script src="{{ asset('public/site-assets/front-end/js/categories.js') }}"></script>
 @endpush

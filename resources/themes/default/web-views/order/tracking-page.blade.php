@@ -11,7 +11,7 @@
     <meta property="twitter:title" content="{{$web_config['company_name']}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
-    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
+    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
 @endpush
 
 @section('content')
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="mt-5 pt-md-5 mx-auto text-center max-width-350px">
-                            <img class="mb-2" src="{{theme_asset(path: 'public/assets/front-end/img/track-truck.svg')}}" alt="">
+                            <img class="mb-2" src="{{theme_asset(path: 'public/site-assets/front-end/img/track-truck.svg')}}" alt="">
                             <div class="opacity-50">
                                 {{translate('enter_your_order_ID_&_phone_number_to_get_delivery_updates')}}
                             </div>
@@ -64,5 +64,5 @@
 
 
 @push('script')
-    <script src="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
+    <script src="{{theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
 @endpush

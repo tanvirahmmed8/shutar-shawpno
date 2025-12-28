@@ -2,14 +2,14 @@
 @section('title', translate('order_List'))
 
 @push('css_or_js')
-    <link href="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/all-orders.png') }}" class="mb-1 mr-1" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/all-orders.png') }}" class="mb-1 mr-1" alt="">
                 <span class="page-header-title">
                     @if($status =='processing')
                         {{translate('packaging')}}
@@ -145,7 +145,7 @@
                             </form>
                             <div class="dropdown">
                                 <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('vendor.orders.export-excel', ['delivery_man_id' => request('delivery_man_id'), 'status' => $status, 'from' => $from, 'to' => $to, 'filter' => $filter, 'searchValue' => $searchValue,'seller_id'=>$vendorId,'customer_id'=>$customerId, 'date_type'=>$dateType]) }}">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                     <span class="ps-2">{{ translate('export') }}</span>
                                 </a>
                             </div>
@@ -283,7 +283,7 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/order.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/order.js')}}"></script>
 @endpush

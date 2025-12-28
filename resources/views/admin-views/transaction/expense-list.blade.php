@@ -5,7 +5,7 @@
     <div class="content container-fluid ">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/order_report.png')}}" alt="">
                 {{translate('transaction_report')}}
             </h2>
         </div>
@@ -52,35 +52,35 @@
         <div class="store-report-content mb-2">
             <div class="left-content expense--content">
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/expense.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/expense.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total_expense), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">
                             <span>{{translate('total_Expense')}}</span>
                             <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                   title="{{translate('free_delivery')}}, {{translate('coupon_discount_will_be_shown_here')}}">
-                                <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                <img class="info-img" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                      alt="img">
                             </span>
                         </h6>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/free-delivery.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/free-delivery.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $free_delivery), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">{{translate('free_Delivery')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon-discount.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/coupon-discount.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $coupon_discount), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">
                             <span>{{translate('coupon_Discount')}}</span>
                             <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                   title="{{translate('discount_on_purchase_and_first_delivery_coupon_amount_will_be_shown_here')}}">
-                                <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                <img class="info-img" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                      alt="img">
                             </span>
                         </h6>
@@ -130,7 +130,7 @@
                     </div>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.transaction.expense-transaction-export-excel', ['search'=>request('search'), 'date_type'=>request('date_type'), 'from'=>request('from'), 'to'=>request('to')]) }}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>
@@ -194,7 +194,7 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts-data-show.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/expense-report.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts-data-show.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/expense-report.js') }}"></script>
 @endpush

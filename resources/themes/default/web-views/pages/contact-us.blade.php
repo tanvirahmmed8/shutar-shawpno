@@ -3,7 +3,7 @@
 @section('title',translate('contact_us'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -19,7 +19,7 @@
     <div class="container rtl text-align-direction">
         <div class="row no-gutters py-5">
             <div class="col-lg-6 iframe-full-height-wrap ">
-                <img class="for-contact-image" src="{{theme_asset(path: "public/assets/front-end/png/contact.png")}}" alt="">
+                <img class="for-contact-image" src="{{theme_asset(path: "public/site-assets/front-end/png/contact.png")}}" alt="">
             </div>
             <div class="col-lg-6">
                 <div class="card">
@@ -128,7 +128,7 @@
     </script>
 @endif
 
-<script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
 @endpush
 

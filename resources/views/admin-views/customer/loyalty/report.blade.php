@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/loyalty_point.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/loyalty_point.png')}}" alt="">
                 {{translate('customer_loyalty_point_report')}}
             </h2>
         </div>
@@ -115,7 +115,7 @@
                 <div class="d-flex justify-content-end">
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{route('admin.customer.loyalty.export',['transaction_type'=>$transaction_status,'customer_id'=>request('customer_id'),'to'=>request('to'),'from'=>request('from')])}}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>

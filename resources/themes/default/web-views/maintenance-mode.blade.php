@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $web_config['fav_icon']['path']}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ $web_config['fav_icon']['path'] }}">
-    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/assets/front-end/css/theme.css')}}">
+    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/site-assets/front-end/css/theme.css')}}">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <div class="min-vh-100 row justify-content-between align-items-center maintenance-mode-container">
         <div class="col-12">
             <div class="text-center">
-                <img class="object-fit-contain height-300px" src="{{ theme_asset(path: 'public/assets/front-end/img/maintenance-mode-icon.png') }}" alt="{{ translate('maintenance') }}">
+                <img class="object-fit-contain height-300px" src="{{ theme_asset(path: 'public/site-assets/front-end/img/maintenance-mode-icon.png') }}" alt="{{ translate('maintenance') }}">
             </div>
             <div class="text-center mt-2 mt-lg-3">
                 @if($maintenanceMessages['maintenance_message'])
@@ -61,8 +61,8 @@
 
 </div>
 
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/jquery/dist/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/theme.js')}}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/jquery/dist/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/theme.js')}}"></script>
 </body>
 
 </html>

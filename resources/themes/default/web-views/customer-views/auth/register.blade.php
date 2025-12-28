@@ -3,7 +3,7 @@
 @section('title',  translate('register'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -170,7 +170,7 @@
                                 @foreach ($web_config['customer_social_login_options'] as $socialLoginServiceKey => $socialLoginService)
                                     @if ($socialLoginService && $socialLoginServiceKey != 'apple')
                                         <a class="d-block" href="{{ route('customer.auth.service-login', $socialLoginServiceKey) }}">
-                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/'.$socialLoginServiceKey.'.png') }}" alt="{{ translate($socialLoginServiceKey) }}">
+                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/'.$socialLoginServiceKey.'.png') }}" alt="{{ translate($socialLoginServiceKey) }}">
                                         </a>
                                     @endif
                                 @endforeach
@@ -206,6 +206,6 @@
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
     @endif
 
-    <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
 @endpush

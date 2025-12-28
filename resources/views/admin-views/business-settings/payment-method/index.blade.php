@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -42,7 +42,7 @@
                                     if ($additional_data != null) {
                                         $img_path = $additional_data->gateway_image ? dynamicStorage(path: 'storage/app/public/payment_modules/gateway_image/'.$additional_data->gateway_image) : '';
                                     }else{
-                                        $img_path = dynamicAsset(path: 'public/assets/back-end/img/modal/payment-methods/'.$gateway->key_name.'.png');
+                                        $img_path = dynamicAsset(path: 'public/site-assets/back-end/img/modal/payment-methods/'.$gateway->key_name.'.png');
                                     }
                                 ?>
 
@@ -143,9 +143,9 @@
                                     <div class="d-flex flex-column align-items-center text-center gap-2 mb-2">
                                         <div class="toggle-modal-img-box d-flex flex-column justify-content-center align-items-center mb-3 position-relative">
                                             @if($gateway['is_active'] == 1)
-                                                <img src="{{ getValidImage(path: 'payment-gateway-off.png', type: 'banner', source: asset('public/assets/back-end/img/modal/payment-gateway-off.png')) }}" class="status-icon"  alt="" width="80"/>
+                                                <img src="{{ getValidImage(path: 'payment-gateway-off.png', type: 'banner', source: asset('public/site-assets/back-end/img/modal/payment-gateway-off.png')) }}" class="status-icon"  alt="" width="80"/>
                                             @else
-                                                <img src="{{ getValidImage(path: 'payment-gateway-on.png', type: 'banner', source: asset('public/assets/back-end/img/modal/payment-gateway-on.png')) }}" class="status-icon"  alt="" width="80"/>
+                                                <img src="{{ getValidImage(path: 'payment-gateway-on.png', type: 'banner', source: asset('public/site-assets/back-end/img/modal/payment-gateway-on.png')) }}" class="status-icon"  alt="" width="80"/>
                                             @endif
                                             <img src="" alt="" />
                                         </div>

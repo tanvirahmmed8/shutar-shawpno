@@ -15,7 +15,7 @@
                                 <div class="">
                                     <div class="d-flex justify-content-center mb-5">
                                         <img height="60"
-                                             src="{{ dynamicAsset(path: 'public/assets/back-end/img/svg/facebook.svg') }}"
+                                             src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/svg/facebook.svg') }}"
                                              loading="lazy" alt="">
                                     </div>
                                     <div class="text-start title-color mb-3">

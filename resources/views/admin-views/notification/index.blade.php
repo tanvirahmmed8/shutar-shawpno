@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/push_notification.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/push_notification.png')}}" alt="">
                 {{translate('send_notification')}}
             </h2>
         </div>
@@ -40,7 +40,7 @@
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">
                                             <img class="upload-img-view mb-4" id="viewer"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/900x400/img1.jpg')}}"
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/900x400/img1.jpg')}}"
                                                  alt="{{translate('image')}}"/>
                                         </div>
                                         <label
@@ -191,5 +191,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/notification.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/notification.js')}}"></script>
 @endpush

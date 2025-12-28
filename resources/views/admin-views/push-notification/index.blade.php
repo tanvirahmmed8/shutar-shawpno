@@ -7,7 +7,7 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/push-notification.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/push-notification.png')}}" alt="">
                 {{translate('push_notification_setup')}}
             </h2>
         </div>
@@ -243,7 +243,7 @@
                 <div class="modal-body px-4 px-sm-5 pt-0">
                     <div class="d-flex flex-column gap-2">
                         <div class="text-center mb-1">
-                            <img width="80" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/notice.png')}}"
+                            <img width="80" class="mb-4" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/notice.png')}}"
                                  loading="lazy" alt="">
                             <h4 class="lh-md text-capitalize">{{translate('important_notice')}}!</h4>
                         </div>
@@ -271,6 +271,6 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/notification.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/notification.js')}}"></script>
 @endpush
 

@@ -7,7 +7,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -49,7 +49,7 @@
 
                                 <div  class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                                     <div class="d-flex align-items-center gap-2 mb-3">
-                                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/note.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/note.png')}}" alt="">
                                         <h5 class="text-primary mb-0">{{translate('note')}}</h5>
                                     </div>
                                     <p class="title-color font-weight-medium mb-0">{{ translate('without_configuring_this_section_map_functionality_will_not_work_properly').' '.translate('thus_the_whole_system_will_not_work_as_it_planned')}}</p>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="mt-2 mb-4 tanvirsoft-alert">
-                        <img width="16" class="mt-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                        <img width="16" class="mt-1" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                              alt="">
                         <p class="mb-0">
                             <strong>{{translate('NB').':'}}</strong>

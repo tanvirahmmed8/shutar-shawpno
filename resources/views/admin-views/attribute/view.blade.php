@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/attribute.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/attribute.png') }}" alt="">
                 {{ translate('attribute_Setup') }}
             </h2>
         </div>
@@ -135,5 +135,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/products-management.js') }}"></script>
 @endpush

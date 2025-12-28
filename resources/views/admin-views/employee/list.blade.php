@@ -7,7 +7,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <div>
                 <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/employee.png')}}" width="20" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/employee.png')}}" width="20" alt="">
                     {{translate('employee_list')}}
                 </h2>
                 <p class="text-muted mb-0">{{translate('track_admin_users_roles_and_access_from_one_place')}}</p>
@@ -67,7 +67,7 @@
                     <div class="col-xl-3 col-lg-12 d-flex justify-content-xl-end gap-2">
                         <a type="button" class="btn btn-outline--primary w-100 text-nowrap"
                            href="{{route('admin.employee.export',['role'=>request('admin_role_id'),'searchValue'=>request('searchValue')])}}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>

@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/seller-reports.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/seller-reports.png')}}" alt="">
                 {{translate('vendor_Reports')}}
             </h2>
         </div>
@@ -76,14 +76,14 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/products.svg')}}" alt="back-end/img">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/products.svg')}}" alt="back-end/img">
                     <div class="info">
                         <h4 class="subtitle">{{ $total_product }}</h4>
                         <h6 class="subtext">{{translate('products')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="back-end/img">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/cart.svg')}}" alt="back-end/img">
                     <div class="info">
                         <h4 class="subtitle">{{ $canceled_order+$ongoing_order+$delivered_order }}</h4>
                         <h6 class="subtext">{{translate('total_Orders')}}</h6>
@@ -96,7 +96,7 @@
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('this_count_is_the_summation_of')}} {{translate('failed_to_deliver')}}, {{translate('canceled')}}, {{translate('and')}} {{translate('returned_orders')}}">
                                     <img class="info-img"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                          alt="img">
                                 </span>
                             </div>
@@ -108,7 +108,7 @@
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('this_count_is_the_summation_of')}} {{translate('pending')}}, {{translate('confirmed')}}, {{translate('packaging')}}, {{translate('out_for_delivery_orders')}}">
                                     <img class="info-img"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                          alt="img">
                                 </span>
                             </div>
@@ -120,7 +120,7 @@
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('this_count_is_the_summation_of_delivered_orders')}}">
                                     <img class="info-img"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                          alt="img">
                                 </span>
                             </div>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.svg')}}" alt="back-end/img">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/deliveryman.svg')}}" alt="back-end/img">
                     <div class="info">
                         <h4 class="subtitle">
                             {{ $deliveryman }}
@@ -147,7 +147,7 @@
                 <div class="card h-100 bg-white payment-statistics-shadow">
                     <div class="card-body d-flex flex-column justify-content-center">
                         <div class="earning-statistics-content">
-                            <img class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/earnings.svg')}}"
+                            <img class="mb-4" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/earnings.svg')}}"
                                  alt="back-end/img">
                             <h6 class="subtitle">{{translate('total_Shop_Earnings')}}</h6>
                             <h3 class="title">
@@ -185,7 +185,7 @@
                     </form>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.report.vendor-report-export', ['date_type'=>request('date_type'), 'seller_id'=>request('seller_id'),'from'=>request('from'), 'to'=>request('to'), 'search'=>request('search')]) }}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>
@@ -279,7 +279,7 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts-data-show.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/seller-earning-report.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts-data-show.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/seller-earning-report.js') }}"></script>
 @endpush

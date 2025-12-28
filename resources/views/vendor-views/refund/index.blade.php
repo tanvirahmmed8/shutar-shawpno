@@ -9,7 +9,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
                 <div class="">
                     <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-request-list.png')}}" alt="">
+                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-request-list.png')}}" alt="">
                         {{translate('refund_request_list')}}
                         <span class="badge badge-soft-dark radius-50">{{$refundList->total()}}</span>
                     </h2>
@@ -41,7 +41,7 @@
                         <div class="d-flex gap-3 justify-content-md-end">
                             <div class="dropdown">
                                 <a type="button" class="btn btn-outline--primary text-nowrap" href="{{route('vendor.refund.export',['status'=>request('status'),'search'=>request('search')])}}">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                     <span class="ps-2">{{ translate('export') }}</span>
                                 </a>
                             </div>

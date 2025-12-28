@@ -1,7 +1,7 @@
 @extends('layouts.back-end.app')
 
 @push('css_or_js')
-    <link href="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -9,7 +9,7 @@
     <div class="content container-fluid __inline-6">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery.png')}}" alt="">
                 {{translate('shipping_Method_by_Vendor')}}
             </h2>
         </div>
@@ -89,8 +89,8 @@
 
 @push('script')
     <!-- Page level plugins -->
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <!-- Page level custom scripts -->
 
 

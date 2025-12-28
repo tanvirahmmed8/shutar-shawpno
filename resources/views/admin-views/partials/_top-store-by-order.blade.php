@@ -1,6 +1,6 @@
 <div class="card-header gap-10">
     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/most-popular-store-icon.png')}}" alt="">
+        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/most-popular-store-icon.png')}}" alt="">
         {{translate('most_Popular_Stores')}}
     </h4>
 </div>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="d-flex align-items-center gap-2">
                             <h5 class="shop-sell c2">{{$item['count']}}</h5>
-                            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/love.png')}}" alt="">
+                            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/love.png')}}" alt="">
                         </div>
                     </a>
                 @endif
@@ -27,7 +27,7 @@
     @else
         <div class="text-center">
             <p class="text-muted">{{translate('no_Top_Selling_Products')}}</p>
-            <img class="w-75" src="{{dynamicAsset(path: 'public/assets/back-end/img/no-data.png')}}" alt="">
+            <img class="w-75" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/no-data.png')}}" alt="">
         </div>
     @endif
 </div>

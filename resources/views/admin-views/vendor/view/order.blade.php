@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                 {{translate('vendor_Details')}}
             </h2>
         </div>
@@ -91,7 +91,7 @@ use Illuminate\Support\Facades\Session;
                                     <h5 class="mb-0">{{translate('order_info')}}</h5>
                                     <div class="dropdown">
                                         <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{route('admin.vendors.order-list-export',[$seller['id'],'searchValue' => request('searchValue')])}}">
-                                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                             <span class="ps-2">{{ translate('export') }}</span>
                                         </a>
                                     </div>
@@ -229,7 +229,7 @@ use Illuminate\Support\Facades\Session;
                                                     <a title="{{translate('view')}}"
                                                        class="btn btn-outline--primary square-btn btn-sm mr-1"
                                                        href="{{route('admin.vendors.order-details',['order_id'=>$order['id'],'vendor_id'=>$order['seller_id']])}}">
-                                                        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/eye.svg')}}"
+                                                        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/eye.svg')}}"
                                                              class="svg" alt="">
                                                     </a>
 

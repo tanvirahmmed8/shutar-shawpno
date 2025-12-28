@@ -7,7 +7,7 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/inhouse-product-list.png') }}" alt="">
                 {{ translate($type=='new-request'?'pending_for_approval_products':($type=='approved'?'approved_products':'product_list')) }}
                 <span class="badge badge-soft-dark radius-50 fz-14 ml-1">
                     {{ $products->total() }}
@@ -123,7 +123,7 @@
                             <div class="col-lg-8 mt-3 mt-lg-0 d-flex flex-wrap gap-3 justify-content-lg-end">
                                 <div class="dropdown">
                                     <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('vendor.products.export-excel', ['type'=>$type,'brand_id'=>request('brand_id'),'category_id'=>request('category_id'),'sub_category_id'=>request('sub_category_id'),'sub_sub_category_id'=>request('sub_sub_category_id'),'searchValue'=>request('searchValue')]) }}">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                         <span class="ps-2">{{ translate('export') }}</span>
                                     </a>
                                 </div>

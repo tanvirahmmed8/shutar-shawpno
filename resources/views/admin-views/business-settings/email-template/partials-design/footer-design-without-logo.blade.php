@@ -26,12 +26,12 @@
         @foreach($socialMedia as $key=>$media)
             @if(!empty($template['social_media']))
                 <a class="{{$media['name']}} {{in_array($media['name'],$template['social_media']) ? '' : 'd-none'}}" href="{{$media['link']}}" target="_blank">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/'.$media['name'].'.png') }}"
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/'.$media['name'].'.png') }}"
                          width="16" alt="">
                 </a>
             @else
                 <a class="{{$media['name']}}" href="{{$media['link']}}" target="_blank">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/'.$media['name'].'.png') }}"
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/'.$media['name'].'.png') }}"
                          width="16" alt="">
                 </a>
             @endif

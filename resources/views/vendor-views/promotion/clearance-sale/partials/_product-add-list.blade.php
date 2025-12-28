@@ -77,7 +77,7 @@
         <div class="card-body">
             <div class="p-4 bg-chat rounded text-center">
                 <div class="py-5">
-                    <img src="{{ dynamicAsset('public/assets/back-end/img/empty-product.png') }}" width="64"
+                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/empty-product.png') }}" width="64"
                          alt="">
                     <div class="mx-auto my-3 max-w-353px">
                         {{ translate('add_product_show_in_the_clearance_offer_section_in_customer_app_and_website') }}
@@ -200,7 +200,7 @@
                                                 {{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $clearanceProduct?->product?->unit_price), currencyCode: getCurrencyCode()) }}
                                             </span>
                                         <span class="cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{ translate('Your_products_unit_price_is_lower_then_offer_price') }}">
-                                                <img src="{{ dynamicAsset('public/assets/back-end/img/icons/clearance-product-warning.svg') }}" alt="">
+                                                <img src="{{ dynamicAsset('public/site-assets/back-end/img/icons/clearance-product-warning.svg') }}" alt="">
                                             </span>
                                     </div>
                                 @else

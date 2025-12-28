@@ -7,7 +7,7 @@
         <div class="mb-3">
             <div class="page-title-wrap d-flex justify-content-between flex-wrap align-items-center gap-3 mb-3">
                 <h2 class="page-title text-capitalize">
-                    <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+                    <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/withdraw-icon.png')}}" alt="">
                     {{translate('withdrawal_methods')}}
                 </h2>
                 <button class="btn btn--primary text-capitalize" id="add-more-field">
@@ -167,5 +167,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/withdraw-method.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/withdraw-method.js')}}"></script>
 @endpush

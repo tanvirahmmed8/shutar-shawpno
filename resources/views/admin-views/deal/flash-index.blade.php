@@ -11,7 +11,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between gap-2 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/flash_deal.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/flash_deal.png')}}" alt="">
                 {{translate('flash_deals')}}
             </h2>
             <button class="btn btn-primary" data-toggle="modal" data-target="#prioritySetModal" >
@@ -70,7 +70,7 @@
                                     <div class="form-group">
                                         <div class="text-center">
                                             <img class="border radius-10 ratio-4:1 max-w-655px w-100" id="viewer"
-                                                 src="{{dynamicAsset(path: 'public/assets/front-end/img/placeholder.png')}}"
+                                                 src="{{dynamicAsset(path: 'public/site-assets/front-end/img/placeholder.png')}}"
                                                  alt="{{translate('banner_image')}}"/>
                                         </div>
                                     </div>
@@ -185,7 +185,7 @@
                                         <div class="d-flex align-items-center justify-content-center gap-10">
                                             <a class="h-30 d-flex gap-2 text-capitalize align-items-center btn btn-soft-info btn-sm border-info"
                                                href="{{route('admin.deal.add-product',[$deal['id']])}}">
-                                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/plus.svg')}}" class="svg"
+                                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/plus.svg')}}" class="svg"
                                                      alt="">
                                                 {{translate('add_product')}}
                                             </a>
@@ -233,7 +233,7 @@
                                 <div class="d-flex flex-column">
                                     <h5 class="text-capitalize">{{translate('use_default_sorting_list')}}</h5>
                                     <div class="d-flex gap-2 align-items-center">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg')}}" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg')}}" alt="">
                                         <span class="text-dark fz-12">{{translate('currently_sorting_this_section_based_on_first_created_products')}}</span>
                                     </div>
                                 </div>
@@ -248,7 +248,7 @@
                                     <div class="d-flex flex-column">
                                         <h5 class="text-capitalize">{{translate('use_custom_sorting_list')}}</h5>
                                         <div class="d-flex gap-2 align-items-center">
-                                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg')}}" alt="">
+                                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg')}}" alt="">
                                             <span class="text-dark fz-12">{{translate('you_can_sorting_this_section_by_others_way')}}</span>
                                         </div>
                                     </div>
@@ -382,5 +382,5 @@
 
 @endsection
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deal.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/deal.js')}}"></script>
 @endpush

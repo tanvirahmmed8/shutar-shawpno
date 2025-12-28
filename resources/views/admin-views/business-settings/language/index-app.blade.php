@@ -3,8 +3,8 @@
 @section('title', translate('language'))
 
 @push('css_or_js')
-    <link href="{{ dynamicAsset(path: 'public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
-    <link href="{{ dynamicAsset(path: 'public/assets/back-end/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ dynamicAsset(path: 'public/site-site-assets/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/custom.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -41,10 +41,10 @@
                                         data-maximum-selection-length="3"
                                         class="form-control js-select2-custom country-var-select"
                                         required multiple=true>
-                                    @foreach(\Illuminate\Support\Facades\File::files(base_path('public/assets/front-end/img/flags')) as $path)
+                                    @foreach(\Illuminate\Support\Facades\File::files(base_path('public/site-assets/front-end/img/flags')) as $path)
                                         <option value="{{ pathinfo($path)['filename'] }}"
                                                 {{in_array(pathinfo($path)['filename'],$language)?'selected':''}}
-                                                title="{{ dynamicAsset(path: 'public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+                                                title="{{ dynamicAsset(path: 'public/site-assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
                                             {{ strtoupper(pathinfo($path)['filename']) }}
                                         </option>
                                     @endforeach

@@ -90,7 +90,7 @@ $('#add-this-features-card-bottom').on('click',function (){
                                     </div>
                                     <div class="position-absolute h-100 top-0 w-100 d-flex align-content-center justify-content-center">
                                         <div class="d-flex flex-column justify-content-center align-items-center">
-                                            <img src="{{asset('public/assets/back-end/img/icons/product-upload-icon.svg')}}" class="w-50" alt="">
+                                            <img src="{{asset('public/site-assets/back-end/img/icons/product-upload-icon.svg')}}" class="w-50" alt="">
                                             <h3 class="text-muted">${getText.data('upload-icon')}</h3>
                                         </div>
                                     </div>

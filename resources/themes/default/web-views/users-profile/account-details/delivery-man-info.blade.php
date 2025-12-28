@@ -3,7 +3,7 @@
 @section('title', translate('order_Details'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/deliveryman-info.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/deliveryman-info.css') }}">
 @endpush
 
 @section('content')
@@ -49,7 +49,7 @@
                                                     data-toggle="modal"
                                                     data-target="#chatting_modal">
                                                 <img
-                                                    src="{{theme_asset(path: 'public/assets/front-end/img/seller-info-chat.png')}}"
+                                                    src="{{theme_asset(path: 'public/site-assets/front-end/img/seller-info-chat.png')}}"
                                                     alt="">
                                                 <span
                                                     class="d-none d-md-inline-block">{{translate('chat_with_delivery_man')}}</span>
@@ -107,7 +107,7 @@
                                     <div class="col-sm-6 col-xl-4">
                                         <div class="media gap-3">
                                             <img alt="{{ translate('deliveryman') }}" width="20"
-                                                 src="{{ theme_asset(path: 'public/assets/front-end/img/icons/van.png') }}">
+                                                 src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/van.png') }}">
                                             <div class="media-body">
                                                 <div class="text-muted text-capitalize">
                                                     {{translate('delivery_service_name')}}
@@ -119,7 +119,7 @@
                                     <div class="col-sm-6 col-xl-4">
                                         <div class="media gap-3">
                                             <img alt="{{ translate('deliveryman') }}" width="20"
-                                                 src="{{ theme_asset(path:'public/assets/front-end/img/icons/track_order.png') }}">
+                                                 src="{{ theme_asset(path:'public/site-assets/front-end/img/icons/track_order.png') }}">
                                             <div class="media-body">
                                                 <div class="text-muted">{{translate('tracking_ID')}} </div>
                                                 <div class="font-weight-bold">
@@ -136,7 +136,7 @@
                     <div class="login-card">
                         <div class="text-center pt-5 text-capitalize">
 
-                            <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/delivery-man.svg')}}" alt="">
+                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/delivery-man.svg')}}" alt="">
                             <p class="opacity-60 mt-3">
                                 @if ($order->order_type == "POS")
                                     <span>{{translate('this_order_is_a_POS_order.delivery_man_is_not_assigned_to_POS_orders')}}</span>

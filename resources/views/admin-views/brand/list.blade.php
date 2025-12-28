@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
-                <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand.png') }}" alt="">
+                <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/brand.png') }}" alt="">
                 {{ translate('brand_List') }}
                 <span class="badge badge-soft-dark radius-50 fz-14">{{ $brands->total() }}</span>
             </h2>
@@ -33,7 +33,7 @@
                             <div class="col-sm-4 col-md-6 col-lg-8 d-flex justify-content-end">
                                 <div class="dropdown">
                                     <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.brand.export', ['searchValue'=>request('searchValue')]) }}">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                         <span class="ps-2">{{ translate('export') }}</span>
                                     </a>
                                 </div>
@@ -136,7 +136,7 @@
                     <div class="d-flex flex-column align-items-center text-center gap-2 mb-2">
                         <div
                             class="toggle-modal-img-box d-flex flex-column justify-content-center align-items-center mb-3 position-relative">
-                            <img src="{{dynamicAsset('public/assets/back-end/img/icons/info.svg')}}" alt="" width="90"/>
+                            <img src="{{dynamicAsset('public/site-assets/back-end/img/icons/info.svg')}}" alt="" width="90"/>
                         </div>
                         <h5 class="modal-title mb-2 brand-title-message"></h5>
                     </div>
@@ -166,5 +166,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/products-management.js') }}"></script>
 @endpush

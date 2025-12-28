@@ -806,7 +806,7 @@
                                         <a class="js-navbar-vertical-aside-menu-link nav-link"
                                             href="{{ route('admin.notification.index') }}"
                                             title="{{ translate('send_notification') }}">
-                                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/send-notification.svg') }}"
+                                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/send-notification.svg') }}"
                                                 alt="{{ translate('send_notification_svg') }}" width="15"
                                                 class="mr-2">
                                             <span
@@ -820,7 +820,7 @@
                                         <a class="js-navbar-vertical-aside-menu-link nav-link text-capitalize"
                                             href="{{ route('admin.push-notification.index') }}"
                                             title="{{ translate('push_notifications_setup') }}">
-                                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/push-notification.svg') }}"
+                                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/push-notification.svg') }}"
                                                 alt="{{ translate('push_notification_svg') }}" width="15"
                                                 class="mr-2">
                                             <span

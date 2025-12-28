@@ -38,7 +38,7 @@
     @endforeach
 @else
     <div class="text-center p-4">
-        <img class="mb-3 w-60px" src="{{dynamicAsset(path: 'public/assets/back-end/img/empty-vendor.png')}}"
+        <img class="mb-3 w-60px" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/empty-vendor.png')}}"
              alt="{{translate('image_description')}}">
         <p class="mb-0">{{ translate('no_vendor_found')}}</p>
     </div>

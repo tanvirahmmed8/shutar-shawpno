@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                 {{translate('Vendor_details')}}
             </h2>
         </div>
@@ -86,7 +86,7 @@
                                 <div class="card-body">
                                     <div class="p-4 bg-chat rounded text-center">
                                         <div class="py-5">
-                                            <img src="{{ dynamicAsset('public/assets/back-end/img/empty-clearance.png') }}" width="64"
+                                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/empty-clearance.png') }}" width="64"
                                                  alt="">
                                             <div class="mx-auto my-3 max-w-353px">
                                                 {{ translate('No_Clearance_Sale_available_now') }}
@@ -100,7 +100,7 @@
                                 <div class="card-body">
                                     <div class="d-flex gap-3 flex-wrap flex-lg-nowrap font-size-sm align-items-center justify-content-center">
                                         <div class="w-170 text-center">
-                                            <img src="{{ dynamicAsset('public/assets/back-end/img/clearance-sale.png') }}" width="100"
+                                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/clearance-sale.png') }}" width="100"
                                                  alt="">
                                         </div>
                                         <div class="row g-2 flex-grow-1 w-100">
@@ -225,7 +225,7 @@
                                 <div class="card-body">
                                     <div class="p-4 bg-chat rounded text-center">
                                         <div class="py-5">
-                                            <img src="{{ dynamicAsset('public/assets/back-end/img/empty-product.png') }}" width="64"
+                                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/empty-product.png') }}" width="64"
                                                  alt="">
                                             <div class="mx-auto my-3 max-w-353px">
                                                 {{ translate('no_products_Are_added') }}
@@ -391,7 +391,7 @@
                         <input type="hidden" name="id">
                         <div class="mb-30">
                             <a href="" class="title-color hover-c1 d-flex align-items-center gap-10">
-                                <img src="{{ asset('/public/assets/back-end/img/160x160/img2.jpg') }}"
+                                <img src="{{ asset('/public/site-assets/back-end/img/160x160/img2.jpg') }}"
                                      class="rounded border-gray-op" alt="" width="60">
                                 <h6 class="fz-14 font-medium">
                                     {{ translate('Family Size Trolley Case Long Lasting and 8 Wheel Waterproof Travel bag') }}

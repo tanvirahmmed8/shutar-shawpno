@@ -165,7 +165,7 @@
                     </div>
                     <div class="d-flex flex-wrap gap-2 position-relative price-section">
                         <div class="alert alert--message flex-row alert-dismissible fade show pos-alert-message gap-2 d-none" role="alert">
-                            <img class="mb-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/warning-icon.png')}}" alt="{{translate('warning')}}">
+                            <img class="mb-1" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/warning-icon.png')}}" alt="{{translate('warning')}}">
                             <div class="w-0">
                                 <h6>{{translate('warning')}}</h6>
                                 <div class="product-stock-message"></div>

@@ -47,7 +47,7 @@ class ConfigController extends Controller
         if ($offlinePaymentStatus) {
             $offlinePayment = [
                 'name' => 'offline_payment',
-                'image' => dynamicAsset(path: 'public/assets/back-end/img/pay-offline.png'),
+                'image' => dynamicAsset(path: 'public/site-assets/back-end/img/pay-offline.png'),
             ];
         }
 

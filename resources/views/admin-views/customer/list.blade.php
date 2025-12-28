@@ -7,7 +7,7 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/customer.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/customer.png')}}" alt="">
                 {{translate('customer_list')}}
                 <span class="badge badge-soft-dark radius-50">{{ $totalCustomers }}</span>
             </h2>
@@ -92,7 +92,7 @@
                         </form>
                         <div class="dropdown">
                             <a type="button" class="btn btn-outline--primary text-nowrap" href="{{route('admin.customer.export', ['sort_by' => request('sort_by'), 'choose_first' => request('choose_first'),'is_active' => request('is_active'), 'order_date' => request('order_date'),'customer_joining_date' => request('customer_joining_date'),  'searchValue' => request('searchValue')])}}">
-                                <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="" class="excel">
+                                <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" alt="" class="excel">
                                 <span class="ps-2">{{ translate('export') }}</span>
                             </a>
                         </div>

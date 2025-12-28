@@ -47,7 +47,7 @@
     <div class="coupon__details-right">
         <div class="coupon">
             @if($coupon->coupon_type == 'free_delivery')
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/free-delivery.png') }}"
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/free-delivery.png') }}"
                      alt="{{translate('free_delivery')}}" width="100">
             @else
                 <div class="d-flex">

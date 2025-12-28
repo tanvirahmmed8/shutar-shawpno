@@ -19,9 +19,9 @@
         <meta property="twitter:description"
             content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)), 0, 160) }}">
 
-        <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/home.css') }}" />
-        <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/home.css') }}" />
+        <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/owl.theme.default.min.css') }}">
     @endpush
 
 @section('content')
@@ -335,6 +335,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/home.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/home.js') }}"></script>
 @endpush

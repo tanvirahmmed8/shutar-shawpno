@@ -7,7 +7,7 @@
 
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/business-setup.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/business-setup.png') }}" alt="">
                 {{ translate('business_Setup') }}
             </h2>
 
@@ -22,7 +22,7 @@
 
                 <div class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/note.png') }}" alt="">
+                        <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/note.png') }}" alt="">
                         <h5 class="text-primary mb-0">{{ translate('note') }}</h5>
                     </div>
                     <p class="title-color font-weight-medium mb-0">{{ translate('please_click_the_Save_button_below_to_save_all_the_changes') }}</p>
@@ -124,7 +124,7 @@
                                                               data-toggle="tooltip" data-placement="right"
                                                               title="{{ translate('set_the_minimum_order_amount_a_customer_must_order_from_the_inhouse_shop') }}">
                                                     <img width="16"
-                                                         src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}"
+                                                         src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}"
                                                          alt="">
                                                 </span>
                                                     </label>

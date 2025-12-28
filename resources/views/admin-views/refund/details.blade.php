@@ -9,7 +9,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund_transaction.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund_transaction.png')}}" alt="">
                 {{translate('refund_details')}}
             </h2>
         </div>
@@ -250,7 +250,7 @@
                             @else
                                 <div class="p-2 bg-light rounded">
                                     <div class="media m-1 gap-3">
-                                        <img class="avatar rounded-circle" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-man.png')}}" alt="{{translate('image')}}">
+                                        <img class="avatar rounded-circle" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery-man.png')}}" alt="{{translate('image')}}">
                                         <div class="media-body">
                                             <h5 class="mt-3">{{translate('no_delivery_man_assigned')}}</h5>
                                         </div>
@@ -301,7 +301,7 @@
                             </table>
                             @if(count($refund->refundStatus)==0)
                                 <div class="text-center p-4">
-                                    <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+                                    <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/site-assets/back-end/svg/illustrations/sorry.svg')}}"
                                          alt="{{translate('image_description')}}">
                                     <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                                 </div>
@@ -322,7 +322,7 @@
                         <input type="hidden" name="id" value="{{$refund->id}}">
                         <input type="hidden" name="refund_status" value="rejected">
                         <div class="text-center">
-                            <img class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-reject.png')}}" alt="{{translate('refund_reject')}}">
+                            <img class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-reject.png')}}" alt="{{translate('refund_reject')}}">
                             <h4 class="mb-4 mx-auto max-w-283 text-capitalize">
                                 {{translate('rejection_note')}}
                             </h4>
@@ -346,7 +346,7 @@
                         <input type="hidden" name="id" value="{{$refund->id}}">
                         <input type="hidden" name="refund_status" value="approved">
                         <div class="text-center ">
-                            <img class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-approve.png')}}" alt="{{translate('refund_approve')}}">
+                            <img class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-approve.png')}}" alt="{{translate('refund_approve')}}">
                             <h4 class="mb-4 mx-auto max-w-283 text-capitalize">
                                 {{translate('approval_note')}}
                             </h4>
@@ -370,7 +370,7 @@
                         <input type="hidden" name="id" value="{{$refund->id}}">
                         <input type="hidden" name="refund_status" value="refunded">
                         <div class="text-center">
-                            <img class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-approve.png')}}" alt="{{translate('refund_approve')}}">
+                            <img class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-approve.png')}}" alt="{{translate('refund_approve')}}">
                             <h4 class="mb-4 mx-auto max-w-283">
                                 {{ translate('once_you_refund_that_refund_request').', '.translate('then_you_would_not_able_change_any_status') }}
                             </h4>
@@ -390,7 +390,7 @@
                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                       data-placement="right"
                                       title="{{translate('please_enter_the_payment_information_according_to_your_chosen_payment_method').'.'.translate('without_a_proper_payment_info,you_cannot_change_the_Refund_Status').'.'}}">
-                                    <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                    <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                          alt="">
                                 </span>
                             </label>
@@ -407,5 +407,5 @@
     </div>
 @endsection
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/refund.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/refund.js')}}"></script>
 @endpush

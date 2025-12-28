@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/seo-settings.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/seo-settings.svg') }}" alt="">
                 {{ translate('SEO_Settings') }}
             </h2>
         </div>
@@ -31,7 +31,7 @@
                     <div class="p-4 border rounded mb-3">
                         <div class="row g-3">
                             <div class="col-md-4 col-xl-3">
-                                <img src="{{dynamicAsset('public/assets/back-end/img/google-1.png')}}" alt="" width="30">
+                                <img src="{{dynamicAsset('public/site-assets/back-end/img/google-1.png')}}" alt="" width="30">
                                 <h4 class="m-0 mt-3">{{translate('google_search_console')}}</h4>
                             </div>
                             <div class="col-md-8 col-xl-9">
@@ -56,7 +56,7 @@
                     <div class="p-4 border rounded mb-20px">
                         <div class="row g-3">
                             <div class="col-md-4 col-xl-3">
-                                <img src="{{dynamicAsset('public/assets/back-end/img/bing-1.png')}}" alt="" width="30">
+                                <img src="{{dynamicAsset('public/site-assets/back-end/img/bing-1.png')}}" alt="" width="30">
                                 <h4 class="m-0 mt-3 text-capitalize">{{translate('bing_webmaster_tools')}}</h4>
                             </div>
                             <div class="col-md-8 col-xl-9">
@@ -82,7 +82,7 @@
                     <div class="p-4 border rounded mb-3">
                         <div class="row g-3">
                             <div class="col-md-4 col-xl-3">
-                                <img src="{{dynamicAsset('public/assets/back-end/img/baidu-1.png')}}" alt="" width="30">
+                                <img src="{{dynamicAsset('public/site-assets/back-end/img/baidu-1.png')}}" alt="" width="30">
                                 <h4 class="m-0 mt-3 text-capitalize">{{translate('baidu_webmaster_tool')}}</h4>
                             </div>
                             <div class="col-md-8 col-xl-9">
@@ -108,7 +108,7 @@
                     <div class="p-4 border rounded mb-20px">
                         <div class="row g-3">
                             <div class="col-md-4 col-xl-3">
-                                <img src="{{ dynamicAsset('public/assets/back-end/img/yandex-1.png') }}" alt="" width="30">
+                                <img src="{{ dynamicAsset('public/site-assets/back-end/img/yandex-1.png') }}" alt="" width="30">
                                 <h4 class="m-0 mt-3 text-capitalize">{{translate('yandex_webmaster_tool')}}</h4>
                             </div>
                             <div class="col-md-8 col-xl-9">

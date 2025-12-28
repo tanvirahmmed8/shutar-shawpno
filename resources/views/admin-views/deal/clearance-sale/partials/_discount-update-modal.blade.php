@@ -13,7 +13,7 @@
                     <input type="hidden" name="id">
                     <div class="mb-30">
                         <a href="" class="title-color hover-c1 d-flex align-items-center gap-10">
-                            <img src="{{ asset('/public/assets/back-end/img/160x160/img2.jpg') }}"
+                            <img src="{{ asset('/public/site-assets/back-end/img/160x160/img2.jpg') }}"
                                  class="rounded border-gray-op" alt="" width="60">
                             <h6 class="fz-14 font-medium">
                                 {{ translate('Family Size Trolley Case Long Lasting and 8 Wheel Waterproof Travel bag') }}

@@ -7,7 +7,7 @@
 
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/all-orders.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/all-orders.png') }}" alt="">
                 {{ translate('order_Details') }}
             </h2>
         </div>
@@ -27,7 +27,7 @@
                                 <div class="d-flex flex-wrap gap-10 justify-content-sm-end">
                                     <a class="btn btn--primary px-4" target="_blank"
                                        href="{{ route('vendor.orders.generate-invoice',[$order['id']]) }}">
-                                        <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/uil_invoice.svg') }}"
+                                        <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/uil_invoice.svg') }}"
                                              alt="" class="mr-1">
                                         {{ translate('print_Invoice') }}
                                     </a>
@@ -310,7 +310,7 @@
                     @if($order->customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex align-items-center gap-2">
-                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png') }}" alt="">
+                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png') }}" alt="">
                                 {{ translate('customer_information') }}
                             </h4>
 

@@ -15,7 +15,7 @@
                             <div class="d-flex flex-column">
                                 <h5 class="text-capitalize">{{ translate('use_default_sorting_list') }}</h5>
                                 <div class="d-flex gap-2 align-items-center">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}" alt="">
                                     <span class="text-dark fz-12">{{translate('currently_sorting_this_section_based_on_priority_wise')}}</span>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                                 <div class="d-flex flex-column">
                                     <h5 class="text-capitalize">{{ translate('use_custom_sorting_list') }}</h5>
                                     <div class="d-flex gap-2 align-items-center">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}" alt="">
                                         <span class="text-dark fz-12">{{ translate('you_can_sorting_this_section_by_others_way') }}</span>
                                     </div>
                                 </div>

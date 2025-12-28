@@ -3,8 +3,8 @@
 @section('title',translate('shipping_Address'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -258,7 +258,7 @@
                         @if(!$physical_product_view)
                             <div class="mb-3 alert--info">
                                 <div class="d-flex align-items-center gap-2">
-                                    <img class="mb-1" src="{{ theme_asset('public/assets/front-end/img/icons/info-light.svg') }}" alt="Info">
+                                    <img class="mb-1" src="{{ theme_asset('public/site-assets/front-end/img/icons/info-light.svg') }}" alt="Info">
                                     <span>{{ translate('When_you_input_all_the_required_information_for_this_billing_address_it_will_be_stored_for_future_purchases') }}</span>
                                 </div>
                             </div>
@@ -479,8 +479,8 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
     <script>
         "use strict";
         const deliveryRestrictedCountries = @json($countriesName);
@@ -505,8 +505,8 @@
         });
     </script>
 
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/shipping.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/shipping.js') }}"></script>
 
 
 

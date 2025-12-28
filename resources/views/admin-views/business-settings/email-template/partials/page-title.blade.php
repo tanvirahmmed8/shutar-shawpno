@@ -3,7 +3,7 @@
 @endphp
 <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-2">
     <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
-        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/system-setting.png')}}" alt="">
         {{translate('email_template')}}
     </h2>
     <div>

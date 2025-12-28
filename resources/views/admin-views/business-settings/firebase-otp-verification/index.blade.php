@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png') }}" alt="">
                 {{ translate('3rd_party') }}
             </h2>
         </div>
@@ -24,14 +24,14 @@
                             {{ translate('Check_Firebase_Configuration') }}
                         </a>
                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('please_ensure_that_your_firebase_configuration_contains_the_service_account_content,_api_keys,_domains,_project_id,_storage_bucket,_messaging_sender_id,_and_app_id,_and_that_all_are_properly_configured.') }}">
-                            <img width="16" src="{{dynamicAsset('public/assets/back-end/img/info-circle.svg')}}" alt="">
+                            <img width="16" src="{{dynamicAsset('public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                         </span>
                     </p>
                 </div>
 
                 <button class="btn-link text-capitalize d-flex align-items-center gap-2" type="button" data-toggle="modal" data-target="#firebase-auth-modal">
                     {{translate('credential_setup')}}
-                    <img width="16" class="svg" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" loading="lazy" alt="">
+                    <img width="16" class="svg" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" loading="lazy" alt="">
                 </button>
             </div>
             <div class="card-body">
@@ -44,7 +44,7 @@
                                 <span class="title-color text-capitalize">
                                     {{ translate('Firebase_Auth_Verification_Status') }}
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ translate('if_this_field_is_active_customers_get_the_otp_through_firebase.') }}">
-                                        <img width="16" src="{{dynamicAsset('public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                        <img width="16" src="{{dynamicAsset('public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                     </span>
                                 </span>
                                     <label class="switcher" for="otp-verification-status">

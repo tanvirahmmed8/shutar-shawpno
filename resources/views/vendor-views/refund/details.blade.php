@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-request-list.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-request-list.png')}}" alt="">
                 {{translate('refund_details')}}
             </h2>
         </div>
@@ -20,7 +20,7 @@
             <div class="mb-2 alert--message">
                 <div class="d-flex justify-content-between w-100">
                     <span class="">
-                        <img class="mb-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/warning-icon.png')}}" alt="{{translate('warning')}}">
+                        <img class="mb-1" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/warning-icon.png')}}" alt="{{translate('warning')}}">
                         @if($refund['status'] != 'pending' && ($refund['approved_count']<2 || $refund['denied_count']<2))
                             @if($refund['status'] == 'approved' && $refund['approved_count']<2 )
                                 {{translate('you_have_already_denied_refund_status_once').'.'}}
@@ -250,7 +250,7 @@
                                 @else
                                     <div class="p-2 bg-light rounded">
                                         <div class="media m-1 gap-3">
-                                            <img class="avatar rounded-circle" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-man.png')}}" alt="{{translate('image')}}">
+                                            <img class="avatar rounded-circle" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery-man.png')}}" alt="{{translate('image')}}">
                                             <div class="media-body">
                                                 <h5 class="mt-3">{{translate('no_delivery_man_assigned')}}</h5>
                                             </div>
@@ -322,7 +322,7 @@
                                 <input type="hidden" name="id" value="{{$refund->id}}">
                                 <input type="hidden" name="refund_status" value="rejected">
                                 <div class="text-center">
-                                    <img class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-reject.png')}}" alt="{{translate('refund_reject')}}">
+                                    <img class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-reject.png')}}" alt="{{translate('refund_reject')}}">
                                     <h4 class="mb-4 mx-auto max-w-283">
                                         {{translate('you_can_reject_that_refund_request_two_times').', '.translate('then_you_can_not_change_this_status').'.'}}
                                     </h4>
@@ -348,7 +348,7 @@
                                 <input type="hidden" name="id" value="{{$refund->id}}">
                                 <input type="hidden" name="refund_status" value="approved">
                                 <div class="text-center">
-                                    <img class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-approve.png')}}" alt="{{translate('refund_approve')}}">
+                                    <img class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-approve.png')}}" alt="{{translate('refund_approve')}}">
                                     <h4 class="mb-4 mx-auto max-w-283">
                                         {{translate('you_can_approve_that_refund_request_two_times').', '.translate('then_you_can_not_change_this_status').'.'}}
                                     </h4>
@@ -367,5 +367,5 @@
     @endif
 @endsection
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/refund.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/refund.js')}}"></script>
 @endpush

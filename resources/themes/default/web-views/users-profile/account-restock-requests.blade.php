@@ -125,7 +125,7 @@
                             <div class="d-flex justify-content-center align-items-center h-100">
                                 <div class="login-card w-100 border-0 shadow-none">
                                     <div class="text-center py-3 text-capitalize">
-                                        <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/wishlist.png') }}" alt="" class="mb-4" width="70">
+                                        <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/wishlist.png') }}" alt="" class="mb-4" width="70">
                                         <h5 class="fs-14">{{ translate('no_product_found_in_restock_request') }}!</h5>
                                     </div>
                                 </div>

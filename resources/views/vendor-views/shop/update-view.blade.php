@@ -2,13 +2,13 @@
 
 @section('title', translate('shop_Edit'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 @section('content')
     <div class="content container-fluid">
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/shop-info.png')}}" alt="">
+            <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/shop-info.png')}}" alt="">
             {{translate('edit_shop_info')}}
         </h2>
     </div>
@@ -144,6 +144,6 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
 @endpush

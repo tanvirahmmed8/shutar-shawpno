@@ -6,7 +6,7 @@
     <div class="content container-fluid ">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/order_report.png')}}" alt="">
                 {{translate('transaction_report')}}
             </h2>
         </div>
@@ -104,7 +104,7 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/cart.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $order_data['total_orders'] }}</h4>
                         <h6 class="subtext">{{translate('total_Orders')}}</h6>
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/products.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/products.svg')}}" alt="">
                     <div class="coupon__discount w-100 text-right d-flex justify-content-between">
                         <div class="text-center">
                             <strong class="text-primary">{{ $order_data['total_in_house_products'] }}</strong>
@@ -142,7 +142,7 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/stores.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/stores.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $order_data['total_stores'] }}</h4>
                         <h6 class="subtext">{{translate('total_Stores')}}</h6>
@@ -225,7 +225,7 @@
                     </div>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.transaction.order-transaction-export-excel', ['search'=>$search,'date_type'=>request('date_type'), 'seller_id'=>request('seller_id'), 'customer_id'=>request('customer_id'), 'status'=>request('status'), 'from'=>request('from'), 'to'=>request('to')]) }}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>
@@ -426,7 +426,7 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts-data-show.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/transaction-report.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts-data-show.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/transaction-report.js') }}"></script>
 @endpush

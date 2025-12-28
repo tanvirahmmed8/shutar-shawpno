@@ -4,7 +4,7 @@
             <div class="col-md-4 d-flex mb-3">
                 <div class="media media-ie-fix me-4 {{ $productReview->reply ? 'before-content-border' : '' }}">
                     <img class="rounded-circle __img-64 object-cover"
-                         src="{{ isset($productReview->user) ? getStorageImages(path: $productReview->user->image_full_url, type: 'avatar') : theme_asset(path: 'public/assets/front-end/img/image-place-holder.png') }}"
+                         src="{{ isset($productReview->user) ? getStorageImages(path: $productReview->user->image_full_url, type: 'avatar') : theme_asset(path: 'public/site-assets/front-end/img/image-place-holder.png') }}"
                          alt="{{isset($productReview->user)?$productReview->user->f_name : translate('not exist')}}"/>
                     <div
                         class="media-body {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}} text-body">
@@ -44,7 +44,7 @@
             <div class="review-reply rounded bg-E9F3FF80 p-3 ml-md-4">
                 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
                     <div class="d-flex align-items-center gap-2">
-                        <img src="{{dynamicAsset('public/assets/front-end/img/seller-reply-icon.png')}}" alt="">
+                        <img src="{{dynamicAsset('public/site-assets/front-end/img/seller-reply-icon.png')}}" alt="">
                         <h6 class="font-bold fs-14 m-0">{{ translate('Reply_by_Seller') }}</h6>
                     </div>
                     <span class="opacity-50 fs-12">

@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/seo-settings.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/seo-settings.svg') }}" alt="">
                 {{ translate('SEO_Settings') }}
             </h2>
         </div>
@@ -91,7 +91,7 @@
                                                     <div
                                                         class="d-flex flex-column justify-content-center align-items-center aspect-1">
                                                         <img alt="" width="33"
-                                                             src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg') }}">
+                                                             src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product-upload-icon.svg') }}">
                                                         <h3 class="text-muted fz-12">{{ translate('Upload_Image') }}</h3>
                                                     </div>
                                                 </div>
@@ -137,42 +137,42 @@
                                                     {{ (isset($pageData['index']) && $pageData['index'] != 'noindex') || (isset($pageData['index']) && $pageData['index'] == null) ? 'checked' : '' }}
                                                 >
                                                 <img class="unchecked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/uncheck-radio-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-radio-icon.svg')}}"
                                                      alt="">
                                                 <img class="checked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/check-radio-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/check-radio-icon.svg')}}"
                                                      alt="">
                                                 <span>{{ translate('index') }}</span>
                                                 <span data-toggle="tooltip" title="{{ translate('allow_search_engines_to_put_this_web_page_on_their_list_or_index_and_show_it_on_search_results.') }}">
-                                                    <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                          alt="">
                                                 </span>
                                             </label>
                                             <label class="checkbox--item user-select-none">
                                                 <input type="checkbox" name="meta_no_follow" value="1" {{ isset($pageData['no_follow']) && $pageData['no_follow'] ? 'checked' : '' }} class="input-no-index-sub-element">
                                                 <img class="unchecked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}"
                                                      alt="">
                                                 <img class="checked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}"
                                                      alt="">
                                                 <span>{{ translate('no_Follow') }}</span>
                                                 <span data-toggle="tooltip" title="{{ translate('instruct_search_engines_not_to_follow_links_from_this_web_page.') }}">
-                                                    <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                          alt="">
                                                 </span>
                                             </label>
                                             <label class="checkbox--item user-select-none">
                                                 <input type="checkbox" name="meta_no_image_index" value="1" {{ isset($pageData['no_image_index']) && $pageData['no_image_index'] ? 'checked' : '' }} class="input-no-index-sub-element">
                                                 <img class="unchecked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}"
                                                      alt="">
                                                 <img class="checked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}"
                                                      alt="">
                                                 <span>{{ translate('No_Image_Index') }}</span>
                                                 <span data-toggle="tooltip" title="{{ translate('prevents_images_from_being_listed_or_indexed_by_search_engines') }}">
-                                                    <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                          alt="">
                                                 </span>
                                             </label>
@@ -183,40 +183,40 @@
                                                     {{ (isset($pageData['index']) && $pageData['index'] != 'noindex') || (isset($pageData['index']) && $pageData['index'] == null) ? '' : 'checked' }}
                                                 >
                                                 <img class="unchecked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/uncheck-radio-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-radio-icon.svg')}}"
                                                      alt="">
                                                 <img class="checked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/check-radio-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/check-radio-icon.svg')}}"
                                                      alt="">
                                                 <span>{{ translate('no_index') }}</span>
                                                 <span data-toggle="tooltip" title="{{ translate('disallow_search_engines_to_put_this_web_page_on_their_list_or_index_and_do_not_show_it_on_search_results.') }}">
-                                                    <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                          alt="">
                                                 </span>
                                             </label>
                                             <label class="checkbox--item user-select-none">
                                                 <input type="checkbox" name="meta_no_archive" value="1" {{ isset($pageData['no_archive']) && $pageData['no_archive'] ? 'checked' : '' }} class="input-no-index-sub-element">
                                                 <img class="unchecked" alt=""
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}">
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}">
                                                 <img class="checked" alt=""
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}">
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}">
                                                 <span>{{ translate('No_Archive') }}</span>
                                                 <span data-toggle="tooltip" title="{{ translate('instruct_search_engines_not_to_display_this_webpages_cached_or_saved_version.') }}">
-                                                    <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                          alt="">
                                                 </span>
                                             </label>
                                             <label class="checkbox--item user-select-none">
                                                 <input type="checkbox" name="meta_no_snippet" value="1" {{ isset($pageData['no_snippet']) && $pageData['no_snippet'] ? 'checked' : '' }} class="input-no-index-sub-element">
                                                 <img class="unchecked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}"
                                                      alt="">
                                                 <img class="checked"
-                                                     src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}"
+                                                     src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}"
                                                      alt="">
                                                 <span>{{ translate('No_Snippet') }}</span>
                                                 <span data-toggle="tooltip" title="{{ translate('instruct_search_engines_not_to_show_a_summary_or_snippet_of_this_webpages_content_in_search_results.') }}">
-                                                    <img src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                    <img src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                          alt="">
                                                 </span>
                                             </label>
@@ -230,15 +230,15 @@
                                                 <label class="checkbox--item m-0 user-select-none">
                                                     <input type="checkbox" name="meta_max_snippet" value="1" {{ isset($pageData['max_snippet']) && $pageData['max_snippet'] ? 'checked' : '' }}>
                                                     <img class="unchecked"
-                                                         src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}"
+                                                         src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}"
                                                          alt="">
                                                     <img class="checked"
-                                                         src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}"
+                                                         src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}"
                                                          alt="">
                                                     <span>{{ translate('max_Snippet') }}</span>
                                                     <span data-toggle="tooltip" title="{{ translate('determine_the_maximum_length_of_a_snippet_or_preview_text_of_the_webpage.') }}">
                                                         <img
-                                                            src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                            src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                             alt="">
                                                     </span>
                                                 </label>
@@ -253,15 +253,15 @@
                                                 <label class="checkbox--item m-0 user-select-none">
                                                     <input type="checkbox" name="meta_max_video_preview" value="1" {{ isset($pageData['max_video_preview']) && $pageData['max_video_preview'] ? 'checked' : '' }}>
                                                     <img class="unchecked"
-                                                         src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}"
+                                                         src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}"
                                                          alt="">
                                                     <img class="checked"
-                                                         src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}"
+                                                         src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}"
                                                          alt="">
                                                     <span>{{ translate('max_Video_Preview') }}</span>
                                                     <span data-toggle="tooltip" title="{{ translate('determine_the_maximum_duration_of_a_video_preview_that_search_engines_will_display') }}">
                                                         <img
-                                                            src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}"
+                                                            src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}"
                                                             alt="">
                                                     </span>
                                                 </label>
@@ -276,13 +276,13 @@
                                                 <label class="checkbox--item m-0 user-select-none">
                                                     <input type="checkbox" name="meta_max_image_preview" value="1" {{ isset($pageData['max_image_preview']) && $pageData['max_image_preview'] ? 'checked' : '' }}>
                                                     <img class="unchecked" alt=""
-                                                         src="{{ dynamicAsset('public/assets/back-end/img/uncheck-icon.svg')}}">
+                                                         src="{{ dynamicAsset('public/site-assets/back-end/img/uncheck-icon.svg')}}">
                                                     <img class="checked" alt=""
-                                                         src="{{ dynamicAsset('public/assets/back-end/img/check-icon.svg')}}">
+                                                         src="{{ dynamicAsset('public/site-assets/back-end/img/check-icon.svg')}}">
                                                     <span>{{ translate('max_Image_Preview') }}</span>
                                                     <span data-toggle="tooltip" title="{{ translate('determine_the_maximum_size_or_dimensions_of_an_image_preview_that_search_engines_will_display.') }}">
                                                         <img alt=""
-                                                            src="{{ dynamicAsset('public/assets/back-end/img/query.png')}}">
+                                                            src="{{ dynamicAsset('public/site-assets/back-end/img/query.png')}}">
                                                     </span>
                                                 </label>
                                             </div>

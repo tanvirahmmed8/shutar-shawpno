@@ -3,7 +3,7 @@
 @endphp
 <div class="d-flex justify-content-between align-items-center gap-3 mb-6">
     <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
-        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-registration-setting.png')}}" alt="">
+        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-registration-setting.png')}}" alt="">
         {{translate('vendor_registration')}}
     </h2>
 </div>

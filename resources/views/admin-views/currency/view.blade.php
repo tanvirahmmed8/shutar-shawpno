@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/system-setting.png')}}" alt="">
                 {{translate('system_Setup')}}
             </h2>
         </div>
@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="mb-0 d-flex align-items-center gap-2">
-                    <img width="20 " src="{{dynamicAsset(path: 'public/assets/back-end/img/currency-1.png')}}" alt="">
+                    <img width="20 " src="{{dynamicAsset(path: 'public/site-assets/back-end/img/currency-1.png')}}" alt="">
                     {{translate('default-currency_setup')}}
                 </h5>
             </div>
@@ -41,7 +41,7 @@
         <div class="card mt-3">
             <div class="card-header">
                 <h5 class="mb-0 d-flex align-items-center gap-2">
-                    <img width="18" src="{{dynamicAsset(path: 'public/assets/back-end/img/currency-1.png')}}" alt="">
+                    <img width="18" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/currency-1.png')}}" alt="">
                     {{translate('add_currency')}}
                 </h5>
             </div>
@@ -208,9 +208,9 @@
                                         <div class="d-flex flex-column align-items-center text-center gap-2 mb-2">
                                             <div class="toggle-modal-img-box d-flex flex-column justify-content-center align-items-center mb-3 position-relative">
                                                 @if($currency->status)
-                                                    <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/modal/currency-off.png')) }}" class="status-icon"  alt="" width="80"/>
+                                                    <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/modal/currency-off.png')) }}" class="status-icon"  alt="" width="80"/>
                                                 @else
-                                                    <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/modal/currency-on.png')) }}" class="status-icon"  alt="" width="80"/>
+                                                    <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/modal/currency-on.png')) }}" class="status-icon"  alt="" width="80"/>
                                                 @endif
                                                 <img src="" alt="" />
                                             </div>

@@ -92,7 +92,7 @@
 @else
     <div class="d-flex align-items-center justify-content-center h-100">
         <div>
-            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product.svg') }}" alt="">
+            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product.svg') }}" alt="">
             <h4 class="text-muted text-center mt-4">{{ translate('No_Order_Found') }}</h4>
         </div>
     </div>

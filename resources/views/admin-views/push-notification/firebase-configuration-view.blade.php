@@ -4,14 +4,14 @@
 
 @push('css_or_js')
     <link rel="stylesheet"
-          href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+          href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('push_Notification_Setup')}}
             </h2>
         </div>
@@ -121,5 +121,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
 @endpush

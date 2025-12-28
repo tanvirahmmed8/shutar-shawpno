@@ -5,7 +5,7 @@
     <div class="content container-fluid">
         <div class="mb-3 d-flex justify-content-between flex-wrap gap-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/admin-wallet.png')}}" alt="">
                 {{translate('wallet')}}
             </h2>
             @if($customerStatus == 1)
@@ -165,7 +165,7 @@
                 <div class="d-flex justify-content-end">
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{route('admin.customer.wallet.export',['transaction_type'=>$transaction_status,'customer_id'=>request('customer_id'),'to'=>request('to'),'from'=>request('from')])}}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>

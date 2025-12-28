@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     @include(VIEW_FILE_NAMES['product_seo_meta_content_partials'], ['metaContentData' => $product?->seoInfo, 'productDetails' => $product])
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/product-details.css') }}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/product-details.css') }}"/>
 @endpush
 
 @section('content')
@@ -480,7 +480,7 @@
                                         <div>
                                             <div class="text-center text-capitalize py-5">
                                                 <img class="mw-90"
-                                                        src="{{theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg')}}"
+                                                        src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/nodata.svg')}}"
                                                         alt="">
                                                 <p class="text-capitalize mt-2">
                                                     <small>{{translate('product_details_not_found')}}
@@ -496,7 +496,7 @@
                                         <div>
                                             <div class="text-center text-capitalize">
                                                 <img class="mw-100"
-                                                        src="{{theme_asset(path: 'public/assets/front-end/img/icons/empty-review.svg')}}"
+                                                        src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/empty-review.svg')}}"
                                                         alt="">
                                                 <p class="text-capitalize">
                                                     <small>{{translate('No_review_given_yet')}}!</small>
@@ -686,7 +686,7 @@
                                     <div class="shipping-details-bottom-border">
                                         <div class="px-3 py-3">
                                             <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"
-                                                 src="{{ getStorageImages(path: imagePathProcessing(imageData: $value['image'],path: 'company-reliability'), type: 'source', source: 'public/assets/front-end/img'.'/'.$value['item'].'.png') }}"
+                                                 src="{{ getStorageImages(path: imagePathProcessing(imageData: $value['image'],path: 'company-reliability'), type: 'source', source: 'public/site-assets/front-end/img'.'/'.$value['item'].'.png') }}"
                                                 alt="">
                                             <span>{{translate($value['title'])}}</span>
                                         </div>
@@ -723,7 +723,7 @@
                                                     <span class="chat-seller-info product-details-seller-info"
                                                           data-toggle="tooltip"
                                                           title="{{ translate('this_shop_is_temporary_closed_or_on_vacation').' '.translate('You_cannot_add_product_to_cart_from_this_shop_for_now') }}">
-                                                        <img src="{{theme_asset(path: 'public/assets/front-end/img/info.png')}}" alt="i">
+                                                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/info.png')}}" alt="i">
                                                     </span>
                                                 @endif
                                             </div>
@@ -735,7 +735,7 @@
                                                 <div
                                                     class="d-flex justify-content-center align-items-center rounded __h-79px hr-right-before">
                                                     <div class="text-center">
-                                                        <img src="{{theme_asset(path: 'public/assets/front-end/img/rating.svg')}}"
+                                                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/rating.svg')}}"
                                                              class="mb-2" alt="">
                                                         <div class="__text-12px text-base">
                                                             <strong>{{$totalReviews}}</strong> {{translate('reviews')}}
@@ -748,7 +748,7 @@
                                                     class="d-flex justify-content-center align-items-center rounded __h-79px">
                                                     <div class="text-center">
                                                         <img
-                                                            src="{{theme_asset(path: 'public/assets/front-end/img/products.svg')}}"
+                                                            src="{{theme_asset(path: 'public/site-assets/front-end/img/products.svg')}}"
                                                             class="mb-2" alt="">
                                                         <div class="__text-12px text-base">
                                                             <strong>{{$productsForReview->total()}}</strong> {{translate('products')}}
@@ -765,7 +765,7 @@
                                                         data-toggle="modal"
                                                         data-target="#chatting_modal" {{ ($product->seller->shop->temporary_close || ($product->seller->shop->vacation_status && date('Y-m-d') >= date('Y-m-d', strtotime($product->seller->shop->vacation_start_date)) && date('Y-m-d') <= date('Y-m-d', strtotime($product->seller->shop->vacation_end_date)))) ? 'disabled' : '' }}>
                                                     <img class="mb-1" alt=""
-                                                        src="{{theme_asset(path: 'public/assets/front-end/img/chat-16-filled-icon.png')}}">
+                                                        src="{{theme_asset(path: 'public/site-assets/front-end/img/chat-16-filled-icon.png')}}">
                                                     <span class="d-none d-sm-inline-block text-capitalize">
                                                         {{translate('chat_with_vendor')}}
                                                     </span>
@@ -773,7 +773,7 @@
                                             @else
                                                 <a href="{{route('customer.auth.login')}}"
                                                    class="btn w-100 d-block text-center web--bg-primary text-white">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/chat-16-filled-icon.png')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/chat-16-filled-icon.png')}}"
                                                         class="mb-1" alt="">
                                                     <span class="d-none d-sm-inline-block text-capitalize">{{translate('chat_with_vendor')}}</span>
                                                 </a>
@@ -801,7 +801,7 @@
                                             <div class="{{Session::get('direction') === "rtl" ? 'right' : 'ml-3'}}">
                                                 <span class="chat-seller-info" data-toggle="tooltip"
                                                       title="{{translate('this_shop_is_temporary_closed_or_on_vacation._You_cannot_add_product_to_cart_from_this_shop_for_now')}}">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/info.png')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/info.png')}}"
                                                          alt="i">
                                                 </span>
                                             </div>
@@ -815,7 +815,7 @@
                                             <div
                                                 class="d-flex justify-content-center align-items-center rounded __h-79px hr-right-before">
                                                 <div class="text-center">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/rating.svg')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/rating.svg')}}"
                                                          class="mb-2" alt="">
                                                     <div class="__text-12px text-base">
                                                         <strong>{{$totalReviews}}</strong> {{translate('reviews')}}
@@ -827,7 +827,7 @@
                                             <div
                                                 class="d-flex justify-content-center align-items-center rounded __h-79px">
                                                 <div class="text-center">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/products.svg')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/products.svg')}}"
                                                          class="mb-2" alt="">
                                                     <div class="__text-12px text-base">
                                                         <strong>{{$productsForReview->total()}}</strong> {{translate('products')}}
@@ -844,7 +844,7 @@
                                                     data-toggle="modal"
                                                     data-target="#chatting_modal" {{ ($inHouseTemporaryClose || ($inHouseVacationStatus && $currentDate >= $inHouseVacationStartDate && $currentDate <= $inHouseVacationEndDate)) ? 'disabled' : '' }}>
                                                 <img class="mb-1" alt=""
-                                                     src="{{ theme_asset(path: 'public/assets/front-end/img/chat-16-filled-icon.png')}}">
+                                                     src="{{ theme_asset(path: 'public/site-assets/front-end/img/chat-16-filled-icon.png')}}">
                                                 <span class="d-none d-sm-inline-block text-capitalize">
                                                         {{translate('chat_with_vendor')}}
                                                 </span>
@@ -852,7 +852,7 @@
                                         @else
                                             <a href="{{ route('shopView',[0]) }}" class="btn w-100 d-block text-center web--bg-primary text-white">
                                                 <img class="mb-1" alt=""
-                                                     src="{{ theme_asset(path: 'public/assets/front-end/img/chat-16-filled-icon.png')}}">
+                                                     src="{{ theme_asset(path: 'public/site-assets/front-end/img/chat-16-filled-icon.png')}}">
                                                 <span class="d-none d-sm-inline-block text-capitalize">
                                                         {{translate('chat_with_vendor')}}
                                                 </span>
@@ -946,7 +946,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/product-details.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/product-details.js') }}"></script>
     <script type="text/javascript" async="async"
             src="https://platform-api.sharethis.com/js/sharethis.js#property=5f55f75bde227f0012147049&product=sticky-share-buttons"></script>
 @endpush

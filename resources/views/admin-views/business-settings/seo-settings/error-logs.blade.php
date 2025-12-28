@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/seo-settings.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/seo-settings.svg') }}" alt="">
                 {{ translate('SEO_Settings') }}
             </h2>
         </div>
@@ -88,7 +88,7 @@
                                 <td>
                                     <div class="d-flex flex-wrap justify-content-center ">
                                         <a class="{{env('APP_MODE')!='demo'? 'delete-data' : 'call-demo'}}" href="javascript:" data-id="error-logs-{{ $errorLog['id']}}">
-                                            <img src="{{dynamicAsset('public/assets/back-end/img/delete-outlined.png')}}" alt="" width="30">
+                                            <img src="{{dynamicAsset('public/site-assets/back-end/img/delete-outlined.png')}}" alt="" width="30">
                                         </a>
                                     </div>
                                     <form action="{{ route('admin.error-logs.index',['id'=>$errorLog['id']]) }}"
@@ -163,5 +163,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/error-logs.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/error-logs.js')}}"></script>
 @endpush

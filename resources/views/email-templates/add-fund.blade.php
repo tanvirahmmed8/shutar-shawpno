@@ -56,7 +56,7 @@
         </div>
     </div>
 
-    <img src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/add_fund_vector.png') }}" alt="" style="height: 50px; width:50px; margin-top:40px;">
+    <img src="{{ dynamicAsset(path: 'public/site-assets/front-end/img/icons/add_fund_vector.png') }}" alt="" style="height: 50px; width:50px; margin-top:40px;">
 
     <div class="congrats-box">
         <span class="d-block" style="font-weight: 700;font-size: 22px;line-height: 135.5%;margin-bottom:10px;">
@@ -124,7 +124,7 @@
                     @foreach ($social_media as $item)
                         <div style="display: inline-block;">
                             <a href="{{$item->link}}" target=”_blank”>
-                                <img src="{{dynamicAsset(path: 'public/assets/admin/img/'.$item->name.'.png') }}" alt=""
+                                <img src="{{dynamicAsset(path: 'public/site-assets/admin/img/'.$item->name.'.png') }}" alt=""
                                      style="height: 14px; width:14px; padding: 0 3px 0 5px;">
                             </a>
                         </div>

@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <link rel="stylesheet"
-          href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+          href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
             <div class="{{ $multiColumn ? 'col-md-9' : 'col-md-6' }} login-card">
                 <div class="d-flex justify-content-center align-items-center flex-column">
-                    <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/user-vector.svg') }}"
+                    <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/user-vector.svg') }}"
                          alt="" class="w-70px">
                     <h2 class="text-center font-bold text-capitalize fs-20 my-4 fs-18-mobile">
                         {{ translate('Sign_In') }}
@@ -172,7 +172,7 @@
                                                 <a class="social-media-login-btn"
                                                 href="{{ route('customer.auth.service-login', $socialLoginServiceKey) }}">
                                                     <img alt=""
-                                                        src="{{theme_asset(path: 'public/assets/front-end/img/icons/'.$socialLoginServiceKey.'.png') }}">
+                                                        src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/'.$socialLoginServiceKey.'.png') }}">
                                                     <span class="text">
                                                         {{ translate($socialLoginServiceKey) }}
                                                     </span>
@@ -183,13 +183,13 @@
                                     @if($customerOTPLogin && $customerManualLogin)
                                         <a class="social-media-login-btn otp-login-btn" href="javascript:">
                                             <img alt=""
-                                                src="{{theme_asset(path: 'public/assets/front-end/img/icons/otp-login-icon.svg') }}">
+                                                src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/otp-login-icon.svg') }}">
                                             <span class="text">{{ translate('OTP_Sign_in') }}</span>
                                         </a>
 
                                         <a class="social-media-login-btn manual-login-btn d-none" href="javascript:">
                                             <img alt=""
-                                                src="{{theme_asset(path: 'public/assets/front-end/img/icons/otp-login-icon.svg') }}">
+                                                src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/otp-login-icon.svg') }}">
                                             <span class="text">{{ translate('Manual_Login') }}</span>
                                         </a>
                                     @endif
@@ -232,6 +232,6 @@
         </script>
     @endif
 
-    <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
 @endpush

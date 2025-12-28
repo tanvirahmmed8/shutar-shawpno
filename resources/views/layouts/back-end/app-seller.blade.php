@@ -14,23 +14,23 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{getStorageImages(path: getWebConfig(name: 'company_fav_icon'), type:'backend-logo')}}">
 
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css') }}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/icon-set/style.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/daterangepicker.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/style.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/theme.minc619.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/style.css')}}">
     @if (Session::get('direction') === 'rtl')
-        <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/menurtl.css')}}">
+        <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/menurtl.css')}}">
     @endif
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/css/lightbox.css') }}">
     @stack('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/toastr.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/custom.css') }}">
     <style>
         select {
-            background-image: url('{{dynamicAsset(path: 'public/assets/back-end/img/arrow-down.png')}}');
+            background-image: url('{{dynamicAsset(path: 'public/site-assets/back-end/img/arrow-down.png')}}');
             background-size: 7px;
             background-position: 96% center;
         }
@@ -62,14 +62,14 @@
     </main>
 
     <audio id="myAudio">
-        <source src="{{ dynamicAsset(path: 'public/assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
+        <source src="{{ dynamicAsset(path: 'public/site-assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
     </audio>
 
 
     <span class="please_fill_out_this_field" data-text="{{ translate('please_fill_out_this_field') }}"></span>
-    <span id="onerror-chatting" data-onerror-chatting="{{dynamicAsset(path: 'public/assets/back-end/img/image-place-holder.png')}}"></span>
-    <span id="onerror-user" data-onerror-user="{{dynamicAsset(path: 'public/assets/back-end/img/160x160/img1.jpg')}}"></span>
-    <span id="get-root-path-for-toggle-modal-image" data-path="{{dynamicAsset(path: 'public/assets/back-end/img/modal')}}"></span>
+    <span id="onerror-chatting" data-onerror-chatting="{{dynamicAsset(path: 'public/site-assets/back-end/img/image-place-holder.png')}}"></span>
+    <span id="onerror-user" data-onerror-user="{{dynamicAsset(path: 'public/site-assets/back-end/img/160x160/img1.jpg')}}"></span>
+    <span id="get-root-path-for-toggle-modal-image" data-path="{{dynamicAsset(path: 'public/site-assets/back-end/img/modal')}}"></span>
     <span id="get-customer-list-route" data-action="{{route('vendor.customer.list')}}"></span>
     <span id="get-search-product-route" data-action="{{route('vendor.products.search-product')}}"></span>
     <span id="get-orders-list-route" data-action="{{route('vendor.orders.list', ['status' => 'all'])}}"></span>
@@ -90,7 +90,7 @@
 
     <span id="get-stock-limit-status" data-action="{{route('vendor.products.stock-limit-status')}}"></span>
     <span id="get-product-stock-limit-title" data-title="{{translate('warning')}}"></span>
-    <span id="get-product-stock-limit-image" data-warning-image="{{ dynamicAsset(path: 'public/assets/back-end/img/warning-2.png') }}"></span>
+    <span id="get-product-stock-limit-image" data-warning-image="{{ dynamicAsset(path: 'public/site-assets/back-end/img/warning-2.png') }}"></span>
     <span id="get-product-stock-limit-message"
           data-message-for-multiple="{{ translate('there_is_not_enough_quantity_on_stock').' . '.translate('please_check_products_in_limited_stock').'.' }}"
           data-message-for-three-plus-product="{{translate('_more_products_have_low_stock') }}"
@@ -105,15 +105,15 @@
           data-text="{{translate('want_to_clear_all_stock_clearance_products?').'!'}}"
           data-confirm="{{translate('yes_delete_it')}}" data-cancel="{{translate('cancel')}}"></span>
 
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/theme.min.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/bootstrap.min.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/sweet_alert.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/toastr.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/vendor.min.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/theme.min.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/bootstrap.min.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/sweet_alert.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/toastr.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/js/lightbox.min.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/custom.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/app-script.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/custom.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/app-script.js') }}"></script>
     <span id="get-currency-symbol"
           data-currency-symbol="{{ getCurrencySymbol(currencyCode: getCurrencyCode(type: 'default')) }}"></span>
 
@@ -165,7 +165,7 @@
             });
         })
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(
-            '<script src="{{ dynamicAsset(path: 'public/assets/back-end') }}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+            '<script src="{{ dynamicAsset(path: 'public/site-assets/back-end') }}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
     </script>
     @if(env('APP_MODE') == 'demo')
         <script>
@@ -183,7 +183,7 @@
         </script>
     @endif
     @stack('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/common-script.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/common-script.js') }}"></script>
     @stack('script_2')
 
 </body>

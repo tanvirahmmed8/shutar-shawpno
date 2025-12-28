@@ -11,7 +11,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/note.png') }}" alt="">
+                <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/note.png') }}" alt="">
                 {{ translate('clearance_sale') }}
             </h2>
         </div>
@@ -171,7 +171,7 @@
                 @else
                     <div class="p-4 bg-chat rounded text-center mt-3">
                         <div class="py-5">
-                            <img src="{{ dynamicAsset('public/assets/back-end/img/empty-vendor.png') }}" width="58"
+                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/empty-vendor.png') }}" width="58"
                                  alt="">
                             <div class="mx-auto my-3 max-w-353px">
                                 {{ translate('No vendors are added') }}
@@ -186,6 +186,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/deal.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/clearance-sale-script.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/deal.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/clearance-sale-script.js') }}"></script>
 @endpush

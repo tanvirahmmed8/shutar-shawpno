@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 text-capitalize">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/inhouse-product-list.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/inhouse-product-list.png')}}" alt="">
                 {{translate('vendor_product_list')}}
                 <span class="badge badge-soft-dark radius-50 fz-14 ml-1">{{ $products->total() }}</span>
             </h2>
@@ -167,7 +167,7 @@
                     @if(count($products)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
-                                 src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/svg/illustrations/sorry.svg')}}"
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{translate('no_data_to_show')}}</p>
                         </div>

@@ -34,7 +34,7 @@
                                                     <div
                                                         class="d-flex flex-column justify-content-center align-items-center aspect-1">
                                                         <img alt="" width="33"
-                                                             src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg') }}">
+                                                             src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product-upload-icon.svg') }}">
                                                         <h3 class="text-muted fz-12">{{ translate('upload_file') }}</h3>
                                                     </div>
                                                 </div>

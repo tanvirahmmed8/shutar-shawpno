@@ -82,7 +82,7 @@
                                             <input type="checkbox" class="shop-head-check shop-head-check-desktop">
                                             <a href="{{route('shopView',['id'=>0])}}"
                                                 class="text-primary d-flex align-items-center gap-2 fs-16">
-                                                 <img src="{{theme_asset(path: 'public/assets/front-end/img/cart-store.png')}}" alt="">
+                                                 <img src="{{theme_asset(path: 'public/site-assets/front-end/img/cart-store.png')}}" alt="">
                                                  {{getWebConfig(name: 'company_name')}}
                                              </a>
                                         </div>
@@ -105,7 +105,7 @@
                                             <input type="checkbox" class="shop-head-check shop-head-check-desktop">
                                             <a href="{{ route('shopView',['id' => $shopIdentity->id]) }}"
                                                 class="text-primary d-flex align-items-center gap-2 fs-16">
-                                                 <img src="{{theme_asset(path: 'public/assets/front-end/img/cart-store.png')}}" alt="">
+                                                 <img src="{{theme_asset(path: 'public/site-assets/front-end/img/cart-store.png')}}" alt="">
                                                      {{ $shopIdentity->name }}
                                             </a>
                                         </div>
@@ -121,7 +121,7 @@
                                         @else
                                             <a href="javascript:"
                                                class="text-primary d-flex align-items-center gap-2 fs-16">
-                                                <img src="{{theme_asset(path: 'public/assets/front-end/img/cart-store.png')}}" alt="">
+                                                <img src="{{theme_asset(path: 'public/site-assets/front-end/img/cart-store.png')}}" alt="">
                                                 <span class="text-danger">{{ translate('vendor_not_available') }}</span>
                                             </a>
                                         @endif
@@ -395,7 +395,7 @@
                         <div class="free-delivery-area px-3 mb-3 mb-lg-2">
                             <div class="d-flex align-items-center gap-8">
                                 <img class="__w-30px"
-                                     src="{{ theme_asset(path: 'public/assets/front-end/img/icons/free-shipping.png') }}" alt="">
+                                     src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/free-shipping.png') }}" alt="">
                                 @if ($free_delivery_status['amount_need'] <= 0)
                                     <span
                                         class="text-muted fs-12 mt-1">{{ translate('you_Get_Free_Delivery_Bonus') }}</span>
@@ -463,7 +463,7 @@
                                         <input type="checkbox" class="shop-head-check shop-head-check-mobile">
                                         <a href="{{route('shopView',['id'=>0])}}"
                                            class="text-primary d-flex align-items-center gap-2 fs-16">
-                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/cart-store.png')}}" alt="">
+                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/cart-store.png')}}" alt="">
                                             {{getWebConfig(name: 'company_name')}}
                                         </a>
                                     </div>
@@ -486,7 +486,7 @@
                                             <input type="checkbox" class="shop-head-check shop-head-check-mobile">
                                             <a href="{{ route('shopView',['id' => $shopIdentity->id]) }}"
                                                class="text-primary d-flex align-items-center gap-2 fs-16">
-                                                <img src="{{ theme_asset(path: 'public/assets/front-end/img/cart-store.png') }}" alt="">
+                                                <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/cart-store.png') }}" alt="">
                                                 {{ $shopIdentity->name }}
                                             </a>
                                         </div>
@@ -501,7 +501,7 @@
                                     @else
                                         <a href="javascript:"
                                            class="text-primary d-flex align-items-center gap-2 fs-16">
-                                            <img src="{{ theme_asset(path: 'public/assets/front-end/img/cart-store.png') }}" alt="">
+                                            <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/cart-store.png') }}" alt="">
                                             <span class="text-danger">{{ translate('vendor_not_available') }}</span>
                                         </a>
                                     @endif
@@ -721,7 +721,7 @@
                     <div class="free-delivery-area px-3 mb-3 mb-lg-2">
                         <div class="d-flex align-items-center gap-8">
                             <img class="__w-30px"
-                                 src="{{ theme_asset(path: 'public/assets/front-end/img/icons/free-shipping.png') }}" alt="">
+                                 src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/free-shipping.png') }}" alt="">
                             @if ($free_delivery_status['amount_need'] <= 0)
                                 <span
                                     class="text-muted fs-12 mt-1">{{ translate('you_Get_Free_Delivery_Bonus') }}</span>
@@ -792,7 +792,7 @@
                     <div class="py-md-4">
                         <div class="text-center text-capitalize">
                             <img class="mb-3 mw-100"
-                                 src="{{theme_asset(path: 'public/assets/front-end/img/icons/empty-cart.svg')}}" alt="">
+                                 src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/empty-cart.svg')}}" alt="">
                             <p class="text-capitalize">{{translate('Your_Cart_is_Empty')}}!</p>
                         </div>
                     </div>
@@ -826,5 +826,5 @@
 </div>
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/cart-details.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/cart-details.js') }}"></script>
 @endpush

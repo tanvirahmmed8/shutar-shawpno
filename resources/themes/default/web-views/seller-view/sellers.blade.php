@@ -16,7 +16,7 @@
 @section('content')
 
     <div class="container mb-md-4 {{Session::get('direction') === "rtl" ? 'rtl' : ''}} __inline-65">
-        <div class="bg-primary-light rounded-10 my-4 p-3 p-sm-4" data-bg-img="{{ theme_asset(path: 'public/assets/front-end/img/media/bg.png') }}">
+        <div class="bg-primary-light rounded-10 my-4 p-3 p-sm-4" data-bg-img="{{ theme_asset(path: 'public/site-assets/front-end/img/media/bg.png') }}">
             <div class="row g-2 align-items-center">
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex flex-column gap-1 text-primary">
@@ -108,7 +108,7 @@
                 @else
                     <div class="mb-5 text-center text-muted">
                         <div class="d-flex justify-content-center my-2">
-                            <img alt="" src="{{ theme_asset(path: 'public/assets/front-end/img/media/seller.svg') }}">
+                            <img alt="" src="{{ theme_asset(path: 'public/site-assets/front-end/img/media/seller.svg') }}">
                         </div>
                         <h4 class="text-muted">{{ translate('vendor_not_available') }}</h4>
                         <p>{{ translate('Sorry_no_data_found_related_to_your_search') }}</p>

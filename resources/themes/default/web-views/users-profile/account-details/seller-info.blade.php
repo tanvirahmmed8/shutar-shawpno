@@ -47,7 +47,7 @@
                                             <button type="button" class="btn btn-soft-info text-capitalize px-2 px-sm-4"
                                                     data-toggle="modal"
                                                     data-target="#chatting_modal" {{ ($order->seller->shop->temporary_close || ($order->seller->shop->vacation_status && date('Y-m-d') >= date('Y-m-d', strtotime($order->seller->shop->vacation_start_date)) && date('Y-m-d') <= date('Y-m-d', strtotime($order->seller->shop->vacation_end_date)))) ? 'disabled' : '' }}>
-                                                <img alt="" src="{{theme_asset(path: 'public/assets/front-end/img/seller-info-chat.png')}}">
+                                                <img alt="" src="{{theme_asset(path: 'public/site-assets/front-end/img/seller-info-chat.png')}}">
                                                 <span class="d-none d-sm-inline-block">
                                                     {{translate('chat_with_vendor')}}
                                                 </span>
@@ -91,7 +91,7 @@
                                             <button type="button" class="btn btn-soft-info text-capitalize px-2 px-sm-4"
                                                     data-toggle="modal"
                                                     data-target="#chatting_modal">
-                                                <img alt="" src="{{theme_asset(path: 'public/assets/front-end/img/seller-info-chat.png')}}">
+                                                <img alt="" src="{{theme_asset(path: 'public/site-assets/front-end/img/seller-info-chat.png')}}">
                                                 <span class="d-none d-sm-inline-block">
                                                     {{translate('chat_with_vendor')}}
                                                 </span>

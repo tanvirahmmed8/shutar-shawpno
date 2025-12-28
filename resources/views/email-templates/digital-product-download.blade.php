@@ -209,7 +209,7 @@ $direction = Session::get('direction');
     <tbody>
     <tr>
         <td class="main-table-td">
-            <img class="mail-img-1" src='{{ dynamicAsset(path: 'public/assets/back-end/img/congratulations.png') }}'
+            <img class="mail-img-1" src='{{ dynamicAsset(path: 'public/site-assets/back-end/img/congratulations.png') }}'
                  id="logoViewer" alt="">
             <h2 id="mail-title" class="mt-2 text-center">{{  $data['title'] }}</h2>
             <h3 class="mb-1" id="mail-body">{{ translate('Hi').' '.$data['order']->customer['f_name'].',' }}</h3>
@@ -301,7 +301,7 @@ $direction = Session::get('direction');
                 @if ($social_media)
                     @foreach ($social_media as $social)
                         <a href="{{ $social->link }}" target=”_blank” style="margin: 0 5px;text-decoration:none;">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/'.$social->name.'.png') }}"
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/'.$social->name.'.png') }}"
                                      width="16" alt="">
                             </a>
                     @endforeach

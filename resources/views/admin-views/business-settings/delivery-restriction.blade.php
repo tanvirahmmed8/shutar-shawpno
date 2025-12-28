@@ -3,16 +3,16 @@
 @section('title', translate('delivery_Restriction'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
-    <link href="{{ dynamicAsset(path: 'public/assets/back-end/css/tags-input.min.css') }}" rel="stylesheet">
-    <link href="{{ dynamicAsset(path: 'public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+    <link href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/tags-input.min.css') }}" rel="stylesheet">
+    <link href="{{ dynamicAsset(path: 'public/site-site-assets/select2/css/select2.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/business-setup.png')}}" alt="">
                 {{translate('business_setup')}}
             </h2>
             <div class="btn-group">
@@ -27,7 +27,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <h5 class="mb-0 text-capitalize d-flex gap-2">
-                    <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery2.png')}}" alt="">
+                    <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery2.png')}}" alt="">
                     {{translate('delivery')}}
                 </h5>
             </div>
@@ -38,7 +38,7 @@
                             <span class="title-color">
                                 {{translate('delivery_available_country')}}
                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('if_enabled,_you_can_choose_one_or_multiple_countries_for_product_delivery').'.' }}">
-                                    <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                    <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                 </span>
                             </span>
                             <form action="{{ route('admin.business-settings.delivery-restriction.country-restriction-status-change') }}" method="post" id="country-area-form" data-from="delivery-restriction">
@@ -63,7 +63,7 @@
                             <span class="title-color">
                                 {{translate('delivery_available_zip_code_area')}}
                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('if_enabled,_the_zip_code_areas_will_be_available_for_delivery').'. '.translate('Please_Note').' : '.translate('If_you_don’t_enter_a_specific_zip_code_from_a_country,_that_area_won’t_be_available_for_delivery').'.'}}">
-                                    <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                    <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                 </span>
                             </span>
 
@@ -235,7 +235,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-restriction.png')}}" loading="lazy"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery-restriction.png')}}" loading="lazy"
                                          alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('delivery_restriction')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -274,7 +274,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/confirmed.png')}}" loading="lazy"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/confirmed.png')}}" loading="lazy"
                                          alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('enjoy_a_borderless_business_experience_with_').getWebConfig('company_name').'!'}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4"></ul>
@@ -294,7 +294,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/tags-input.min.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/delivery-restriction.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/tags-input.min.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/delivery-restriction.js') }}"></script>
 @endpush

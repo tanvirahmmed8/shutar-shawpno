@@ -22,7 +22,7 @@
                                 <span>{{ translate('Upload_File') }}</span>
                                 <span class="input-label-secondary cursor-pointer mb-1" data-toggle="tooltip"
                                       title="{{ translate('it_can_be_possible_to_upload_all_types_of_audio,_video_and_documentation_and_software_files.') }}">
-                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}"
+                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}"
                                  alt="">
                         </span>
                             </div>
@@ -65,19 +65,19 @@
                                         <input type="file" class="d-none" accept=""
                                                name="digital_files[{{ $combination['unique_key'] }}]">
                                         <img
-                                            src="{{ dynamicAsset(path: '/public/assets/back-end/img/upload-icon.png') }}"
+                                            src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/upload-icon.png') }}"
                                             alt="">
                                         <span>{{ translate('Upload_File') }}</span>
                                     </label>
 
                                     <div class="variation-upload-file uploading-item collapse">
                                         <img
-                                            src="{{ dynamicAsset(path: '/public/assets/back-end/img/upload-icon.png') }}"
+                                            src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/upload-icon.png') }}"
                                             alt="">
                                         <span class="mr-auto text--title">{{ translate('Uploading') }}</span>
                                         <button class="no-gutter cancel-upload" type="button">
                                             <img
-                                                src="{{ dynamicAsset(path: '/public/assets/back-end/img/cancel-icon.png') }}"
+                                                src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/cancel-icon.png') }}"
                                                 alt="">
                                         </button>
                                     </div>
@@ -94,13 +94,13 @@
                                                     data-product="{{ $combination['product_id'] }}"
                                                     data-variant="{{ $combination['variant_key'] }}">
                                                 <img
-                                                    src="{{ dynamicAsset(path: '/public/assets/back-end/img/delete-icon.png') }}"
+                                                    src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/delete-icon.png') }}"
                                                     alt="">
                                             </button>
                                         @else
                                             <button class="no-gutter cancel-upload" type="button">
                                                 <img
-                                                    src="{{ dynamicAsset(path: '/public/assets/back-end/img/delete-icon.png') }}"
+                                                    src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/delete-icon.png') }}"
                                                     alt="">
                                             </button>
                                         @endif

@@ -5,7 +5,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/earning_report.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/earning_report.png')}}" alt="">
                 {{translate('earning_Reports')}}
             </h2>
         </div>
@@ -56,14 +56,14 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/stores.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/stores.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $data['total_seller'] }}</h4>
                         <h6 class="subtext">{{ translate('total_Vendor')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/cart.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $data['all_product'] }}</h4>
                         <h6 class="subtext">{{ translate('total_Vendor_Products')}}</h6>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/total-earning.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/total-earning.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total_earning), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">{{ translate('total_Earning')}}</h6>
@@ -137,7 +137,7 @@
                     </h4>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.report.vendor-earning-excel-export', ['date_type'=>$date_type, 'from'=>$from, 'to'=>$to]) }}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>
@@ -224,7 +224,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts-data-show.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/seller-earning-report.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts-data-show.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/seller-earning-report.js') }}"></script>
 @endpush

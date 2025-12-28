@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/note.png') }}" alt="">
+                <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/note.png') }}" alt="">
                 {{ translate('clearance_sale') }}
             </h2>
         </div>
@@ -35,7 +35,7 @@
                                         <h5 class="text-capitalize">{{ translate('use_default_sorting_list') }}</h5>
                                         <div class="d-flex gap-2 align-items-center">
                                             <img width="14"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}"
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}"
                                                  alt="">
                                             <span
                                                 class="text-dark fz-12">{{translate('currently_sorting_this_section_based_on_latest_add')}}</span>
@@ -54,7 +54,7 @@
                                             <h5 class="text-capitalize">{{ translate('use_custom_sorting_list') }}</h5>
                                             <div class="d-flex gap-2 align-items-center">
                                                 <img width="14"
-                                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}"
+                                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}"
                                                      alt="">
                                                 <span
                                                     class="text-dark fz-12">{{ translate('you_can_sorting_this_section_by_others_way') }}</span>
@@ -209,7 +209,7 @@
                                                     </h5>
                                                     <div class="d-flex gap-2 align-items-center">
                                                         <img width="14"
-                                                             src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}"
+                                                             src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}"
                                                              alt="">
                                                         <span class="text-dark fz-12">
                                                             {{ translate('if_you_want_to_show_vendors_priority_wise_search_&_select_them.') }}
@@ -298,7 +298,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/deal.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/deal.js') }}"></script>
 
     <script>
         'use strict';

@@ -35,47 +35,47 @@ if (!function_exists('getStorageImages')) {
             'product' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-1-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-1-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-1-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-1-1.png',
             ],
             'avatar' => [
                 'theme_aster' => 'assets/img/placeholder/user.png',
                 'theme_fashion' => 'assets/img/placeholder/user.png',
-                'default' => 'public/assets/front-end/img/placeholder/user.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/user.png',
             ],
             'banner' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-2-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-2-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-2-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-2-1.png',
             ],
             'wide-banner' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-4-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-4-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-4-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-4-1.png',
             ],
             'brand' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-1-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-2-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-1-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-1-1.png',
             ],
             'category' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-1-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-1-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-1-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-1-1.png',
             ],
             'logo' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-4-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-4-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-4-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-4-1.png',
             ],
             'shop' => [
                 'theme_aster' => 'assets/img/placeholder/shop.png',
                 'theme_fashion' => 'assets/img/placeholder/shop.png',
-                'default' => 'public/assets/front-end/img/placeholder/shop.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/shop.png',
             ],
             'shop-banner' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-4-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-4-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/seller-banner.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/seller-banner.png',
             ],
         ];
 
@@ -88,11 +88,11 @@ if (!function_exists('getStorageImages')) {
                 }
                 return (!empty($path) && $path['status'] == 200) ? $path['path'] : $placeholderPath;
             } else {
-                return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicAsset(path: 'public/assets/' . $placeholderMap[$type]);
+                return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicAsset(path: 'public/site-assets/' . $placeholderMap[$type]);
             }
         }
 
-        return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicStorage(path: 'public/assets/front-end/img/placeholder/placeholder-2-1.png');
+        return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicStorage(path: 'public/site-assets/front-end/img/placeholder/placeholder-2-1.png');
     }
 }
 
@@ -149,47 +149,47 @@ if (!function_exists('getValidImage')) {
             'product' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-1-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-1-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-1-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-1-1.png',
             ],
             'avatar' => [
                 'theme_aster' => 'assets/img/placeholder/user.png',
                 'theme_fashion' => 'assets/img/placeholder/user.png',
-                'default' => 'public/assets/front-end/img/placeholder/user.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/user.png',
             ],
             'banner' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-2-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-2-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-2-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-2-1.png',
             ],
             'wide-banner' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-4-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-4-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-4-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-4-1.png',
             ],
             'brand' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-2-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-2-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-1-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-1-1.png',
             ],
             'category' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-1-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-1-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-1-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-1-1.png',
             ],
             'logo' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-4-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-4-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/placeholder-4-1.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/placeholder-4-1.png',
             ],
             'shop' => [
                 'theme_aster' => 'assets/img/placeholder/shop.png',
                 'theme_fashion' => 'assets/img/placeholder/shop.png',
-                'default' => 'public/assets/front-end/img/placeholder/shop.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/shop.png',
             ],
             'shop-banner' => [
                 'theme_aster' => 'assets/img/placeholder/placeholder-4-1.png',
                 'theme_fashion' => 'assets/img/placeholder/placeholder-4-1.png',
-                'default' => 'public/assets/front-end/img/placeholder/seller-banner.png',
+                'default' => 'public/site-assets/front-end/img/placeholder/seller-banner.png',
             ],
         ];
 
@@ -203,11 +203,11 @@ if (!function_exists('getValidImage')) {
 
                 return is_file($path) ? $givenPath : $placeholderPath;
             } else {
-                return is_file($path) ? $givenPath : dynamicAsset(path: 'public/assets/' . $placeholderMap[$type]);
+                return is_file($path) ? $givenPath : dynamicAsset(path: 'public/site-assets/' . $placeholderMap[$type]);
             }
         }
 
-        return is_file($path) ? $givenPath : dynamicStorage(path: 'public/assets/front-end/img/placeholder/placeholder-2-1.png');
+        return is_file($path) ? $givenPath : dynamicStorage(path: 'public/site-assets/front-end/img/placeholder/placeholder-2-1.png');
     }
 }
 

@@ -70,7 +70,7 @@
                                                 <div
                                                     class="d-flex flex-column justify-content-center align-items-center">
                                                     <img alt="" class="w-50"
-                                                        src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg') }}">
+                                                        src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product-upload-icon.svg') }}">
                                                     <h5 class="text-muted">{{ translate('Upload_Image') }}</h5>
                                                 </div>
                                             </div>

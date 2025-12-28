@@ -42,7 +42,7 @@
 
 @section('content')
     @php($decimal_point_settings = getWebConfig(name: 'decimal_point_settings'))
-    @php($deal_banner = getStorageImages(path: $deal['banner_full_url'],type: 'banner' ,source: theme_asset(path: 'public/assets/front-end/img/flash-deals.png')))
+    @php($deal_banner = getStorageImages(path: $deal['banner_full_url'],type: 'banner' ,source: theme_asset(path: 'public/site-assets/front-end/img/flash-deals.png')))
     <div class="__inline-59 pt-md-3">
         <div class="container md-4 mt-3 rtl text-align-direction">
             <div class="__flash-deals-bg rounded" style="background: url({{$deal_banner}}) no-repeat center center / cover">
@@ -126,5 +126,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/deals.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/deals.js') }}"></script>
 @endpush

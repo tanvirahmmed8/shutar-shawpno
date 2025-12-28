@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ translate('vendor_Login')}}</title>
     <link rel="shortcut icon" href="{{getStorageImages(path: getWebConfig(name: 'company_fav_icon'), type:'backend-logo')}}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/icon-set/style.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/style.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/google-fonts.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/theme.minc619.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/toastr.css') }}">
 
     <style>
         :root {
@@ -25,7 +25,7 @@
 <body>
 <main id="content" role="main" class="main">
     <div class="auth-wrapper">
-        <div class="auth-wrapper-left" style="background: url('{{ dynamicAsset(path: 'public/assets/back-end/img/login-bg.png') }}') no-repeat center center / cover">
+        <div class="auth-wrapper-left" style="background: url('{{ dynamicAsset(path: 'public/site-assets/back-end/img/login-bg.png') }}') no-repeat center center / cover">
             <div class="auth-left-cont">
                 @php($eCommerceLogo = getWebConfig(name: 'company_web_logo'))
                 <a class="d-inline-flex mb-5" href="{{ route('home') }}">
@@ -154,10 +154,10 @@
       data-mode="{{ env('APP_MODE') }}"
 ></span>
 
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/theme.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/login.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/toastr.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/login.js')}}"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())

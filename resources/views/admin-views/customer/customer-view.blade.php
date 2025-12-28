@@ -3,7 +3,7 @@
 @section('title', translate('customer_Details'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{dynamicAsset(path:'public/assets/back-end/css/owl.min.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path:'public/site-assets/back-end/css/owl.min.css')}}">
 @endpush
 
 @section('content')
@@ -13,7 +13,7 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <div class="mb-3">
                         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-                            <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                            <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                             {{translate('customer_details')}}
                         </h2>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h4 class="mb-4 d-flex align-items-center gap-2">
-                            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}"
+                            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}"
                                  alt="">
                             {{translate('customer').' # '.$customer['id']}}
                         </h4>
@@ -99,7 +99,7 @@
                             <div class="col-sm-6 col-md-4 col-xl-6 col-xxl-4">
                                 <a href="" class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/total-order.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/total-order.png')}}" alt="">
                                         <h6 class="order-stats__subtitle text-capitalize">{{translate('total_orders')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['total_order']}}</span>
@@ -108,7 +108,7 @@
                             <div class="col-sm-6 col-md-4 col-xl-6 col-xxl-4">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/ongoing.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/ongoing.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('ongoing')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['ongoing']}}</span>
@@ -117,7 +117,7 @@
                             <div class="col-sm-6 col-md-4 col-xl-6 col-xxl-4">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/completed.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/completed.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('completed')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['completed']}}</span>
@@ -126,7 +126,7 @@
                             <div class="col-sm-6 col-md-4 col-xl-6 col-xxl-4">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/canceled.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/canceled.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('canceled')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['canceled']}}</span>
@@ -135,7 +135,7 @@
                             <div class="col-sm-6 col-md-4 col-xl-6 col-xxl-4">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/returned.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/returned.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('returned')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['returned']}}</span>
@@ -144,7 +144,7 @@
                             <div class="col-sm-6 col-md-4 col-xl-6 col-xxl-4">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/failed.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/failed.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('failed')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['failed']}}</span>
@@ -162,7 +162,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/total-order.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/total-order.png')}}" alt="">
                                         <h6 class="order-stats__subtitle text-capitalize">{{translate('total_orders')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['total_order']}}</span>
@@ -171,7 +171,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/ongoing.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/ongoing.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('ongoing')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['ongoing']}}</span>
@@ -180,7 +180,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/completed.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/completed.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('completed')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['completed']}}</span>
@@ -189,7 +189,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/canceled.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/canceled.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('canceled')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['canceled']}}</span>
@@ -198,7 +198,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/returned.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/returned.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('returned')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['returned']}}</span>
@@ -207,7 +207,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/failed.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/failed.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('failed')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['failed']}}</span>
@@ -216,7 +216,7 @@
                             <div class="slide-item">
                                 <a class="order-stats">
                                     <div class="order-stats__content">
-                                        <img width="20" src="{{dynamicAsset(path:'public/assets/back-end/img/customer/refunded.png')}}" alt="">
+                                        <img width="20" src="{{dynamicAsset(path:'public/site-assets/back-end/img/customer/refunded.png')}}" alt="">
                                         <h6 class="order-stats__subtitle">{{translate('refunded')}}</h6>
                                     </div>
                                     <span class="order-stats__title text--title">{{$orderStatusArray['refunded']}}</span>
@@ -252,7 +252,7 @@
                             </div>
                             <div class="dropdown">
                                 <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{route('admin.customer.order-list-export',[$customer['id'],'searchValue' => request('searchValue')])}}">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                     <span class="ps-2">{{ translate('export') }}</span>
                                 </a>
                             </div>
@@ -348,7 +348,7 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path:'public/assets/back-end/js/owl.min.js')}}"></script>
+    <script src="{{dynamicAsset(path:'public/site-assets/back-end/js/owl.min.js')}}"></script>
     <script type="text/javascript">
         'use strict';
         $('.order-statistics-slider, .address-slider').owlCarousel({

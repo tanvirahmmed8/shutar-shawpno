@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/withdraw-icon.png')}}" alt="">
                 {{translate('withdraw')}}
             </h2>
         </div>
@@ -32,7 +32,7 @@
                                     </select>
                                     <div class="dropdown w-100">
                                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.vendors.withdraw-list-export-excel') }}?approved={{request('approved')}}">
-                                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                             <span class="ps-2">{{ translate('export') }}</span>
                                         </a>
                                     </div>

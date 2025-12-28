@@ -64,7 +64,7 @@
                                 </div>
                             @else
                                 <div class="text-center text-capitalize">
-                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg')}}"
+                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/nodata.svg')}}"
                                          alt=""
                                          width="100">
                                     <h5>{{translate('no_product_found')}}!</h5>
@@ -158,7 +158,7 @@
                                 <label class="py-0 d-flex align-items-center m-0 cursor-pointer">
                                         <span class="position-relative">
                                             <img class="border rounded border-primary-light h-70px"
-                                                 src="{{theme_asset(path: 'public/assets/front-end/img/image-place-holder.png')}}"
+                                                 src="{{theme_asset(path: 'public/site-assets/front-end/img/image-place-holder.png')}}"
                                                  alt="">
                                         </span>
                                     <input type="file" class="reviewFilesValue h-100 position-absolute w-100 " hidden

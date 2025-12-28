@@ -21,7 +21,7 @@
                     <div class="row flex-between align-items-center g-2 mb-3">
                         <div class="col-sm-6">
                             <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/business_analytics.png') }}"
+                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/business_analytics.png') }}"
                                     alt="">{{ translate('business_analytics') }}
                             </h4>
                         </div>
@@ -52,7 +52,7 @@
                 <div class="card-body">
                     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-3">
                         <img width="20" class="mb-1"
-                            src="{{ dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png') }}" alt="">
+                            src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/admin-wallet.png') }}" alt="">
                         {{ translate('admin_wallet') }}
                     </h4>
 
@@ -185,6 +185,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/dashboard.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/dashboard.js') }}"></script>
 @endpush

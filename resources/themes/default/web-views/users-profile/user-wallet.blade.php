@@ -3,8 +3,8 @@
 @section('title', translate('my_Wallet'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{theme_asset(path: 'public/site-assets/front-end/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{theme_asset(path: 'public/site-assets/front-end/css/owl.theme.default.min.css') }}">
 @endpush
 
 @section('content')
@@ -57,7 +57,7 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                                <img class="wallet-card-bg z-1" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/wallet-card.png') }}" alt="">
+                                                <img class="wallet-card-bg z-1" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/wallet-card.png') }}" alt="">
                                             </div>
                                         </div>
                                     @else
@@ -90,7 +90,7 @@
                                                         </h2>
                                                     </div>
                                                 </div>
-                                                <img class="wallet-card-bg z-1" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/wallet-card.png') }}" alt="">
+                                                <img class="wallet-card-bg z-1" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/wallet-card.png') }}" alt="">
                                             </div>
                                         </div>
                                         <div class="col-md-7">
@@ -112,7 +112,7 @@
                                                                 @endif
                                                                 <p class="fw-bold text-accent mb-0">{{ $bonus->description ? Str::limit($bonus->description, 40):'' }}</p>
                                                             </div>
-                                                            <img class="slider-card-bg-img add-fund-carousel-slider-card-bg" width="50" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/add_fund_vector.png') }}" alt="">
+                                                            <img class="slider-card-bg-img add-fund-carousel-slider-card-bg" width="50" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/add_fund_vector.png') }}" alt="">
                                                         </div>
                                                     </div>
                                                 @endforeach
@@ -235,7 +235,7 @@
                                                     <div class="bg-light my-1 p-3 p-sm-3 rounded d-flex justify-content-between g-2">
                                                         <div class="">
                                                             <h6 class="mb-2 d-flex align-items-center gap-8">
-                                                                <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/coin-success.png') }}" width="25" alt="">
+                                                                <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/coin-success.png') }}" width="25" alt="">
                                                                 <span class="absolute-ltr font-bold fs-18">+ {{ webCurrencyConverter(amount: $item['admin_bonus']) }}</span>
                                                             </h6>
                                                             <h6 class="text-muted mb-0 small text-capitalize fs-13 font-semibold">
@@ -258,9 +258,9 @@
                                                     <div class="w-100">
                                                         <h6 class="mb-2 d-flex align-items-center gap-8">
                                                             @if($item['debit'] != 0)
-                                                                <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/coin-danger.png') }}" width="25" alt="">
+                                                                <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/coin-danger.png') }}" width="25" alt="">
                                                             @else
-                                                                <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/coin-success.png') }}" width="25" alt="">
+                                                                <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/coin-success.png') }}" width="25" alt="">
                                                             @endif
 
                                                             <span class="absolute-ltr font-bold fs-18">
@@ -296,7 +296,7 @@
                                     </div>
                                     @if($wallet_transactio_list->count()==0)
                                     <div class="d-flex flex-column gap-3 align-items-center text-center my-5">
-                                        <img width="72" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/empty-transaction-history.png') }}" class="dark-support" alt="">
+                                        <img width="72" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/empty-transaction-history.png') }}" class="dark-support" alt="">
                                         <h6 class="text-muted mt-3">{{ translate('you_do_not_have_any') }}<br> {{ request('type') != 'all' ? ucwords(translate(request('type'))) : '' }} {{ translate('transaction_yet') }}</h6>
                                     </div>
                                     @endif
@@ -324,7 +324,7 @@
 @endsection
 
 @push('script')
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/owl.carousel.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/owl.carousel.min.js') }}"></script>
 <script>
     "use strict";
 

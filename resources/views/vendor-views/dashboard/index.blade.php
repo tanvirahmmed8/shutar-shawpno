@@ -25,7 +25,7 @@
                 <div class="row justify-content-between align-items-center g-2 mb-3">
                     <div class="col-sm-6">
                         <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-                            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business_analytics.png')}}" alt="">
+                            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/business_analytics.png')}}" alt="">
                             {{translate('order_analytics')}}
                         </h4>
                     </div>
@@ -53,7 +53,7 @@
                 <div class="row justify-content-between align-items-center g-2 mb-3">
                     <div class="col-sm-6">
                         <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
-                            <img width="20" class="mb-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png')}}" alt="">
+                            <img width="20" class="mb-1" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/admin-wallet.png')}}" alt="">
                             {{translate('vendor_Wallet')}}
                         </h4>
                     </div>
@@ -147,6 +147,6 @@
 @endsection
 
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/dashboard.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/dashboard.js')}}"></script>
 @endpush

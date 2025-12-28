@@ -6,7 +6,7 @@
         <div>
             <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
                 <h2 class="h1 mb-0">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
                     <span class="page-header-title">
                         @if($status =='processing')
                             {{translate('packaging')}}
@@ -141,7 +141,7 @@
                                 </form>
                                 <div class="dropdown">
                                     <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.orders.export-excel', ['delivery_man_id' => request('delivery_man_id'), 'status' => $status, 'from' => $from, 'to' => $to, 'filter' => $filter, 'searchValue' => $searchValue,'seller_id'=>$vendorId,'customer_id'=>$customerId, 'date_type'=>$dateType]) }}">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                         <span class="ps-2">{{ translate('export') }}</span>
                                     </a>
                                 </div>
@@ -278,7 +278,7 @@
                                         <div class="d-flex justify-content-center gap-2">
                                             <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('view')}}"
                                                 href="{{route('admin.orders.details',['id'=>$order['id']])}}">
-                                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+                                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/eye.svg')}}" class="svg" alt="">
                                             </a>
                                             <a class="btn btn-outline-success square-btn btn-sm mr-1" target="_blank" title="{{translate('invoice')}}"
                                                 href="{{route('admin.orders.generate-invoice',[$order['id']])}}">
@@ -327,5 +327,5 @@
 @endsection
 
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/order.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/order.js')}}"></script>
 @endpush

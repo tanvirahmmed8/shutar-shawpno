@@ -6,7 +6,7 @@
 @section('title', translate('language_Translate'))
 
 @push('css_or_js')
-    <link href="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -15,7 +15,7 @@
 
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/language.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/language.png')}}" alt="">
                 {{translate('language')}}
             </h2>
         </div>
@@ -76,7 +76,7 @@
                 <div class="modal-body text-center">
                     <div class="py-5">
                         <div class="mb-4">
-                            <img src="{{dynamicAsset('/public/assets/back-end/img/language-complete.png')}}" alt="">
+                            <img src="{{dynamicAsset('/public/site-assets/back-end/img/language-complete.png')}}" alt="">
                         </div>
                         <h4 class="mb-3">
                             {{ translate('Your_file_has_been_successfully_translated') }}
@@ -94,7 +94,7 @@
                 <div class="modal-body">
                     <div class="d-flex gap-3 align-items-center mb-3">
                         <div>
-                            <img src="{{ dynamicAsset('public/assets/back-end/img/invalid-icon.png') }}" alt="">
+                            <img src="{{ dynamicAsset('public/site-assets/back-end/img/invalid-icon.png') }}" alt="">
                         </div>
                         <div class="w-0 flex-grow-1">
                             <h3>{{ translate('warning') }}!</h3>
@@ -214,8 +214,8 @@
 
 @push('script')
 
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/translate.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/translate.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
     <script>
         $(document).ready(function () {

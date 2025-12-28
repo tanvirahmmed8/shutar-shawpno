@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/product-review.png')}}" class="mb-1 mr-1"
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/product-review.png')}}" class="mb-1 mr-1"
                      alt="">
                 {{translate('product_reviews')}}
             </h2>
@@ -118,7 +118,7 @@
                         <div class="d-flex align-items-end h-100">
                             <div class="mb-2 form-group w-100">
                                 <a type="button" class="btn btn-outline--primary w-100" href="{{ route('vendor.reviews.export', ['product_id' => $product_id, 'customer_id' => $customer_id, 'status' => $status, 'from' => $from, 'to' => $to]) }}">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                     <span class="ps-2">{{ translate('export') }}</span>
                                 </a>
                             </div>
@@ -405,5 +405,5 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/search-product.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/search-product.js')}}"></script>
 @endpush

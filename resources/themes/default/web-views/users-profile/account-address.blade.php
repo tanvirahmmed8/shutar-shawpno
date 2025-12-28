@@ -3,10 +3,10 @@
 @section('title', translate('my_Address'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/address.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/address.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -184,7 +184,7 @@
                             <div class="d-flex justify-content-end align-items-center mb-3 gap-2">
                                 <button type="submit" class="btn btn--primary text-capitalize btn-sm d-flex align-items-center gap-1" data-toggle="modal"
                                         data-target="#exampleModal" id="add_new_address">
-                                    <img src="{{ theme_asset(path: 'public/assets/front-end/img/add-address-icon.png')}}" class=""
+                                    <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/add-address-icon.png')}}" class=""
                                          alt="">
                                     {{translate('add_address')}}
                                 </button>
@@ -204,7 +204,7 @@
                         </div>
                         @if ($shippingAddresses->count() ==0)
                             <div class="text-center text-capitalize pb-5 pt-5">
-                                <img class="mb-4" src="{{theme_asset(path: 'public/assets/front-end/img/icons/address.svg')}}"
+                                <img class="mb-4" src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/address.svg')}}"
                                      alt="" width="70">
                                 <h5 class="fs-14">{{translate('no_address_found')}}!</h5>
                             </div>
@@ -226,7 +226,7 @@
                                                 <a class="" title="Edit Address" id="edit"
                                                    href="{{route('address-edit',$shippingAddress->id)}}">
                                                     <img
-                                                        src="{{theme_asset(path: 'public/assets/front-end/img/address-edit-icon.png')}}"
+                                                        src="{{theme_asset(path: 'public/site-assets/front-end/img/address-edit-icon.png')}}"
                                                         width="19" alt="">
                                                 </a>
 
@@ -306,8 +306,8 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/account-address.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/account-address.js') }}"></script>
     <script>
         "use strict";
         const deliveryRestrictedCountries = @json($countriesName);
@@ -323,8 +323,8 @@
             }
         }
     </script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
     @if(getWebConfig('map_api_status') ==1 )
         <script
             src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig('map_api_key')}}&callback=callBackFunction&loading=async&libraries=places&v=3.56" defer>

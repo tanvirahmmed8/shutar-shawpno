@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/system-setting.png')}}" alt="">
                 {{translate('system_Setup')}}
             </h2>
         </div>
@@ -14,7 +14,7 @@
         <div class="card">
             <div class="border-bottom px-4 py-3">
                 <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                    <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/environment.png')}}" alt="">
+                    <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/environment.png')}}" alt="">
                     {{translate('environment_information')}}
                 </h5>
             </div>
@@ -148,7 +148,7 @@
                     <div class="card mt-3">
                         <div class="border-bottom px-4 py-3">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/environment.png')}}" alt="">
+                                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/environment.png')}}" alt="">
                                 {{translate('Force_HTTPS')}}
                             </h5>
                         </div>
@@ -183,7 +183,7 @@
                     <div class="card mt-3">
                         <div class="border-bottom px-4 py-3">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/environment.png')}}" alt="">
+                                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/environment.png')}}" alt="">
                                 {{translate('Optimize_System')}}
                             </h5>
                         </div>
@@ -214,7 +214,7 @@
                     <div class="card mt-3">
                         <div class="border-bottom px-4 py-3">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/environment.png')}}" alt="">
+                                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/environment.png')}}" alt="">
                                 {{translate('Install_Passport')}}
                             </h5>
                         </div>

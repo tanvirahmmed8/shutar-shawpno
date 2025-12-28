@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/seo-settings.svg') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/seo-settings.svg') }}" alt="">
                 {{ translate('SEO_Settings') }}
             </h2>
         </div>
@@ -21,19 +21,19 @@
                 @if(file_exists(base_path('robots.txt')))
                     <a class="btn btn-outline--primary" href="{{ url('/robots.txt') }}" target="_blank">
                         <span class="font-weight-semibold text-dark txt">{{translate('view_URL')}}</span>
-                        <img src="{{dynamicAsset('public/assets/back-end/img/arrow-right.png')}}" alt="">
+                        <img src="{{dynamicAsset('public/site-assets/back-end/img/arrow-right.png')}}" alt="">
                     </a>
                 @else
                     <button class="btn btn-outline--primary disabled" data-toggle="tooltip" title="{{ translate('Empty_File') }}">
                         <span class="font-weight-semibold text-dark txt">{{translate('view_URL')}}</span>
-                        <img src="{{dynamicAsset('public/assets/back-end/img/arrow-right.png')}}" alt="">
+                        <img src="{{dynamicAsset('public/site-assets/back-end/img/arrow-right.png')}}" alt="">
                     </button>
                 @endif
             </div>
             <div class="card-body">
                 <div class="mb-20px">
                     <div class="d-flex align-items-center gap-2 fs-12 p-3 rounded badge--info">
-                        <img src="{{dynamicAsset('public/assets/back-end/img/idea.png')}}" alt="">
+                        <img src="{{dynamicAsset('public/site-assets/back-end/img/idea.png')}}" alt="">
                         @if(env('APP_MODE') == 'demo')
                             <div class="w-0 flex-grow">
                                 {{ translate('the_robots.txt_editor_lets_you_tell_search_engines_which_parts_of_your_website_they_should_or_should_not_crawl.') }} {{ translate('please_note') }}:{{ translate('this_feature_is_disabled_for_demo.') }}

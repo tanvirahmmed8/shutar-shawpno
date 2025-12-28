@@ -5,7 +5,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <div>
                 <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                     {{translate('employee_role_setup')}}
                 </h2>
                 <p class="text-muted mb-0">{{translate('assign_the_right_modules_and_keep_admin_access_secure')}}</p>
@@ -181,7 +181,7 @@
                     </form>
                     <a type="button" class="btn btn-outline--primary text-nowrap"
                        href="{{route('admin.custom-role.export',['searchValue'=>request('searchValue')])}}">
-                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                         <span class="ps-2">{{ translate('export') }}</span>
                     </a>
                 </div>
@@ -270,5 +270,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/custom-role.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/custom-role.js')}}"></script>
 @endpush

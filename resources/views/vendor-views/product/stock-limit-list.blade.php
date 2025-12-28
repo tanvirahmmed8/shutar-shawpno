@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3 d-flex flex-column gap-1">
             <h2 class="h1 text-capitalize d-flex gap-2">
-                <img src="{{ asset('public/assets/back-end/img/inhouse-product-list.png') }}" class="mb-1 mr-1" alt="">
+                <img src="{{ asset('public/site-assets/back-end/img/inhouse-product-list.png') }}" class="mb-1 mr-1" alt="">
                 {{ translate('limited_Stocked_Products_List') }}
                 <span class="badge badge-soft-dark radius-50 fz-14 ml-1">
                     {{ $products->total() }}
@@ -88,7 +88,7 @@
                                         <a href="{{route('vendor.products.view',[$product['id']]) }}"
                                            class="media align-items-center gap-2">
                                             <img src="{{ getStorageImages(path:$product->thumbnail_full_url,type: 'backend-product')}}"
-                                                data-onerror="{{ dynamicAsset(path: '/public/assets/back-end/img/brand-logo.png') }}"
+                                                data-onerror="{{ dynamicAsset(path: '/public/site-assets/back-end/img/brand-logo.png') }}"
                                                 class="avatar border object-fit-cover" alt="">
                                             <span class="media-body title-color hover-c1">
                                                 {{ Str::limit($product['name'], 20) }}

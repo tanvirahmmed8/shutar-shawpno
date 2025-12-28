@@ -93,7 +93,7 @@
         @if(count($orders)==0)
             <div class="text-center p-4">
                 <img class="mb-3 w-160"
-                     src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+                     src="{{dynamicAsset(path: 'public/site-assets/back-end/svg/illustrations/sorry.svg')}}"
                      alt="{{translate('image_description')}}">
                 <p class="mb-0">{{translate('no_data_to_show')}}</p>
             </div>

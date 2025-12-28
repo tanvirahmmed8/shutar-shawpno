@@ -2,14 +2,14 @@
 
 @section('title', translate('app_settings'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/system-setting.png')}}" alt="">
                 {{translate('system_setup')}}
             </h2>
             <div class="text-primary d-flex align-items-center gap-3 font-weight-bolder text-capitalize">
@@ -25,7 +25,7 @@
         </div>
         @include('admin-views.business-settings.system-settings-inline-menu')
         <div class="d-flex gap-2 mb-3">
-            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/settings.png')}}" alt="">
+            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/settings.png')}}" alt="">
             <h5 class="mb-0">{{translate('user_app_version_control')}}</h5>
         </div>
         <div class="card">
@@ -35,7 +35,7 @@
                     <div class="row g-2">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center gap-2 mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/android.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/android.png')}}" alt="">
                                 <h5 class="mb-0 text-capitalize">{{translate('for_android')}}</h5>
                             </div>
                             <input type="hidden" name="type" value="user_app_version_control">
@@ -47,7 +47,7 @@
                                               data-placement="right"
                                               title="{{translate('define_the_minimum_Android_app_version_for_best_user_experience').'.'.translate('if_a_user_still_do_not_have_it,_they_will_be_requested_a_force_app_update_when_they_opens_the_app').'.'}}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="hidden" name="for_android[status]" value="1">
@@ -61,7 +61,7 @@
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                               data-placement="right"
                                               title="{{translate('add_the_Android_app_download_URL_that_will_redirect_users_when_they_agree_to_update_the_app').'.' }}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="url" class="form-control" name="for_android[link]"
@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center gap-2 mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/apple.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/apple.png')}}" alt="">
                                 <h5 class="mb-0">{{translate('for_iOS')}}</h5>
                             </div>
                             <div class="bg-light p-3 rounded">
@@ -81,7 +81,7 @@
                                         <label class="title-color mb-0 text-capitalize">{{translate('minimum_customer_app_version')}}</label>
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
                                               title="{{translate('define_the_minimum_iOS_app_version_for_best_user_experience').'.'. translate('if_a_user_still_do_not_have_it,_they_will_be_requested_a_force_app_update_when_they_opens_the_app').'.' }}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="hidden" name="for_ios[status]" value="1">
@@ -96,7 +96,7 @@
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                               data-placement="right"
                                               title="{{translate('add_the_iOS_app_download_URL_that_will_redirect_users_when_they_agree_to_update_the_app').'.'}}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="url" class="form-control" name="for_ios[link]"
@@ -116,7 +116,7 @@
             </div>
         </div>
         {{-- <div class="d-flex gap-2 mb-3 mt-5">
-            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/settings.png')}}" alt="">
+            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/settings.png')}}" alt="">
             <h5 class="mb-0">{{translate('vendor_app_version_control')}}</h5>
         </div>
         <div class="card">
@@ -126,7 +126,7 @@
                     <div class="row g-2">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center gap-2 mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/android.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/android.png')}}" alt="">
                                 <h5 class="mb-0 text-capitalize">{{translate('for_android')}}</h5>
                             </div>
 
@@ -140,7 +140,7 @@
                                               data-placement="right"
                                               title="{{translate('define_the_minimum_Android_app_version_for_best_user_experience').'.'.translate('if_a_user_still_do_not_have_it,_they_will_be_requested_a_force_app_update_when_they_opens_the_app').'.'}}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="hidden" name="for_android[status]" value="1">
@@ -156,7 +156,7 @@
                                               data-placement="right"
                                               title="{{translate('add_the_Android_app_download_URL_that_will_redirect_users_when_they_agree_to_update_the_app').'.' }}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="url" class="form-control" name="for_android[link]"
@@ -168,7 +168,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center gap-2 mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/apple.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/apple.png')}}" alt="">
                                 <h5 class="mb-0">{{translate('for_iOS')}}</h5>
                             </div>
                             <div class="bg-light p-3 rounded">
@@ -179,7 +179,7 @@
                                               data-placement="right"
                                               title="{{translate('define_the_minimum_iOS_app_version_for_best_user_experience').'.'. translate('if_a_user_still_do_not_have_it,_they_will_be_requested_a_force_app_update_when_they_opens_the_app').'.' }}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="hidden" name="for_ios[status]" value="1">
@@ -195,7 +195,7 @@
                                               data-placement="right"
                                               title="{{translate('add_the_iOS_app_download_URL_that_will_redirect_users_when_they_agree_to_update_the_app').'.'}}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="url" class="form-control" name="for_ios[link]"
@@ -215,7 +215,7 @@
             </div>
         </div> --}}
         <div class="d-flex gap-2 mb-3 mt-5">
-            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/settings.png')}}" alt="">
+            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/settings.png')}}" alt="">
             <h5 class="mb-0">{{translate('delivery_man_app_version_control')}}</h5>
         </div>
         <div class="card">
@@ -225,7 +225,7 @@
                     <div class="row g-2">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center gap-2 mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/android.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/android.png')}}" alt="">
                                 <h5 class="mb-0 text-capitalize">{{translate('for_android')}}</h5>
                             </div>
                             <input type="hidden" name="type" value="delivery_man_app_version_control">
@@ -237,7 +237,7 @@
                                               data-placement="right"
                                               title="{{translate('define_the_minimum_Android_app_version_for_best_user_experience').'.'.translate('if_a_user_still_do_not_have_it,_they_will_be_requested_a_force_app_update_when_they_opens_the_app').'.'}}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="hidden" name="for_android[status]" value="1">
@@ -252,7 +252,7 @@
                                               data-placement="right"
                                               title="{{translate('add_the_Android_app_download_URL_that_will_redirect_users_when_they_agree_to_update_the_app').'.' }}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="url" class="form-control" name="for_android[link]"
@@ -263,7 +263,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center gap-2 mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/apple.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/apple.png')}}" alt="">
                                 <h5 class="mb-0">{{translate('for_iOS')}}</h5>
                             </div>
                             <div class="bg-light p-3 rounded">
@@ -272,7 +272,7 @@
                                         <label class="title-color mb-0 text-capitalize">{{translate('minimum_deliveryman_app_version')}}</label>
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
                                                   title="{{translate('define_the_minimum_iOS_app_version_for_best_user_experience').'.'. translate('if_a_user_still_do_not_have_it,_they_will_be_requested_a_force_app_update_when_they_opens_the_app').'.'}}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="hidden" name="for_android[status]" value="1">
@@ -287,7 +287,7 @@
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                               data-placement="right"
                                               title="{{translate('add_the_iOS_app_download_URL_that_will_redirect_users_when_they_agree_to_update_the_app').'.'}}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </div>
                                     <input type="url" class="form-control" name="for_ios[link]"
@@ -321,7 +321,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/what_app_version.png')}}"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/what_app_version.png')}}"
                                          loading="lazy" alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{ translate('what_is_app_version').'?' }}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -333,7 +333,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/what_app_version.png')}}"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/what_app_version.png')}}"
                                          loading="lazy" alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{ translate('app_download_link') }}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -353,5 +353,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
 @endpush

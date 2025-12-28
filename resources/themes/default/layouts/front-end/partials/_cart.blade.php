@@ -67,7 +67,7 @@
                 ?>
 
                 <div class="dropdown-saved-amount text-center  align-items-center justify-content-center text-accent mb-3 {{$totalSavedAmount <= 0 ? 'd-none' : 'd-flex'}}">
-                    <img src="{{theme_asset(path: 'public/assets/front-end/img/party-popper.svg') }}" class="mr-2" alt="">
+                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/party-popper.svg') }}" class="mr-2" alt="">
                     <small>
                         {{ translate('you_have_saved') }}
                         <span class="total_discount">
@@ -185,7 +185,7 @@
                 @php($free_delivery_status = \App\Utils\OrderManager::getFreeDeliveryOrderAmountArray($cart[0]->cart_group_id))
                 @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') !='free_delivery'))
                     <div class="py-3">
-                        <img src="{{theme_asset(path: 'public/assets/front-end/img/truck.svg') }}" alt="">
+                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/truck.svg') }}" alt="">
                         <span
                             class="amount_fullfill text-accent __text-12px {{$free_delivery_status['amount_need'] <= 0 ? '' :'d-none'}}">{{ translate('you_Get_Free_Delivery_Bonus') }}</span>
                         <small
@@ -236,7 +236,7 @@
             @else
                 <div class="widget-cart-item">
                     <div class="text-center text-capitalize">
-                        <img class="mb-3 mw-100" src="{{theme_asset(path: 'public/assets/front-end/img/icons/empty-cart.svg') }}"
+                        <img class="mb-3 mw-100" src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/empty-cart.svg') }}"
                              alt="{{ translate('cart') }}" loading="eager">
                         <p class="text-capitalize">{{ translate('Your_Cart_is_Empty') }}!</p>
                     </div>

@@ -15,8 +15,8 @@
     <meta property="twitter:description"
           content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
-    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" media="screen" href="{{theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -246,7 +246,7 @@
                         <div class="nav-link active-status">
                             <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                 <div class="media-tab-media mx-sm-auto mb-3">
-                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/order-placed.png')}}"
+                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/order-placed.png')}}"
                                          alt="">
                                 </div>
                                 <div class="media-body">
@@ -254,7 +254,7 @@
                                         <h6 class="media-tab-title text-nowrap mb-0 text-capitalize fs-14">{{ translate('order_placed')}}</h6>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-sm-center gap-1 mt-2">
-                                        <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png')}}"
+                                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png')}}"
                                              width="14" alt="">
                                         <span class="text-muted fs-12">{{date('h:i A, d M Y',strtotime($orderDetails->created_at))}}</span>
                                     </div>
@@ -270,7 +270,7 @@
                                 <div class="nav-link {{($orderDetails['order_status']=='confirmed') || ($orderDetails['order_status']=='processing') || ($orderDetails['order_status']=='processed') || ($orderDetails['order_status']=='out_for_delivery') || ($orderDetails['order_status']=='delivered')?'active-status' : ''}}">
                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                         <div class="media-tab-media mb-3 mx-sm-auto">
-                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/order-confirmed.png')}}"
+                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/order-confirmed.png')}}"
                                                  alt="">
                                         </div>
                                         <div class="media-body">
@@ -279,7 +279,7 @@
                                             </div>
                                             @if(($orderDetails['order_status']=='confirmed') || ($orderDetails['order_status']=='processing') || ($orderDetails['order_status']=='processed') || ($orderDetails['order_status']=='out_for_delivery') || ($orderDetails['order_status']=='delivered') && \App\Utils\order_status_history($orderDetails['id'],'confirmed'))
                                                 <div class="d-flex align-items-center justify-content-sm-center mt-2 gap-1">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png')}}"
                                                          width="14" alt="">
                                                     <span class="text-muted fs-12">
                                                         {{date('h:i A, d M Y',strtotime(\App\Utils\order_status_history($orderDetails['id'],'confirmed')))}}
@@ -295,7 +295,7 @@
                                 <div class="nav-link {{($orderDetails['order_status']=='processing') || ($orderDetails['order_status']=='processed') || ($orderDetails['order_status']=='out_for_delivery') || ($orderDetails['order_status']=='delivered')?'active-status' : ''}}">
                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                         <div class="media-tab-media mb-3 mx-sm-auto">
-                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/shipment.png')}}"
+                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/shipment.png')}}"
                                                  alt="">
                                         </div>
                                         <div class="media-body">
@@ -304,7 +304,7 @@
                                             </div>
                                             @if( ($orderDetails['order_status']=='processing') || ($orderDetails['order_status']=='processed') || ($orderDetails['order_status']=='out_for_delivery') || ($orderDetails['order_status']=='delivered')  && \App\Utils\order_status_history($orderDetails['id'],'processing'))
                                                 <div class="d-flex align-items-center justify-content-sm-center mt-2 gap-2">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png')}}"
                                                          width="14" alt="">
                                                     <span class="text-muted fs-12">
                                                         {{date('h:i A, d M Y',strtotime(\App\Utils\order_status_history($orderDetails['id'],'processing')))}}
@@ -319,7 +319,7 @@
                                 <div class="nav-link {{($orderDetails['order_status']=='out_for_delivery') || ($orderDetails['order_status']=='delivered')?'active-status' : ''}}">
                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                         <div class="media-tab-media mb-3 mx-sm-auto">
-                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/on-the-way.png')}}"
+                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/on-the-way.png')}}"
                                                  alt="">
                                         </div>
                                         <div class="media-body">
@@ -331,7 +331,7 @@
                                                 <div class="d-flex align-items-center justify-content-sm-center mt-1">
                                                     @if(\App\Utils\order_status_history($orderDetails['id'],'out_for_delivery'))
                                                         <img class="mx-sm-1"
-                                                             src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png')}}"
+                                                             src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png')}}"
                                                              width="20" alt="">
                                                         <span class="text-muted fs-14">
                                                                 {{date('h:i A, d M Y',strtotime(\App\Utils\order_status_history($orderDetails['id'],'out_for_delivery')))}}
@@ -372,7 +372,7 @@
                                 <div class="nav-link {{($orderDetails['order_status']=='delivered')?'active-status' : ''}}">
                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                         <div class="media-tab-media mb-3 mx-sm-auto">
-                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/delivered.png')}}"
+                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/delivered.png')}}"
                                                  alt="">
                                         </div>
                                         <div class="media-body">
@@ -381,7 +381,7 @@
                                             </div>
                                             @if(($orderDetails['order_status']=='delivered') && \App\Utils\order_status_history($orderDetails['id'],'delivered'))
                                                 <div class="d-flex align-items-center justify-content-sm-center mt-2 gap-2">
-                                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png')}}"
+                                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png')}}"
                                                          width="14" alt="">
                                                     <span class="text-muted fs-12">
                                                         {{date('h:i A, d M Y',strtotime(\App\Utils\order_status_history($orderDetails['id'],'delivered')))}}
@@ -410,7 +410,7 @@
                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                             <img alt=""
-                                                 src="{{theme_asset(path: 'public/assets/front-end/img/track-order/shipment.png') }}">
+                                                 src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/shipment.png') }}">
                                         </div>
                                         <div class="media-body">
                                             <div class="text-sm-center">
@@ -422,7 +422,7 @@
                                                 <div
                                                     class="d-flex align-items-center justify-content-sm-center mt-2 gap-2">
                                                     <img width="14" alt=""
-                                                         src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png') }}">
+                                                         src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png') }}">
                                                     <span class="text-muted fs-12">
                                                                 {{date('h:i A, d M Y',strtotime(\App\Utils\order_status_history($orderDetails['id'], 'processing')))}}
                                                             </span>
@@ -439,7 +439,7 @@
                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                             <img
-                                                src="{{theme_asset(path: 'public/assets/front-end/img/track-order/delivered.png') }}"
+                                                src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/delivered.png') }}"
                                                 alt="">
                                         </div>
                                         <div class="media-body">
@@ -451,7 +451,7 @@
                                                 <div
                                                     class="d-flex align-items-center justify-content-sm-center mt-2 gap-2">
                                                     <img
-                                                        src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png') }}"
+                                                        src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png') }}"
                                                         width="14" alt="">
                                                     <span class="text-muted fs-12">
                                                             {{date('h:i A, d M Y',strtotime(\App\Utils\order_status_history($orderDetails['id'],'delivered')))}}
@@ -468,7 +468,7 @@
                             <div class="nav-link active-status">
                                 <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                     <div class="media-tab-media mx-sm-auto mb-3">
-                                        <img src="{{ theme_asset(path: 'public/assets/front-end/img/track-order/'.$orderDetails['order_status'].'.png') }}" alt="">
+                                        <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/track-order/'.$orderDetails['order_status'].'.png') }}" alt="">
                                     </div>
                                     <div class="media-body">
                                         <div class="text-sm-center">
@@ -478,7 +478,7 @@
                                         </div>
                                         @if(\App\Utils\order_status_history($orderDetails['id'], $orderDetails['order_status']))
                                             <div class="d-flex align-items-center justify-content-sm-center gap-1 mt-2">
-                                                <img src="{{theme_asset(path: 'public/assets/front-end/img/track-order/clock.png') }}"
+                                                <img src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/clock.png') }}"
                                                      width="14" alt="">
                                                 <span class="text-muted fs-12">
                                                 {{ date('h:i A, d M Y', strtotime(\App\Utils\order_status_history($orderDetails['id'], $orderDetails['order_status']))) }}
@@ -496,7 +496,7 @@
                                 <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                     <div class="media-tab-media mx-sm-auto mb-3">
                                         <img
-                                            src="{{theme_asset(path: 'public/assets/front-end/img/track-order/order-failed.png') }}"
+                                            src="{{theme_asset(path: 'public/site-assets/front-end/img/track-order/order-failed.png') }}"
                                             alt="">
                                     </div>
                                     <div class="media-body">
@@ -544,8 +544,8 @@
 @endsection
 
 @push('script')
-    <script src="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/tracking.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+    <script src="{{theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/tracking.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
 @endpush

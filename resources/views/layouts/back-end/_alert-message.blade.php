@@ -1,7 +1,7 @@
 <div class="alert--container active">
     <a href="{{route((is_null(auth('seller')->id())? 'admin':'vendor').'.messages.index', ['type' => 'customer'])}}">
         <div class="alert alert--message-2 alert-dismissible fade show "  id="chatting-new-notification-check" role="alert">
-            <img width="28" src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/chatting-notification.svg') }}" alt="">
+            <img width="28" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/chatting-notification.svg') }}" alt="">
             <div class="w-0">
                 <h6>{{ translate('Message') }}</h6>
                 <span id="chatting-new-notification-check-message">
@@ -16,7 +16,7 @@
 
     @if(env('APP_MODE') == 'demo')
         <div class="alert alert--message-2 alert-dismissible fade show" id="demo-reset-warning">
-            <img width="28" class="align-self-start" src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-2.png') }}" alt="">
+            <img width="28" class="align-self-start" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-2.png') }}" alt="">
             <div class="w-0">
                 <h6>{{ translate('warning').'!'}}</h6>
                 <span class="warning-message">
@@ -71,7 +71,7 @@
 
 
     <div class="alert alert--message-3 alert--message-for-pos border-bottom alert-dismissible fade show">
-        <img width="28" src="{{ dynamicAsset(path: 'public/assets/back-end/img/warning.png') }}" alt="">
+        <img width="28" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/warning.png') }}" alt="">
         <div class="w-0">
             <h6>{{ translate('Warning').'!'}}</h6>
             <span class="warning-message"></span>

@@ -50,7 +50,7 @@
                                                 <div
                                                     class="d-flex flex-column justify-content-center align-items-center">
                                                     <img alt="" class="w-50"
-                                                        src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg') }}">
+                                                        src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product-upload-icon.svg') }}">
                                                     <h5 class="text-muted text-capitalize">{{ translate('upload_image') }}</h5>
                                                 </div>
                                             </div>
@@ -70,7 +70,7 @@
                             <div class="row gy-3">
                                 <div class="col-lg-6">
                                     <div class="d-flex gap-2 align-items-center text-capitalize mb-3 font-weight-bold text-capitalize">
-                                        <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/play_store.png')}}" alt="">
+                                        <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/play_store.png')}}" alt="">
                                         {{translate('play_store_button')}}
                                     </div>
 
@@ -82,7 +82,7 @@
                                                       data-placement="right"
                                                       title="{{translate('if_enabled_the_Google_Play_Store_will_be_visible_in_the_website_footer_section')}}">
                                                     <img width="16"
-                                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                                 </span>
                                             </span>
 
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="d-flex gap-2 align-items-center text-capitalize mb-3 font-weight-bold text-capitalize">
-                                        <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/apple.png')}}" alt="">
+                                        <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/apple.png')}}" alt="">
                                         {{translate('app_store_button')}}
                                     </div>
 
@@ -111,7 +111,7 @@
                                                       data-placement="right"
                                                       title="{{translate('if_enabled_the_download_button_from_the_App_Store_will_be_visible_in_the_Footer_section')}}">
                                                     <img width="16"
-                                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                                 </span>
                                             </span>
 

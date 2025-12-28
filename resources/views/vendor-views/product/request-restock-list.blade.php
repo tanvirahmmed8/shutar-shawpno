@@ -7,7 +7,7 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/inhouse-product-list.png') }}" alt="">
                 {{ translate('Request_Restock_List') }}
                 <span class="badge badge-soft-dark radius-50 fz-14 ml-1">{{ $totalRestockProducts }}</span>
             </h2>
@@ -130,7 +130,7 @@
                         </form>
                         <div class="dropdown">
                             <a type="button" class="btn btn-outline--primary text-nowrap" href="{{route('vendor.products.restock-export', ['restock_date' => request('restock_date'),'brand_id' => request('brand_id'), 'category_id' => request('category_id'), 'sub_category_id' => request('sub_category_id'),  'searchValue' => request('searchValue')])}}">
-                                <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                 <span class="ps-2">{{ translate('export') }}</span>
                             </a>
                         </div>
@@ -179,19 +179,19 @@
                                         <div class="d-flex justify-content-center gap-2">
                                             <a class="btn btn-outline-info btn-sm square-btn" title="View"
                                                href="{{ route('vendor.products.view',['id'=>$restockProduct->product['id'] ?? 0]) }}">
-                                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/restock_view.svg') }}" alt="">
+                                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/restock_view.svg') }}" alt="">
                                             </a>
                                             <a class="btn btn-outline--primary btn-sm square-btn action-update-product-quantity"
                                                title="{{ translate('edit') }}"
                                                id="{{ $restockProduct->product['id'] }}"
                                                data-url="{{ route('vendor.products.get-variations', ['id'=> $restockProduct->product['id'], 'restock_id' => $restockProduct->id]) }}"
                                                data-target="#update-stock">
-                                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/restock_update.svg') }}" alt="">
+                                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/restock_update.svg') }}" alt="">
                                             </a>
                                             <span class="btn btn-outline-danger btn-sm square-btn delete-data"
                                                   title="{{ translate('delete') }}"
                                                   data-id="product-{{ $restockProduct->id}}">
-                                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/restock_delete.svg') }}" alt="">
+                                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/restock_delete.svg') }}" alt="">
                                             </span>
                                         </div>
                                         <form action="{{ route('vendor.products.restock-delete',[$restockProduct->id]) }}"

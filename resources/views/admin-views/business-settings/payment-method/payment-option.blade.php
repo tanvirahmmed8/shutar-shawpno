@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/business-setup.png') }}" alt="">
+                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/business-setup.png') }}" alt="">
                 {{ translate('business_Setup') }}
             </h2>
         </div>
@@ -27,7 +27,7 @@
                                                 data-placement="top"
                                                 title="{{ translate('if_enabled,_the_cash_on_delivery_option_will_be_available_on_the_system._Customers_can_use_COD_as_a_payment_option.') }}">
                                                 <img width="16"
-                                                    src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}"
+                                                    src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}"
                                                     alt="">
                                             </span>
                                         </span>
@@ -57,7 +57,7 @@
                                                 data-placement="top"
                                                 title="{{ translate('if_enabled,_customers_can_choose_digital_payment_options_during_the_checkout_process') }}">
                                                 <img width="16"
-                                                    src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}"
+                                                    src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}"
                                                     alt="">
                                             </span>
                                         </span>
@@ -90,7 +90,7 @@
                                                 {{ translate('They_must_share_payment_details_with_the_vendor_afterward.') }}
                                                 {{ translate('Admin_can_set_whether_customers_can_make_offline_payments_by_enabling/disabling_this_button.') }}">
                                                 <img width="16"
-                                                    src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}"
+                                                    src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}"
                                                     alt="">
                                             </span>
                                         </span>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="modal-body px-4 px-sm-5 pt-0">
                     <div class="d-flex flex-column align-items-center text-center gap-20 mb-5">
-                        <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/modal/warning.png') }}"
+                        <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/modal/warning.png') }}"
                             width="80" alt="">
                         <h5 class="modal-title">
                             {{ translate('You_must_active_at_least_one_method') }}
@@ -166,7 +166,7 @@
                 </div>
                 <div class="modal-body px-4 px-sm-5 pt-0">
                     <div class="d-flex flex-column align-items-center text-center gap-20 mb-5">
-                        <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/modal/warning.png') }}"
+                        <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/modal/warning.png') }}"
                             width="80" alt="">
                         <h5 class="modal-title">
                             {{ translate('You must active one of digital payment methods.') }}

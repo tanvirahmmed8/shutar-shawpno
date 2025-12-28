@@ -12,7 +12,7 @@
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description"
           content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
-    <link rel="stylesheet" href="{{dynamicStorage(path: 'public/assets/front-end/css/shop-cart.css')}}">
+    <link rel="stylesheet" href="{{dynamicStorage(path: 'public/site-assets/front-end/css/shop-cart.css')}}">
 @endpush
 
 @section('content')

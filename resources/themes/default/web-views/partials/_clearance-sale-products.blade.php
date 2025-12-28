@@ -4,7 +4,7 @@
         <div class="fashion-clearance-content __p-20px rounded bg-white overflow-hidden">
             <div class="fashion-clearance-header d-flex __gap-6px flex-between align-items-center mb-4">
                 <div class="fashion-clearance-title-container">
-                    <div class="fashion-clearance-title-bg clearance-sale-title-bg" data-bg-img="{{ theme_asset(path: 'public/assets/front-end/img/media/clearance-sale-title-bg.svg') }}">
+                    <div class="fashion-clearance-title-bg clearance-sale-title-bg" data-bg-img="{{ theme_asset(path: 'public/site-assets/front-end/img/media/clearance-sale-title-bg.svg') }}">
                         <div class="fashion-clearance-subtitle sub-title">
                             <span>{{ translate('Save_More') }}</span>
                         </div>

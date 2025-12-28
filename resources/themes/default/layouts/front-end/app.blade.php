@@ -27,29 +27,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ $web_config['fav_icon']['path'] }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ $web_config['fav_icon']['path'] }}">
-    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/vendor/simplebar/dist/simplebar.min.css') }}">
-    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/vendor/tiny-slider/dist/tiny-slider.css') }}">
-    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/vendor/drift-zoom/dist/drift-basic.min.css') }}">
-    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/vendor/lightgallery.js/dist/css/lightgallery.min.css') }}">
-    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/css/theme.css') }}">
-    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/back-end/css/toastr.css') }}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/master.css') }}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/roboto-font.css')  }}">
+    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/site-assets/front-end/vendor/simplebar/dist/simplebar.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/site-assets/front-end/vendor/tiny-slider/dist/tiny-slider.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/site-assets/front-end/vendor/drift-zoom/dist/drift-basic.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/site-assets/front-end/vendor/lightgallery.js/dist/css/lightgallery.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/site-assets/front-end/css/theme.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/site-assets/front-end/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/back-end/css/toastr.css') }}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/master.css') }}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/roboto-font.css')  }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/css/lightbox.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/back-end/vendor/icon-set/style.css') }}">
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/owl.carousel.min.css') }}">
 
     @stack('css_or_js')
 
     @include(VIEW_FILE_NAMES['robots_meta_content_partials'])
 
     {{-- Fashion Theme CSS --}}
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/fashion-theme.css') }}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/home.css') }}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/responsive1.css') }}"/>
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/fashion-theme.css') }}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/home.css') }}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/responsive1.css') }}"/>
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/style.css') }}">
 
     <style>
         :root {
@@ -81,8 +81,8 @@
         }
     </style>
 
-    <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/css/custom.css')}}">
-    <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/css/modern.css')}}">
+    <link rel="stylesheet" href="{{theme_asset(path: 'public/site-assets/front-end/css/custom.css')}}">
+    <link rel="stylesheet" href="{{theme_asset(path: 'public/site-assets/front-end/css/modern.css')}}">
 
     {!! getSystemDynamicPartials(type: 'analytics_script') !!}
 
@@ -115,7 +115,7 @@
         <div id="loading" class="d--none">
            <div class="text-center">
             <img width="200" alt=""
-                 src="{{ getStorageImages(path: getWebConfig(name: 'loader_gif'), type: 'source', source: theme_asset(path: 'public/assets/front-end/img/loader.gif')) }}">
+                 src="{{ getStorageImages(path: getWebConfig(name: 'loader_gif'), type: 'source', source: theme_asset(path: 'public/site-assets/front-end/img/loader.gif')) }}">
             </div>
         </div>
     </div>
@@ -193,7 +193,7 @@
         @if(isset($whatsapp['status']) && $whatsapp['status'] == 1 )
             <div class="wa-widget-send-button">
                 <a href="https://wa.me/{{ $whatsapp['phone'] }}?text=Hello%20there!" target="_blank">
-                    <img src="{{theme_asset(path: 'public/assets/front-end/img/whatsapp.svg')}}" class="wa-messenger-svg-whatsapp wh-svg-icon" alt="{{ translate('Chat_with_us_on_WhatsApp') }}">
+                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/whatsapp.svg')}}" class="wa-messenger-svg-whatsapp wh-svg-icon" alt="{{ translate('Chat_with_us_on_WhatsApp') }}">
                 </a>
             </div>
         @endif
@@ -203,22 +203,22 @@
     </a>
 </div>
 
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/jquery/dist/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/simplebar/dist/simplebar.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/jquery/dist/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/simplebar/dist/simplebar.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
 <script src="{{ theme_asset(path: 'public/js/lightbox.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/drift-zoom/dist/Drift.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/lightgallery.js/dist/js/lightgallery.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/vendor/lg-video.js/dist/lg-video.min.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/owl.carousel.min.js')}}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/theme.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/slick.js') }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/sweet_alert.js') }}"></script>
-<script src="{{ theme_asset(path: "public/assets/back-end/js/toastr.js") }}"></script>
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/custom.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/drift-zoom/dist/Drift.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/lightgallery.js/dist/js/lightgallery.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/vendor/lg-video.js/dist/lg-video.min.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/owl.carousel.min.js')}}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/theme.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/slick.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/sweet_alert.js') }}"></script>
+<script src="{{ theme_asset(path: "public/site-assets/back-end/js/toastr.js") }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/custom.js') }}"></script>
 
 {!! Toastr::message() !!}
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
     <div class="content container-fluid">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/shipping_method.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/shipping_method.png')}}" alt="">
                 {{translate('shipping_method')}}
             </h2>
             <div class="text-primary d-flex align-items-center gap-3 font-weight-bolder text-capitalize">
@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Session;
                     </div>
                     <div class="modal-body px-4 px-sm-5 pt-0 text-center">
                         <div class="d-flex flex-column align-items-center gap-2">
-                            <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-restriction.png')}}"
+                            <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery-restriction.png')}}"
                                  loading="lazy" alt="">
                             <h4 class="lh-md text-capitalize">{{translate('delivery_restriction')}}</h4>
                             <div class="d-flex flex-column align-items-start">
@@ -51,7 +51,7 @@ use Illuminate\Support\Facades\Session;
                 <div class="card">
                     <div class="card-header">
                         <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
-                            <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+                            <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery.png')}}" alt="">
                             {{translate('shipping')}}
                         </h5>
                     </div>
@@ -71,7 +71,7 @@ use Illuminate\Support\Facades\Session;
                             <div class="mt-2 mx-3" id="product_wise_note">
                                 <p>
                                     <img width="16" class="mt-n1"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/danger-info.png')}}" alt="">
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/danger-info.png')}}" alt="">
                                     <strong>{{translate('note').' '.':'}}</strong>
                                     {{translate('please_make_sure_all_the product`s_delivery_charges_are_up_to_date').'.'}}
                                 </p>
@@ -85,7 +85,7 @@ use Illuminate\Support\Facades\Session;
             <div class="card mt-2">
                 <div class="card-header">
                     <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
-                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery.png')}}" alt="">
                         {{translate('add_order_wise_shipping')}}
                     </h5>
                 </div>
@@ -134,7 +134,7 @@ use Illuminate\Support\Facades\Session;
             <div class="card mt-2">
                 <div class="px-3 py-4">
                     <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
-                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery.png')}}" alt="">
                         {{translate('order_wise_shipping_method')}}
                         <span class="badge badge-soft-dark radius-50 fz-12">{{ $shippingMethods->count() }}</span>
                     </h5>
@@ -217,7 +217,7 @@ use Illuminate\Support\Facades\Session;
         <div class="card mt-2" id="update_category_shipping_cost">
             <div class="px-3 pt-4">
                 <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
-                    <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+                    <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery.png')}}" alt="">
                     {{translate('category_wise_shipping_cost')}}
                 </h5>
             </div>
@@ -279,6 +279,6 @@ use Illuminate\Support\Facades\Session;
     <span id="get-shipping-type-value" data-value="{{$shippingType}}"></span>
 @endsection
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/shipping-method.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/shipping-method.js')}}"></script>
 @endpush
 

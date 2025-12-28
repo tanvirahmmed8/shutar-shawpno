@@ -7,7 +7,7 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-request.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/refund-request.png')}}" alt="">
                 {{translate($status.'_'.'refund_Requests')}}
                 <span class="badge badge-soft-dark radius-50">{{$refundList->total()}}</span>
             </h2>
@@ -45,7 +45,7 @@
                         <div class="d-flex flex-wrap gap-3 justify-content-md-end">
                             <div class="dropdown">
                                 <a type="button" class="btn btn-outline--primary text-nowrap" href="{{route('admin.refund-section.refund.export',['status'=>request('status'),'searchValue'=>request('searchValue'), 'type'=>request('type')])}}">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                     <span class="ps-2">{{ translate('export') }}</span>
                                 </a>
                             </div>

@@ -142,7 +142,7 @@
                 @else
                     <div class="d-flex justify-content-center align-items-center w-100 py-5 my-2">
                         <div>
-                            <img src="{{ theme_asset(path: 'public/assets/front-end/img/media/product.svg') }}"
+                            <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/media/product.svg') }}"
                                  class="img-fluid" alt="">
                             <h6 class="text-muted text-capitalize">{{ translate('no_product_found') }}</h6>
                         </div>
@@ -207,7 +207,7 @@
 
 @endsection
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/product-view.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/product-view.js') }}"></script>
     <script>
         $('.close-icon').on('click', function () {
             $("#shop-sidebar").toggleClass("show active");

@@ -75,7 +75,7 @@
                             <label class="py-0 d-flex align-items-center m-0 cursor-pointer">
                                         <span class="position-relative">
                                             <img class="border rounded border-primary-light h-70px"
-                                                 src="{{theme_asset(path: 'public/assets/front-end/img/image-place-holder.png')}}" alt="">
+                                                 src="{{theme_asset(path: 'public/site-assets/front-end/img/image-place-holder.png')}}" alt="">
                                         </span>
                                 <input type="file" id="attachmentfiles" class="attachmentfiles h-100 position-absolute w-100 " hidden multiple accept="image/*">
                             </label>
@@ -196,7 +196,7 @@
                         @if ($supportTickets->count() <=0)
                             <div class="d-flex justify-content-center align-items-center h-75">
                                 <div class="text-center pt-3 text-capitalize">
-                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg')}}" alt="" width="70">
+                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/nodata.svg')}}" alt="" width="70">
                                     <h5 class="fs-14 mt-4">{{translate('no_ticket_found')}}!</h5>
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
             @if ($supportTickets->count() <=0)
                 <div class="d-flex justify-content-center align-items-center h-100">
                     <div class="text-center pt-3 text-capitalize">
-                        <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg') }}" alt="" width="70">
+                        <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/nodata.svg') }}" alt="" width="70">
                         <h5 class="fs-14 mt-4">{{ translate('no_ticket_found') }}!</h5>
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                 </div>
                 <div class="modal-body pb-5">
                     <div class="text-center">
-                        <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/ticket-delete.png')}}" alt="">
+                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/ticket-delete.png')}}" alt="">
                         <h6 class="font-semibold mt-3 mb-1">{{translate('Delete_this_ticket')}}?</h6>
                         <p class="mb-4">
                             <small>{{translate('This_ticket_will_be_removed_from_this_list')}}</small>
@@ -303,5 +303,5 @@
 @endsection
 
 @push('script')
-<script src="{{ theme_asset(path: 'public/assets/front-end/js/account-ticket.blade.js') }}"></script>
+<script src="{{ theme_asset(path: 'public/site-assets/front-end/js/account-ticket.blade.js') }}"></script>
 @endpush

@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ translate('OTP_Verification_Code') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/email-basic.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/email-basic.css') }}">
 
 </head>
 <body>
@@ -30,7 +30,7 @@
         </div>
         <div class="card-header mb-3 text-center">
             <div class="mb-3">
-                <img alt="" src="{{ dynamicAsset(path: "public/assets/front-end/img/media/OTP-Verification.png") }}" class="h-100px"/>
+                <img alt="" src="{{ dynamicAsset(path: "public/site-assets/front-end/img/media/OTP-Verification.png") }}" class="h-100px"/>
             </div>
             {{ translate('your_OTP_Verification_Code') }}
         </div>

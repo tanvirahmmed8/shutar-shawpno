@@ -3,14 +3,14 @@
 @section('title', translate('mail_Config'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -23,12 +23,12 @@
                             <a class="nav-link d-flex align-items-center gap-2 active" id="nav-home-tab"
                                data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
                                aria-selected="true">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/mail-config.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/mail-config.png')}}" alt="">
                                 {{translate('mail_configuration')}}
                             </a>
                             <a class="nav-link d-flex align-items-center gap-2" id="nav-profile-tab" data-toggle="tab"
                                href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/send-test-mail.png')}}"
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/send-test-mail.png')}}"
                                      alt="">
                                 {{translate('send_test_mail')}}
                             </a>
@@ -62,7 +62,7 @@
                                     <div class="card-header border-0 pb-0">
                                         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
                                             <h5 class="mb-0 d-flex align-items-center gap-2 text-capitalize">
-                                                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/smtp.png')}}"
+                                                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/smtp.png')}}"
                                                      alt="">
                                                 {{translate('smtp_mail_config')}}
                                             </h5>
@@ -221,7 +221,7 @@
                                     </div>
                                 @else
                                     <div class="card-body text-center py-5">
-                                        <img width="48" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/mail-config.png')}}" alt="">
+                                        <img width="48" class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/mail-config.png')}}" alt="">
                                         <p class="text-muted mb-4">{{translate('click_configure_to_enable_SMTP_mail_delivery')}}</p>
                                         <button type="submit"
                                                 class="btn btn--primary px-5">{{translate('configure')}}</button>
@@ -242,7 +242,7 @@
                                     <div class="card-header border-0 pb-0">
                                         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
                                             <h5 class="mb-0 d-flex align-items-center gap-2 text-capitalize">
-                                                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/smtp.png')}}" alt="">
+                                                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/smtp.png')}}" alt="">
                                                 {{translate('sendgrid_mail_config')}}
                                             </h5>
                                             <div class="d-flex align-items-center gap-3">
@@ -399,7 +399,7 @@
                                     </div>
                                 @else
                                     <div class="card-body text-center py-5">
-                                        <img width="48" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/send-test-mail.png')}}" alt="">
+                                        <img width="48" class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/send-test-mail.png')}}" alt="">
                                         <p class="text-muted mb-4">{{translate('click_configure_to_connect_with_sendgrid')}}</p>
                                         <button type="submit"
                                                 class="btn btn--primary px-5">{{translate('configure')}}</button>
@@ -450,7 +450,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/smtp-server.png')}}" loading="lazy"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/smtp-server.png')}}" loading="lazy"
                                          alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('find_SMTP_server_details')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4 w-100">
@@ -466,7 +466,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/config-smtp.png')}}" loading="lazy"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/config-smtp.png')}}" loading="lazy"
                                          alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('configure_SMTP_settings')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4 w-100">
@@ -480,7 +480,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/test-smtp.png')}}" loading="lazy"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/test-smtp.png')}}" loading="lazy"
                                          alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('test_SMTP_connection')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4 w-100">
@@ -496,7 +496,7 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
                                     <img width="80" class="mb-3"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/enable-mail-config.png')}}"
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/enable-mail-config.png')}}"
                                          loading="lazy" alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('enable_mail_configuration')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4 w-100">
@@ -524,7 +524,7 @@
                 </div>
                 <div class="modal-body px-4 px-sm-5 pt-0 text-center">
                     <div class="d-flex flex-column align-items-center gap-2">
-                        <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/send-mail.png')}}"
+                        <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/send-mail.png')}}"
                              loading="lazy" alt="">
                         <h4 class="lh-md">{{translate('send_a_test_mail_to_your_email').'?'}}  </h4>
                         <p class="text-muted">{{translate('a_test_mail_will_be_send_to_your_email_to')}}
@@ -545,6 +545,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/mail.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/mail.js')}}"></script>
 @endpush

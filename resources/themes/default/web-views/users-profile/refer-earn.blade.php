@@ -25,7 +25,7 @@
                         <div class="refer_and_earn_section">
                             <div class="d-flex justify-content-center align-items-center py-2 mb-3">
                                 <div class="banner-img">
-                                    <img class="img-fluid" src="{{ theme_asset(path: 'public/assets/front-end/img/refer-and-earn.png') }}" alt="" width="300">
+                                    <img class="img-fluid" src="{{ theme_asset(path: 'public/site-assets/front-end/img/refer-and-earn.png') }}" alt="" width="300">
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@
                                     <div class="refer_code_box">
                                         <div class="refer_code click-to-copy-data-value" data-value="{{ $customer_detail->referral_code }}">{{ $customer_detail->referral_code }}</div>
                                         <span class="refer_code_copy click-to-copy-data-value" data-value="{{ $customer_detail->referral_code }}">
-                                            <img class="w-100" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/solar_copy-bold-duotone.png') }}" alt="">
+                                            <img class="w-100" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/solar_copy-bold-duotone.png') }}" alt="">
                                         </span>
                                     </div>
 
@@ -51,16 +51,16 @@
                                             $link = url('/');
                                         @endphp
                                         <a href="https://api.whatsapp.com/send?text={{$text}}.{{$link}}" target="_blank">
-                                            <img alt="" src="{{ theme_asset('public/assets/front-end/img/icons/whatsapp.png')}}">
+                                            <img alt="" src="{{ theme_asset('public/site-assets/front-end/img/icons/whatsapp.png')}}">
                                         </a>
                                         <a href="mailto:recipient@example.com?subject=Referral%20Code%20Text&body={{$text}}%20Link:%20{{$link}}" target="_blank">
                                             <img alt=""
-                                                 src="{{ theme_asset('public/assets/front-end/img/icons/gmail.png') }}">
+                                                 src="{{ theme_asset('public/site-assets/front-end/img/icons/gmail.png') }}">
                                         </a>
 
                                         <span data-target="#social-share-modal" data-toggle="modal">
                                             <img alt=""
-                                                 src="{{ theme_asset(path: 'public/assets/front-end/img/icons/share.png') }}">
+                                                 src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/share.png') }}">
                                         </span>
                                     </div>
                                 </div>

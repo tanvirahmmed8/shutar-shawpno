@@ -100,7 +100,7 @@
                                             <div class="review-reply rounded bg-E9F3FF80 p-3 ml-md-4 before-border-left">
                                                 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
                                                     <div class="d-flex align-items-center gap-2">
-                                                        <img src="{{theme_asset('public/assets/front-end/img/seller-reply-icon.png')}}" alt="">
+                                                        <img src="{{theme_asset('public/site-assets/front-end/img/seller-reply-icon.png')}}" alt="">
                                                         <h6 class="font-bold fs-14 m-0">
                                                             {{ translate('Reply_by_Seller') }}
                                                         </h6>
@@ -132,7 +132,7 @@
                         @endforeach
                         @if ($review_count == 0)
                             <div class="text-center pt-5 text-capitalize">
-                                <img class="mb-3" src="{{dynamicAsset(path: 'public/assets/front-end/img/icons/empty-review.svg')}}"
+                                <img class="mb-3" src="{{dynamicAsset(path: 'public/site-assets/front-end/img/icons/empty-review.svg')}}"
                                      alt="">
                                 <p class="opacity-60 mt-3 text-capitalize">{{translate('no_review_found')}}!</p>
                             </div>
@@ -145,7 +145,7 @@
 @endsection
 
 @push('script')
-    <script src="{{theme_asset(path: 'public/assets/front-end/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{theme_asset(path: 'public/site-assets/front-end/js/spartan-multi-image-picker.js') }}"></script>
     <script type="text/javascript">
 
         let reviewSelectedFiles = [];

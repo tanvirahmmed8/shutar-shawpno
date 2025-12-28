@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{asset('/public/assets/back-end/img/support-ticket.png')}}" alt="">
+                <img src="{{asset('/public/site-assets/back-end/img/support-ticket.png')}}" alt="">
                 {{translate('chatting_List')}}
             </h2>
         </div>
@@ -209,7 +209,7 @@
                                         </label>
                                         <div class="d-flex align-items-center justify-content-center bg-F1F7FF radius-right-button">
                                             <button class="aSend bg-transparent outline-0 border-0 shadow-0 px-0 h-100 send-btn" type="submit" id="msgSendBtn">
-                                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/send-icon.png')}}" alt="">
+                                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/send-icon.png')}}" alt="">
                                             </button>
                                         </div>
                                         <div class="circle-progress ml-auto collapse">
@@ -227,7 +227,7 @@
                     @else
                         <div class="d-flex justify-content-center align-items-center h-100">
                             <div class="d-flex flex-column align-items-center gap-3">
-                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/empty-message.png') }}" alt="">
+                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/empty-message.png') }}" alt="">
                                 <p>{{ translate('you_have_not_any_conversation_yet') }}</p>
                             </div>
                         </div>
@@ -240,14 +240,14 @@
               data-url="{{ Request::is('vendor/messages/index/customer') ? route('vendor.messages.message').'?user_id=' : route('vendor.messages.message').'?delivery_man_id=' }}"></span>
         <span id="image-url" data-url="{{ asset('storage/app/public/chatting') }}"></span>
     </div>
-    <span id="get-file-icon" data-default-icon="{{dynamicAsset("public/assets/back-end/img/default-icon.png")}}"
-          data-word-icon="{{dynamicAsset("public/assets/back-end/img/default-icon.png")}}"></span>
+    <span id="get-file-icon" data-default-icon="{{dynamicAsset("public/site-assets/back-end/img/default-icon.png")}}"
+          data-word-icon="{{dynamicAsset("public/site-assets/back-end/img/default-icon.png")}}"></span>
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/chatting.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/picmo-emoji.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/emoji.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/select-multiple-file.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/select-multiple-image-for-message.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/chatting.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/picmo-emoji.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/emoji.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/select-multiple-file.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/select-multiple-image-for-message.js')}}"></script>
 @endpush

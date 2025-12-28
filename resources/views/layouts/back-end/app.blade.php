@@ -13,26 +13,26 @@
     <meta name="_token" content="{{ csrf_token() }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{getStorageImages(path: getWebConfig(name: 'company_fav_icon'), type:'backend-logo')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/custom.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/vendor/icon-set/style.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/daterangepicker.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/style.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/toastr.css')}}">
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/admin-modern.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/custom.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/icon-set/style.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/theme.minc619.css?v=1.0')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/daterangepicker.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/style.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/toastr.css')}}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/admin-modern.css')}}">
     @if(Session::get('direction') === "rtl")
-        <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/menurtl.css')}}">
+        <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/menurtl.css')}}">
     @endif
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/css/lightbox.css')}}">
     @stack('css_or_js')
     <script
-        src="{{dynamicAsset(path: 'public/assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js')}}"></script>
+        src="{{dynamicAsset(path: 'public/site-assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js')}}"></script>
     <style>
         select {
-            background-image: url('{{dynamicAsset(path: 'public/assets/back-end/img/arrow-down.png')}}');
+            background-image: url('{{dynamicAsset(path: 'public/site-assets/back-end/img/arrow-down.png')}}');
             background-size: 7px;
             background-position: 96% center;
         }
@@ -61,7 +61,7 @@
 <a href="#content" class="visually-hidden-focusable">{{ translate('Skip to main content') }}</a>
 
 @include('layouts.back-end.partials._front-settings')
-<span class="d-none" id="placeholderImg" data-img="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img3.png')}}"></span>
+<span class="d-none" id="placeholderImg" data-img="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img3.png')}}"></span>
 <div class="row">
     <div class="col-12 position-fixed z-9999 mt-10rem">
         <div id="loading" class="d--none">
@@ -72,7 +72,7 @@
 @include('layouts.back-end.partials._header')
 @include('layouts.back-end.partials._side-bar')
 @include('layouts.back-end._translator-for-js')
-<span id="get-root-path-for-toggle-modal-image" data-path="{{dynamicAsset(path: 'public/assets/back-end/img/modal')}}"></span>
+<span id="get-root-path-for-toggle-modal-image" data-path="{{dynamicAsset(path: 'public/site-assets/back-end/img/modal')}}"></span>
 
 <main id="content" role="main" class="main pointer-event">
     @yield('content')
@@ -110,7 +110,7 @@
 <span id="get-orders-list-route" data-action="{{ route('admin.orders.list', ['status'=>'all'])}}"></span>
 <span id="get-stock-limit-status" data-action="{{route('admin.products.stock-limit-status',['type'=>'in_house'])}}"></span>
 <span id="get-product-stock-limit-title" data-title="{{translate('warning')}}"></span>
-<span id="get-product-stock-limit-image" data-warning-image="{{ dynamicAsset(path: 'public/assets/back-end/img/warning-2.png') }}"></span>
+<span id="get-product-stock-limit-image" data-warning-image="{{ dynamicAsset(path: 'public/site-assets/back-end/img/warning-2.png') }}"></span>
 <span id="get-product-stock-limit-message"
       data-message-for-multiple="{{ translate('there_is_not_enough_quantity_on_stock').' . '.translate('please_check_products_in_limited_stock').'.' }}"
       data-message-for-three-plus-product="{{translate('_more_products_have_low_stock') }}"
@@ -128,22 +128,22 @@
       data-confirm="{{translate('yes_delete_it')}}" data-cancel="{{translate('cancel')}}"></span>
 
 <audio id="myAudio">
-    <source src="{{ dynamicAsset(path: 'public/assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
+    <source src="{{ dynamicAsset(path: 'public/site-assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
 </audio>
 
 
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/theme.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/bootstrap.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/sweet_alert.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/bootstrap.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/sweet_alert.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/toastr.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/js/lightbox.min.js')}}"></script>
 
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/moment.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/daterangepicker.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/moment.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/daterangepicker.min.js')}}"></script>
 
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/custom.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/app-script.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/custom.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/app-script.js')}}"></script>
 
 {!! Toastr::message() !!}
 
@@ -186,7 +186,7 @@
     </script>
 @endif
 
-<script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/common-script.js') }}"></script>
+<script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/common-script.js') }}"></script>
 
 @stack('script_2')
 

@@ -37,7 +37,7 @@
 
             @if($totalSavedAmount > 0)
                 <h6 class="text-center text-primary mb-4 d-flex align-items-center justify-content-center gap-2">
-                    <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/offer.svg')}}" alt="">
+                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/offer.svg')}}" alt="">
                     {{translate('you_have_Saved')}}
                     <strong>{{ webCurrencyConverter(amount: $totalSavedAmount) }}!</strong>
                 </h6>
@@ -82,7 +82,7 @@
 
                     <div class="pt-2">
                         <div class="d-flex align-items-center form-control rounded-pill pl-3 p-1">
-                            <img width="24" src="{{asset('public/assets/front-end/img/icons/coupon.svg')}}" alt="">
+                            <img width="24" src="{{asset('public/site-assets/front-end/img/icons/coupon.svg')}}" alt="">
                             <div class="px-2 d-flex justify-content-between w-100">
                                 <div>
                                     {{ session('coupon_code') }}
@@ -98,7 +98,7 @@
                         <form class="needs-validation coupon-code-form" action="javascript:" method="post" novalidate
                               id="coupon-code-ajax">
                             <div class="d-flex form-control rounded-pill ps-3 p-1">
-                                <img width="24" src="{{theme_asset(path: 'public/assets/front-end/img/icons/coupon.svg')}}" alt="">
+                                <img width="24" src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/coupon.svg')}}" alt="">
                                 <input class="input_code border-0 px-2 text-dark bg-transparent outline-0 w-100"
                                        type="text" name="code" placeholder="{{translate('coupon_code')}}" required>
                                 <button class="btn btn--primary rounded-pill text-uppercase py-1 fs-12" type="button" id="apply-coupon-code">
@@ -127,7 +127,7 @@
                         @if ($value['status'] == 1 && !empty($value['title']))
                             <div class="">
                                 <img class="order-summery-footer-image" alt=""
-                                     src="{{ getStorageImages(path: imagePathProcessing(imageData: $value['image'],path:'company-reliability'), type: 'source', source: theme_asset(path: 'public/assets/front-end/img').'/'.$value['item'].'.png') }}">
+                                     src="{{ getStorageImages(path: imagePathProcessing(imageData: $value['image'],path:'company-reliability'), type: 'source', source: theme_asset(path: 'public/site-assets/front-end/img').'/'.$value['item'].'.png') }}">
                                 <div class="deal-title">{{translate($value['title'])}}</div>
                             </div>
                         @endif

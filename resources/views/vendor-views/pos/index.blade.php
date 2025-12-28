@@ -3,7 +3,7 @@
 @section('title', translate('POS'))
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 @section('content')
     <div class="content container-fluid">
@@ -181,10 +181,10 @@
 @endsection
 
 @push('script_2')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/libs/printThis/printThis.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/vendor/pos-script.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/libs/printThis/printThis.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/vendor/pos-script.js') }}"></script>
 
     <script>
         "use strict";

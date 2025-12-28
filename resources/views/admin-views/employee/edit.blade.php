@@ -2,14 +2,14 @@
 
 @section('title', translate('employee_Edit'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 @section('content')
 <div class="content container-fluid">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
         <div>
             <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-employee.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-employee.png')}}" alt="">
                 {{translate('employee_update')}}
             </h2>
             <p class="text-muted mb-0">{{translate('update_profile_details_roles_and_credentials')}}</p>
@@ -132,7 +132,7 @@
                                 <div class="form-group">
                                     <label for="password" class="title-color d-flex align-items-center">{{translate('password')}}
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
-                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} class="m-1">
+                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }} class="m-1">
                                         </span>
                                     </label>
                                     <input type="text" name="password" class="form-control password-check" id="password" placeholder="{{translate('password')}}">
@@ -158,7 +158,7 @@
     </div>
 </div>
 <span id="get-multiple-image-data"
-      data-image="{{dynamicAsset(path: "public/assets/back-end/img/400x400/img2.jpg")}}"
+      data-image="{{dynamicAsset(path: "public/site-assets/back-end/img/400x400/img2.jpg")}}"
       data-width=""
       data-group-class="col-6 col-lg-4"
       data-row-height="auto"
@@ -168,8 +168,8 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/select-multiple-image.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/select-multiple-image.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
 @endpush

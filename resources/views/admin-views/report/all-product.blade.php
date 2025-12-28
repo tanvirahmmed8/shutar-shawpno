@@ -8,7 +8,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/seller_sale.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/seller_sale.png')}}" alt="">
                 {{translate('product_Report')}}
             </h2>
         </div>
@@ -83,7 +83,7 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/cart.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">{{ $product_count['reject_product_count']+$product_count['active_product_count']+$product_count['pending_product_count'] }}</h4>
                         <h6 class="subtext">{{translate('total_Product')}}</h6>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/products.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/products.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">
                             {{ $total_product_sale }}
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="left-content-card">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/stores.svg')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/stores.svg')}}" alt="">
                     <div class="info">
                         <h4 class="subtitle">
                             {{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total_discount_given), currencyCode: getCurrencyCode()) }}
@@ -129,7 +129,7 @@
                             <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                   title="{{translate('product_wise_discounted_amount_will_be_shown_here')}}">
                                 <img class="info-img"
-                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                      alt="img">
                             </span>
                         </h6>
@@ -167,7 +167,7 @@
                     </form>
                     <div class="dropdown">
                         <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('admin.report.all-product-excel', ['seller_id' => request('seller_id'), 'search' => request('search'), 'date_type' => request('date_type'), 'from' => request('from'), 'to' => request('to')]) }}">
-                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                             <span class="ps-2">{{ translate('export') }}</span>
                         </a>
                     </div>
@@ -255,7 +255,7 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts-data-show.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/product-report.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/apexcharts-data-show.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/product-report.js') }}"></script>
 @endpush

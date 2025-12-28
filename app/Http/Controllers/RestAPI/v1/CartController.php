@@ -260,7 +260,7 @@ class CartController extends Controller
             $data = [
                 'title' => translate('Restock_Request'),
                 'body' => (count($restockProductList) < 100 ? count($restockProductList) : '99 +') . ' ' . translate('more_products_have_restock_request'),
-                'image' => dynamicAsset(path: 'public/assets/back-end/img/icons/restock-request-icon.svg'),
+                'image' => dynamicAsset(path: 'public/site-assets/back-end/img/icons/restock-request-icon.svg'),
                 'firebase_token' => $product?->seller?->cm_firebase_token
             ];
         }

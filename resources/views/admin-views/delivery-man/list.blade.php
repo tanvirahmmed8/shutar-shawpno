@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/deliveryman.png')}}" width="20" alt="">
                 {{translate('delivery_man')}} <span class="badge badge-soft-dark radius-50 fz-12">{{ $deliveryMens->total() }}</span>
             </h2>
         </div>
@@ -34,7 +34,7 @@
                             <div class="d-flex justify-content-end gap-2">
                                 <div class="dropdown">
                                     <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{route('admin.delivery-man.export',['searchValue' => request('searchValue')])}}">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                         <span class="ps-2">{{ translate('export') }}</span>
                                     </a>
                                 </div>
@@ -162,5 +162,5 @@
 @endsection
 
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deliveryman.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/deliveryman.js')}}"></script>
 @endpush

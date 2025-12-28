@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/file-manager.png')}}" width="20" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/file-manager.png')}}" width="20" alt="">
                 {{translate('file_manager')}}
             </h2>
         </div>
@@ -57,7 +57,7 @@
                                         <a class="btn p-0"
                                            href="{{route('admin.file-manager.index', base64_encode($file['path']))}}">
                                             <img class="img-thumbnail mb-2"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/folder.png')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/folder.png')}}" alt="">
                                             <p class="title-color">{{Str::limit($file['name'],10)}}</p>
                                         </a>
                                     @elseif($file['type']=='file')
@@ -158,5 +158,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/file-manager.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/file-manager.js')}}"></script>
 @endpush

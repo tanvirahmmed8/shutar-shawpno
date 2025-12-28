@@ -5,21 +5,21 @@
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet"
-          href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+          href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setup.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/system-setup.png')}}" alt="">
                 {{translate('system_setup')}}
             </h2>
 
             <div class="text-primary d-flex align-items-center gap-3 font-weight-bolder text-capitalize">
                 {{ translate('how_the_setting_works') }}
                 <div class="ripple-animation" data-toggle="modal" data-target="#settingModal">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg')}}" class="svg" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg')}}" class="svg" alt="">
                 </div>
             </div>
             <div class="modal fade" id="settingModal" tabindex="-1" aria-labelledby="settingModal" aria-hidden="true">
@@ -40,14 +40,14 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide">
                                                 <img
-                                                    src="{{dynamicAsset(path: 'public/assets/back-end/img/slider-1.png')}}"
+                                                    src="{{dynamicAsset(path: 'public/site-assets/back-end/img/slider-1.png')}}"
                                                     loading="lazy"
                                                     alt="" class="dark-support rounded">
                                             </div>
                                             <div class="swiper-slide">
                                                 <div class="d-flex flex-column align-items-center mx-w450 mx-auto">
                                                     <img
-                                                        src="{{dynamicAsset(path: 'public/assets/back-end/img/slider-2.png')}}"
+                                                        src="{{dynamicAsset(path: 'public/site-assets/back-end/img/slider-2.png')}}"
                                                         loading="lazy"
                                                         alt="" class="dark-support rounded mb-4">
                                                     <p>
@@ -58,7 +58,7 @@
                                             <div class="swiper-slide">
                                                 <div class="d-flex flex-column align-items-center mx-w450 mx-auto">
                                                     <img
-                                                        src="{{dynamicAsset(path: 'public/assets/back-end/img/slider-3.png')}}"
+                                                        src="{{dynamicAsset(path: 'public/site-assets/back-end/img/slider-3.png')}}"
                                                         loading="lazy"
                                                         alt="" class="dark-support rounded mb-4">
                                                     <p>
@@ -101,7 +101,7 @@
                                 <div class="d-flex flex-wrap align-items-center gap-3">
                                     <div class="">
                                         <img width="24"
-                                             src="{{dynamicAsset(path: 'public/assets/back-end/img/zip.png')}}" alt="">
+                                             src="{{dynamicAsset(path: 'public/site-assets/back-end/img/zip.png')}}" alt="">
                                     </div>
                                     <div class="flex-grow-1 text-start">
                                         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
@@ -180,7 +180,7 @@
                                 @if ($data['is_published'] == 0)
                                     <button class="text-danger bg-transparent p-0 border-0" data-toggle="modal"
                                             data-target="#deleteThemeModal_{{ $key }}"><img
-                                            src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/delete.svg')}}"
+                                            src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/delete.svg')}}"
                                             class="svg"
                                             alt="">
                                     </button>
@@ -199,7 +199,7 @@
                                                 <div class="modal-body px-4 px-sm-5 text-center">
                                                     <div class="mb-3 text-center">
                                                         <img width="75"
-                                                             src="{{dynamicAsset(path: 'public/assets/back-end/img/delete.png')}}"
+                                                             src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delete.png')}}"
                                                              alt="">
                                                     </div>
                                                     <h3>{{ translate('are_you_sure_you_want_to_delete_the') }} {{ $data['name'] }}
@@ -223,7 +223,7 @@
 
                                 <button class="text-muted bg-transparent p-0 border-0" data-toggle="modal"
                                         data-target="#shiftThemeModal_{{ $key }}"><img
-                                        src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/check.svg')}}"
+                                        src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/check.svg')}}"
                                         class="svg {{ $data['is_published'] == 1 ? 'text--primary' : '' }}"
                                         alt="">
                                 </button>
@@ -242,7 +242,7 @@
                                             <div class="modal-body px-4 px-sm-5 text-center">
                                                 <div class="mb-3 text-center">
                                                     <img width="75"
-                                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/shift.png')}}"
+                                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/shift.png')}}"
                                                          alt="">
                                                 </div>
                                                 <h3>{{ translate('are_you_sure').'?'}}</h3>
@@ -292,6 +292,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/addon.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/addon.js')}}"></script>
 @endpush

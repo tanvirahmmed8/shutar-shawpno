@@ -7,7 +7,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <div>
                 <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/employee.png')}}" width="20" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/employee.png')}}" width="20" alt="">
                     {{translate('employee_details')}}
                 </h2>
                 <p class="text-muted mb-0">{{translate('review_profile_contact_information_and_module_access')}}</p>

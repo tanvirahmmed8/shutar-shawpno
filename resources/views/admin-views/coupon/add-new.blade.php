@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon_setup.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/coupon_setup.png')}}" alt="">
                 {{translate('coupon_setup')}}
             </h2>
         </div>
@@ -174,7 +174,7 @@
                             <div>
                                 <div class="dropdown">
                                     <a type="button" class="btn btn-outline--primary text-nowrap btn-block" href="{{ route('admin.coupon.export',['searchValue'=>request('searchValue')]) }}">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                         <span class="ps-2">{{ translate('export') }}</span>
                                     </a>
                                 </div>
@@ -255,7 +255,7 @@
                                     <td>
                                         <div class="d-flex gap-10 justify-content-center">
                                             <button class="btn btn-outline--primary square-btn btn-sm mr-1 get-quick-view" data-id="{{ $coupon['id'] }}">
-                                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+                                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/eye.svg')}}" class="svg" alt="">
                                             </button>
                                             <a class="btn btn-outline--primary btn-sm edit"
                                                href="{{route('admin.coupon.update',[$coupon['id']])}}"
@@ -309,5 +309,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/coupon.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/coupon.js')}}"></script>
 @endpush

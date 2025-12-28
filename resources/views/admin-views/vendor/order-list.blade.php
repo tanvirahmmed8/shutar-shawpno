@@ -8,7 +8,7 @@
         <div>
             <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
                 <h2 class="h1 mb-0">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
                     {{translate('orders')}}
                 </h2>
                 <span class="badge badge-soft-dark radius-50 fz-14">{{$orders->total()}}</span>
@@ -159,7 +159,7 @@
                                                 <a class="btn btn-outline--primary square-btn btn-sm mr-1"
                                                    title="{{translate('view')}}"
                                                    href="{{route('admin.vendors.order-details',[$order['id'],$seller['id']])}}">
-                                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/eye.svg')}}"
+                                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/eye.svg')}}"
                                                          class="svg" alt="">
                                                 </a>
                                                 <a class="btn btn-outline-success square-btn btn-sm mr-1"

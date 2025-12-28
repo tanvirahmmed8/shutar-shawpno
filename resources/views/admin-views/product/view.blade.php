@@ -7,7 +7,7 @@
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-10 mb-3">
             <div class="">
                 <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{ asset('public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
+                    <img src="{{ asset('public/site-assets/back-end/img/inhouse-product-list.png') }}" alt="">
                     {{ translate('product_details') }}
                 </h2>
             </div>
@@ -480,7 +480,7 @@
                                             @if($product->digital_product_type == 'ready_product')
                                             <td class="text-center">
                                                 <span class="btn p-0 getDownloadFileUsingFileUrl" data-toggle="tooltip" title="{{ !is_null($variation->file_full_url['path']) ? translate('download') : translate('File_not_found') }}" data-file-path="{{ $variation->file_full_url['path'] }}">
-                                                    <img src="{{ asset(path: 'public/assets/back-end/img/icons/download-green.svg') }}" alt="">
+                                                    <img src="{{ asset(path: 'public/site-assets/back-end/img/icons/download-green.svg') }}" alt="">
                                                 </span>
                                             </td>
                                             @endif
@@ -886,5 +886,5 @@
     <span id="get-update-status-route" data-action="{{ route('admin.products.approve-status')}}"></span>
 @endsection
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/product-view.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/product-view.js') }}"></script>
 @endpush

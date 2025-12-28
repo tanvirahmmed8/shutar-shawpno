@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon_setup.png')}}" class="mb-1 mr-1" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/coupon_setup.png')}}" class="mb-1 mr-1" alt="">
                 {{translate('coupon_update')}}
             </h2>
         </div>
@@ -123,5 +123,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/coupon.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/coupon.js')}}"></script>
 @endpush

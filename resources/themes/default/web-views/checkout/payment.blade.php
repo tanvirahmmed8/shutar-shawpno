@@ -3,7 +3,7 @@
 @section('title', translate('choose_Payment_Method'))
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/payment.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/css/payment.css') }}">
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
 @endpush
@@ -32,7 +32,7 @@
                             @if(!$activeMinimumMethods)
                                 <div class="d-flex justify-content-center py-3">
                                     <div class="text-center">
-                                        <img src="{{ theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg') }}" alt="" class="mb-4" width="70">
+                                        <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/nodata.svg') }}" alt="" class="mb-4" width="70">
                                         <h5 class="fs-14 text-muted">{{ translate('payment_methods_are_not_available_at_this_time.') }}</h5>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                                                 <input type="hidden" name="payment_method" value="cash_on_delivery">
                                                                 <span class="btn btn-block click-if-alone d-flex gap-2 align-items-center cursor-pointer">
                                                             <input type="radio" id="cash_on_delivery" class="custom-radio">
-                                                            <img width="20" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/money.png') }}" alt="">
+                                                            <img width="20" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/money.png') }}" alt="">
                                                             <span class="fs-12">{{ translate('cash_on_Delivery') }}</span>
                                                         </span>
                                                             </label>
@@ -88,7 +88,7 @@
                                                     <div class="card cursor-pointer">
                                                         <button class="btn btn-block click-if-alone d-flex gap-2 align-items-center" type="submit"
                                                                 data-toggle="modal" data-target="#wallet_submit_button">
-                                                            <img width="20" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/wallet-sm.png') }}" alt=""/>
+                                                            <img width="20" src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/wallet-sm.png') }}" alt=""/>
                                                             <span class="fs-12">{{ translate('pay_via_Wallet') }}</span>
                                                         </button>
                                                     </div>
@@ -198,7 +198,7 @@
                         <form action="{{route('offline-payment-checkout-complete')}}" method="post" class="needs-validation">
                             @csrf
                             <div class="d-flex justify-content-center mb-4">
-                                <img width="52" src="{{theme_asset(path: 'public/assets/front-end/img/select-payment-method.png')}}" alt="">
+                                <img width="52" src="{{theme_asset(path: 'public/site-assets/front-end/img/select-payment-method.png')}}" alt="">
                             </div>
                             <p class="fs-14 text-center">{{translate('pay_your_bill_using_any_of_the_payment_method_below_and_input_the_required_information_in_the_form')}}</p>
 
@@ -270,5 +270,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/payment.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/payment.js') }}"></script>
 @endpush

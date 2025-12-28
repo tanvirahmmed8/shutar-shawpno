@@ -211,5 +211,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/ticket-view.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/ticket-view.js') }}"></script>
 @endpush

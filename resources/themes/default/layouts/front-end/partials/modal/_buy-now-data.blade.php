@@ -9,7 +9,7 @@
         </button>
     </div>
     <div class="d-flex gap-2 mb-3">
-        <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/car.svg')}}" alt="">
+        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/car.svg')}}" alt="">
         <div>{{ translate('Choose_Shipping_Method') }}</div>
     </div>
 

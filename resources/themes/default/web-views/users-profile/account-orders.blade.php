@@ -140,7 +140,7 @@
                         @else
                             <div class="d-flex justify-content-center align-items-center h-100">
                                 <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-                                    <img src="{{ theme_asset(path: 'public/assets/front-end/img/empty-icons/empty-orders.svg') }}" alt="" width="100">
+                                    <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/empty-icons/empty-orders.svg') }}" alt="" width="100">
                                     <h5 class="text-muted fs-14 font-semi-bold text-center">{{ translate('You_have_not_any_order_yet') }}!</h5>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                         @if($orders->count()==0)
                             <div class="d-flex justify-content-center align-items-center h-100 pt-5">
                                 <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-                                    <img src="{{ theme_asset(path: 'public/assets/front-end/img/empty-icons/empty-orders.svg') }}" alt="" width="100">
+                                    <img src="{{ theme_asset(path: 'public/site-assets/front-end/img/empty-icons/empty-orders.svg') }}" alt="" width="100">
                                     <h5 class="text-muted fs-14 font-semi-bold text-center">{{ translate('You_have_not_any_order_yet') }}!</h5>
                                 </div>
                             </div>

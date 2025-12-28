@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -16,11 +16,11 @@
             <div class="card mt-3">
                 <div class="card-header gap-2 flex-wrap">
                     <div class="d-flex align-items-center gap-2">
-                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/payment-card.png')}}" alt="">
+                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/payment-card.png')}}" alt="">
                         <span class="title-color text-capitalize font-weight-bold">
                             {{translate('payment_information')}}
                             <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{translate('choose_your_preferred_payment_method_such_as_bank,_mobile_wallet,_digital_cards,_etc').' . '.translate('that_customers_will_choose_from_and_add_relevant_input_fields_for_the_payment_method').'.'}}">
-                                <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                             </span>
                         </span>
                     </div>
@@ -69,11 +69,11 @@
             <div class="card mt-3">
                 <div class="card-header gap-2 flex-wrap">
                     <div class="d-flex align-items-center gap-2">
-                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/payment-card-fill.png')}}" alt="">
+                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/payment-card-fill.png')}}" alt="">
                         <span class="title-color text-capitalize font-weight-bold">
                             {{translate('required_information_from_Customer')}}
                             <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{translate('add_relevant_input_fields_for_customers_to_fill-up_after_completing_the_offline_payment').' . '. translate('you_can_add_multiple_input_fields_&_place_holders_and_define_them_as_‘Is_Required’,_so_customers_cannot_complete_offline_payment_without_adding_that_information').'.'}}">
-                                <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                             </span>
                         </span>
                     </div>
@@ -142,5 +142,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
 @endpush

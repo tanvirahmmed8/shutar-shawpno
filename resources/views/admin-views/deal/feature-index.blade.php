@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between gap-2 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/featured_deal.png') }}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/featured_deal.png') }}" alt="">
                 {{ translate('feature_deal') }}
             </h2>
             <button class="btn btn-primary" data-toggle="modal" data-target="#prioritySetModal" >
@@ -210,7 +210,7 @@
                                 <div class="d-flex flex-column">
                                     <h5 class="text-capitalize">{{ translate('use_default_sorting_list') }}</h5>
                                     <div class="d-flex gap-2 align-items-center">
-                                        <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}" alt="">
+                                        <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}" alt="">
                                         <span class="text-dark fz-12">{{translate('currently_sorting_this_section_based_on_latest_add')}}</span>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@
                                     <div class="d-flex flex-column">
                                         <h5 class="text-capitalize">{{ translate('use_custom_sorting_list') }}</h5>
                                         <div class="d-flex gap-2 align-items-center">
-                                            <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/info.svg') }}" alt="">
+                                            <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/icons/info.svg') }}" alt="">
                                             <span class="text-dark fz-12">{{ translate('you_can_sorting_this_section_by_others_way') }}</span>
                                         </div>
                                     </div>
@@ -359,5 +359,5 @@
 @endsection
 
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deal.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/deal.js') }}"></script>
 @endpush

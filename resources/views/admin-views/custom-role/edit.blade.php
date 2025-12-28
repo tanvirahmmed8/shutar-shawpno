@@ -7,7 +7,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
             <div>
                 <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                     {{translate('role_update')}}
                 </h2>
                 <p class="text-muted mb-0">{{translate('adjust_permissions_without_interrupting_your_team')}}</p>
@@ -158,5 +158,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/custom-role.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/custom-role.js') }}"></script>
 @endpush

@@ -30,7 +30,7 @@
                             <div class="position-relative">
                                 <button type="button"
                                         class="border-0 bg-transparent p-0 how-to-use-info-button rounded-circle lh-1">
-                                    <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/icon-i.png')}}" alt=""
+                                    <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/icon-i.png')}}" alt=""
                                          width="18">
                                 </button>
                                 <div class="how-to-use-hover-ele">
@@ -61,7 +61,7 @@
                                         </div>
                                     </div>
                                     <img class="wallet-card-bg z-1"
-                                         src="{{ theme_asset(path: 'public/assets/front-end/img/reward-card.png') }}" alt="">
+                                         src="{{ theme_asset(path: 'public/site-assets/front-end/img/reward-card.png') }}" alt="">
                                 </div>
                             </div>
                             <div class="col-md-6 d-none d-sm-block">
@@ -184,11 +184,11 @@
                                         <h6 class="mb-2 d-flex align-items-center gap-8">
                                             @if($item['debit'] != 0)
                                                 <img
-                                                    src="{{ theme_asset(path: 'public/assets/front-end/img/icons/coin-danger.png') }}"
+                                                    src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/coin-danger.png') }}"
                                                     width="25" alt="">
                                             @else
                                                 <img
-                                                    src="{{ theme_asset(path: 'public/assets/front-end/img/icons/coin-success.png') }}"
+                                                    src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/coin-success.png') }}"
                                                     width="25" alt="">
                                             @endif
                                             <span class="absolute-ltr font-bold fs-18">
@@ -216,7 +216,7 @@
                         @if($loyaltyPointList->count()==0)
                             <div class="d-flex flex-column gap-3 align-items-center text-center my-5">
                                 <img width="72"
-                                     src="{{ theme_asset(path: 'public/assets/front-end/img/icons/empty-transaction-history.png')}}"
+                                     src="{{ theme_asset(path: 'public/site-assets/front-end/img/icons/empty-transaction-history.png')}}"
                                      class="dark-support" alt="">
                                 <h6 class="text-muted mt-3">{{translate('you_do_not_have_any')}}
                                     <br> {{ request('type') != 'all' ? ucwords(translate(request('type'))) : '' }} {{translate('transaction_yet')}}
@@ -311,5 +311,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/user-loyalty.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/user-loyalty.js') }}"></script>
 @endpush

@@ -20,8 +20,8 @@
 
 @push('css_or_js')
     <link rel="stylesheet"
-          href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
-    <link href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/summernote/summernote.min.css') }}" rel="stylesheet">
+          href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+    <link href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/summernote/summernote.min.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -51,7 +51,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/summernote/summernote.min.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/email-template.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/summernote/summernote.min.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/email-template.js') }}"></script>
 @endpush

@@ -54,7 +54,7 @@
     </div>
     @endif
     <div class="d-flex align-items-center gap-2 mb-3">
-        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}" alt="">
+        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/header-content.png')}}" alt="">
         <h5 class="mb-0">{{translate('header_content')}}</h5>
     </div>
     <div class="bg-light p-3 rounded mb-3">
@@ -94,7 +94,7 @@
     @if(!in_array('product_information',$template['hide_field']))
     <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
         <div class="d-flex align-items-center gap-2">
-            <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}"
+            <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/header-content.png')}}"
                  alt="">
             <h5 class="mb-0 text-capitalize">{{translate('product_information')}}</h5>
         </div>
@@ -124,7 +124,7 @@
     <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
         <div class="d-flex align-items-center gap-2">
             <img width="20"
-                 src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}"
+                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/header-content.png')}}"
                  alt="">
             <h5 class="mb-0 text-capitalize">{{translate('button_content')}}</h5>
         </div>
@@ -156,7 +156,7 @@
                             <label for="button_name" class="title-color mb-0 text-capitalize" for="{{ $lang}}-button-name">{{translate('button_name')}} ({{strtoupper($lang)}})</label>
                             <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('write_the_button_name_within_15_characters') }}">
                                 <img width="16"
-                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                      alt="">
                             </span>
                         </div>
@@ -175,7 +175,7 @@
                         <label for="redirect_link" class="title-color mb-0 text-capitalize">{{translate('redirect_link')}}</label>
                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('link_to_your_preferred_destination_that_will_work_when_someone_clicks_on_the_Button_Name').'.'. translate('add_the_link_where_the_button_will_redirect_users').'.' }}">
                             <img width="16"
-                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                  alt="">
                         </span>
                     </div>
@@ -191,7 +191,7 @@
     <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
         <div class="d-flex align-items-center gap-2">
             <img width="20"
-                 src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}"
+                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/header-content.png')}}"
                  alt="">
             <h5 class="mb-0">{{translate('order_information')}}</h5>
         </div>
@@ -209,7 +209,7 @@
 
     <div class="d-flex align-items-center gap-2 mb-3">
         <img width="20"
-             src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}"
+             src="{{dynamicAsset(path: 'public/site-assets/back-end/img/header-content.png')}}"
              alt="">
         <h5 class="mb-0 text-capitalize">{{translate('footer_content')}}</h5>
     </div>

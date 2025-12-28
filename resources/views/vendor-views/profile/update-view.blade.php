@@ -2,7 +2,7 @@
 
 @section('title', translate('profile_Settings'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 @section('content')
     <div class="content container-fluid">
@@ -10,7 +10,7 @@
             <div class="row gy-2 align-items-center">
                 <div class="col-sm">
                     <h2 class="h1 mb-0 d-flex align-items-center gap-2">
-                        <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/profile_setting.png') }}" alt="">
+                        <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/profile_setting.png') }}" alt="">
                         {{ translate('Profile_Information') }}
                     </h2>
                 </div>
@@ -63,7 +63,7 @@
                 @csrf
                     <div class="card mb-3 mb-lg-5" id="general-div">
                         <div class="profile-cover">
-                            @php($banner = dynamicAsset(path: 'public/assets/back-end/img/media/admin-profile-bg.png'))
+                            @php($banner = dynamicAsset(path: 'public/site-assets/back-end/img/media/admin-profile-bg.png'))
                             <div class="profile-cover-img-wrapper profile-bg" style="background-image: url({{ $banner }})"></div>
                         </div>
                         <div
@@ -73,13 +73,13 @@
                                  src="{{ getStorageImages(path:$vendor->image_full_url, type:'backend-profile') }}"
                                  alt="{{ translate('image') }}">
                             <label class="change-profile-image-icon" for="custom-file-upload">
-                                <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/add-photo.png') }}" alt="">
+                                <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/add-photo.png') }}" alt="">
                             </label>
                         </div>
 
                         <div class="card-header">
                             <div class="d-flex align-items-center gap-3">
-                                <div><img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/user-1.svg') }}" alt=""></div>
+                                <div><img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/user-1.svg') }}" alt=""></div>
                                 <h4 class="card-title m-0 fs-16">{{translate('basic_Information')}}</h4>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                             <span class="text-danger px-1">*</span>
                                         </label>
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{ translate('this_will_be_displayed_as_your_profile_name') }}">
-                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="">
+                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }} alt="">
                                         </span>
                                     </div>
 
@@ -150,7 +150,7 @@
                                         </label>
 
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{ translate('you_can_login_to_your_panel_by_using_this_email') }}">
-                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="">
+                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }} alt="">
                                         </span>
                                     </div>
                                     <div class="mb-3">
@@ -176,7 +176,7 @@
                 <div id="password-div" class="card mb-3 mb-lg-5">
                     <div class="card-header">
                         <div class="d-flex align-items-center gap-3">
-                            <div><img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/password-lock.svg') }}" alt=""></div>
+                            <div><img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/password-lock.svg') }}" alt=""></div>
                             <h4 class="card-title m-0 fs-16">{{translate('change_Password')}}</h4>
                         </div>
                     </div>
@@ -195,7 +195,7 @@
                                             <span class="text-danger px-1">*</span>
                                         </label>
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
-                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
+                                            <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
                                         </span>
                                     </div>
                                     <div class="">
@@ -259,6 +259,6 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
 @endpush

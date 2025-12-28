@@ -1,7 +1,7 @@
 <div class="p-3 px-xl-4 py-sm-5">
     <div class="text-center">
         <img width="100" class="mb-4" id="view-mail-icon"
-             src="{{ $template->image_full_url['path'] ?? dynamicAsset(path: 'public/assets/back-end/img/email-template/congratulations.png')}}"
+             src="{{ $template->image_full_url['path'] ?? dynamicAsset(path: 'public/site-assets/back-end/img/email-template/congratulations.png')}}"
              alt="">
         <h3 class="mb-3 view-mail-title text-capitalize">
             {{$title}}
@@ -46,7 +46,7 @@
                             @else
                                 <div class="d-flex align-items-center gap-3 min-w-200">
                                     <img class="product-image"
-                                         src="{{ dynamicAsset(path: 'public/assets/back-end/img/email-template/digital-product.png')}}"
+                                         src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/email-template/digital-product.png')}}"
                                          alt="">
                                     <div class="product-title">{{translate('The Great Gatsby PDF')}}</div>
                                 </div>

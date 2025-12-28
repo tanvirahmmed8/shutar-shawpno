@@ -10,7 +10,7 @@
     <div class="content container-fluid"> <!-- Page Heading -->
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery.png')}}" alt="">
                 {{translate('shipping_Method')}}
             </h2>
         </div>

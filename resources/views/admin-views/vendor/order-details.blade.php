@@ -11,7 +11,7 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/all-orders.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/all-orders.png')}}" alt="">
                 {{translate('order_details')}}
             </h2>
         </div>
@@ -73,7 +73,7 @@
 
                                     <a class="btn btn--primary px-4" target="_blank"
                                        href={{route('admin.orders.generate-invoice',[$order['id']])}}>
-                                        <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/uil_invoice.svg') }}"
+                                        <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/uil_invoice.svg') }}"
                                              alt="" class="mr-1">
                                         {{translate('print_Invoice')}}
                                     </a>
@@ -462,7 +462,7 @@
                                         <div class="p-2 bg-light rounded mt-4">
                                             <div class="media m-1 gap-3">
                                                 <img class="avatar rounded-circle"
-                                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-man.png')}}"
+                                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery-man.png')}}"
                                                      alt="{{translate('image')}}">
                                                 <div class="media-body">
                                                     <h5 class="mt-3">{{translate('no_delivery_man_assigned')}}</h5>
@@ -496,7 +496,7 @@
                                     <div class="p-2 bg-light rounded">
                                         <div class="media m-1 gap-3">
                                             <img class="avatar rounded-circle"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/third-party-delivery.png')}}"
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/third-party-delivery.png')}}"
                                                  alt="Image">
                                             <div class="media-body">
                                                 <h5 class="">{{ $order?->delivery_service_name ?? translate('not_assign_yet')}}</h5>
@@ -515,7 +515,7 @@
                         <div class="card-body">
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
-                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
+                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}" alt="">
                                     {{translate('customer_information')}}
                                 </h4>
                             </div>
@@ -541,7 +541,7 @@
                             @if($order->is_guest)
                                 <div class="d-flex gap-2 align-items-center justify-content-between">
                                     <h4 class="d-flex gap-2">
-                                        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
+                                        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}" alt="">
                                         {{translate('guest_customer')}}
                                     </h4>
                                 </div>
@@ -560,7 +560,7 @@
                             <div class="card-body">
                                 <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                     <h4 class="d-flex gap-2">
-                                        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}"
+                                        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}"
                                              alt="">
                                         {{translate('shipping_address')}}
                                     </h4>
@@ -587,7 +587,7 @@
                                         <strong>{{$shipping_address->zip}}</strong>
                                     </div>
                                     <div class="d-flex align-items-start gap-2">
-                                        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}" alt="">
+                                        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/location.png')}}" alt="">
                                         {{$shipping_address->address  ?? translate('empty')}}
                                     </div>
                                 </div>
@@ -607,7 +607,7 @@
                         <div class="card-body">
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
-                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
+                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}" alt="">
                                     {{translate('billing_address')}}
                                 </h4>
 
@@ -634,7 +634,7 @@
                                     <strong>{{$billing->zip}}</strong>
                                 </div>
                                 <div class="d-flex align-items-start gap-2">
-                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}" alt="">
+                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/location.png')}}" alt="">
                                     {{$billing->address}}
                                 </div>
                             </div>
@@ -650,7 +650,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="d-flex gap-2 mb-4 text-capitalize">
-                            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/shop-information.png')}}" alt="">
+                            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/shop-information.png')}}" alt="">
                             {{translate('shop_information')}}
                         </h4>
 
@@ -681,7 +681,7 @@
                                         <span class="title-color"><strong>{{ $total_delivered }}</strong> {{translate('orders_Served')}}</span>
                                         <span class="title-color"> <strong>{{ $order->seller->shop->contact }}</strong></span>
                                         <div class="d-flex align-items-start gap-2">
-                                            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}"
+                                            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/location.png')}}"
                                                  class="mt-1" alt="">
                                             {{ $order->seller->shop->address }}
                                         </div>
@@ -1050,7 +1050,7 @@
     <span id="shipping-longitude" data-longitude="{{$shipping_address->longitude??'151.2195'}}"></span>
     <span id="billing-latitude" data-latitude="{{$billing->latitude??'-33.8688'}}"></span>
     <span id="billing-longitude" data-longitude="{{$billing->longitude??'151.2195'}}"></span>
-    <span id="location-icon" data-path="{{dynamicAsset(path: 'public/assets/front-end/img/customer_location.png')}}"></span>
+    <span id="location-icon" data-path="{{dynamicAsset(path: 'public/site-assets/front-end/img/customer_location.png')}}"></span>
     <span id="customer-image"
           data-path="{{dynamicStorage(path: 'storage/app/public/profile/')}}{{$order->customer->image??""}}"></span>
 @endsection
@@ -1058,5 +1058,5 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig('map_api_key')}}&callback=map_callback_fucntion&libraries=places&v=3.49"
         defer></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/order.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/order.js')}}"></script>
 @endpush

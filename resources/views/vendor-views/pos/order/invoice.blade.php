@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/pos-invoice.css') }}">
+<link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/pos-invoice.css') }}">
 <?php
 $orderTotalPriceSummary = \App\Utils\OrderManager::getOrderTotalPriceSummary(order: $order);
 ?>

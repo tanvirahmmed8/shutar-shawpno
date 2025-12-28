@@ -34,7 +34,7 @@
                                     <div class="d-flex gap-2">
                                         <a href="{{$downloadPath}}" target="_blank">
                                             <div class="uploaded-file-item"><img
-                                                    src="{{dynamicAsset('public/assets/back-end/img/'.$icon.'.png')}}"
+                                                    src="{{dynamicAsset('public/site-assets/back-end/img/'.$icon.'.png')}}"
                                                     class="file-icon" alt="">
                                                 <div class="upload-file-item-content">
                                                     <div>
@@ -99,7 +99,7 @@
                                         <div class="d-flex gap-2">
                                             <a href="{{$downloadPath}}" target="_blank">
                                                 <div class="uploaded-file-item"><img
-                                                        src="{{dynamicAsset('public/assets/back-end/img/'.$icon.'.png')}}"
+                                                        src="{{dynamicAsset('public/site-assets/back-end/img/'.$icon.'.png')}}"
                                                         class="file-icon" alt="">
                                                     <div class="upload-file-item-content">
                                                         <div>

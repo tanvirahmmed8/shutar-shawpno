@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-delivery-man.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-delivery-man.png')}}" alt="">
                 {{translate('emergency_contact')}}
             </h2>
         </div>
@@ -145,5 +145,5 @@
     </div>
 @endsection
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/emergency-contact.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/emergency-contact.js')}}"></script>
 @endpush

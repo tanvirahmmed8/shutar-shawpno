@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon_setup.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/coupon_setup.png')}}" alt="">
                 {{translate('coupon_setup')}}
             </h2>
         </div>
@@ -151,7 +151,7 @@
                             </form>
                             <div class="dropdown">
                                 <a type="button" class="btn btn-outline--primary text-nowrap" href="{{ route('vendor.coupon.export',['searchValue'=>request('searchValue')]) }}">
-                                    <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" class="excel" alt="">
+                                    <img width="14" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/excel.png')}}" class="excel" alt="">
                                     <span class="ps-2">{{ translate('export') }}</span>
                                 </a>
                             </div>
@@ -301,5 +301,5 @@
     <span id="get-detail-url" data-url="{{ route('vendor.coupon.quick-view') }}"></span>
 @endsection
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/coupon.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/coupon.js')}}"></script>
 @endpush

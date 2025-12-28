@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" alt="">
+                <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/deliveryman.png')}}" alt="">
                 {{translate('add_new_deliveryman')}}
             </h2>
         </div>
@@ -79,7 +79,7 @@
                                     </label>
                                 </div>
                                 <div class="mt-4 text-center">
-                                    <img class="upload-img-view" id="viewer" src="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('delivery_man_image')}}"/>
+                                    <img class="upload-img-view" id="viewer" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('delivery_man_image')}}"/>
                                 </div>
 
                             </div>
@@ -110,7 +110,7 @@
                             <div class="form-group">
                                 <label class="title-color d-flex align-items-center">{{translate('password')}}
                                     <span class="input-label-secondary cursor-pointer d-flex" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
-                                        <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}>
+                                        <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}>
                                     </span>
                                 </label>
                                 <div class="input-group input-group-merge">
@@ -156,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                    <span class="d-none" id="placeholderImg" data-img="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img3.png')}}"></span>
+                    <span class="d-none" id="placeholderImg" data-img="{{dynamicAsset(path: 'public/site-assets/back-end/img/400x400/img3.png')}}"></span>
 
                     <div class="d-flex gap-3 justify-content-end">
                         <button type="reset" id="reset" class="btn btn-secondary">{{translate('reset')}}</button>
@@ -167,12 +167,12 @@
             </div>
         </form>
     </div>
-    <span id="coba-image" data-url="{{dynamicAsset(path: "public/assets/back-end/img/400x400/img3.png")}}"></span>
+    <span id="coba-image" data-url="{{dynamicAsset(path: "public/site-assets/back-end/img/400x400/img3.png")}}"></span>
     <span id="extension-error" data-text="{{ translate("please_only_input_png_or_jpg_type_file") }}"></span>
     <span id="size-error" data-text="{{ translate("file_size_too_big") }}"></span>
 @endsection
 
 @push('script_2')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/deliveryman.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor/deliveryman.js')}}"></script>
 @endpush

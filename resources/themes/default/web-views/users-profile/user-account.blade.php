@@ -3,7 +3,7 @@
 @section('title', auth('customer')->user()->f_name.' '.auth('customer')->user()->l_name)
 
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -109,14 +109,14 @@
                                             @if($customerDetail['is_phone_verified'])
                                                 <span class="position-absolute inset-inline-end-10px cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{ translate('Your_phone_is_verified') }}">
                                                     <img width="16"
-                                                         src="{{theme_asset('public/assets/front-end/img/icons/verified.svg')}}"
+                                                         src="{{theme_asset('public/site-assets/front-end/img/icons/verified.svg')}}"
                                                          class="dark-support" alt="">
                                                 </span>
                                             @else
                                                 <span class="position-absolute inset-inline-end-10px cursor-pointer" data-toggle="tooltip" data-placement="top"
                                                       title="{{ translate('Phone_not_verified.') }} {{ translate('Please_verify_through_the_user_app') }}">
                                                     <img width="16"
-                                                         src="{{theme_asset('public/assets/front-end/img/icons/verified-error.svg')}}"
+                                                         src="{{theme_asset('public/site-assets/front-end/img/icons/verified-error.svg')}}"
                                                          class="dark-support" alt="">
                                                 </span>
                                             @endif
@@ -133,14 +133,14 @@
                                                 @if($customerDetail['is_email_verified'])
                                                     <span class="position-absolute inset-inline-end-10px cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{ translate('Your_email_is_verified') }}">
                                                             <img width="16"
-                                                                 src="{{theme_asset('public/assets/front-end/img/icons/verified.svg')}}"
+                                                                 src="{{theme_asset('public/site-assets/front-end/img/icons/verified.svg')}}"
                                                                  class="dark-support" alt="">
                                                     </span>
                                                 @else
                                                     <span class="position-absolute inset-inline-end-10px cursor-pointer" data-toggle="tooltip" data-placement="top"
                                                           title="{{ translate('Email_not_verified.') }} {{ translate('Please_verify_through_the_user_app.') }}">
                                                             <img width="16"
-                                                                 src="{{theme_asset('public/assets/front-end/img/icons/verified-error.svg')}}"
+                                                                 src="{{theme_asset('public/site-assets/front-end/img/icons/verified-error.svg')}}"
                                                                  class="dark-support" alt="">
                                                     </span>
                                                 @endif
@@ -204,6 +204,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/country-picker-init.js') }}"></script>
 @endpush

@@ -53,7 +53,7 @@
                                         <div
                                             class="d-flex flex-column justify-content-center align-items-center">
                                             <img alt="" class="w-75"
-                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg') }}">
+                                                src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product-upload-icon.svg') }}">
                                             <h3 class="text-muted text-capitalize">{{ translate('upload_image') }}</h3>
                                         </div>
                                     </div>

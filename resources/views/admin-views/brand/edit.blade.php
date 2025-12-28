@@ -7,7 +7,7 @@
 
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0 align-items-center d-flex gap-2">
-                <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand.png') }}" alt="">
+                <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/brand.png') }}" alt="">
                 {{ translate('brand_Update') }}
             </h2>
         </div>
@@ -88,7 +88,7 @@
                                             <div class="placeholder-image">
                                                 <div
                                                     class="d-flex flex-column justify-content-center align-items-center aspect-1">
-                                                    <img alt="" width="33" src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg') }}">
+                                                    <img alt="" width="33" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/product-upload-icon.svg') }}">
                                                     <h3 class="text-muted fz-12">{{ translate('upload_image') }}</h3>
                                                 </div>
                                             </div>
@@ -122,5 +122,5 @@
             window.location.reload()
         });
     </script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/products-management.js') }}"></script>
 @endpush

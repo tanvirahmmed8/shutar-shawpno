@@ -4,7 +4,7 @@
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet"
-          href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+          href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
 @section('content')
@@ -15,7 +15,7 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/all-orders.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/all-orders.png')}}" alt="">
                 {{translate('order_Details')}}
             </h2>
         </div>
@@ -66,7 +66,7 @@
                                     <a class="btn btn--primary px-4" target="_blank"
                                        href={{route('admin.orders.generate-invoice',[$order['id']])}}>
                                         <img
-                                            src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/uil_invoice.svg') }}"
+                                            src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/icons/uil_invoice.svg') }}"
                                             alt="" class="mr-1">
                                         {{translate('print_Invoice')}}
                                     </a>
@@ -343,7 +343,7 @@
                         <div class="card-body">
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
-                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/product_setup.png')}}"
+                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/product_setup.png')}}"
                                          alt=""
                                          width="20">
                                     {{translate('Payment_Information')}}
@@ -469,7 +469,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="d-flex gap-2 align-items-center mb-4">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/product_setup.png')}}" alt="" width="22">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/product_setup.png')}}" alt="" width="22">
                                 {{ translate('partial_payment_tracker') }}
                             </h4>
                             <div class="d-flex flex-column gap-2 mb-4">
@@ -653,7 +653,7 @@
                                         <div class="p-2 bg-light rounded mt-4">
                                             <div class="media m-1 gap-3">
                                                 <img class="avatar rounded-circle"
-                                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-man.png')}}"
+                                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/delivery-man.png')}}"
                                                      alt="{{translate('Image')}}">
                                                 <div class="media-body">
                                                     <h5 class="mt-3">{{translate('no_delivery_man_assigned')}}</h5>
@@ -670,7 +670,7 @@
                                                   data-placement="top"
                                                   title="{{translate('encourage_your_deliveryman_by_giving_him_incentive').' '.translate('this_amount_will_be_count_as_admin_expense').'.'}}">
                                                     <img width="16"
-                                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                                          alt="">
                                             </span>
                                         </label>
@@ -698,7 +698,7 @@
                                     <div class="p-2 bg-light rounded">
                                         <div class="media m-1 gap-3">
                                             <img class="avatar rounded-circle"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/third-party-delivery.png')}}"
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/third-party-delivery.png')}}"
                                                  alt="{{translate('image')}}">
                                             <div class="media-body">
                                                 <h5 class="">{{$order->delivery_service_name ?? translate('not_assign_yet')}}</h5>
@@ -718,7 +718,7 @@
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
                                     <img
-                                        src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}"
+                                        src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}"
                                         alt="">
                                     {{translate('customer_information')}}
                                 </h4>
@@ -748,7 +748,7 @@
                                 <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                     <h4 class="d-flex gap-2">
                                         <img
-                                            src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}"
+                                            src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}"
                                             alt="">
                                         {{translate('shipping_address')}}
                                     </h4>
@@ -787,7 +787,7 @@
                                         <strong>{{$shippingAddress->zip}}</strong>
                                     </div>
                                     <div class="d-flex align-items-start gap-2">
-                                        <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}"
+                                        <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/location.png')}}"
                                              alt="">
                                         {{$shippingAddress->address  ?? translate('empty')}}
                                     </div>
@@ -809,7 +809,7 @@
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
                                     <img
-                                        src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}"
+                                        src="{{dynamicAsset(path: 'public/site-assets/back-end/img/vendor-information.png')}}"
                                         alt="">
                                     {{translate('billing_address')}}
                                 </h4>
@@ -850,7 +850,7 @@
                                     <strong>{{$billing->zip}}</strong>
                                 </div>
                                 <div class="d-flex align-items-start gap-2">
-                                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}" alt="">
+                                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/location.png')}}" alt="">
                                     {{$billing->address}}
                                 </div>
                             </div>
@@ -866,7 +866,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="d-flex gap-2 mb-4">
-                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/shop-information.png') }}" alt="">
+                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/shop-information.png') }}" alt="">
                             {{ translate('shop_Information') }}
                         </h4>
                         <div class="media">
@@ -892,14 +892,14 @@
                                         <span class="title-color"><strong>{{ $totalDelivered }}</strong> {{translate('orders_Served')}}</span>
                                         <span class="title-color"> <strong>{{ $order->seller->shop->contact }}</strong></span>
                                         <div class="d-flex align-items-start gap-2">
-                                            <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}"
+                                            <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/location.png')}}"
                                                  class="mt-1" alt="">
                                             {{ $order->seller->shop->address }}
                                         </div>
                                     </div>
                                 @else
                                     <div class="text-center p-4">
-                                        <img class="w-25" src="{{dynamicAsset(path: 'public/assets/back-end/img/empty-state-icon/shop-not-found.png')}}"
+                                        <img class="w-25" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/empty-state-icon/shop-not-found.png')}}"
                                              alt="{{translate('image_description')}}">
                                         <p class="mb-0">{{ translate('no_shop_found').'!'}}</p>
                                     </div>
@@ -1220,7 +1220,7 @@
                                             <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                 <div class="media-tab-media mx-sm-auto mb-3">
                                                     <img
-                                                        src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/order-placed.png') }}"
+                                                        src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/order-placed.png') }}"
                                                         alt="">
                                                 </div>
                                                 <div class="media-body">
@@ -1247,7 +1247,7 @@
                                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                                             <img
-                                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/order-confirmed.png') }}"
+                                                                src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/order-confirmed.png') }}"
                                                                 alt="">
                                                         </div>
                                                         <div class="media-body">
@@ -1271,7 +1271,7 @@
                                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                                             <img alt=""
-                                                                 src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/shipment.png') }}">
+                                                                 src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/shipment.png') }}">
                                                         </div>
                                                         <div class="media-body">
                                                             <div class="text-sm-center text-start">
@@ -1296,7 +1296,7 @@
                                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                                             <img
-                                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/on-the-way.png') }}"
+                                                                src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/on-the-way.png') }}"
                                                                 alt="">
                                                         </div>
                                                         <div class="media-body">
@@ -1320,7 +1320,7 @@
                                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                                             <img
-                                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/delivered.png') }}"
+                                                                src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/delivered.png') }}"
                                                                 alt="">
                                                         </div>
                                                         <div class="media-body">
@@ -1356,7 +1356,7 @@
                                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                                             <img alt=""
-                                                                 src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/shipment.png') }}">
+                                                                 src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/shipment.png') }}">
                                                         </div>
                                                         <div class="media-body">
                                                             <div class="text-sm-center text-start">
@@ -1381,7 +1381,7 @@
                                                     <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                         <div class="media-tab-media mb-3 mx-sm-auto">
                                                             <img
-                                                                src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/delivered.png') }}"
+                                                                src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/delivered.png') }}"
                                                                 alt="">
                                                         </div>
                                                         <div class="media-body">
@@ -1407,7 +1407,7 @@
                                                 <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                     <div class="media-tab-media mx-sm-auto mb-3">
                                                         <img
-                                                            src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/'.$order['order_status'].'.png') }}"
+                                                            src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/'.$order['order_status'].'.png') }}"
                                                             alt="">
                                                     </div>
                                                     <div class="media-body">
@@ -1434,7 +1434,7 @@
                                                 <div class="d-flex flex-sm-column gap-3 gap-sm-0">
                                                     <div class="media-tab-media mx-sm-auto mb-3">
                                                         <img
-                                                            src="{{ dynamicAsset(path: 'public/assets/back-end/img/track-order/order-failed.png') }}"
+                                                            src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/track-order/order-failed.png') }}"
                                                             alt="">
                                                     </div>
                                                     <div class="media-body">
@@ -1551,7 +1551,7 @@
     <span id="billing-latitude" data-latitude="{{$billing->latitude??'-33.8688'}}"></span>
     <span id="billing-longitude" data-longitude="{{$billing->longitude??'151.2195'}}"></span>
     <span id="location-icon"
-          data-path="{{dynamicAsset(path: 'public/assets/front-end/img/customer_location.png')}}"></span>
+          data-path="{{dynamicAsset(path: 'public/site-assets/front-end/img/customer_location.png')}}"></span>
     <span id="customer-image"
           data-path="{{dynamicStorage(path: 'storage/app/public/profile/')}}{{$order->customer->image??""}}"></span>
     <span id="deliveryman-charge-alert-message"
@@ -1568,7 +1568,7 @@
             defer>
         </script>
     @endif
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/order.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/order.js')}}"></script>
 @endpush

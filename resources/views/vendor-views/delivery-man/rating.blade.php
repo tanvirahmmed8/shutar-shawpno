@@ -7,7 +7,7 @@
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-10 mb-3">
             <div class="">
                 <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/deliveryman.png')}}" width="20" alt="">
                     {{$deliveryMan['f_name']. ' '. $deliveryMan['l_name']}}
                 </h2>
             </div>

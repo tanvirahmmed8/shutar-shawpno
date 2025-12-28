@@ -189,7 +189,7 @@
                                             </div>
                                             <div class="temporarily-closed-sticky-alert {{$userData['temporary-close-status'] == 1 ? '' : 'd-none'}}">
                                                 <div class="alert-box">
-                                                    <div><img src="{{ theme_asset('public/assets/front-end/img/icons/warning.svg') }}" alt=""></div>
+                                                    <div><img src="{{ theme_asset('public/site-assets/front-end/img/icons/warning.svg') }}" alt=""></div>
                                                     <div>
                                                         {{ translate('sorry') }} !
                                                         {{ translate('currently_we_are_not_available.') }}
@@ -210,7 +210,7 @@
                             @else
                                 <div class="card Chat __shadow h-100 d-flex flex-column justify-content-center rounded-left-0">
                                     <div class="text-center">
-                                        <img src="{{theme_asset(path: 'public/assets/front-end/img/empt-msg.png')}}" alt="">
+                                        <img src="{{theme_asset(path: 'public/site-assets/front-end/img/empt-msg.png')}}" alt="">
                                         <p class="text-body mt-4">
                                             {{translate('you_have_not_any_conversation_yet')}}
                                         </p>
@@ -224,15 +224,15 @@
         </div>
     </div>
     <span id="chatting-post-url" data-url="{{ Request::is('chat/vendor') ? route('messages').'?vendor_id=' : route('messages').'?delivery_man_id=' }}"></span>
-    <span id="get-file-icon" data-default-icon="{{dynamicAsset("public/assets/back-end/img/default-icon.png")}}"
-          data-word-icon="{{dynamicAsset("public/assets/back-end/img/default-icon.png")}}"></span>
+    <span id="get-file-icon" data-default-icon="{{dynamicAsset("public/site-assets/back-end/img/default-icon.png")}}"
+          data-word-icon="{{dynamicAsset("public/site-assets/back-end/img/default-icon.png")}}"></span>
 @endsection
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/chatting.js')}}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/picmo-emoji.js')}}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/emoji.js')}}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/select-multiple-file.js')}}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/select-multiple-image-for-message.js')}}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/chatting.js')}}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/picmo-emoji.js')}}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/emoji.js')}}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/select-multiple-file.js')}}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/select-multiple-image-for-message.js')}}"></script>
 @endpush
 

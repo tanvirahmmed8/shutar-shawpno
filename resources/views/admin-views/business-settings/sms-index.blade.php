@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -18,7 +18,7 @@
         <div class="row gy-3" id="sms-gateway-cards">
             <div class="col-12">
                 <div class="mt-2 tanvirsoft-alert">
-                    <img width="16" class="mt-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                    <img width="16" class="mt-1" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                          alt="">
                     <p class="mb-0">
                         <strong>{{translate('NB').':'}}</strong>

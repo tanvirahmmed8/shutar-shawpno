@@ -20,7 +20,7 @@
 
     <div class="fashion-brands-page container pb-3 mb-2 mb-md-4 rtl text-align-direction">
         <div class="fashion-brands-hero bg-primary-light rounded-10 my-4 p-3 p-sm-4"
-             data-bg-img="{{ theme_asset(path: 'public/assets/front-end/img/media/bg.png') }}">
+             data-bg-img="{{ theme_asset(path: 'public/site-assets/front-end/img/media/bg.png') }}">
              <div class="fashion-brands-hero-content d-flex flex-wrap justify-content-between align-items-center gap-3">
                 <div class="fashion-brands-intro d-flex flex-column gap-1">
                     <h1 class="fashion-brands-title mb-0 text-start fw-bold text-uppercase">
@@ -84,5 +84,5 @@
 @endsection
 
 @push('script')
-    <script src="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
+    <script src="{{theme_asset(path: 'public/site-assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
 @endpush

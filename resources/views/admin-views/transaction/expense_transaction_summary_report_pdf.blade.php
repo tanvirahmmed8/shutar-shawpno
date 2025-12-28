@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/admin/order-transaction.css') }}">
+    <link rel="stylesheet" href="{{dynamicAsset(path: 'public/site-assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/admin/order-transaction.css') }}">
 </head>
 
 <body>

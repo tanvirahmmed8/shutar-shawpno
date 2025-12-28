@@ -6,7 +6,7 @@
 <div class="content container-fluid">
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-            <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/Pages.png')}}" alt="">
+            <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/Pages.png')}}" alt="">
             {{ translate('pages') }}
         </h2>
     </div>
@@ -195,7 +195,7 @@
                                                 </div>
                                                 <div class="position-absolute h-100 top-0 w-100 d-flex align-content-center justify-content-center">
                                                     <div class="d-flex flex-column justify-content-center align-items-center">
-                                                        <img src="{{asset('public/assets/back-end/img/icons/product-upload-icon.svg')}}" class="w-50" alt="">
+                                                        <img src="{{asset('public/site-assets/back-end/img/icons/product-upload-icon.svg')}}" class="w-50" alt="">
                                                         <h3 class="text-muted text-capitalize">{{ translate('upload_icon') }}</h3>
                                                     </div>
                                                 </div>
@@ -228,5 +228,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/features-and-company-reliability-section.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/features-and-company-reliability-section.js') }}"></script>
 @endpush

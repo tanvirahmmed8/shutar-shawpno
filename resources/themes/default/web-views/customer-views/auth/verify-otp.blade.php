@@ -12,7 +12,7 @@
                         @csrf
                         <div class="form-group">
                             <div class="text-center">
-                                <img src="{{asset('/public/assets/front-end/img/icons/otp-login-icon.svg')}}" width="50" height="50" alt="" class="mb-4">
+                                <img src="{{asset('/public/site-assets/front-end/img/icons/otp-login-icon.svg')}}" width="50" height="50" alt="" class="mb-4">
                             </div>
                             <div class="resend_otp_custom text-center {{ $time_count <= 0 ? 'd--none' : ''}}">
                                 <p class="text-primary mb-2 ">{{ translate('resend_code_within') }}</p>
@@ -96,5 +96,5 @@
                 });
         });
     </script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/verify-otp.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/verify-otp.js') }}"></script>
 @endpush

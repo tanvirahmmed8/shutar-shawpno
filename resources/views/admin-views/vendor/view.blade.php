@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                 {{translate('vendor_details')}}
             </h2>
         </div>
@@ -291,7 +291,7 @@
                         <div class="col-sm-6">
                             <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
                                 <img width="20" class="mb-1"
-                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png')}}" alt="">
+                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/admin-wallet.png')}}" alt="">
                                 {{translate('vendor_Wallet')}}
                             </h4>
                         </div>
@@ -302,7 +302,7 @@
                             <div class="card h-100 d-flex justify-content-center align-items-center">
                                 <div class="card-body d-flex flex-column gap-10 align-items-center justify-content-center">
                                     <img width="48" class="mb-2"
-                                         src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw.png')}}" alt="">
+                                         src="{{dynamicAsset(path: 'public/site-assets/back-end/img/withdraw.png')}}" alt="">
                                     <h3 class="for-card-count mb-0 fz-24">{{ $seller->wallet ? setCurrencySymbol(amount: usdToDefaultCurrency(amount: $seller->wallet->total_earning)) : 0 }}</h3>
                                     <div class="font-weight-bold text-capitalize mb-30">
                                         {{translate('withdrawable_balance')}}
@@ -321,7 +321,7 @@
                                             </div>
                                             <div>
                                                 <img width="40" class="mb-2"
-                                                     src="{{dynamicAsset(path: 'public/assets/back-end/img/pw.png')}}" alt="">
+                                                     src="{{dynamicAsset(path: 'public/site-assets/back-end/img/pw.png')}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -334,7 +334,7 @@
                                                 <div class="text-capitalize mb-0">{{translate('total_Commission_given')}}</div>
                                             </div>
                                             <div>
-                                                <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/tcg.png')}}"
+                                                <img width="40" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/tcg.png')}}"
                                                      alt="">
                                             </div>
                                         </div>
@@ -348,7 +348,7 @@
                                                 <div class="text-capitalize mb-0">{{translate('aready_Withdrawn')}}</div>
                                             </div>
                                             <div>
-                                                <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/aw.png')}}"
+                                                <img width="40" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/aw.png')}}"
                                                      alt="">
                                             </div>
                                         </div>
@@ -362,7 +362,7 @@
                                                 <div class="text-capitalize mb-0">{{translate('total_delivery_charge_earned')}}</div>
                                             </div>
                                             <div>
-                                                <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/tdce.png')}}"
+                                                <img width="40" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/tdce.png')}}"
                                                      alt="">
                                             </div>
                                         </div>
@@ -376,7 +376,7 @@
                                                 <div class="text-capitalize mb-0">{{translate('total_tax_given')}}</div>
                                             </div>
                                             <div>
-                                                <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/ttg.png')}}"
+                                                <img width="40" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/ttg.png')}}"
                                                      alt="">
                                             </div>
                                         </div>
@@ -390,7 +390,7 @@
                                                 <div class="text-capitalize mb-0">{{translate('collected_cash')}}</div>
                                             </div>
                                             <div>
-                                                <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/cc.png')}}" alt="">
+                                                <img width="40" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/cc.png')}}" alt="">
                                             </div>
                                         </div>
                                     </div>

@@ -8,7 +8,7 @@
                         <div class="d-flex justify-content-center">
                             <div class="shipping-method-system">
                                 <div class="w-100 d-flex justify-content-center mb-1">
-                                    <img alt="" class="object-contain" width="88" height="88" src="{{ getStorageImages(path: imagePathProcessing(imageData: $value['image'],path: 'company-reliability'), type: 'source', source: 'public/assets/front-end/img'.'/'.$value['item'].'.png') }}">
+                                    <img alt="" class="object-contain" width="88" height="88" src="{{ getStorageImages(path: imagePathProcessing(imageData: $value['image'],path: 'company-reliability'), type: 'source', source: 'public/site-assets/front-end/img'.'/'.$value['item'].'.png') }}">
                                 </div>
                                 <div class="w-100 text-center">
                                     <p class="m-0">{{ $value['title'] }}</p>

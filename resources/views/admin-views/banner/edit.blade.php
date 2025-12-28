@@ -8,7 +8,7 @@
         <div class="d-flex justify-content-between mb-3">
             <div>
                 <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
-                    <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/banner.png') }}" alt="">
+                    <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/banner.png') }}" alt="">
                     {{ translate('banner_update_form') }}
                 </h2>
             </div>
@@ -120,7 +120,7 @@
                                         </div>
                                         <label for="name" class="title-color text-capitalize">
                                             <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{ translate('banner_image_ratio_is_not_same_for_all_sections_in_website').' '.translate('Please_review_the_ratio_before_upload') }}">
-                                                <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
+                                                <img alt="" width="16" src={{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
                                             </span>
                                             {{ translate('banner_image') }}
                                         </label>
@@ -153,7 +153,7 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/banner.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/banner.js') }}"></script>
     <script>
         "use strict";
         $(document).on('ready', function () {

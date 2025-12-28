@@ -7,14 +7,14 @@
     <title>{{ translate('forgot_password')}}</title>
     <link rel="shortcut icon"
           href="{{getStorageImages(path: getWebConfig(name: 'company_fav_icon'), type:'backend-logo')}}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/icon-set/style.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/style.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/toastr.css') }}">
-    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/google-fonts.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/theme.minc619.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 
     <style>
         :root {
@@ -28,7 +28,7 @@
 <main id="content" role="main" class="main">
     <div class="auth-wrapper">
         <div class="auth-wrapper-left"
-             style="background: url('{{ dynamicAsset(path: 'public/assets/back-end/img/login-bg.png') }}') no-repeat center center / cover">
+             style="background: url('{{ dynamicAsset(path: 'public/site-assets/back-end/img/login-bg.png') }}') no-repeat center center / cover">
             <div class="auth-left-cont">
                 @php($eCommerceLogo = getWebConfig(name: 'company_web_logo'))
                 <a class="d-inline-flex mb-5" href="{{ route('home') }}">
@@ -172,7 +172,7 @@
             </div>
             <div class="modal-body px-4 px-sm-5 pt-0">
                 <div class="d-flex flex-column align-items-center text-center gap-2 mb-2">
-                    <img src="{{dynamicAsset(path: 'public/assets/back-end/img/password-reset.png') }}" width="70"
+                    <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/password-reset.png') }}" width="70"
                          class="mb-3 mb-20" alt="">
                     <h5 class="modal-title">{{ translate('password_reset_successfully') }}</h5>
                     <div
@@ -191,10 +191,10 @@
       data-mode="{{ env('APP_MODE') }}"
 ></span>
 
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/theme.min.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
-<script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/login.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/toastr.js')}}"></script>
+<script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/login.js')}}"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())
@@ -221,8 +221,8 @@
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 @endif
 
-<script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
-<script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
+<script src="{{ dynamicAsset(path: 'public/site-assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
+<script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/country-picker-init.js') }}"></script>
 
 <script>
     'use strict';

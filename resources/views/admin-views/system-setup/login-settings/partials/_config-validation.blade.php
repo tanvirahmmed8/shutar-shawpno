@@ -1,19 +1,19 @@
 <div class="d-flex flex-column align-items-center text-center gap-2 mb-2">
     <div class="d-flex flex-column justify-content-center align-items-center mb-3 position-relative">
         @if($data['type'] == 'google')
-            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/google-logo.png')) }}"
+            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/google-logo.png')) }}"
                 class="status-icon" alt="" width="80"/>
         @elseif($data['type'] == 'facebook')
-            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/facebook-circle.svg')) }}"
+            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/facebook-circle.svg')) }}"
                 class="status-icon" alt="" width="80"/>
         @elseif($data['type'] == 'apple')
-            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/apple.png')) }}"
+            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/apple.png')) }}"
                  class="status-icon" alt="" width="80"/>
         @elseif($data['type'] == 'otp' || $data['type'] == 'otp-login')
-            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/sms-config-icon.svg')) }}"
+            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/sms-config-icon.svg')) }}"
                  class="status-icon" alt="" width="80"/>
         @elseif($data['type'] == 'email')
-            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/assets/back-end/img/mail-config.png')) }}"
+            <img src="{{ getStorageImages(path: null, type: 'banner', source: asset('public/site-assets/back-end/img/mail-config.png')) }}"
                  class="status-icon" alt="" width="80"/>
         @endif
     </div>

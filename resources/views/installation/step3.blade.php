@@ -23,7 +23,7 @@
                 <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                       data-bs-title="Follow our documentation">
 
-                    <img src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}" alt=""
+                    <img src="{{ dynamicAsset(path: 'public/site-assets/installation/assets/img/svg-icons/info.svg') }}" alt=""
                          class="svg">
                 </span>
             </a>
@@ -108,9 +108,9 @@
                                                placeholder="Ex: password" autocomplete="off">
                                         <div class="togglePassword">
                                             <img alt="" class="svg eye"
-                                                src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/eye.svg') }}">
+                                                src="{{ dynamicAsset(path: 'public/site-assets/installation/assets/img/svg-icons/eye.svg') }}">
                                             <img alt="" class="svg eye-off"
-                                                src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/eye-off.svg') }}">
+                                                src="{{ dynamicAsset(path: 'public/site-assets/installation/assets/img/svg-icons/eye-off.svg') }}">
                                         </div>
                                     </div>
                                 </div>

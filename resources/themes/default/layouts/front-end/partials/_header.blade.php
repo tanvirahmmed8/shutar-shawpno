@@ -53,7 +53,7 @@
                             @foreach($web_config['language'] as $data)
                                 @if($data['code'] == getDefaultLanguage())
                                     <img class="me-2 rounded" width="16" height="12"
-                                         src="{{theme_asset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+                                         src="{{theme_asset(path: 'public/site-assets/front-end/img/flags/'.$data['code'].'.png')}}"
                                          alt="{{$data['name']}}">
                                     <span class="font-medium">{{$data['name']}}</span>
                                     <i class="fa fa-chevron-down ms-1" style="font-size: 10px;"></i>
@@ -67,7 +67,7 @@
                                         <a class="dropdown-item py-2 d-flex align-items-center" href="javascript:">
                                             <img class="me-2 rounded"
                                                  width="16" height="12"
-                                                 src="{{theme_asset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+                                                 src="{{theme_asset(path: 'public/site-assets/front-end/img/flags/'.$data['code'].'.png')}}"
                                                  alt="{{$data['name']}}"/>
                                             <span class="text-capitalize">{{$data['name']}}</span>
                                         </a>

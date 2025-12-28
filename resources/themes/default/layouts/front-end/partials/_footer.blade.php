@@ -7,7 +7,7 @@
                         <div>
                             <a href="{{route('about-us')}}">
                                 <div class="text-center text-primary">
-                                    <img class="object-contain svg" width="36" height="36" src="{{theme_asset(path: "public/assets/front-end/img/icons/about-us.svg")}}"
+                                    <img class="object-contain svg" width="36" height="36" src="{{theme_asset(path: "public/site-assets/front-end/img/icons/about-us.svg")}}"
                                         alt="{{ translate('About us') }}">
                                 </div>
                                 <div class="text-center">
@@ -23,7 +23,7 @@
                         <div>
                             <a href="{{route('contacts')}}">
                                 <div class="text-center text-primary">
-                                    <img class="object-contain svg" width="36" height="36" src="{{ theme_asset(path: "public/assets/front-end/img/icons/contact-us.svg") }}"
+                                    <img class="object-contain svg" width="36" height="36" src="{{ theme_asset(path: "public/site-assets/front-end/img/icons/contact-us.svg") }}"
                                         alt="{{ translate('Contact us') }}">
                                 </div>
                                 <div class="text-center">
@@ -39,7 +39,7 @@
                         <div>
                             <a href="{{route('helpTopic')}}">
                                 <div class="text-center text-primary">
-                                    <img class="object-contain svg" width="36" height="36" src="{{theme_asset(path: "public/assets/front-end/img/icons/faq-icon.svg")}}"
+                                    <img class="object-contain svg" width="36" height="36" src="{{theme_asset(path: "public/site-assets/front-end/img/icons/faq-icon.svg")}}"
                                         alt="{{ translate('FAQ') }}">
                                 </div>
                                 <div class="text-center">
@@ -81,7 +81,7 @@
                             @if($web_config['ios']['status'])
                                 <div class="me-2 mb-2">
                                     <a class="" href="{{ $web_config['ios']['link'] }}" role="button">
-                                <img width="100" src="{{theme_asset(path: "public/assets/front-end/png/apple_app.png")}}"
+                                <img width="100" src="{{theme_asset(path: "public/site-assets/front-end/png/apple_app.png")}}"
                                     alt="{{ translate('Download on the App Store') }}">
                                     </a>
                                 </div>
@@ -90,7 +90,7 @@
                             @if($web_config['android']['status'])
                                 <div class="me-2 mb-2">
                                     <a href="{{ $web_config['android']['link'] }}" role="button">
-                                <img width="100" src="{{theme_asset(path: "public/assets/front-end/png/google_app.png")}}"
+                                <img width="100" src="{{theme_asset(path: "public/site-assets/front-end/png/google_app.png")}}"
                                     alt="{{ translate('Get it on Google Play') }}">
                                     </a>
                                 </div>

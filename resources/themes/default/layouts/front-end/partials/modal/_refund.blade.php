@@ -136,7 +136,7 @@
                                     <label class="py-0 d-flex align-items-center m-0 cursor-pointer">
                                         <span class="position-relative">
                                             <img class="border rounded border-primary-light h-70px"
-                                                 src="{{ getStorageImages(path: null, type: 'logo',source: 'public/assets/front-end/img/image-place-holder.png') }}"
+                                                 src="{{ getStorageImages(path: null, type: 'logo',source: 'public/site-assets/front-end/img/image-place-holder.png') }}"
                                                  alt="">
                                         </span>
                                         <input type="file" class="msgfilesValue h-100 position-absolute w-100 " hidden

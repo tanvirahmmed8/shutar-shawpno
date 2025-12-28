@@ -23,7 +23,7 @@
                                 <span>{{ translate('Upload_File') }}</span>
                                 <span class="input-label-secondary cursor-pointer mb-1" data-toggle="tooltip"
                                       title="{{ translate('it_can_be_possible_to_upload_all_types_of_audio,_video_and_documentation_and_software_files.') }}">
-                                    <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }}"
+                                    <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg') }}"
                                          alt="">
                                 </span>
                             </div>
@@ -62,19 +62,19 @@
                                     <label class="variation-upload-file {{ $digitalVariation['file'] ? 'collapse' : '' }}">
                                         <input type="file" class="d-none" accept=""
                                                name="digital_files[{{ $uniqueKey }}]">
-                                        <img src="{{ dynamicAsset(path: '/public/assets/back-end/img/upload-icon.png') }}"
+                                        <img src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/upload-icon.png') }}"
                                             alt="">
                                         <span>{{ translate('Upload_File') }}</span>
                                     </label>
 
                                     <div class="variation-upload-file uploading-item collapse">
                                         <img
-                                            src="{{ dynamicAsset(path: '/public/assets/back-end/img/upload-icon.png') }}"
+                                            src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/upload-icon.png') }}"
                                             alt="">
                                         <span class="mr-auto text--title">{{ translate('Uploading') }}</span>
                                         <button class="no-gutter cancel-upload" type="button">
                                             <img
-                                                src="{{ dynamicAsset(path: '/public/assets/back-end/img/cancel-icon.png') }}"
+                                                src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/cancel-icon.png') }}"
                                                 alt="">
                                         </button>
                                     </div>
@@ -84,7 +84,7 @@
                                             {{ $digitalVariation['file'] }}
                                         </span>
                                         <button class="no-gutter cancel-upload" type="button">
-                                            <img alt="" src="{{ dynamicAsset(path: '/public/assets/back-end/img/delete-icon.png') }}">
+                                            <img alt="" src="{{ dynamicAsset(path: '/public/site-assets/back-end/img/delete-icon.png') }}">
                                         </button>
                                     </div>
                                 </div>

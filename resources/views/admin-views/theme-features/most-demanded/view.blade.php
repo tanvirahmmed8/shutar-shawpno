@@ -7,7 +7,7 @@
 
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
-            <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/most-demanded.png') }}" alt="">
+            <img width="20" src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/most-demanded.png') }}" alt="">
             {{ translate('most_demanded') }}
         </h2>
     </div>
@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <div class="text-center mt-lg-3">
                                         <img class="border radius-10 ratio-4:1 max-w-655px w-100" id="viewer"
-                                            src="{{ dynamicAsset(path: 'public/assets/back-end/img/placeholder/placeholder-4-1.png') }}" alt="banner image"/>
+                                            src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/placeholder/placeholder-4-1.png') }}" alt="banner image"/>
                                     </div>
                                 </div>
                             </div>
@@ -202,5 +202,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/banner.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/banner.js') }}"></script>
 @endpush

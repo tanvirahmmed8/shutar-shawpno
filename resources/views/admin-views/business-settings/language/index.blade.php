@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/system-setting.png')}}" alt="">
                 {{translate('system_setup')}}
             </h2>
         </div>
@@ -27,7 +27,7 @@
                                 <span class="title-color text-capitalize font-weight-bold float-start">
                                     {{translate('language_table')}}
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{ translate('after_adding_a_new_language_you_need_to_translate_the_key_contents_for_users_to_experience_this_feature.') }} {{ translate('to_translate_a_language_click_the_action_button_from_the_language_table_&_click_translate.') }} {{ translate('then_change_the_key_language_value_manually_or_click_the_Auto_Translate_button.') }} {{ translate('Finally,_click_Update_to_save_the_changes.') }}">
-                                        <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                        <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                     </span>
                                 </span>
                             </div>
@@ -186,10 +186,10 @@
                                         <label for="message-text"
                                                class="col-form-label">{{translate('country_code')}}</label>
                                         <select class="form-control select-country w-100" name="code">
-                                            @foreach(File::files(base_path('public/assets/front-end/img/flags')) as $path)
+                                            @foreach(File::files(base_path('public/site-assets/front-end/img/flags')) as $path)
                                                 @if(pathinfo($path)['filename'] !='en')
                                                     <option value="{{ pathinfo($path)['filename'] }}"
-                                                            title="{{ dynamicAsset(path: 'public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+                                                            title="{{ dynamicAsset(path: 'public/site-assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
                                                         {{ strtoupper(pathinfo($path)['filename']) }}
                                                     </option>
                                                 @endif
@@ -247,10 +247,10 @@
                                             <label for="message-text"
                                                    class="col-form-label">{{translate('country_code')}}</label>
                                             <select class="form-control select-country w-100" name="code">
-                                                @foreach(File::files(base_path('public/assets/front-end/img/flags')) as $path)
+                                                @foreach(File::files(base_path('public/site-assets/front-end/img/flags')) as $path)
                                                     @if(pathinfo($path)['filename'] !='en' && $data['code']==pathinfo($path)['filename'])
                                                         <option value="{{ pathinfo($path)['filename'] }}"
-                                                                title="{{ dynamicAsset(path: 'public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+                                                                title="{{ dynamicAsset(path: 'public/site-assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
                                                             {{ strtoupper(pathinfo($path)['filename']) }}
                                                         </option>
                                                     @endif
@@ -289,5 +289,5 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/language.js')}}"></script>
+    <script src="{{dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/language.js')}}"></script>
 @endpush

@@ -33,7 +33,7 @@
                                         <div class="d-flex gap-2 mt-2">
                                             <a href="{{$downloadPath}}" target="_blank">
                                                 <div class="uploaded-file-item gap-2"><img
-                                                        src="{{dynamicAsset('public/assets/front-end/img/word-icon/'.$icon.'.png')}}"
+                                                        src="{{dynamicAsset('public/site-assets/front-end/img/word-icon/'.$icon.'.png')}}"
                                                         class="file-icon" alt="">
                                                     <div class="upload-file-item-content">
                                                         <div>
@@ -92,7 +92,7 @@
                                     <div class="d-flex gap-2 mt-2">
                                         <a href="{{$downloadPath}}" target="_blank">
                                             <div class="uploaded-file-item gap-2"><img
-                                                    src="{{theme_asset('public/assets/front-end/img/word-icon/'.$icon.'.png')}}"
+                                                    src="{{theme_asset('public/site-assets/front-end/img/word-icon/'.$icon.'.png')}}"
                                                     class="file-icon" alt="">
                                                 <div class="upload-file-item-content">
                                                     <div>

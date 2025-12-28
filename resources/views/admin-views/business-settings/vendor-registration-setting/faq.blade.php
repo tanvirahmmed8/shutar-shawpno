@@ -210,5 +210,5 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/vendor-registration-setting.js')}}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/vendor-registration-setting.js')}}"></script>
 @endpush

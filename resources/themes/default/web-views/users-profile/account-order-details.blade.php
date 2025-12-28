@@ -62,7 +62,7 @@
                                                         <h6 class="fs-13 font-bold text-capitalize">{{translate('payment_info')}}</h6>
                                                         <button type="button" class="btn btn-square d-sm-none get-view-by-onclick"
                                                                 data-link="{{route('generate-invoice',[$order->id])}}">
-                                                            <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/downloads.png')}}" alt="">
+                                                            <img src="{{theme_asset(path: 'public/site-assets/front-end/img/icons/downloads.png')}}" alt="">
                                                         </button>
                                                     </div>
                                                     <div class="fs-12">
@@ -795,6 +795,6 @@
 
 
 @push('script')
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/spartan-multi-image-picker.js') }}"></script>
-    <script src="{{ theme_asset(path: 'public/assets/front-end/js/account-order-details.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ theme_asset(path: 'public/site-assets/front-end/js/account-order-details.js') }}"></script>
 @endpush

@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business-setup.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/business-setup.png')}}" alt="">
                 {{ translate('business_Setup') }}
             </h2>
             <div class="btn-group">
@@ -21,7 +21,7 @@
                 <div
                     class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/note.png')}}" alt="">
+                        <img width="20" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/note.png')}}" alt="">
                         <h5 class="text-primary mb-0">{{translate('note')}}</h5>
                     </div>
                     <p class="title-color font-weight-medium mb-0">{{ translate('please_click_save_information_button_below_to_save_all_the_changes') }}</p>
@@ -242,7 +242,7 @@
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                               data-placement="right"
                                               title="{{translate('copy_the_latitude_of_your_business_location_from_Google_Maps_and_paste_it_here')}}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                                  alt="">
                                         </span>
                                     </label>
@@ -259,7 +259,7 @@
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                               data-placement="right"
                                               title="{{translate('copy_the_longitude_of_your_business_location_from_Google_Maps_and_paste_it_here')}}">
-                                            <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                            <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                                  alt="">
                                         </span>
                                     </label>
@@ -364,7 +364,7 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('this_number_indicates_how_much_data_will_be_shown_in_the_list_or_table')}}">
-                                        <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+                                        <img width="16" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}"
                                              alt="">
                                     </span>
                                 </label>
@@ -407,7 +407,7 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="d-flex gap-2 align-items-center text-capitalize mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/apple.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/apple.png')}}" alt="">
                                 {{translate('apple_store')}}:
                             </div>
 
@@ -421,7 +421,7 @@
                                               data-placement="right"
                                               title="{{translate('if_enabled_the_download_button_from_the_App_Store_will_be_visible_in_the_Footer_section')}}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </span>
 
@@ -449,7 +449,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex gap-2 align-items-center text-capitalize mb-3">
-                                <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/play_store.png')}}" alt="">
+                                <img width="22" src="{{dynamicAsset(path: 'public/site-assets/back-end/img/play_store.png')}}" alt="">
                                 {{translate('google_play_store').':'}}
                             </div>
 
@@ -462,7 +462,7 @@
                                               data-placement="right"
                                               title="{{translate('if_enabled_the_Google_Play_Store_will_be_visible_in_the_website_footer_section')}}">
                                             <img width="16"
-                                                 src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+                                                 src="{{dynamicAsset(path: 'public/site-assets/back-end/img/info-circle.svg')}}" alt="">
                                         </span>
                                     </span>
 
@@ -497,7 +497,7 @@
                     <div class="card h-100 report-card">
                         <div class="card-header">
                             <h5 class="mb-0 d-flex align-items-center gap-2">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/website-color.png')}}" alt="">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/website-color.png')}}" alt="">
                                 {{translate('website_Color')}}
                             </h5>
                         </div>
@@ -544,7 +544,7 @@
                     <div class="card h-100 report-card">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/header-logo.png')}}" alt="">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/header-logo.png')}}" alt="">
                                 {{translate('website_header_logo')}}
                             </h5>
                             <span
@@ -569,7 +569,7 @@
                     <div class="card h-100 report-card">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{translate('website_footer_logo')}}
                             </h5>
                             <span
@@ -594,7 +594,7 @@
                     <div class="card h-100 report-card">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{translate('website_Favicon')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{translate('ratio').'1:1'}} )</span>
@@ -618,7 +618,7 @@
                     <div class="card h-100 report-card">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{translate('loading_gif')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{translate('ratio').'1:1'}})</span>
@@ -642,7 +642,7 @@
                     <div class="card h-100 report-card">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
-                                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+                                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/footer-logo.png')}}" alt="">
                                 {{translate('App_Logo')}}
                             </h5>
                             <span class="badge badge-soft-info">{{'('.'100X60'.'px'.')'}}</span>
@@ -680,6 +680,6 @@
         defer>
     </script>
     @endif
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/maintenance-mode-setting.js') }}"></script>
-    <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/business-setting.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/maintenance-mode-setting.js') }}"></script>
+    <script src="{{ dynamicAsset(path: 'public/site-assets/back-end/js/admin/business-setting/business-setting.js') }}"></script>
 @endpush

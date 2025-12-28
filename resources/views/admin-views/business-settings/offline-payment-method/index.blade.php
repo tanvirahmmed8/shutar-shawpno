@@ -6,7 +6,7 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -138,5 +138,5 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{asset('public/assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
+    <script src="{{asset('public/site-assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
 @endpush

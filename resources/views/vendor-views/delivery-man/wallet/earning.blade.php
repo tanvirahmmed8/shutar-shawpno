@@ -10,7 +10,7 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
-                <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+                <img src="{{dynamicAsset(path: 'public/site-assets/back-end/img/add-new-seller.png')}}" alt="">
                 {{translate('earning_Statement')}}
             </h2>
         </div>
@@ -33,21 +33,21 @@
                             <h2 class="business-analytics__title">
                                 {{ $totalEarn ? setCurrencySymbol(amount: usdToDefaultCurrency(amount: $totalEarn), currencyCode: getCurrencyCode()) : setCurrencySymbol(amount: 0, currencyCode: getCurrencyCode()) }}
                             </h2>
-                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/aw.png') }}" width="40" class="business-analytics__img" alt="">
+                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/aw.png') }}" width="40" class="business-analytics__img" alt="">
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <div class="business-analytics">
                             <h5 class="business-analytics__subtitle">{{ translate('withdrawable_balance') }}</h5>
                             <h2 class="business-analytics__title">{{ $withdrawableBalance? setCurrencySymbol(amount: usdToDefaultCurrency(amount: $withdrawableBalance)) : setCurrencySymbol(amount: 0) }}</h2>
-                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/pw.png') }}" width="40" class="business-analytics__img" alt="">
+                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/pw.png') }}" width="40" class="business-analytics__img" alt="">
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <div class="business-analytics">
                             <h5 class="business-analytics__subtitle">{{ translate('withdrawn') }}</h5>
                             <h2 class="business-analytics__title">{{ $deliveryMan->wallet? setCurrencySymbol(amount: usdToDefaultCurrency(amount: $deliveryMan->wallet->total_withdraw), currencyCode: getCurrencyCode()) : setCurrencySymbol(amount: 0, currencyCode: getCurrencyCode()) }}</h2>
-                            <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/withdraw.png') }}" width="40" class="business-analytics__img" alt="">
+                            <img src="{{ dynamicAsset(path: 'public/site-assets/back-end/img/withdraw.png') }}" width="40" class="business-analytics__img" alt="">
                         </div>
                     </div>
                 </div>
