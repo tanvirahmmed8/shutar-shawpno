@@ -369,6 +369,15 @@ class ProductController extends BaseController
         $product['priceSum'] = $product?->orderDelivered->sum('price');
         $product['qtySum'] = $product?->orderDelivered->sum('qty');
         $product['discountSum'] = $product?->orderDelivered->sum('discount');
+        if ($product && $product->product_type === 'physical') {
+            $product->load([
+                'inventoryLots' => function ($query) {
+                    $query->with('grn:id,code')
+                        ->orderByDesc('purchased_at')
+                        ->orderByDesc('id');
+                },
+            ]);
+        }
         $productColors = [];
         $colors = json_decode($product['colors']);
         foreach ($colors as $color) {

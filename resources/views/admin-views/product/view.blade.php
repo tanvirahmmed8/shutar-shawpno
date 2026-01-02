@@ -67,6 +67,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
+
                                 @if($product['added_by'] == 'seller' && ($product['request_status'] == 0 || $product['request_status'] == 1))
                                     <div class="d-flex justify-content-sm-end flex-wrap gap-2 pb-4">
                                         <div>
@@ -403,6 +404,104 @@
                 </div>
             </div>
         </div>
+        @if($product->product_type == 'physical')
+            @php($lotCollection = collect($product->inventoryLots ?? []))
+            @php($decimalPointSettings = (int) (getWebConfig(name: 'decimal_point_settings') ?? 2))
+            @php($totalReceivedQty = round($lotCollection->sum('quantity_received'), $decimalPointSettings))
+            @php($totalAvailableQty = round($lotCollection->sum('quantity_available'), $decimalPointSettings))
+            @php($latestLot = $lotCollection->first())
+
+            <div class="card border-0 mt-3">
+                <div class="card-body">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                        <h4 class="mb-0 text-capitalize">{{ translate('lot_wise_inventory') }}</h4>
+                        <span class="badge badge-soft-primary text-capitalize">
+                            {{ translate('active_lots') }}: {{ $lotCollection->count() }}
+                        </span>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="border rounded p-3 h-100">
+                                <p class="text-muted text-uppercase fs-12 mb-1">{{ translate('total_received_qty') }}</p>
+                                <h4 class="mb-0">{{ number_format($totalReceivedQty, $decimalPointSettings) }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="border rounded p-3 h-100">
+                                <p class="text-muted text-uppercase fs-12 mb-1">{{ translate('available_qty') }}</p>
+                                <h4 class="mb-0">{{ number_format($totalAvailableQty, $decimalPointSettings) }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="border rounded p-3 h-100">
+                                <p class="text-muted text-uppercase fs-12 mb-1">{{ translate('allocated_qty') }}</p>
+                                <h4 class="mb-0">{{ number_format(max($totalReceivedQty - $totalAvailableQty, 0), $decimalPointSettings) }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="border rounded p-3 h-100">
+                                <p class="text-muted text-uppercase fs-12 mb-1">{{ translate('last_receipt') }}</p>
+                                <h4 class="mb-0">
+                                    @if($latestLot && $latestLot->purchased_at)
+                                        {{ $latestLot->purchased_at->format('M d, Y') }}
+                                    @else
+                                        {{ translate('not_available') }}
+                                    @endif
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if($lotCollection->isEmpty())
+                        <div class="text-center text-muted py-4">
+                            {{ translate('no_lot_activity_found') }}
+                        </div>
+                    @else
+                        <div class="table-responsive mt-4">
+                            <table class="table table-borderless table-nowrap table-align-middle card-table w-100 text-start">
+                                <thead class="thead-light thead-50 text-capitalize">
+                                    <tr>
+                                        <th>{{ translate('lot_number') }}</th>
+                                        <th>{{ translate('source') }}</th>
+                                        <th class="text-end">{{ translate('received_qty') }}</th>
+                                        <th class="text-end">{{ translate('available_qty') }}</th>
+                                        <th class="text-end">{{ translate('allocated_qty') }}</th>
+                                        <th class="text-nowrap">{{ translate('received_at') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($lotCollection as $lot)
+                                        @php($allocatedQty = max(($lot->quantity_received ?? 0) - ($lot->quantity_available ?? 0), 0))
+                                        <tr>
+                                            <td class="text-capitalize">{{ $lot->lot_number ?? $lot->batch_number ?? '--' }}</td>
+                                            <td class="text-capitalize">
+                                                @if($lot->source_type === 'purchase_grn' && $lot->grn)
+                                                    {{ $lot->grn->code ?? translate('purchase_grn') }}
+                                                @else
+                                                    {{ ucwords(str_replace('_', ' ', $lot->source_type ?? translate('unknown'))) }}
+                                                @endif
+                                            </td>
+                                            <td class="text-end">{{ number_format($lot->quantity_received ?? 0, $decimalPointSettings) }}</td>
+                                            <td class="text-end">{{ number_format($lot->quantity_available ?? 0, $decimalPointSettings) }}</td>
+                                            <td class="text-end">{{ number_format($allocatedQty, $decimalPointSettings) }}</td>
+                                            <td>
+                                                @if($lot->purchased_at)
+                                                    {{ $lot->purchased_at->format('M d, Y') }}
+                                                @else
+                                                    {{ translate('not_set') }}
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        @endif
+
         <div class="row g-2 mt-3">
             @if(!empty($product['variation']) && count(json_decode($product['variation'])) >0)
             <div class="col-md-12">
