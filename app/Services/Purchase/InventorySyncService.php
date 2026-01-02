@@ -3,16 +3,19 @@
 namespace App\Services\Purchase;
 
 use App\Jobs\Purchase\DispatchInventoryReceipt;
-use App\Models\Product;
 use App\Models\Purchase\PurchaseEvent;
 use App\Models\Purchase\PurchaseGrn;
 use App\Models\Purchase\PurchaseGrnEvent;
 use App\Services\Inventory\InventoryValuationService;
+use App\Services\Inventory\LotInventoryService;
 use Illuminate\Support\Facades\DB;
 
 class InventorySyncService
 {
-    public function __construct(private InventoryValuationService $inventoryValuationService)
+    public function __construct(
+        private InventoryValuationService $inventoryValuationService,
+        private LotInventoryService $lotInventoryService,
+    )
     {
     }
 
@@ -97,9 +100,7 @@ class InventorySyncService
                     continue;
                 }
 
-                Product::whereKey($item->product_id)
-                    ->lockForUpdate()
-                    ->increment('current_stock', $item->accepted_qty);
+                $this->lotInventoryService->createLotFromGrnItem($item);
             }
 
             $grn->forceFill([

@@ -2,6 +2,7 @@
 
 namespace App\Models\Purchase;
 
+use App\Models\Inventory\InventoryLot;
 use App\Models\Product;
 use App\Models\Purchase\PurchaseGrnReturnItem;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -61,5 +62,10 @@ class PurchaseGrnItem extends Model
     public function returnItems(): HasMany
     {
         return $this->hasMany(PurchaseGrnReturnItem::class, 'grn_item_id');
+    }
+
+    public function inventoryLots(): HasMany
+    {
+        return $this->hasMany(InventoryLot::class, 'grn_item_id');
     }
 }

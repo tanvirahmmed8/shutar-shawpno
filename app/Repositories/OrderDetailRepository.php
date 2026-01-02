@@ -4,15 +4,18 @@ namespace App\Repositories;
 
 use App\Contracts\Repositories\OrderDetailRepositoryInterface;
 use App\Models\OrderDetail;
+use App\Services\Inventory\LotInventoryService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class OrderDetailRepository implements OrderDetailRepositoryInterface
 {
 
     public function __construct(
         private OrderDetail $orderDetail,
+        private LotInventoryService $lotInventoryService,
     ){
 
     }
@@ -20,7 +23,11 @@ class OrderDetailRepository implements OrderDetailRepositoryInterface
     public function add(array $data): string|object
     {
         cacheRemoveByType(type: 'order_details');
-        return $this->orderDetail->create($data);
+        return DB::transaction(function () use ($data) {
+            $detail = $this->orderDetail->create($data);
+            $this->lotInventoryService->reserveForOrderDetail($detail);
+            return $detail;
+        });
     }
 
     public function getFirstWhere(array $params, array $relations = []): ?Model

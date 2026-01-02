@@ -4,7 +4,7 @@ namespace App\Services\Inventory;
 
 use App\Models\Finance\FinanceAccount;
 use App\Models\Finance\FinanceJournalRow;
-use App\Models\Product;
+use App\Models\Inventory\InventoryLot;
 
 class InventoryValuationService
 {
@@ -40,8 +40,8 @@ class InventoryValuationService
 
     private function calculateInventoryValue(): float
     {
-        $value = Product::query()
-            ->selectRaw('COALESCE(SUM(current_stock * purchase_price), 0) as total_value')
+        $value = InventoryLot::query()
+            ->selectRaw('COALESCE(SUM(quantity_available * unit_purchase_price), 0) as total_value')
             ->value('total_value');
 
         return (float) $value;

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Models;
+use App\Models\Inventory\InventoryLot;
+use App\Models\Inventory\InventoryLotAllocation;
 use App\Traits\CacheManagerTrait;
 use App\Traits\StorageTrait;
 use Illuminate\Database\Eloquent\Builder;
@@ -350,6 +352,16 @@ class Product extends Model
         return $query->whereHas('flashDealProducts.flashDeal', function ($query) use ($flashDealID) {
             return $query->where('id', $flashDealID);
         });
+    }
+
+    public function inventoryLots(): HasMany
+    {
+        return $this->hasMany(InventoryLot::class);
+    }
+
+    public function inventoryLotAllocations(): HasMany
+    {
+        return $this->hasMany(InventoryLotAllocation::class);
     }
 
     //old relation: compare_list

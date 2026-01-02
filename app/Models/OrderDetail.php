@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Inventory\InventoryLotAllocation;
 use App\Traits\StorageTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -119,6 +120,11 @@ class OrderDetail extends Model
         return $this->hasMany(OrderStatusHistory::class, 'order_id', 'order_id');
     }
 
+    public function lotAllocations(): HasMany
+    {
+        return $this->hasMany(InventoryLotAllocation::class, 'order_detail_id');
+    }
+
     public function getDigitalFileAfterSellFullUrlAttribute(): string|null|array
     {
         $value = $this->digital_file_after_sell;
@@ -134,6 +140,7 @@ class OrderDetail extends Model
     protected static function boot(): void
     {
         parent::boot();
+
         static::saved(function ($model) {
             if ($model->isDirty('digital_file_after_sell')) {
                 $storage = config('filesystems.disks.default') ?? 'public';
