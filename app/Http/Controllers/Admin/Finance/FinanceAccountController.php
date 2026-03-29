@@ -191,18 +191,24 @@ class FinanceAccountController extends BaseController
                 continue;
             }
 
+            $category = in_array($row[2] ?? 'asset', $this->categories, true) ? ($row[2] ?? 'asset') : 'asset';
+            $type = in_array($row[3] ?? 'posting', $this->types, true) ? ($row[3] ?? 'posting') : 'posting';
+            $balanceType = in_array($row[4] ?? 'debit', $this->balanceTypes, true) ? ($row[4] ?? 'debit') : 'debit';
+            $currency = strtoupper($row[5] ?? config('app.currency', 'USD'));
+
             $account = FinanceAccount::updateOrCreate(
                 ['code' => $code],
                 [
                     'name' => $name,
-                    'category' => $row[2] ?? 'asset',
-                    'type' => in_array($row[3] ?? 'posting', $this->types, true) ? $row[3] : 'posting',
-                    'balance_type' => in_array($row[4] ?? 'debit', $this->balanceTypes, true) ? $row[4] : 'debit',
-                    'currency' => $row[5] ?? config('app.currency', 'USD'),
+                    'category' => $category,
+                    'type' => $type,
+                    'balance_type' => $balanceType,
+                    'currency' => $currency,
                     'is_active' => ($row[6] ?? '1') === '1',
-                    'is_postable' => ($row[3] ?? 'posting') === 'posting',
+                    'is_postable' => $type === 'posting',
                     'level' => 1,
-                    'is_leaf' => ($row[3] ?? 'posting') === 'posting',
+                    'is_leaf' => $type === 'posting',
+                    'updated_by' => auth('admin')->id(),
                 ]
             );
 

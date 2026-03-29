@@ -21,7 +21,6 @@ use App\Enums\WebConfigKey;
 use App\Events\OrderStatusEvent;
 use App\Exports\OrderExport;
 use App\Http\Controllers\BaseController;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadDigitalFileAfterSellRequest;
 use App\Repositories\WalletTransactionRepository;
 use App\Services\DeliveryCountryCodeService;
@@ -44,7 +43,6 @@ use Illuminate\Support\Facades\View as PdfView;
 use Maatwebsite\Excel\Facades\Excel;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class OrderController extends BaseController
 {
@@ -351,7 +349,7 @@ class OrderController extends BaseController
 
             $customer = $this->customerRepo->getFirstWhere(params: ['id' => $order['customer_id']]);
             $isFirstOrder = $this->orderRepo->getListWhereCount(filters: ['customer_id' => $order['customer_id'], 'order_status' => 'delivered', 'payment_status' => 'paid']);
-            $referredByUser = $this->customerRepo->getFirstWhere(params: ['id' => $order['customer_id']]);
+            $referredByUser = $this->customerRepo->getFirstWhere(params: ['id' => $customer['referred_by']]);
 
             if ($isFirstOrder == 1 && isset($customer->referred_by) && isset($referredByUser)) {
                 $this->walletTransactionRepo->addWalletTransaction(

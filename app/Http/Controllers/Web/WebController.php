@@ -45,6 +45,7 @@ use App\Utils\CustomerManager;
 use App\Utils\OrderManager;
 use App\Utils\ProductManager;
 use App\Utils\SMSModule;
+use App\Enums\GlobalConstant;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
@@ -415,7 +416,7 @@ class WebController extends Controller
 
         $countryRestrictStatus = getWebConfig(name: 'delivery_country_restriction');
         $zipRestrictStatus = getWebConfig(name: 'delivery_zip_code_area_restriction');
-        $countries = $countryRestrictStatus ? $this->get_delivery_country_array() : COUNTRIES;
+        $countries = $countryRestrictStatus ? $this->get_delivery_country_array() : GlobalConstant::COUNTRIES;
         $zipCodes = $zipRestrictStatus ? DeliveryZipCode::all() : 0;
         $billingInputByCustomer = getWebConfig(name: 'billing_input_by_customer');
         $defaultLocation = getWebConfig(name: 'default_location');

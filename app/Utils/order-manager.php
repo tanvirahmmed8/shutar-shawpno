@@ -27,9 +27,11 @@ use App\Models\Shop;
 use App\Models\Transaction;
 use App\Traits\CommonTrait;
 use App\Models\User;
+use App\Services\Finance\FinancePostingService;
 use App\Services\Inventory\LotInventoryService;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 
 
@@ -329,6 +331,9 @@ class OrderManager
                 $wallet->save();
             }
         }
+
+        $financeEventKey = $order->order_type === 'POS' ? 'pos.sale_paid' : 'sales.order_paid';
+        app(FinancePostingService::class)->postSalesOrder($order->fresh('details'), $financeEventKey);
     }
 
     public static function coupon_process($data, $coupon)
@@ -696,7 +701,7 @@ class OrderManager
                     'updated_at' => now(),
                 ]);
             }
-            DB::table('admin_wallets')->where('admin_id', $order['seller_id'])->increment('pending_amount', $order['order_amount']);
+            DB::table('admin_wallets')->where('admin_id', 1)->increment('pending_amount', $order['order_amount']);
         }
 
         if ($seller_data->seller_is == 'admin') {
@@ -1065,7 +1070,7 @@ class OrderManager
                     'updated_at' => now(),
                 ]);
             }
-            DB::table('admin_wallets')->where('admin_id', $order['seller_id'])->increment('pending_amount', $order['order_amount']);
+            DB::table('admin_wallets')->where('admin_id', 1)->increment('pending_amount', $order['order_amount']);
         }
 
         return $order_data['order_id'];
@@ -1430,7 +1435,7 @@ class OrderManager
     {
         $order = Order::with('seller')->with('shipping')->where('id', $id)->first();
         $invoiceSettings = getWebConfig('invoice_settings');
-        $mpdf_view = \View::make(VIEW_FILE_NAMES['order_invoice'], compact('order', 'invoiceSettings'));
+        $mpdf_view = View::make(VIEW_FILE_NAMES['order_invoice'], compact('order', 'invoiceSettings'));
         return self::storePdf(view: $mpdf_view, filePrefix: 'order_invoice_', filePostfix: $order['id'], pdfType: 'invoice', requestFrom: 'web');
     }
 

@@ -41,11 +41,36 @@ class SellerRegistrationModeTest extends TestCase
         $this->setBusinessSetting('business_mode', 'multi');
         $this->setBusinessSetting('seller_registration', 1);
 
-        $this->setBusinessSetting('vendor_registration_header', ['title' => 'Register as vendor']);
-        $this->setBusinessSetting('vendor_registration_sell_with_us', ['enabled' => true]);
-        $this->setBusinessSetting('download_vendor_app', ['enabled' => false]);
-        $this->setBusinessSetting('business_process_main_section', ['title' => 'Process']);
-        $this->setBusinessSetting('business_process_step', [['title' => 'Step 1']]);
+        $this->setBusinessSetting('vendor_registration_header', [
+            'title' => 'Register as vendor',
+            'sub_title' => 'Create your own store',
+            'image' => '',
+        ]);
+        $this->setBusinessSetting('vendor_registration_sell_with_us', [
+            'enabled' => true,
+            'title' => 'Why sell with us',
+            'sub_title' => 'Grow your business with us',
+            'image' => '',
+        ]);
+        $this->setBusinessSetting('download_vendor_app', [
+            'enabled' => false,
+            'title' => 'Download app',
+            'sub_title' => 'Manage your shop on the go',
+            'image' => '',
+            'download_google_app' => '',
+            'download_google_app_status' => 0,
+            'download_apple_app' => '',
+            'download_apple_app_status' => 0,
+        ]);
+        $this->setBusinessSetting('business_process_main_section', [
+            'title' => 'Process',
+            'sub_title' => 'Three easy steps',
+        ]);
+        $this->setBusinessSetting('business_process_step', [[
+            'title' => 'Step 1',
+            'description' => 'Register your store',
+            'image' => '',
+        ]]);
 
         $response = $this->get('/vendor/auth/registration/index');
 

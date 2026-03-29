@@ -11,6 +11,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
  */
 interface ProductRepositoryInterface extends RepositoryInterface
 {
+    public function addRelatedTags(object $request, object $product): void;
+
 
     /**
      * @param array $params

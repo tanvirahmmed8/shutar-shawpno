@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Customer;
 
-use App\Models\Order;
-use App\Models\OrderDetail;
-use App\Models\PaymentRequest;
+use App\Exceptions\InsufficientLotStockException;
 use App\Models\User;
 use App\Utils\Helpers;
 use App\Http\Controllers\Controller;
@@ -17,6 +15,7 @@ use App\Models\BusinessSetting;
 use App\Models\Cart;
 use App\Models\CartShipping;
 use App\Models\Currency;
+use App\Services\Inventory\LotInventoryService;
 use App\Traits\Payment;
 use App\Utils\CartManager;
 use App\Utils\Convert;
@@ -68,6 +67,27 @@ class PaymentController extends Controller
         if (!$productStockCheck && in_array($request['payment_request_from'], ['app'])) {
             return response()->json(['errors' => ['code' => 'product-stock', 'message' => 'The following items in your cart are currently out of stock']], 403);
         } elseif (!$productStockCheck) {
+            Toastr::error(translate('the_following_items_in_your_cart_are_currently_out_of_stock'));
+            return redirect()->route('shop-cart');
+        }
+
+        try {
+            /** @var LotInventoryService $lotInventoryService */
+            $lotInventoryService = app(LotInventoryService::class);
+
+            $requiredByProduct = $carts
+                ->where('product_type', 'physical')
+                ->groupBy('product_id')
+                ->map(fn ($group) => (float) $group->sum('quantity'));
+
+            foreach ($requiredByProduct as $productId => $requiredQty) {
+                $lotInventoryService->assertSufficientStock((int) $productId, (float) $requiredQty);
+            }
+        } catch (InsufficientLotStockException $exception) {
+            if (in_array($request['payment_request_from'], ['app'])) {
+                return response()->json(['errors' => ['code' => 'product-stock', 'message' => 'The following items in your cart are currently out of stock']], 403);
+            }
+
             Toastr::error(translate('the_following_items_in_your_cart_are_currently_out_of_stock'));
             return redirect()->route('shop-cart');
         }

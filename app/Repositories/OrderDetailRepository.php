@@ -37,7 +37,13 @@ class OrderDetailRepository implements OrderDetailRepositoryInterface
 
     public function getList(array $orderBy = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
-        // TODO: Implement getList() method.
+        $query = $this->orderDetail
+            ->with($relations)
+            ->when(!empty($orderBy), function ($query) use ($orderBy) {
+                $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
+            });
+
+        return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit);
     }
 
     public function getListWhere(array $orderBy = [], string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
@@ -72,7 +78,9 @@ class OrderDetailRepository implements OrderDetailRepositoryInterface
 
     public function delete(array $params): bool
     {
-        // TODO: Implement delete() method.
+        cacheRemoveByType(type: 'order_details');
+        $this->orderDetail->where($params)->delete();
+        return true;
     }
 
     public function updateWhere(array $params, array $data): bool

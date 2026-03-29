@@ -14,7 +14,7 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (!App::runningInConsole()) {
+        if (!App::runningInConsole() || app()->runningUnitTests()) {
             $theme = env('WEB_THEME') == null ? 'default' : env('WEB_THEME');
             $path = base_path('resources/themes/' . $theme);
             if (!defined('VIEW_FILE_NAMES')) {

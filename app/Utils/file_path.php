@@ -14,14 +14,19 @@ if (!function_exists('productImagePath')) {
 if (!function_exists('getStorageImages')) {
     function getStorageImages($path, $type = null, $source = null): string
     {
+        $hasResolvedPath = is_array($path)
+            && isset($path['status'], $path['path'])
+            && (int)$path['status'] === 200
+            && !empty($path['path']);
+
         if ($source && base_path($source)) {
             if ($type == 'payment-banner' && DOMAIN_POINTED_DIRECTORY == 'public') {
                 return asset(str_replace('app/public/', '', $source));
             }
-            return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicAsset($source);
+            return $hasResolvedPath ? $path['path'] : dynamicAsset($source);
         }
         if ($source && file_exists($source)) {
-            return (!empty($path) && $path['status'] == 200) ? $path['path'] : $source;
+            return $hasResolvedPath ? $path['path'] : $source;
         }
         $placeholderMap = [
             'backend-basic' => 'back-end/img/placeholder/placeholder-1-1.png',
@@ -86,13 +91,13 @@ if (!function_exists('getStorageImages')) {
                 if ($theme == 'default') {
                     $placeholderPath = theme_asset(path: $placeholderMap[$type][$theme]);
                 }
-                return (!empty($path) && $path['status'] == 200) ? $path['path'] : $placeholderPath;
+                return $hasResolvedPath ? $path['path'] : $placeholderPath;
             } else {
-                return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicAsset(path: 'public/site-assets/' . $placeholderMap[$type]);
+                return $hasResolvedPath ? $path['path'] : dynamicAsset(path: 'public/site-assets/' . $placeholderMap[$type]);
             }
         }
 
-        return (!empty($path) && $path['status'] == 200) ? $path['path'] : dynamicStorage(path: 'public/site-assets/front-end/img/placeholder/placeholder-2-1.png');
+        return $hasResolvedPath ? $path['path'] : dynamicStorage(path: 'public/site-assets/front-end/img/placeholder/placeholder-2-1.png');
     }
 }
 

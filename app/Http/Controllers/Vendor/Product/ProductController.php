@@ -467,7 +467,7 @@ class ProductController extends BaseController
         $subCategory = (!empty($request->sub_category_id) && $request->has('sub_category_id')) ? $this->categoryRepo->getFirstWhere(params: ['id' => $request['sub_category_id']]) : 'all';
         $subSubCategory = (!empty($request->sub_sub_category_id) && $request->has('sub_sub_category_id')) ? $this->categoryRepo->getFirstWhere(params: ['id' => $request['sub_sub_category_id']]) : 'all';
         $brand = (!empty($request->brand_id) && $request->has('brand_id')) ? $this->brandRepo->getFirstWhere(params: ['id' => $request->brand_id]) : 'all';
-        $seller = (!empty($request->seller_id) && $request->has('seller_id')) ? $this->sellerRepo->getFirstWhere(params: ['id' => $request->seller_id]) : '';
+        $seller = (!empty($request->seller_id) && $request->has('seller_id')) ? $this->vendorRepo->getFirstWhere(params: ['id' => $request->seller_id]) : '';
         $data = [
             'data-from' => 'vendor',
             'vendor' => $vendor,

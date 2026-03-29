@@ -11,6 +11,8 @@ use App\Models\OrderTransaction;
 use App\Models\Product;
 use App\Models\SellerWallet;
 use App\Models\Transaction;
+use App\Services\Finance\FinancePostingService;
+use App\Utils\OrderManager;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -266,53 +268,11 @@ class OrderRepository implements OrderRepositoryInterface
     public function updateStockOnOrderStatusChange(string|int $orderId, string $status): bool
     {
         $order = $this->order->with('details.product')->find($orderId);
-        if ($status == 'returned' || $status == 'failed' || $status == 'canceled') {
-            foreach ($order['details'] as $detail) {
-                if ($detail['is_stock_decreased'] == 1) {
-                    $product = $detail->product;
-                    $type = $detail['variant'];
-                    $variations = [];
-                    if($product['variation']){
-                        foreach (json_decode($product['variation'], true) as $variation) {
-                            if ($type == $variation['type']) {
-                                $variation['qty'] += $detail['qty'];
-                            }
-                            $variations[] = $variation;
-                        }
-                    }
-                    $this->product->where(['id' => $product['id']])->update([
-                        'variation' => json_encode($variations),
-                        'current_stock' => $product['current_stock'] + $detail['qty'],
-                    ]);
-                    $this->orderDetail->where(['id' => $detail['id']])->update([
-                        'is_stock_decreased' => 0,
-                        'delivery_status' => $status
-                    ]);
-                }
-            }
-        } else {
-            foreach ($order['details'] as $detail) {
-                if ($detail['is_stock_decreased'] == 0) {
-                    $product = $detail->product;
-                    $type = $detail['variant'];
-                    $variations = [];
-                    foreach (json_decode($product['variation'], true) as $variation) {
-                        if ($type == $variation['type']) {
-                            $variation['qty'] -= $detail['qty'];
-                        }
-                        $variations[] = $variation;
-                    }
-                    $this->product->where(['id' => $product['id']])->update([
-                        'variation' => json_encode($variations),
-                        'current_stock' => $product['current_stock'] - $detail['qty'],
-                    ]);
-                    $this->orderDetail->where(['id' => $detail['id']])->update([
-                        'is_stock_decreased' => 1,
-                        'delivery_status' => $status
-                    ]);
-                }
-            }
+        if (! $order) {
+            return false;
         }
+
+        OrderManager::stock_update_on_order_status_change($order, $status);
 
         return true;
     }
@@ -531,6 +491,9 @@ class OrderRepository implements OrderRepositoryInterface
                 $wallet->save();
             }
         }
+
+        $financeEventKey = $order->order_type === 'POS' ? 'pos.sale_paid' : 'sales.order_paid';
+        app(FinancePostingService::class)->postSalesOrder($order->fresh('details'), $financeEventKey);
 
         return true;
     }

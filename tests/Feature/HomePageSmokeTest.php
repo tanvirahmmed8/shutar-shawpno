@@ -2,10 +2,13 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class HomePageSmokeTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function home_page_renders_with_main_header_footer_roles()
     {

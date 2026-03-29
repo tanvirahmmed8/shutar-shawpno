@@ -7,13 +7,16 @@ use App\Contracts\Repositories\DigitalProductVariationRepositoryInterface;
 use App\Contracts\Repositories\PasswordResetRepositoryInterface;
 use App\Contracts\Repositories\ProductRepositoryInterface;
 use App\Contracts\Repositories\StorageRepositoryInterface;
+use App\Exceptions\InsufficientLotStockException;
 use App\Events\CustomerRegistrationEvent;
 use App\Events\DigitalProductDownloadEvent;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessSetting;
 use App\Models\Category;
+use App\Models\OrderDetail;
 use App\Models\Order;
 use App\Models\Product;
+use App\Services\Inventory\LotInventoryService;
 use App\Services\PasswordResetService;
 use App\Models\User;
 use App\Traits\CustomerTrait;
@@ -133,12 +136,6 @@ class POSController extends Controller
                 $variationStore[] = $variation;
             }
             $this->productRepo->updateByParams(params: ['id' => $product['id']], data: ['variation' => json_encode($variationStore)]);
-        }
-
-        if ($product['product_type'] == 'physical') {
-            $this->productRepo->updateByParams(params: ['id' => $product['id']], data: [
-                'current_stock' => $product['current_stock'] - $cartItem['quantity']
-            ]);
         }
     }
 
@@ -337,63 +334,107 @@ class POSController extends Controller
 
         $cartsTotalAmount = 0;
         $generateOrderID = self::getOrderNewId();
-        foreach ($carts as $cartItem) {
-            if (is_array($cartItem)) {
-                $product = Product::where(['id' => $cartItem['id']])->with(['digitalVariation', 'clearanceSale' => function ($query) {
-                    return $query->active();
-                }])->withCount('reviews')->first();
-                if ($product) {
-                    $getOrderDetailsArray = self::getOrderDetailsAddData(cartItem: $cartItem, product: $product);
-                    $cartsTotalAmount += $getOrderDetailsArray['price'] * $cartItem['quantity'];
-                    $cartsTotalAmount += $getOrderDetailsArray['tax'] * $cartItem['quantity'];
+        $lotInventoryService = app(LotInventoryService::class);
 
-                    $orderDetailsData = [
-                        'order_id' => $generateOrderID,
-                        'product_id' => $cartItem['id'],
-                        'product_details' => $getOrderDetailsArray['product'],
-                        'qty' => $cartItem['quantity'],
-                        'price' => $getOrderDetailsArray['price'],
-                        'seller_id' => $product['user_id'],
-                        'tax' => $getOrderDetailsArray['tax'] * $cartItem['quantity'],
-                        'tax_model' => $product['tax_model'],
-                        'discount' => $getOrderDetailsArray['productDiscount'] * $cartItem['quantity'],
-                        'discount_type' => 'discount_on_product',
-                        'delivery_status' => 'delivered',
-                        'payment_status' => 'paid',
-                        'variant' => $getOrderDetailsArray['variant'],
-                        'variation' => json_encode($cartItem['variation']),
-                        'created_at' => now(),
-                        'updated_at' => now()
-                    ];
-                    self::getProductStockCalculate(cartItem: $cartItem, product: $product);
-                    DB::table('order_details')->insert($orderDetailsData);
-                }
+        $requiredByProduct = collect($carts)
+            ->filter(fn ($cartItem) => is_array($cartItem) && isset($cartItem['id']))
+            ->map(function ($cartItem) {
+                return [
+                    'id' => (int) $cartItem['id'],
+                    'quantity' => (float) ($cartItem['quantity'] ?? 0),
+                ];
+            })
+            ->groupBy('id')
+            ->map(fn ($group) => (float) $group->sum('quantity'));
+
+        foreach ($requiredByProduct as $productId => $requiredQty) {
+            $stockProduct = Product::query()->select('id', 'product_type')->find($productId);
+            if ($stockProduct && $stockProduct->product_type === 'physical') {
+                $lotInventoryService->assertSufficientStock((int) $productId, (float) $requiredQty);
             }
         }
 
-        $orderData = [
-            'id' => $generateOrderID,
-            'customer_id' => $customerId,
-            'customer_type' => 'customer',
-            'payment_status' => 'paid',
-            'order_status' => 'delivered',
-            'seller_id' => $seller->id,
-            'seller_is' => 'seller',
-            'payment_method' => $paymentMethod,
-            'order_type' => 'POS',
-            'checked' => 1,
-            'extra_discount' => $extraDiscount ?? 0,
-            'extra_discount_type' => $extraDiscountType ?? null,
-            'order_amount' => $cartsTotalAmount,
-            'paid_amount' => $paidAmount,
-            'discount_amount' => currencyConverter(amount: $couponDiscountAmount ?? 0),
-            'coupon_code' => $couponCode ?? null,
-            'discount_type' => (isset($carts['coupon_code']) && $carts['coupon_code']) ? 'coupon_discount' : NULL,
-            'coupon_discount_bearer' => $carts['coupon_bearer'] ?? 'inhouse',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ];
-        DB::table('orders')->insertGetId($orderData);
+        try {
+            DB::beginTransaction();
+
+            foreach ($carts as $cartItem) {
+                if (is_array($cartItem)) {
+                    $product = Product::where(['id' => $cartItem['id']])->with(['digitalVariation', 'clearanceSale' => function ($query) {
+                        return $query->active();
+                    }])->withCount('reviews')->first();
+                    if ($product) {
+                        $getOrderDetailsArray = self::getOrderDetailsAddData(cartItem: $cartItem, product: $product);
+                        $cartsTotalAmount += $getOrderDetailsArray['price'] * $cartItem['quantity'];
+                        $cartsTotalAmount += $getOrderDetailsArray['tax'] * $cartItem['quantity'];
+
+                        $orderDetailsData = [
+                            'order_id' => $generateOrderID,
+                            'product_id' => $cartItem['id'],
+                            'product_details' => $getOrderDetailsArray['product'],
+                            'qty' => $cartItem['quantity'],
+                            'price' => $getOrderDetailsArray['price'],
+                            'seller_id' => $product['user_id'],
+                            'tax' => $getOrderDetailsArray['tax'] * $cartItem['quantity'],
+                            'tax_model' => $product['tax_model'],
+                            'discount' => $getOrderDetailsArray['productDiscount'] * $cartItem['quantity'],
+                            'discount_type' => 'discount_on_product',
+                            'delivery_status' => 'delivered',
+                            'payment_status' => 'paid',
+                            'variant' => $getOrderDetailsArray['variant'],
+                            'variation' => json_encode($cartItem['variation']),
+                            'created_at' => now(),
+                            'updated_at' => now()
+                        ];
+                        self::getProductStockCalculate(cartItem: $cartItem, product: $product);
+
+                        $orderDetailId = DB::table('order_details')->insertGetId($orderDetailsData);
+
+                        if ($product['product_type'] == 'physical') {
+                            $orderDetail = OrderDetail::query()->find($orderDetailId);
+                            if ($orderDetail) {
+                                $lotInventoryService->reserveForOrderDetail($orderDetail);
+                            }
+                        }
+                    }
+                }
+            }
+
+            $orderData = [
+                'id' => $generateOrderID,
+                'customer_id' => $customerId,
+                'customer_type' => 'customer',
+                'payment_status' => 'paid',
+                'order_status' => 'delivered',
+                'seller_id' => $seller->id,
+                'seller_is' => 'seller',
+                'payment_method' => $paymentMethod,
+                'order_type' => 'POS',
+                'checked' => 1,
+                'extra_discount' => $extraDiscount ?? 0,
+                'extra_discount_type' => $extraDiscountType ?? null,
+                'order_amount' => $cartsTotalAmount,
+                'paid_amount' => $paidAmount,
+                'discount_amount' => currencyConverter(amount: $couponDiscountAmount ?? 0),
+                'coupon_code' => $couponCode ?? null,
+                'discount_type' => (isset($carts['coupon_code']) && $carts['coupon_code']) ? 'coupon_discount' : NULL,
+                'coupon_discount_bearer' => $carts['coupon_bearer'] ?? 'inhouse',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+            DB::table('orders')->insertGetId($orderData);
+
+            DB::commit();
+        } catch (InsufficientLotStockException $exception) {
+            DB::rollBack();
+            return response()->json([
+                'message' => translate('the_following_items_in_your_cart_are_currently_out_of_stock'),
+            ], 422);
+        } catch (\Throwable $exception) {
+            DB::rollBack();
+            return response()->json([
+                'message' => translate('Something_went_wrong'),
+            ], 500);
+        }
 
         if ($isDigitalProduct) {
             $order = Order::with(['details.productAllStatus', 'customer'])->find($generateOrderID);

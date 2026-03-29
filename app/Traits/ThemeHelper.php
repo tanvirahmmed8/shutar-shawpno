@@ -7,8 +7,10 @@ trait ThemeHelper
     public function getThemeRoutesArray(): array
     {
         $themeRoutes = [];
+        $pointedDirectory = defined('DOMAIN_POINTED_DIRECTORY') ? DOMAIN_POINTED_DIRECTORY : 'public';
+
         try {
-            if (DOMAIN_POINTED_DIRECTORY == 'public') {
+            if ($pointedDirectory == 'public') {
                 if (theme_root_path() != 'default' && is_file(base_path('public/themes/'.theme_root_path().'/public/addon/theme_routes.php'))) {
                     $themeRoutes = include(base_path('public/themes/'.theme_root_path().'/public/addon/theme_routes.php')); // theme_root_path()
                 }

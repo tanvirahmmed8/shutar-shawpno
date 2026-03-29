@@ -9,7 +9,9 @@ use App\Utils\CartManager;
 use App\Utils\CustomerManager;
 use App\Utils\OrderManager;
 use App\Services\Finance\FinancePostingService;
+use App\Exceptions\InsufficientLotStockException;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 if (!function_exists('digital_payment_success')) {
     function digital_payment_success($paymentData)
@@ -17,6 +19,7 @@ if (!function_exists('digital_payment_success')) {
         if (isset($paymentData) && $paymentData['is_paid'] == 1) {
             $generateUniqueId = OrderManager::gen_unique_id();
             $orderIds = [];
+            $successfulCartGroupIds = [];
             $financePosting = app()->bound(FinancePostingService::class) ? app(FinancePostingService::class) : null;
 
             $additionalData = json_decode($paymentData['additional_data'], true);
@@ -96,23 +99,41 @@ if (!function_exists('digital_payment_success')) {
                     'cart_group_id' => $cartGroupId,
                     'newCustomerRegister' => $addCustomer,
                 ];
-                $orderId = OrderManager::generate_order($data);
+                try {
+                    $orderId = OrderManager::generate_order($data);
+                    $orderIds[] = $orderId;
+                    $successfulCartGroupIds[] = $cartGroupId;
+
+                    if ($financePosting) {
+                        $order = Order::with('details')->find($orderId);
+                        if ($order) {
+                            $financePosting->postSalesOrder($order, 'sales.order_paid');
+                        }
+                    }
+                } catch (InsufficientLotStockException $exception) {
+                    Log::warning('digital_payment_order_create_failed_insufficient_lot_stock', [
+                        'transaction_id' => $paymentData['transaction_id'] ?? null,
+                        'cart_group_id' => $cartGroupId,
+                        'message' => $exception->getMessage(),
+                    ]);
+                } catch (\Throwable $exception) {
+                    Log::warning('digital_payment_order_create_failed', [
+                        'transaction_id' => $paymentData['transaction_id'] ?? null,
+                        'cart_group_id' => $cartGroupId,
+                        'message' => $exception->getMessage(),
+                    ]);
+                }
+
                 unset($data['payment_method']);
                 unset($data['cart_group_id']);
-                $orderIds[] = $orderId;
-
-                if ($financePosting) {
-                    $order = Order::with('details')->find($orderId);
-                    if ($order) {
-                        $financePosting->postSalesOrder($order, 'sales.order_paid');
-                    }
-                }
             }
 
-            if (isset($additionalData['payment_request_from']) && in_array($additionalData['payment_request_from'], ['app'])) {
-                CartManager::cart_clean_for_api_digital_payment($data);
-            } else {
-                count($cartGroupIds) > 0 ? CartManager::cartCleanByCartGroupIds(cartGroupIDs: $cartGroupIds) : CartManager::cart_clean();
+            if (count($successfulCartGroupIds) > 0) {
+                if (isset($additionalData['payment_request_from']) && in_array($additionalData['payment_request_from'], ['app'])) {
+                    CartManager::cart_clean_for_api_digital_payment($data);
+                } else {
+                    CartManager::cartCleanByCartGroupIds(cartGroupIDs: $successfulCartGroupIds);
+                }
             }
         }
     }

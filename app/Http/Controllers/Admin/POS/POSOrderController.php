@@ -11,11 +11,13 @@ use App\Contracts\Repositories\StorageRepositoryInterface;
 use App\Contracts\Repositories\VendorRepositoryInterface;
 use App\Enums\SessionKey;
 use App\Enums\ViewPaths\Admin\POSOrder;
+use App\Exceptions\InsufficientLotStockException;
 use App\Events\DigitalProductDownloadEvent;
 use App\Http\Controllers\BaseController;
 use App\Models\Order;
 use App\Services\CartService;
 use App\Services\Finance\FinancePostingService;
+use App\Services\Inventory\LotInventoryService;
 use App\Services\OrderDetailsService;
 use App\Services\OrderService;
 use App\Services\POSService;
@@ -28,6 +30,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class POSOrderController extends BaseController
@@ -119,66 +122,107 @@ class POSOrderController extends BaseController
             }
         }
         $cart = session($cartId);
+        $lotInventoryService = app(LotInventoryService::class);
+
+        $requiredByProduct = collect($cart)
+            ->filter(fn ($item) => is_array($item) && isset($item['id']))
+            ->map(function ($item) {
+                return [
+                    'id' => (int) $item['id'],
+                    'quantity' => (float) ($item['quantity'] ?? 0),
+                ];
+            })
+            ->groupBy('id')
+            ->map(fn ($group) => (float) $group->sum('quantity'));
+
+        try {
+            foreach ($requiredByProduct as $productId => $requiredQty) {
+                $stockProduct = $this->productRepo->getFirstWhere(params: ['id' => $productId]);
+                if ($stockProduct && $stockProduct->product_type === 'physical') {
+                    $lotInventoryService->assertSufficientStock((int) $productId, (float) $requiredQty);
+                }
+            }
+        } catch (InsufficientLotStockException $exception) {
+            Toastr::error(translate('the_following_items_in_your_cart_are_currently_out_of_stock'));
+            return response()->json([
+                'message' => translate('the_following_items_in_your_cart_are_currently_out_of_stock'),
+            ], 422);
+        }
+
         $orderId = 100000 + $this->orderRepo->getList()->count() + 1;
         $order = $this->orderRepo->getFirstWhere(params: ['id' => $orderId]);
         if ($order) {
             $orderId = $this->orderRepo->getList(orderBy: ['id' => 'DESC'])->first()->id + 1;
         }
-        foreach ($cart as $item) {
-            if (is_array($item)) {
-                $product = $this->productRepo->getFirstWhere(params: ['id' => $item['id']], relations: ['clearanceSale' => function ($query) {
-                    return $query->active();
-                }]);
-                if ($product) {
-                    $tax = $this->getTaxAmount($item['price'], $product['tax']);
-                    $price = $product['tax_model'] == 'include' ? $item['price'] - $tax : $item['price'];
+        try {
+            DB::beginTransaction();
 
-                    $digitalProductVariation = $this->digitalProductVariationRepo->getFirstWhere(params: ['product_id' => $item['id'], 'variant_key' => $item['variant']], relations: ['storage']);
-                    if ($product['product_type'] == 'digital' && $digitalProductVariation) {
-                        $price = $product['tax_model'] == 'include' ? $digitalProductVariation['price'] - $tax : $digitalProductVariation['price'];
+            foreach ($cart as $item) {
+                if (is_array($item)) {
+                    $product = $this->productRepo->getFirstWhere(params: ['id' => $item['id']], relations: ['clearanceSale' => function ($query) {
+                        return $query->active();
+                    }]);
+                    if ($product) {
+                        $tax = $this->getTaxAmount($item['price'], $product['tax']);
+                        $price = $product['tax_model'] == 'include' ? $item['price'] - $tax : $item['price'];
 
-                        if ($product['digital_product_type'] == 'ready_product') {
-                            $getStoragePath = $this->storageRepo->getFirstWhere(params: [
-                                'data_id' => $digitalProductVariation['id'],
-                                "data_type" => "App\Models\DigitalProductVariation",
-                            ]);
-                            $product['digital_file_ready'] = $digitalProductVariation['file'];
-                            $product['storage_path'] = $getStoragePath ? $getStoragePath['value'] : 'public';
+                        $digitalProductVariation = $this->digitalProductVariationRepo->getFirstWhere(params: ['product_id' => $item['id'], 'variant_key' => $item['variant']], relations: ['storage']);
+                        if ($product['product_type'] == 'digital' && $digitalProductVariation) {
+                            $price = $product['tax_model'] == 'include' ? $digitalProductVariation['price'] - $tax : $digitalProductVariation['price'];
+
+                            if ($product['digital_product_type'] == 'ready_product') {
+                                $getStoragePath = $this->storageRepo->getFirstWhere(params: [
+                                    'data_id' => $digitalProductVariation['id'],
+                                    "data_type" => "App\Models\DigitalProductVariation",
+                                ]);
+                                $product['digital_file_ready'] = $digitalProductVariation['file'];
+                                $product['storage_path'] = $getStoragePath ? $getStoragePath['value'] : 'public';
+                            }
+                        } elseif ($product['digital_product_type'] == 'ready_product' && !empty($product['digital_file_ready'])) {
+                            $product['storage_path'] = $product['digital_file_ready_storage_type'] ?? 'public';
                         }
-                    } elseif ($product['digital_product_type'] == 'ready_product' && !empty($product['digital_file_ready'])) {
-                        $product['storage_path'] = $product['digital_file_ready_storage_type'] ?? 'public';
-                    }
-                    $orderDetail = $this->orderDetailsService->getPOSOrderDetailsData(
-                        orderId: $orderId, item: $item,
-                        product: $product, price: $price, tax: $tax
-                    );
-                    if ($item['variant'] != null) {
-                        $variantData = $this->POSService->getVariantData(
-                            type: $item['variant'],
-                            variation: json_decode($product['variation'], true),
-                            quantity: $item['quantity']
+                        $orderDetail = $this->orderDetailsService->getPOSOrderDetailsData(
+                            orderId: $orderId, item: $item,
+                            product: $product, price: $price, tax: $tax
                         );
-                        $this->productRepo->update(id: $product['id'], data: ['variation' => json_encode($variantData)]);
-                    }
+                        if ($item['variant'] != null) {
+                            $variantData = $this->POSService->getVariantData(
+                                type: $item['variant'],
+                                variation: json_decode($product['variation'], true),
+                                quantity: $item['quantity']
+                            );
+                            $this->productRepo->update(id: $product['id'], data: ['variation' => json_encode($variantData)]);
+                        }
 
-                    if ($product['product_type'] == 'physical') {
-                        $currentStock = $product['current_stock'] - $item['quantity'];
-                        $this->productRepo->update(id: $product['id'], data: ['current_stock' => $currentStock]);
+                        $this->orderDetailRepo->add(data: $orderDetail);
                     }
-                    $this->orderDetailRepo->add(data: $orderDetail);
                 }
             }
+            $order = $this->orderService->getPOSOrderData(
+                orderId: $orderId,
+                cart: $cart,
+                amount: $amount,
+                paidAmount: $request['type'] == 'cash' ? $paidAmount : $amount,
+                paymentType: $request['type'],
+                addedBy: 'admin',
+                userId: $userId
+            );
+            $this->orderRepo->add(data: $order);
+
+            DB::commit();
+        } catch (InsufficientLotStockException $exception) {
+            DB::rollBack();
+            Toastr::error(translate('the_following_items_in_your_cart_are_currently_out_of_stock'));
+            return response()->json([
+                'message' => translate('the_following_items_in_your_cart_are_currently_out_of_stock'),
+            ], 422);
+        } catch (\Throwable $exception) {
+            DB::rollBack();
+            Toastr::error(translate('Something_went_wrong'));
+            return response()->json([
+                'message' => translate('Something_went_wrong'),
+            ], 500);
         }
-        $order = $this->orderService->getPOSOrderData(
-            orderId: $orderId,
-            cart: $cart,
-            amount: $amount,
-            paidAmount: $request['type'] == 'cash' ? $paidAmount : $amount,
-            paymentType: $request['type'],
-            addedBy: 'admin',
-            userId: $userId
-        );
-        $this->orderRepo->add(data: $order);
 
         if (app()->bound(FinancePostingService::class)) {
             $persistedOrder = Order::with('details')->find($orderId);

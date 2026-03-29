@@ -15,7 +15,6 @@ use App\Traits\ProductTrait;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductRepository implements ProductRepositoryInterface
@@ -133,7 +132,13 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function getList(array $orderBy = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
-        // TODO: Implement getList() method.
+        $query = $this->product
+            ->with($relations)
+            ->when(!empty($orderBy), function ($query) use ($orderBy) {
+                $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
+            });
+
+        return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit);
     }
 
     public function getListWhere(array $orderBy = [], string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator

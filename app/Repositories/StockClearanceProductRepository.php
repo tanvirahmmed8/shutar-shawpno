@@ -31,7 +31,13 @@ class StockClearanceProductRepository implements StockClearanceProductRepository
 
     public function getList(array $orderBy = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
-        // TODO: Implement getList() method.
+        $query = $this->stockClearanceProduct
+            ->with($relations)
+            ->when(!empty($orderBy), function ($query) use ($orderBy) {
+                $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
+            });
+
+        return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit);
     }
 
     public function getListWhere(array $orderBy = [], string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator

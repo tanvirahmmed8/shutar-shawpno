@@ -75,12 +75,72 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
 
-        if (!App::runningInConsole()) {
+        if (!App::runningInConsole() || app()->runningUnitTests()) {
             Paginator::useBootstrap();
 
             Config::set('addon_admin_routes', $this->getAddonAdminRoutes());
             Config::set('get_payment_publish_status', $this->getPaymentPublishStatus());
             Config::set('get_theme_routes', $this->getThemeRoutesArray());
+
+            $web_config = [
+                'primary_color' => '#111111',
+                'secondary_color' => '#666666',
+                'primary_color_light' => '#f5f5f5',
+                'name' => 'Shop',
+                'company_name' => 'Shop',
+                'phone' => '',
+                'web_logo' => ['path' => ''],
+                'mob_logo' => ['path' => ''],
+                'fav_icon' => ['path' => ''],
+                'email' => '',
+                'about' => (object) ['value' => ''],
+                'footer_logo' => ['path' => ''],
+                'copyright_text' => '',
+                'meta_description' => '',
+                'og_image' => ['path' => ''],
+                'language' => [],
+                'wallet_status' => 0,
+                'loyalty_point_status' => 0,
+                'guest_checkout_status' => 0,
+                'digital_product_setting' => 0,
+                'seller_registration' => 0,
+                'currency_model' => 'single_currency',
+                'currencies' => collect(),
+                'brand_setting' => 0,
+                'social_media' => collect(),
+                'socials_login' => [],
+                'recaptcha' => ['status' => '0', 'site_key' => ''],
+                'announcement' => null,
+                'cookie_setting' => null,
+                'payments_list' => collect(),
+                'default_meta_content' => null,
+                'analytic_scripts' => collect(),
+                'main_categories' => collect(),
+                'priority_wise_brands' => collect(),
+                'flash_deals' => null,
+                'flash_deals_products' => [],
+                'featured_deals' => collect(),
+                'shops' => collect(),
+                'discount_product' => 0,
+                'popup_banner' => null,
+                'header_banner' => null,
+                'ref_earning_status' => 0,
+                'social_login_text' => 0,
+                'customer_login_options' => ['social_login' => 0],
+                'customer_social_login_options' => [],
+                'customer_phone_verification' => 0,
+                'customer_email_verification' => 0,
+                'firebase_otp_verification' => ['status' => 0, 'web_api_key' => ''],
+                'firebase_otp_verification_status' => 0,
+                'clearance_sale_product_count' => 0,
+                'ios' => ['status' => 0, 'link' => ''],
+                'android' => ['status' => 0, 'link' => ''],
+                'refund_policy' => null,
+                'return_policy' => null,
+                'cancellation_policy' => null,
+                'shipping_policy' => null,
+            ];
+            $language = [];
 
             try {
                 if (Schema::hasTable('business_settings')) {
@@ -230,13 +290,13 @@ class AppServiceProvider extends ServiceProvider
                     // Currency
                     \App\Utils\Helpers::currency_load();
 
-                    View::share(['web_config' => $web_config, 'language' => $language]);
-
                     Schema::defaultStringLength(191);
                 }
             } catch (\Exception $exception) {
 
             }
+
+            View::share(['web_config' => $web_config, 'language' => $language]);
         }
 
         /**

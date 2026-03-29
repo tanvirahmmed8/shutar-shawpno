@@ -60,7 +60,9 @@ class FinanceReconciliationController extends BaseController
             'rows.*.amount' => ['required', 'numeric'],
         ]);
 
-        DB::transaction(function () use ($validated) {
+        $rows = collect($validated['rows'] ?? [])->filter(fn ($row) => isset($row['amount']));
+
+        DB::transaction(function () use ($validated, $rows) {
             $reconciliation = FinanceReconciliation::create([
                 'account_id' => $validated['account_id'],
                 'statement_name' => $validated['statement_name'],
@@ -68,6 +70,7 @@ class FinanceReconciliationController extends BaseController
                 'import_source' => $validated['import_source'] ?? null,
                 'opening_balance' => $validated['opening_balance'] ?? 0,
                 'closing_balance' => $validated['closing_balance'] ?? 0,
+                'statement_row_count' => $rows->count(),
                 'status' => 'pending',
                 'notes' => $validated['notes'] ?? null,
                 'started_at' => now(),
@@ -75,11 +78,7 @@ class FinanceReconciliationController extends BaseController
                 'updated_by' => auth('admin')->id(),
             ]);
 
-            foreach ($validated['rows'] ?? [] as $row) {
-                if (!isset($row['amount'])) {
-                    continue;
-                }
-
+            foreach ($rows as $row) {
                 $reconciliation->rows()->create([
                     'transaction_date' => $row['transaction_date'] ?? null,
                     'description' => $row['description'] ?? null,
@@ -113,12 +112,30 @@ class FinanceReconciliationController extends BaseController
 
         /** @var FinanceJournalRow $journalRow */
         $journalRow = FinanceJournalRow::findOrFail($data['journal_row_id']);
-        $row->update([
-            'journal_row_id' => $journalRow->id,
-            'match_status' => 'matched',
-        ]);
 
-        $reconciliation->increment('matched_row_count');
+        if ($journalRow->account_id !== (int) $reconciliation->account_id) {
+            Toastr::error(translate('journal_row_account_mismatch_for_selected_reconciliation'));
+            return back();
+        }
+
+        if ($row->match_status === 'matched' && (int) $row->journal_row_id === (int) $journalRow->id) {
+            Toastr::info(translate('reconciliation_row_is_already_matched'));
+            return back();
+        }
+
+        DB::transaction(function () use ($reconciliation, $row, $journalRow) {
+            $wasMatched = $row->match_status === 'matched';
+
+            $row->update([
+                'journal_row_id' => $journalRow->id,
+                'match_status' => 'matched',
+            ]);
+
+            if (! $wasMatched) {
+                $reconciliation->increment('matched_row_count');
+            }
+        });
+
         Toastr::success(translate('reconciliation_row_matched_successfully'));
         return back();
     }
@@ -126,14 +143,23 @@ class FinanceReconciliationController extends BaseController
     public function unmatchRow(FinanceReconciliation $reconciliation, FinanceReconciliationRow $row): RedirectResponse
     {
         $this->ensureRowOwnership($reconciliation, $row);
-        if ($row->match_status === 'matched') {
-            $reconciliation->decrement('matched_row_count');
+
+        if ($row->match_status !== 'matched') {
+            Toastr::info(translate('reconciliation_row_is_already_unmatched'));
+            return back();
         }
 
-        $row->update([
-            'journal_row_id' => null,
-            'match_status' => 'unmatched',
-        ]);
+        DB::transaction(function () use ($reconciliation, $row) {
+            $row->update([
+                'journal_row_id' => null,
+                'match_status' => 'unmatched',
+            ]);
+
+            $reconciliation->update([
+                'matched_row_count' => max(0, (int) $reconciliation->matched_row_count - 1),
+                'updated_by' => auth('admin')->id(),
+            ]);
+        });
 
         Toastr::success(translate('reconciliation_row_unmatched_successfully'));
         return back();
