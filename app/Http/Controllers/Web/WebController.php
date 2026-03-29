@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Exceptions\InsufficientLotStockException;
 use App\Contracts\Repositories\RobotsMetaContentRepositoryInterface;
+use App\Services\Inventory\LotInventoryService;
 use App\Services\ProductService;
 use App\Traits\CacheManagerTrait;
 use App\Traits\InHouseTrait;
@@ -558,6 +560,32 @@ class WebController extends Controller
             return redirect()->route('shop-cart');
         }
 
+        // Lot-wise precheck prevents uncaught allocation exceptions during COD order placement.
+        try {
+            /** @var LotInventoryService $lotInventoryService */
+            $lotInventoryService = app(LotInventoryService::class);
+
+            $requiredByProduct = $carts
+                ->where('product_type', 'physical')
+                ->groupBy('product_id')
+                ->map(fn ($group) => (float) $group->sum('quantity'));
+
+            foreach ($requiredByProduct as $productId => $requiredQty) {
+                $lotInventoryService->assertSufficientStock((int) $productId, (float) $requiredQty);
+            }
+        } catch (InsufficientLotStockException $exception) {
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 0,
+                    'message' => translate('the_following_items_in_your_cart_are_currently_out_of_stock'),
+                    'redirect' => route('shop-cart'),
+                ]);
+            }
+
+            Toastr::error(translate('the_following_items_in_your_cart_are_currently_out_of_stock'));
+            return redirect()->route('shop-cart');
+        }
+
         $verifyStatus = OrderManager::verifyCartListMinimumOrderAmount($request);
         if ($verifyStatus['status'] == 0) {
             if ($request->ajax()) {
@@ -613,17 +641,30 @@ class WebController extends Controller
                     ->update(['customer_id' => $addCustomer['id'], 'is_guest' => 0]);
             }
 
-            foreach ($cartGroupIds as $groupId) {
-                $data = [
-                    'payment_method' => 'cash_on_delivery',
-                    'order_status' => 'pending',
-                    'payment_status' => 'unpaid',
-                    'transaction_ref' => '',
-                    'order_group_id' => $uniqueID,
-                    'cart_group_id' => $groupId
-                ];
-                $orderId = OrderManager::generate_order($data);
-                $orderIds[] = $orderId;
+            try {
+                foreach ($cartGroupIds as $groupId) {
+                    $data = [
+                        'payment_method' => 'cash_on_delivery',
+                        'order_status' => 'pending',
+                        'payment_status' => 'unpaid',
+                        'transaction_ref' => '',
+                        'order_group_id' => $uniqueID,
+                        'cart_group_id' => $groupId
+                    ];
+                    $orderId = OrderManager::generate_order($data);
+                    $orderIds[] = $orderId;
+                }
+            } catch (InsufficientLotStockException $exception) {
+                if ($request->ajax()) {
+                    return response()->json([
+                        'status' => 0,
+                        'message' => translate('the_following_items_in_your_cart_are_currently_out_of_stock'),
+                        'redirect' => route('shop-cart'),
+                    ]);
+                }
+
+                Toastr::error(translate('the_following_items_in_your_cart_are_currently_out_of_stock'));
+                return redirect()->route('shop-cart');
             }
 
             CartManager::cart_clean();
