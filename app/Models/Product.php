@@ -214,6 +214,7 @@ class Product extends Model
         });
     }
 
+    // Legacy relation: operational stock source of truth is InventoryLot/LotInventoryService.
     public function stocks(): HasMany
     {
         return $this->hasMany(ProductStock::class);

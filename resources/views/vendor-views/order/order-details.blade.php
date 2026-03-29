@@ -169,6 +169,31 @@
                                                             <div><strong>{{translate('variation')}}
                                                                     :</strong> {{$detail['variant']}}</div>
                                                         @endif
+
+                                                        @php($lotAllocations = $detail->lotAllocations ?? collect())
+                                                        @if($lotAllocations->isNotEmpty())
+                                                            <div class="mt-2">
+                                                                <strong>{{ translate('lot_allocations') }} :</strong>
+                                                                <div class="d-flex flex-column gap-1 mt-1">
+                                                                    @foreach($lotAllocations as $allocation)
+                                                                        <small>
+                                                                            <span class="text-capitalize">
+                                                                                {{ $allocation?->lot?->lot_number ?? $allocation?->lot?->batch_number ?? ('#'.$allocation->lot_id) }}
+                                                                            </span>
+                                                                            - {{ translate('qty') }}: {{ rtrim(rtrim(number_format((float)$allocation->quantity, 4, '.', ''), '0'), '.') }}
+                                                                            @if($allocation?->lot?->batch_number)
+                                                                                ({{ translate('batch_number') }}: {{ $allocation->lot->batch_number }})
+                                                                            @endif
+                                                                            @if($allocation->released_at)
+                                                                                <span class="text-danger">({{ translate('released') }})</span>
+                                                                            @else
+                                                                                <span class="text-success">({{ translate('active') }})</span>
+                                                                            @endif
+                                                                        </small>
+                                                                    @endforeach
+                                                                </div>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 @if(isset($productDetails->digital_product_type) && $productDetails->digital_product_type == 'ready_after_sell')
